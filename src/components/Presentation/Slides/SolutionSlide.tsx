@@ -98,19 +98,19 @@ const SolutionSlide = () => {
         <div className="space-y-6">
           <h2 className="text-2xl font-bold text-white">Live Demo</h2>
           
-          <div className="mt-4">
-            <h4 className="text-lg font-bold mb-3 text-white">High-speed Counting Demo</h4>
-            <Card className="p-4 bg-card/80 backdrop-blur-sm border border-border rounded-2xl shadow-lg">
+          <div className="mt-3">
+            <h4 className="text-base font-bold mb-2 text-white">High-speed Counting Demo</h4>
+            <Card className="p-3 bg-card/80 backdrop-blur-sm border border-border rounded-xl shadow-lg max-w-sm">
               <div className="relative">
-                <div className="aspect-[4/3] max-w-md bg-gradient-to-br from-primary/20 to-accent/10 rounded-xl flex items-center justify-center border border-primary/30">
-                  <Play className="w-16 h-16 text-primary opacity-80" />
-                  <div className="absolute top-3 left-3">
-                    <Badge variant="secondary" className="bg-primary text-white border-0">
-                      &gt;1,000 obj/s • &gt;99.5% demo accuracy
+                <div className="aspect-[4/3] bg-gradient-to-br from-primary/20 to-accent/10 rounded-lg flex items-center justify-center border border-primary/30">
+                  <Play className="w-12 h-12 text-primary opacity-80" />
+                  <div className="absolute top-2 left-2">
+                    <Badge variant="secondary" className="bg-primary text-white border-0 text-xs px-2 py-1">
+                      &gt;1,000 obj/s • &gt;99.5%
                     </Badge>
                   </div>
                 </div>
-                <p className="text-xs text-muted mt-3">
+                <p className="text-xs text-muted mt-2">
                   Task-dependent accuracy; validated per pilot
                 </p>
               </div>
