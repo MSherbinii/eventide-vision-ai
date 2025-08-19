@@ -17,22 +17,22 @@ All colors MUST be HSL.
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    /* Lumina AI - Cool Rainbow Palette */
-    --primary: 214 100% 60%;  /* Electric Blue */
-    --primary-foreground: 225 15% 8%;
-    --primary-glow: 214 85% 75%;
-    --primary-accent: 214 100% 70%;
+    /* Lumina AI - Dark Royal Palette */
+    --primary: 240 45% 15%;  /* Deep Royal Blue */
+    --primary-foreground: 0 0% 98%;
+    --primary-glow: 240 60% 25%;
+    --primary-accent: 240 55% 20%;
 
-    --secondary: 190 100% 50%; /* Cyan */
-    --secondary-foreground: 225 15% 8%;
-    --secondary-glow: 190 85% 70%;
+    --secondary: 280 30% 20%; /* Deep Purple */
+    --secondary-foreground: 0 0% 98%;
+    --secondary-glow: 280 45% 30%;
 
-    --accent: 270 100% 65%; /* Purple */
-    --accent-foreground: 225 15% 8%;
-    --accent-glow: 270 85% 80%;
+    --accent: 45 90% 55%; /* Royal Gold */
+    --accent-foreground: 0 0% 8%;
+    --accent-glow: 45 85% 65%;
     
-    --warning: 160 100% 60%; /* Mint */
-    --warning-foreground: 225 15% 8%;
+    --warning: 200 40% 25%; /* Deep Teal */
+    --warning-foreground: 0 0% 98%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
@@ -41,15 +41,15 @@ All colors MUST be HSL.
     --input: 214.3 31.8% 91.4%;
     --ring: 240 100% 27%;
 
-    /* Modern Rainbow Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(214 100% 60%), hsl(270 100% 65%));
-    --gradient-secondary: linear-gradient(135deg, hsl(190 100% 50%), hsl(160 100% 60%));
-    --gradient-accent: linear-gradient(135deg, hsl(270 100% 65%), hsl(310 100% 65%));
-    --gradient-hero: linear-gradient(135deg, hsl(214 100% 60%) 0%, hsl(190 100% 50%) 50%, hsl(270 100% 65%) 100%);
-    --gradient-subtle: linear-gradient(180deg, hsl(var(--background)), hsl(210 40% 98%));
-    --gradient-mesh: radial-gradient(circle at 20% 30%, hsl(214 100% 60% / 0.1) 0%, transparent 50%), 
-                     radial-gradient(circle at 80% 70%, hsl(190 100% 50% / 0.1) 0%, transparent 50%),
-                     radial-gradient(circle at 60% 10%, hsl(270 100% 65% / 0.1) 0%, transparent 50%);
+    /* Royal Dark Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(240 45% 15%), hsl(240 60% 25%));
+    --gradient-secondary: linear-gradient(135deg, hsl(280 30% 20%), hsl(280 45% 30%));
+    --gradient-accent: linear-gradient(135deg, hsl(45 90% 55%), hsl(45 85% 65%));
+    --gradient-hero: linear-gradient(135deg, hsl(240 45% 15%) 0%, hsl(280 30% 20%) 50%, hsl(45 90% 55%) 100%);
+    --gradient-subtle: linear-gradient(180deg, hsl(var(--background)), hsl(240 20% 8%));
+    --gradient-mesh: radial-gradient(circle at 20% 30%, hsl(240 45% 15% / 0.3) 0%, transparent 50%), 
+                     radial-gradient(circle at 80% 70%, hsl(280 30% 20% / 0.3) 0%, transparent 50%),
+                     radial-gradient(circle at 60% 10%, hsl(45 90% 55% / 0.2) 0%, transparent 50%);
 
     /* Tech-focused shadows */
     --shadow-primary: 0 10px 30px -10px hsl(var(--primary) / 0.3);
@@ -83,44 +83,44 @@ All colors MUST be HSL.
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    --background: 240 15% 5%;
+    --foreground: 0 0% 95%;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 240 10% 8%;
+    --card-foreground: 0 0% 95%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 240 10% 8%;
+    --popover-foreground: 0 0% 95%;
 
-    --primary: 214 100% 60%;  /* Electric Blue */
-    --primary-foreground: 225 15% 8%;
-    --primary-glow: 214 85% 75%;
-    --primary-accent: 214 100% 70%;
+    --primary: 240 45% 15%;  /* Deep Royal Blue */
+    --primary-foreground: 0 0% 98%;
+    --primary-glow: 240 60% 25%;
+    --primary-accent: 240 55% 20%;
 
-    --secondary: 190 100% 50%; /* Cyan */
-    --secondary-foreground: 225 15% 8%;
-    --secondary-glow: 190 85% 70%;
+    --secondary: 280 30% 20%; /* Deep Purple */
+    --secondary-foreground: 0 0% 98%;
+    --secondary-glow: 280 45% 30%;
 
-    --accent: 270 100% 65%; /* Purple */
-    --accent-foreground: 225 15% 8%;
-    --accent-glow: 270 85% 80%;
+    --accent: 45 90% 55%; /* Royal Gold */
+    --accent-foreground: 0 0% 8%;
+    --accent-glow: 45 85% 65%;
     
-    --warning: 160 100% 60%; /* Mint */
-    --warning-foreground: 225 15% 8%;
+    --warning: 200 40% 25%; /* Deep Teal */
+    --warning-foreground: 0 0% 98%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --muted: 240 8% 15%;
+    --muted-foreground: 240 5% 65%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 220 100% 50%;
+    --border: 240 8% 20%;
+    --input: 240 8% 18%;
+    --ring: 240 45% 25%;
 
-    /* Dark mode gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(214 100% 60%), hsl(270 100% 65%));
-    --gradient-secondary: linear-gradient(135deg, hsl(190 100% 50%), hsl(160 100% 60%));
-    --gradient-accent: linear-gradient(135deg, hsl(270 100% 65%), hsl(310 100% 65%));
-    --gradient-hero: linear-gradient(135deg, hsl(214 100% 60%) 0%, hsl(190 100% 50%) 50%, hsl(270 100% 65%) 100%);
-    --gradient-subtle: linear-gradient(180deg, hsl(var(--background)), hsl(217.2 32.6% 15%));
+    /* Royal Dark Mode Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(240 45% 15%), hsl(240 60% 25%));
+    --gradient-secondary: linear-gradient(135deg, hsl(280 30% 20%), hsl(280 45% 30%));
+    --gradient-accent: linear-gradient(135deg, hsl(45 90% 55%), hsl(45 85% 65%));
+    --gradient-hero: linear-gradient(135deg, hsl(240 45% 15%) 0%, hsl(280 30% 20%) 50%, hsl(45 90% 55%) 100%);
+    --gradient-subtle: linear-gradient(180deg, hsl(var(--background)), hsl(240 10% 8%));
 
     --shadow-primary: 0 10px 30px -10px hsl(var(--primary) / 0.4);
     --shadow-secondary: 0 10px 30px -10px hsl(var(--secondary) / 0.4);
