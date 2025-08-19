@@ -130,7 +130,7 @@ const WhyNowSlide = () => {
             </p>
             
             <div className="mt-3 text-xs text-muted-foreground">
-              <span className="font-medium">Source:</span> Bill Gross TED Talk "The Single Biggest Reason Why Startups Succeed"
+              <span className="font-medium">Source:</span> Bill Gross (Idealab) TED Talk: "The Single Biggest Reason Why Startups Succeed"
             </div>
           </motion.div>
         </motion.div>

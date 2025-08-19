@@ -38,7 +38,8 @@ const GoToMarketSlide = () => {
       timeline: "Months 6-12",
       approach: "UnternehmerTUM accelerator program",
       targets: "Industrial automation leaders",
-      icon: Users
+      icon: Users,
+      details: "XPRENEURS Batch #19: Applications open Dec 11, 2025; Program Mar–May 2026"
     },
     {
       region: "EU Expansion",
@@ -160,6 +161,11 @@ const GoToMarketSlide = () => {
                       <p className="text-sm text-muted-foreground">
                         <strong>Targets:</strong> {entry.targets}
                       </p>
+                      {entry.details && (
+                        <p className="text-xs text-accent mt-1">
+                          {entry.details}
+                        </p>
+                      )}
                     </div>
                   </div>
                 </Card>

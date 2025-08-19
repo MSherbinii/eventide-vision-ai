@@ -7,34 +7,34 @@ const CostOfFrameVisionSlide = () => {
   const costFactors = [
     {
       icon: <AlertTriangle className="w-10 h-10" />,
-      title: "Scrap & Rework Costs",
-      impact: "$2.3M annually",
-      description: "Motion blur misses 15-20% of high-speed defects",
-      percentage: "40%",
+      title: "Scrap & Rework",
+      impact: "",
+      description: "Motion blur misses defects at speed",
+      percentage: "Scrap",
       color: "text-red-500 border-red-500/20"
     },
     {
       icon: <Clock className="w-10 h-10" />,
       title: "Unplanned Downtime",
-      impact: "$850K per incident",
+      impact: "",
       description: "Lighting/glare failures cause false stops",
-      percentage: "25%", 
+      percentage: "Downtime", 
       color: "text-orange-500 border-orange-500/20"
     },
     {
       icon: <TrendingDown className="w-10 h-10" />,
-      title: "Data Storage & Compute",
-      impact: "$180K monthly",
+      title: "Storage & Egress",
+      impact: "",
       description: "Processing 24/7 full-frame video streams",
-      percentage: "20%",
+      percentage: "Data",
       color: "text-yellow-500 border-yellow-500/20"
     },
     {
       icon: <DollarSign className="w-10 h-10" />,
       title: "Manual QC Hours",
-      impact: "$95K monthly",
+      impact: "",
       description: "Human inspectors for what cameras miss",
-      percentage: "15%",
+      percentage: "Manual",
       color: "text-blue-500 border-blue-500/20"
     }
   ];
@@ -96,8 +96,7 @@ const CostOfFrameVisionSlide = () => {
                     </div>
                     <div>
                       <div className="text-2xl font-bold gradient-text mb-1">{factor.percentage}</div>
-                      <h4 className="font-bold text-xs mb-1">{factor.title}</h4>
-                      <div className="text-sm font-semibold text-primary mb-1">{factor.impact}</div>
+                      <h4 className="font-bold text-xs mb-2">{factor.title}</h4>
                       <p className="text-xs text-muted-foreground">{factor.description}</p>
                     </div>
                   </div>
@@ -113,40 +112,47 @@ const CostOfFrameVisionSlide = () => {
             transition={{ delay: 0.8, duration: 0.6 }}
           >
             <Card className="p-4 bg-gradient-to-br from-red-500/10 to-orange-500/10 border-red-500/20 text-center">
-              <h4 className="text-lg font-bold mb-1">Total Annual Impact</h4>
-              <div className="text-3xl font-bold gradient-text mb-2">$4.2M+</div>
-              <p className="text-xs text-muted-foreground">Per typical pharma production line</p>
-              <p className="text-xs text-accent mt-1">Pilot target: reduce 30–70%</p>
+              <h4 className="text-lg font-bold mb-2">Pilot Target Impact</h4>
+              <div className="text-2xl font-bold gradient-text mb-2">20–50% reduction</div>
+              <p className="text-xs text-muted-foreground">Per production line (to be verified)</p>
             </Card>
           </motion.div>
         </div>
 
-        {/* Right Column - Detailed Breakdown */}
+        {/* Right Column - Baseline Modeling */}
         <div className="space-y-4">
-          <h3 className="text-2xl font-bold">Where Traditional Vision Fails</h3>
+          <h3 className="text-2xl font-bold">Baseline Modeling (Illustrative)</h3>
           
-          <Card className="p-4">
-            <div className="space-y-3">
-              <div className="grid grid-cols-3 gap-3 pb-2 border-b border-border text-xs font-semibold">
-                <div>Problem Area</div>
-                <div>Traditional Impact</div>
-                <div>Annual Cost</div>
+          <Card className="p-4 bg-gradient-to-r from-muted/50 to-accent/10">
+            <div className="space-y-4">
+              <div className="space-y-3 text-sm">
+                <div className="flex items-center gap-2">
+                  <span className="font-semibold">Data volume =</span>
+                  <span className="text-muted-foreground">fps × resolution × bytes/pixel × hours</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="font-semibold">Rework cost =</span>
+                  <span className="text-muted-foreground">defect rate × items/hour × scrap cost</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="font-semibold">Downtime cost =</span>
+                  <span className="text-muted-foreground">lost throughput × margin/hour</span>
+                </div>
               </div>
-              {comparisonData.map((item, index) => (
-                <motion.div
-                  key={index}
-                  className="grid grid-cols-3 gap-3 py-2 border-b border-border/30 text-xs"
-                  initial={{ opacity: 0, x: 50 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.5 + index * 0.1, duration: 0.5 }}
-                >
-                  <div className="font-semibold">{item.metric}</div>
-                  <div className="text-muted-foreground">{item.traditional}</div>
-                  <div className="text-red-500 font-semibold">{item.cost}</div>
-                </motion.div>
-              ))}
+              <div className="pt-3 border-t border-border">
+                <p className="text-sm text-muted-foreground italic">
+                  We'll quantify these with each pilot and show verified ROI.
+                </p>
+              </div>
             </div>
           </Card>
+          
+          <div className="bg-accent/10 border border-accent/20 rounded-lg p-3">
+            <Badge variant="secondary" className="mb-2">Pilot Target</Badge>
+            <p className="text-sm text-muted-foreground">
+              Improvement band: 20–50% (to be replaced with real results)
+            </p>
+          </div>
 
           {/* Industry Context */}
           <div>

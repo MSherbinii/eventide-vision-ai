@@ -72,9 +72,12 @@ const TitleSlide = () => {
             </Card>
           </div>
 
-          {/* Pitch Info */}
-          <div className="pt-4">
-            <div className="text-lg font-semibold mb-1">Pre-Seed Funding Round</div>
+          {/* Source Attribution */}
+          <div className="pt-4 space-y-2">
+            <div className="text-xs text-muted-foreground">
+              Source: Grand View Research (2025)
+            </div>
+            <div className="text-lg font-semibold">Pre-Seed Funding Round</div>
             <div className="text-sm text-muted-foreground">
               Seeking $500K to fund MVP → pilots → traction to seed
             </div>

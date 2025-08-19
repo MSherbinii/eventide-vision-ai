@@ -8,29 +8,29 @@ const ProblemSlide = () => {
     {
       icon: <Clock className="w-12 h-12" />,
       title: "Processing Latency",
-      description: "Traditional RGB cameras process entire frames, creating bottlenecks in high-speed applications",
-      impact: "40-100ms delays",
+      description: "Frame pipelines choke on high-speed lines; events happen between frames.",
+      impact: "",
       color: "border-destructive/20 text-destructive"
     },
     {
       icon: <DollarSign className="w-12 h-12" />,
       title: "High Data Costs",
-      description: "Massive data streams require expensive cloud processing and storage infrastructure",
-      impact: "$50K-200K annually",
+      description: "Full-frame video creates heavy storage/egress and compute bills.",
+      impact: "",
       color: "border-orange-500/20 text-orange-500"
     },
     {
       icon: <TrendingDown className="w-12 h-12" />,
       title: "Limited Performance",
-      description: "Motion blur and lighting issues cause 15-25% error rates in quality inspection",
-      impact: "25% error rate",
+      description: "Motion blur + glare miss micro-defects at line speed.",
+      impact: "",
       color: "border-yellow-500/20 text-yellow-500"
     },
     {
       icon: <AlertTriangle className="w-12 h-12" />,
       title: "Complex Integration",
-      description: "Current solutions require extensive in-house engineering teams and custom development",
-      impact: "6-12 months setup",
+      description: "Fragmented tools → multi-month, cross-vendor projects.",
+      impact: "",
       color: "border-blue-500/20 text-blue-500"
     }
   ];
@@ -68,10 +68,7 @@ const ProblemSlide = () => {
                 </div>
                 <div>
                   <h3 className="text-lg font-bold mb-2">{problem.title}</h3>
-                  <p className="text-sm text-muted-foreground mb-3 leading-relaxed">{problem.description}</p>
-                  <Badge variant="secondary" className="text-xs px-2 py-1 font-mono">
-                    {problem.impact}
-                  </Badge>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{problem.description}</p>
                 </div>
               </div>
             </Card>
@@ -87,20 +84,12 @@ const ProblemSlide = () => {
         transition={{ delay: 0.8, duration: 0.6 }}
       >
         <div className="p-6 bg-gradient-to-r from-muted/50 to-accent/10 rounded-xl border border-accent/20">
-          <h3 className="text-2xl font-bold mb-4 text-center">Manufacturing Industry Impact</h3>
-          <div className="grid grid-cols-3 gap-6 text-center">
-            <div>
-              <div className="text-3xl font-bold text-destructive mb-2">$2.5B</div>
-              <p className="text-sm text-muted-foreground">Annual losses from quality defects</p>
-            </div>
-            <div>
-              <div className="text-3xl font-bold text-orange-500 mb-2">60%</div>
-              <p className="text-sm text-muted-foreground">Of manufacturers lack adequate vision systems</p>
-            </div>
-            <div>
-              <div className="text-3xl font-bold text-yellow-500 mb-2">18 months</div>
-              <p className="text-sm text-muted-foreground">Average time to implement vision solutions</p>
-            </div>
+          <h3 className="text-2xl font-bold mb-4 text-center">Pilot Goals</h3>
+          <div className="text-center space-y-2">
+            <p className="text-lg">Reduce rework and downtime; cut data/compute overhead.</p>
+            <p className="text-sm text-muted-foreground">
+              We'll publish <em>actual</em> % improvements after pilots.
+            </p>
           </div>
         </div>
       </motion.div>

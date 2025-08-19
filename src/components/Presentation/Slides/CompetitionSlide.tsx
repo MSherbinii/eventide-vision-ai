@@ -126,10 +126,10 @@ const CompetitionSlide = () => {
           COMPETITIVE LANDSCAPE
         </Badge>
         <h1 className="text-5xl md:text-6xl font-bold">
-          <span className="gradient-text">No Direct Competition</span><br />in Event-Based PaaS
+          <span className="gradient-text">Positioning in Event-Based</span><br />Industrial Vision
         </h1>
         <p className="text-xl text-muted-foreground max-w-4xl mx-auto">
-          Hardware vendors provide sensors but no complete solutions. Software platforms handle RGB only. We're the first full-stack event-based PaaS.
+          Hardware vendors supply sensors; software platforms focus on frame-based. <strong>We're the first mover in MENA</strong> offering a full-stack <strong>event-based</strong> PaaS.
         </p>
       </div>
 
@@ -166,42 +166,42 @@ const CompetitionSlide = () => {
                     {competitor.hardware ? (
                       <CheckCircle className="w-4 h-4 text-green-500 mx-auto" />
                     ) : (
-                      <X className="w-4 h-4 text-red-500 mx-auto" />
+                      <div className="w-4 h-4 mx-auto rounded-full border border-gray-400"></div>
                     )}
                   </div>
                   <div className="text-center">
                     {competitor.sdk ? (
                       <CheckCircle className="w-4 h-4 text-green-500 mx-auto" />
                     ) : (
-                      <X className="w-4 h-4 text-red-500 mx-auto" />
+                      <div className="w-4 h-4 mx-auto rounded-full border border-gray-400"></div>
                     )}
                   </div>
                   <div className="text-center">
                     {competitor.integrator ? (
                       <CheckCircle className="w-4 h-4 text-green-500 mx-auto" />
                     ) : (
-                      <X className="w-4 h-4 text-red-500 mx-auto" />
+                      <div className="w-4 h-4 mx-auto rounded-full border border-gray-400"></div>
                     )}
                   </div>
                   <div className="text-center">
                     {competitor.fullStackPaaS ? (
                       <CheckCircle className="w-4 h-4 text-green-500 mx-auto" />
                     ) : (
-                      <X className="w-4 h-4 text-red-500 mx-auto" />
+                      <div className="w-4 h-4 mx-auto rounded-full border border-gray-400"></div>
                     )}
                   </div>
                   <div className="text-center">
                     {competitor.eventExpertise ? (
                       <CheckCircle className="w-4 h-4 text-green-500 mx-auto" />
                     ) : (
-                      <X className="w-4 h-4 text-red-500 mx-auto" />
+                      <div className="w-4 h-4 mx-auto rounded-full border border-gray-400"></div>
                     )}
                   </div>
                   <div className="text-center">
                     {competitor.mesErp ? (
                       <CheckCircle className="w-4 h-4 text-green-500 mx-auto" />
                     ) : (
-                      <X className="w-4 h-4 text-red-500 mx-auto" />
+                      <div className="w-4 h-4 mx-auto rounded-full border border-gray-400"></div>
                     )}
                   </div>
                 </motion.div>
@@ -230,9 +230,12 @@ const CompetitionSlide = () => {
                       <div>
                         <h5 className="font-semibold text-sm">{item.title}</h5>
                         <p className="text-xs text-muted-foreground">{item.desc}</p>
-                      </div>
-                    </div>
-                  </Card>
+              </div>
+            </div>
+            <div className="text-xs text-muted-foreground mt-3">
+              Representative capabilities, based on public materials.
+            </div>
+          </Card>
                 </motion.div>
               ))}
             </div>
