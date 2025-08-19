@@ -1,49 +1,27 @@
 import PresentationSlider from "@/components/Presentation/PresentationSlider";
 import TitleSlide from "@/components/Presentation/Slides/TitleSlide";
 import ProblemSlide from "@/components/Presentation/Slides/ProblemSlide";
-import MarketSlide from "@/components/Presentation/Slides/MarketSlide";
+import CostOfFrameVisionSlide from "@/components/Presentation/Slides/CostOfFrameVisionSlide";
 import SolutionSlide from "@/components/Presentation/Slides/SolutionSlide";
+import MarketSlide from "@/components/Presentation/Slides/MarketSlide";
+import CompetitionSlide from "@/components/Presentation/Slides/CompetitionSlide";
 import BusinessModelSlide from "@/components/Presentation/Slides/BusinessModelSlide";
-import TeamTimelineSection from "@/components/PitchDeck/TeamTimelineSection";
-import FundingSection from "@/components/PitchDeck/FundingSection";
+import RoadmapSlide from "@/components/Presentation/Slides/RoadmapSlide";
+import TeamSlide from "@/components/Presentation/Slides/TeamSlide";
+import FinancialsSlide from "@/components/Presentation/Slides/FinancialsSlide";
 
 const Index = () => {
   const slides = [
-    {
-      id: 'title',
-      title: 'PerceptionTech - Event-Based Vision',
-      component: TitleSlide
-    },
-    {
-      id: 'problem',
-      title: 'The Problem',
-      component: ProblemSlide
-    },
-    {
-      id: 'market',
-      title: 'Market Opportunity',
-      component: MarketSlide
-    },
-    {
-      id: 'solution',
-      title: 'Our Solution',
-      component: SolutionSlide
-    },
-    {
-      id: 'business',
-      title: 'Business Model',
-      component: BusinessModelSlide
-    },
-    {
-      id: 'team',
-      title: 'Team & Timeline',
-      component: TeamTimelineSection
-    },
-    {
-      id: 'funding',
-      title: 'Funding Ask',
-      component: FundingSection
-    }
+    { id: 'title', title: 'Perception-as-a-Service', component: TitleSlide },
+    { id: 'problem', title: 'Problem', component: ProblemSlide },
+    { id: 'cost', title: 'Cost of Frame Vision', component: CostOfFrameVisionSlide },
+    { id: 'solution', title: 'Perception OS', component: SolutionSlide },
+    { id: 'market', title: 'Market Timing', component: MarketSlide },
+    { id: 'competition', title: 'Competition', component: CompetitionSlide },
+    { id: 'business-model', title: 'Business Model', component: BusinessModelSlide },
+    { id: 'roadmap', title: 'Roadmap', component: RoadmapSlide },
+    { id: 'team', title: 'Team & Hiring', component: TeamSlide },
+    { id: 'financials', title: 'Financials', component: FinancialsSlide }
   ];
 
   return (

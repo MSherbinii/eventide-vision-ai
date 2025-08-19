@@ -1,0 +1,326 @@
+import { Card } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Users, MapPin, GraduationCap, Briefcase, Target, Star } from "lucide-react";
+import { motion } from "framer-motion";
+
+const TeamSlide = () => {
+  const founderProfile = {
+    name: "Founder & CEO",
+    background: "Deep expertise in event-based computer vision",
+    experience: [
+      "Research in neuromorphic vision systems",
+      "Industrial automation consulting",
+      "Technical leadership in computer vision projects"
+    ],
+    skills: ["Event-based algorithms", "Industrial systems", "Technical leadership"]
+  };
+
+  const keyHires = [
+    {
+      role: "Engineering Lead",
+      location: "Egypt",
+      timeline: "Month 6",
+      requirements: [
+        "Senior C++/Python engineer",
+        "5+ years computer vision experience", 
+        "Industrial systems background",
+        "Team leadership experience"
+      ],
+      equity: "0.5-1.0%",
+      priority: "Critical"
+    },
+    {
+      role: "Computer Vision Engineers (3)",
+      location: "Egypt",
+      timeline: "Month 12-15",
+      requirements: [
+        "Deep learning & computer vision",
+        "Event-based processing knowledge",
+        "Embedded systems experience",
+        "Real-time systems optimization"
+      ],
+      equity: "0.2-0.5% each",
+      priority: "High"
+    },
+    {
+      role: "Sales Lead", 
+      location: "Germany/Dubai",
+      timeline: "Month 18",
+      requirements: [
+        "Industrial automation sales",
+        "DACH + GCC market experience",
+        "Enterprise B2B relationships",
+        "Technical sales capability"
+      ],
+      equity: "0.3-0.7%",
+      priority: "High"
+    },
+    {
+      role: "DevOps Engineer",
+      location: "Egypt",
+      timeline: "Month 20",
+      requirements: [
+        "Cloud infrastructure (AWS/Azure)",
+        "Edge deployment experience",
+        "Monitoring & observability",
+        "Security & compliance"
+      ],
+      equity: "0.2-0.4%",
+      priority: "Medium"
+    }
+  ];
+
+  const egyptAdvantages = [
+    {
+      icon: <GraduationCap className="w-8 h-8" />,
+      title: "World-Class Talent",
+      description: "Cairo University, AUC, German University - top CS programs",
+      metric: "15K+ CS graduates annually"
+    },
+    {
+      icon: <Briefcase className="w-8 h-8" />,
+      title: "Cost Advantage",
+      description: "Senior engineers at 30-40% of European salaries",
+      metric: "€30-50K vs €80-120K"
+    },
+    {
+      icon: <MapPin className="w-8 h-8" />,
+      title: "Strategic Location", 
+      description: "Bridge between Europe and GCC markets",
+      metric: "3-4 hour flights to key markets"
+    },
+    {
+      icon: <Target className="w-8 h-8" />,
+      title: "Government Support",
+      description: "Tech startup incentives and regulatory support",
+      metric: "0% tax first 2 years"
+    }
+  ];
+
+  const esopDetails = {
+    poolSize: "10-15%",
+    vestingSchedule: "4 years, 1-year cliff",
+    eligibility: "Full-time employees after 90 days",
+    strikes: "Fair market value at grant",
+    acceleration: "Double trigger on acquisition"
+  };
+
+  const advisoryBoard = [
+    {
+      profile: "Industrial Automation Executive",
+      value: "DACH market access, enterprise relationships",
+      equity: "0.5-1.0%"
+    },
+    {
+      profile: "Computer Vision Research Leader",
+      value: "Technical guidance, academic connections",
+      equity: "0.25-0.5%"
+    },
+    {
+      profile: "GCC Manufacturing Executive",
+      value: "Middle East market entry, customer introductions",
+      equity: "0.5-1.0%"
+    }
+  ];
+
+  return (
+    <div className="w-full h-full flex flex-col px-8 py-6">
+      {/* Header */}
+      <div className="text-center space-y-4 mb-8">
+        <Badge variant="outline" className="text-lg px-6 py-2">
+          TEAM & HIRING STRATEGY
+        </Badge>
+        <h1 className="text-5xl md:text-6xl font-bold">
+          <span className="gradient-text">A-Level Talent</span><br />at Egyptian Cost
+        </h1>
+        <p className="text-xl text-muted-foreground max-w-4xl mx-auto">
+          World-class engineering team in Egypt with ESOP alignment, complemented by strategic advisory board
+        </p>
+      </div>
+
+      <div className="flex-1 grid grid-cols-2 gap-8">
+        {/* Left Column - Current Team & Hiring Plan */}
+        <div className="space-y-6">
+          {/* Founder Profile */}
+          <div>
+            <h3 className="text-2xl font-bold mb-4">Current Team</h3>
+            <Card className="p-6 bg-gradient-to-r from-primary/10 to-secondary/10 border-primary/20">
+              <div className="flex items-start gap-4">
+                <div className="w-16 h-16 rounded-full bg-gradient-to-r from-primary to-primary-glow flex items-center justify-center">
+                  <Users className="w-8 h-8 text-white" />
+                </div>
+                <div className="flex-1">
+                  <h4 className="text-lg font-bold mb-2">{founderProfile.name}</h4>
+                  <p className="text-sm text-muted-foreground mb-3">{founderProfile.background}</p>
+                  <div className="grid grid-cols-3 gap-2">
+                    {founderProfile.skills.map((skill, index) => (
+                      <Badge key={index} variant="secondary" className="text-xs text-center">
+                        {skill}
+                      </Badge>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </Card>
+          </div>
+
+          {/* Key Hires Timeline */}
+          <div>
+            <h3 className="text-2xl font-bold mb-4">Key Hires (Next 24 Months)</h3>
+            <div className="space-y-4">
+              {keyHires.map((hire, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, x: -30 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.3 + index * 0.1, duration: 0.5 }}
+                >
+                  <Card className="p-4 hover:scale-102 transition-all duration-300">
+                    <div className="flex items-start justify-between mb-3">
+                      <div>
+                        <h4 className="font-bold text-sm">{hire.role}</h4>
+                        <p className="text-xs text-muted-foreground">📍 {hire.location} • {hire.timeline}</p>
+                      </div>
+                      <div className="text-right">
+                        <Badge 
+                          variant={hire.priority === 'Critical' ? 'default' : hire.priority === 'High' ? 'secondary' : 'outline'}
+                          className="text-xs mb-1"
+                        >
+                          {hire.priority}
+                        </Badge>
+                        <p className="text-xs text-primary font-medium">{hire.equity}</p>
+                      </div>
+                    </div>
+                    <div className="grid grid-cols-2 gap-2">
+                      {hire.requirements.map((req, idx) => (
+                        <div key={idx} className="flex items-center gap-1 text-xs">
+                          <Star className="w-3 h-3 text-primary flex-shrink-0" />
+                          <span className="text-muted-foreground">{req}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </Card>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Right Column - Egypt Advantage & ESOP */}
+        <div className="space-y-6">
+          {/* Egypt Advantages */}
+          <div>
+            <h3 className="text-2xl font-bold mb-4">Why Egypt Hub?</h3>
+            <div className="grid grid-cols-2 gap-4">
+              {egyptAdvantages.map((advantage, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: 0.5 + index * 0.1, duration: 0.5 }}
+                >
+                  <Card className="p-4 text-center hover:scale-105 transition-all duration-300 h-full">
+                    <div className="text-primary mb-3 flex justify-center">
+                      {advantage.icon}
+                    </div>
+                    <h4 className="font-bold text-sm mb-2">{advantage.title}</h4>
+                    <p className="text-xs text-muted-foreground mb-2">{advantage.description}</p>
+                    <Badge variant="outline" className="text-xs">
+                      {advantage.metric}
+                    </Badge>
+                  </Card>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+
+          {/* ESOP Details */}
+          <div>
+            <h3 className="text-2xl font-bold mb-4">Employee Stock Option Plan</h3>
+            <Card className="p-6 bg-gradient-to-r from-accent/10 to-primary/10 border-accent/20">
+              <div className="space-y-4">
+                <div className="grid grid-cols-2 gap-4 text-sm">
+                  <div>
+                    <strong>Pool Size:</strong> {esopDetails.poolSize}<br/>
+                    <span className="text-muted-foreground">Of total company equity</span>
+                  </div>
+                  <div>
+                    <strong>Vesting:</strong> {esopDetails.vestingSchedule}<br/>
+                    <span className="text-muted-foreground">Standard tech schedule</span>
+                  </div>
+                  <div>
+                    <strong>Eligibility:</strong> {esopDetails.eligibility}<br/>
+                    <span className="text-muted-foreground">After probation period</span>
+                  </div>
+                  <div>
+                    <strong>Exercise:</strong> {esopDetails.strikes}<br/>
+                    <span className="text-muted-foreground">At time of grant</span>
+                  </div>
+                </div>
+                <div className="pt-2 border-t border-border/30">
+                  <p className="text-xs text-muted-foreground">
+                    <strong>Accelerated Vesting:</strong> {esopDetails.acceleration} - protects employees in M&A scenarios
+                  </p>
+                </div>
+              </div>
+            </Card>
+          </div>
+
+          {/* Advisory Board */}
+          <div>
+            <h3 className="text-2xl font-bold mb-4">Strategic Advisory Board</h3>
+            <div className="space-y-3">
+              {advisoryBoard.map((advisor, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.8 + index * 0.1, duration: 0.5 }}
+                >
+                  <Card className="p-4">
+                    <div className="flex items-center justify-between">
+                      <div className="flex-1">
+                        <h4 className="font-semibold text-sm">{advisor.profile}</h4>
+                        <p className="text-xs text-muted-foreground">{advisor.value}</p>
+                      </div>
+                      <Badge variant="outline" className="text-xs">
+                        {advisor.equity}
+                      </Badge>
+                    </div>
+                  </Card>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+
+          {/* Hiring Timeline Summary */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1, duration: 0.6 }}
+          >
+            <Card className="p-6 bg-gradient-to-r from-green-500/10 to-blue-500/10 border-green-500/20 text-center">
+              <h4 className="text-lg font-bold mb-3">Team Growth Target</h4>
+              <div className="grid grid-cols-3 gap-4 text-sm">
+                <div>
+                  <div className="text-2xl font-bold gradient-text">8-12</div>
+                  <div className="text-muted-foreground">Team size by Month 24</div>
+                </div>
+                <div>
+                  <div className="text-2xl font-bold gradient-text">€60K</div>
+                  <div className="text-muted-foreground">Avg senior engineer salary</div>
+                </div>
+                <div>
+                  <div className="text-2xl font-bold gradient-text">12%</div>
+                  <div className="text-muted-foreground">ESOP pool allocation</div>
+                </div>
+              </div>
+            </Card>
+          </motion.div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default TeamSlide;

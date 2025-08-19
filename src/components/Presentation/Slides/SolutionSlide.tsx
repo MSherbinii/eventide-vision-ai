@@ -77,10 +77,10 @@ const SolutionSlide = () => {
           OUR SOLUTION
         </Badge>
         <h1 className="text-5xl md:text-6xl font-bold">
-          <span className="gradient-text">Event-Based Vision</span><br />Complete Platform
+          <span className="gradient-text">Perception OS</span><br />for the Factory
         </h1>
         <p className="text-xl text-muted-foreground max-w-4xl mx-auto">
-          The world's first end-to-end Perception-as-a-Service platform using neuromorphic vision sensors
+          Hybrid event+RGB sensors, edge AI, and a cloud portal with KPIs, audit trail, and MES/ERP plugins. Microsecond latency, extreme HDR, and sparse data cut misses and TCO.
         </p>
       </div>
 
