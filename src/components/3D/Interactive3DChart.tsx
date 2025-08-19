@@ -75,7 +75,6 @@ const ChartBar = ({ data, index, isHovered, onHover }: {
           color="#ffffff"
           anchorX="center"
           anchorY="middle"
-          font="/fonts/Inter-Bold.woff"
         >
           {data.year}
         </Text>
@@ -139,7 +138,6 @@ const Interactive3DChart = ({ className = "" }: { className?: string }) => {
           color="#ffffff"
           anchorX="center"
           anchorY="middle"
-          font="/fonts/Inter-Bold.woff"
         >
           Machine Vision Market Growth
         </Text>

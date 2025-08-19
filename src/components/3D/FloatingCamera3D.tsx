@@ -106,7 +106,7 @@ const FloatingCamera3D = ({ className = "" }: { className?: string }) => {
         
         <Camera3D />
         
-        <Environment preset="city" />
+        {/* <Environment preset="city" /> */}
       </Canvas>
     </div>
   );
