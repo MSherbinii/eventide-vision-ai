@@ -23,57 +23,60 @@ const TitleSlide = () => {
       </div>
       
       {/* Content */}
-      <div className="relative z-10 max-w-6xl mx-auto px-6 text-center">
-        <div className="space-y-8">
+      <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
+        <div className="space-y-6">
           {/* Company Title */}
-          <div className="space-y-6">
-            <div className="text-8xl md:text-9xl font-bold tracking-tight">
-              <span className="gradient-text animate-float">PerceptionTech</span>
+          <div className="space-y-4">
+            <div className="text-4xl md:text-5xl font-bold tracking-tight">
+              <span className="gradient-text animate-float">Eventide Vision</span>
             </div>
-            <div className="text-3xl md:text-4xl font-light text-muted-foreground">
-              Event-Based Vision Solutions
+            <div className="text-lg md:text-xl font-light text-muted-foreground">
+              Perception-as-a-Service for Factories
             </div>
-            <div className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              The world's first complete Perception-as-a-Service platform using neuromorphic vision sensors
+            <div className="text-sm text-muted-foreground max-w-2xl mx-auto">
+              Full-stack event-based vision + AI platform
+            </div>
+            <div className="text-xs text-accent font-medium">
+              Why Now: Event sensor maturity meets automation demand
             </div>
           </div>
 
           {/* Key Metrics */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            <Card className="p-8 bg-card/50 backdrop-blur-sm border-primary/20 glow-effect floating-card">
-              <div className="text-center space-y-4">
-                <Eye className="w-12 h-12 mx-auto text-primary animate-pulse-glow" />
-                <div className="text-4xl font-bold gradient-text">
-                  $<CountingNumber from={0} to={69.49} duration={3} />B
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-3xl mx-auto">
+            <Card className="p-4 bg-card/50 backdrop-blur-sm border-primary/20 glow-effect floating-card">
+              <div className="text-center space-y-2">
+                <Eye className="w-8 h-8 mx-auto text-primary animate-pulse-glow" />
+                <div className="text-2xl font-bold gradient-text">
+                  $<CountingNumber from={0} to={41.7} duration={3} />B
                 </div>
-                <p className="text-lg text-muted-foreground">Market by 2034</p>
+                <p className="text-sm text-muted-foreground">Market by 2030</p>
               </div>
             </Card>
-            <Card className="p-8 bg-card/50 backdrop-blur-sm border-secondary/20 glow-effect floating-card">
-              <div className="text-center space-y-4">
-                <Zap className="w-12 h-12 mx-auto text-secondary animate-bounce-slow" />
-                <div className="text-4xl font-bold gradient-text">
+            <Card className="p-4 bg-card/50 backdrop-blur-sm border-secondary/20 glow-effect floating-card">
+              <div className="text-center space-y-2">
+                <Zap className="w-8 h-8 mx-auto text-secondary animate-bounce-slow" />
+                <div className="text-2xl font-bold gradient-text">
                   <CountingNumber from={0} to={1000} duration={3} />x
                 </div>
-                <p className="text-lg text-muted-foreground">Faster Processing</p>
+                <p className="text-sm text-muted-foreground">Faster Processing</p>
               </div>
             </Card>
-            <Card className="p-8 bg-card/50 backdrop-blur-sm border-accent/20 glow-effect floating-card">
-              <div className="text-center space-y-4">
-                <Target className="w-12 h-12 mx-auto text-accent animate-spin-slow" />
-                <div className="text-4xl font-bold gradient-text">
-                  <CountingNumber from={0} to={13.04} duration={3} />%
+            <Card className="p-4 bg-card/50 backdrop-blur-sm border-accent/20 glow-effect floating-card">
+              <div className="text-center space-y-2">
+                <Target className="w-8 h-8 mx-auto text-accent animate-spin-slow" />
+                <div className="text-2xl font-bold gradient-text">
+                  <CountingNumber from={0} to={13.5} duration={3} />%
                 </div>
-                <p className="text-lg text-muted-foreground">Market CAGR</p>
+                <p className="text-sm text-muted-foreground">Market CAGR</p>
               </div>
             </Card>
           </div>
 
           {/* Pitch Info */}
-          <div className="pt-8">
-            <div className="text-xl font-semibold mb-2">Pre-Seed Funding Round</div>
-            <div className="text-lg text-muted-foreground">
-              Seeking $1.5M for 18.75% equity • Q1 2025
+          <div className="pt-4">
+            <div className="text-lg font-semibold mb-1">Pre-Seed Funding Round</div>
+            <div className="text-sm text-muted-foreground">
+              Seeking $500K to fund MVP → pilots → traction to seed
             </div>
           </div>
         </div>

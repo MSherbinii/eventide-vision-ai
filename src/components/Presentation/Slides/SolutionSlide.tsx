@@ -70,25 +70,26 @@ const SolutionSlide = () => {
   ];
 
   return (
-    <div className="w-full h-full flex flex-col px-8 py-6">
+    <div className="w-full h-full flex flex-col px-6 py-4">
       {/* Header */}
-      <div className="text-center space-y-4 mb-8">
-        <Badge variant="outline" className="text-lg px-6 py-2">
-          OUR SOLUTION
+      <div className="text-center space-y-3 mb-6">
+        <Badge variant="outline" className="text-sm px-4 py-2">
+          PERCEPTION OS FOR THE FACTORY
         </Badge>
-        <h1 className="text-5xl md:text-6xl font-bold">
-          <span className="gradient-text">Perception OS</span><br />for the Factory
+        <h1 className="text-3xl md:text-4xl font-bold">
+          <span className="gradient-text">Perception OS</span> for the Factory
         </h1>
-        <p className="text-xl text-muted-foreground max-w-4xl mx-auto">
-          Hybrid event+RGB sensors, edge AI, and a cloud portal with KPIs, audit trail, and MES/ERP plugins. Microsecond latency, extreme HDR, and sparse data cut misses and TCO.
+        <p className="text-sm text-muted-foreground max-w-3xl mx-auto">
+          Event + RGB → NVIDIA Jetson (edge) → Secure gateway/cloud analytics → APIs to MES/ERP. 
+          μs latency, 120dB HDR, sparse data.
         </p>
       </div>
 
-      <div className="flex-1 grid grid-cols-2 gap-8">
+      <div className="flex-1 grid grid-cols-2 gap-6">
         {/* Left Column - Key Advantages */}
-        <div className="space-y-6">
-          <h3 className="text-3xl font-bold">Key Advantages</h3>
-          <div className="grid grid-cols-2 gap-4">
+        <div className="space-y-4">
+          <h3 className="text-2xl font-bold">Key Advantages</h3>
+          <div className="grid grid-cols-2 gap-3">
             {advantages.map((advantage, index) => (
               <motion.div
                 key={index}
@@ -96,14 +97,14 @@ const SolutionSlide = () => {
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: index * 0.1, duration: 0.5 }}
               >
-                <Card className={`p-6 hover:scale-105 transition-all duration-300 ${advantage.color} glow-effect h-full`}>
-                  <div className="text-center space-y-3">
-                    <div className="flex justify-center">
+                <Card className={`p-4 hover:scale-105 transition-all duration-300 ${advantage.color} glow-effect h-full`}>
+                  <div className="text-center space-y-2">
+                    <div className="flex justify-center scale-75">
                       {advantage.icon}
                     </div>
                     <div>
-                      <h4 className="font-bold text-sm mb-2">{advantage.title}</h4>
-                      <p className="text-xs text-muted-foreground mb-3">{advantage.description}</p>
+                      <h4 className="font-bold text-xs mb-1">{advantage.title}</h4>
+                      <p className="text-xs text-muted-foreground mb-2">{advantage.description}</p>
                       <Badge variant="secondary" className="text-xs font-mono">
                         {advantage.metric}
                       </Badge>
@@ -114,19 +115,41 @@ const SolutionSlide = () => {
             ))}
           </div>
 
-          {/* Data Flow Visualization */}
-          <div className="mt-6">
-            <h4 className="text-xl font-bold mb-4">Real-time Data Processing</h4>
-            <ParticleDataFlow className="h-48" />
+          {/* Pipeline Diagram */}
+          <div className="mt-4">
+            <h4 className="text-lg font-bold mb-3">Solution Pipeline</h4>
+            <Card className="p-4 bg-gradient-to-r from-card to-muted/5">
+              <div className="flex items-center justify-between text-center">
+                <div className="flex-1">
+                  <div className="text-sm font-semibold mb-1">Event + RGB</div>
+                  <div className="text-xs text-muted-foreground">Hybrid sensors</div>
+                </div>
+                <div className="text-accent">→</div>
+                <div className="flex-1">
+                  <div className="text-sm font-semibold mb-1">Edge AI</div>
+                  <div className="text-xs text-muted-foreground">NVIDIA Jetson</div>
+                </div>
+                <div className="text-accent">→</div>
+                <div className="flex-1">
+                  <div className="text-sm font-semibold mb-1">Cloud Portal</div>
+                  <div className="text-xs text-muted-foreground">KPIs, alerts</div>
+                </div>
+                <div className="text-accent">→</div>
+                <div className="flex-1">
+                  <div className="text-sm font-semibold mb-1">MES/ERP</div>
+                  <div className="text-xs text-muted-foreground">API integration</div>
+                </div>
+              </div>
+            </Card>
           </div>
         </div>
 
         {/* Right Column - Comparison Table */}
-        <div className="space-y-6">
-          <h3 className="text-3xl font-bold">Event-Based vs Traditional</h3>
-          <Card className="p-6">
-            <div className="space-y-4">
-              <div className="grid grid-cols-4 gap-4 pb-3 border-b border-border text-sm font-semibold">
+        <div className="space-y-4">
+          <h3 className="text-2xl font-bold">Event vs Traditional</h3>
+          <Card className="p-4">
+            <div className="space-y-3">
+              <div className="grid grid-cols-4 gap-3 pb-2 border-b border-border text-xs font-semibold">
                 <div>Feature</div>
                 <div>Traditional RGB</div>
                 <div>Event-Based</div>
@@ -135,7 +158,7 @@ const SolutionSlide = () => {
               {comparison.map((item, index) => (
                 <motion.div
                   key={index}
-                  className="grid grid-cols-4 gap-4 py-3 border-b border-border/30 text-sm"
+                  className="grid grid-cols-4 gap-3 py-2 border-b border-border/30 text-xs"
                   initial={{ opacity: 0, x: 50 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.5 + index * 0.1, duration: 0.5 }}
@@ -151,8 +174,8 @@ const SolutionSlide = () => {
 
           {/* Solution Components */}
           <div>
-            <h4 className="text-xl font-bold mb-4">Complete Solution Stack</h4>
-            <div className="space-y-3">
+            <h4 className="text-lg font-bold mb-3">Complete Solution Stack</h4>
+            <div className="space-y-2">
               {[
                 { title: "Hardware Integration", desc: "Prophesee EVK4 HD, Sony IMX636 sensors" },
                 { title: "AI Processing Engine", desc: "Custom deep learning models for event data" },
@@ -164,11 +187,11 @@ const SolutionSlide = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 1 + index * 0.1, duration: 0.5 }}
                 >
-                  <Card className="p-4 bg-gradient-to-r from-card to-muted/5">
-                    <div className="flex items-start gap-3">
-                      <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                  <Card className="p-3 bg-gradient-to-r from-card to-muted/5">
+                    <div className="flex items-start gap-2">
+                      <CheckCircle className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
                       <div>
-                        <h5 className="font-semibold text-sm">{component.title}</h5>
+                        <h5 className="font-semibold text-xs">{component.title}</h5>
                         <p className="text-xs text-muted-foreground">{component.desc}</p>
                       </div>
                     </div>
@@ -180,13 +203,13 @@ const SolutionSlide = () => {
 
           {/* Applications */}
           <div>
-            <h4 className="text-xl font-bold mb-4">Industrial Applications</h4>
+            <h4 className="text-lg font-bold mb-3">Primary Applications</h4>
             <div className="grid grid-cols-3 gap-2 text-xs">
               {[
-                "Quality Assurance", "Positioning & Guidance", "Predictive Maintenance",
+                "Quality Assurance", "Positioning", "Predictive Maintenance",
                 "Measurement", "Identification", "Vibration Monitoring"
               ].map((app, index) => (
-                <Badge key={index} variant="outline" className="text-center py-2">
+                <Badge key={index} variant="outline" className="text-center py-1 text-xs">
                   {app}
                 </Badge>
               ))}

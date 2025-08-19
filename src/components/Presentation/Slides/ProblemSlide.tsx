@@ -36,24 +36,24 @@ const ProblemSlide = () => {
   ];
 
   return (
-    <div className="w-full h-full flex flex-col justify-center px-12 py-8">
+    <div className="w-full h-full flex flex-col justify-center px-8 py-6">
       {/* Header */}
-      <div className="text-center space-y-6 mb-16">
-        <Badge variant="outline" className="text-lg px-6 py-3">
+      <div className="text-center space-y-4 mb-8">
+        <Badge variant="outline" className="text-sm px-4 py-2">
           THE PROBLEM
         </Badge>
-        <h1 className="text-6xl md:text-7xl font-bold">
-          Current Vision Systems Are
+        <h1 className="text-3xl md:text-4xl font-bold">
+          Frame-based Vision Struggles
           <br />
-          <span className="gradient-text">Fundamentally Limited</span>
+          <span className="gradient-text">at Line Speed</span>
         </h1>
-        <p className="text-2xl text-muted-foreground max-w-4xl mx-auto">
-          Manufacturing companies lose millions annually due to inefficient traditional camera systems that can't keep up with modern industrial demands.
+        <p className="text-sm text-muted-foreground max-w-2xl mx-auto">
+          High-speed lines + variable lighting break frame-based vision. Motion blur misses defects; data is heavy and expensive to move/store.
         </p>
       </div>
 
       {/* Problems Grid */}
-      <div className="grid grid-cols-2 gap-8 max-w-7xl mx-auto mb-16">
+      <div className="grid grid-cols-2 gap-4 max-w-4xl mx-auto mb-8">
         {problems.map((problem, index) => (
           <motion.div
             key={index}
@@ -61,15 +61,15 @@ const ProblemSlide = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: index * 0.2, duration: 0.6 }}
           >
-            <Card className={`p-10 bg-card/50 backdrop-blur-sm border-2 ${problem.color} hover:scale-105 transition-all duration-300 h-full`}>
-              <div className="space-y-6">
-                <div className={`${problem.color}`}>
+            <Card className={`p-4 bg-card/50 backdrop-blur-sm border-2 ${problem.color} hover:scale-105 transition-all duration-300 h-full`}>
+              <div className="space-y-3">
+                <div className={`${problem.color} scale-75`}>
                   {problem.icon}
                 </div>
                 <div>
-                  <h3 className="text-3xl font-bold mb-4">{problem.title}</h3>
-                  <p className="text-xl text-muted-foreground mb-6 leading-relaxed">{problem.description}</p>
-                  <Badge variant="secondary" className="text-lg px-4 py-2 font-mono">
+                  <h3 className="text-lg font-bold mb-2">{problem.title}</h3>
+                  <p className="text-sm text-muted-foreground mb-3 leading-relaxed">{problem.description}</p>
+                  <Badge variant="secondary" className="text-xs px-2 py-1 font-mono">
                     {problem.impact}
                   </Badge>
                 </div>
@@ -81,25 +81,25 @@ const ProblemSlide = () => {
 
       {/* Industry Impact */}
       <motion.div 
-        className="max-w-7xl mx-auto"
+        className="max-w-4xl mx-auto"
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.8, duration: 0.6 }}
       >
-        <div className="p-12 bg-gradient-to-r from-muted/50 to-accent/10 rounded-3xl border-2 border-accent/20">
-          <h3 className="text-4xl font-bold mb-8 text-center">Manufacturing Industry Impact</h3>
-          <div className="grid grid-cols-3 gap-12 text-center">
+        <div className="p-6 bg-gradient-to-r from-muted/50 to-accent/10 rounded-xl border border-accent/20">
+          <h3 className="text-2xl font-bold mb-4 text-center">Manufacturing Industry Impact</h3>
+          <div className="grid grid-cols-3 gap-6 text-center">
             <div>
-              <div className="text-6xl font-bold text-destructive mb-4">$2.5B</div>
-              <p className="text-xl text-muted-foreground">Annual losses from quality defects</p>
+              <div className="text-3xl font-bold text-destructive mb-2">$2.5B</div>
+              <p className="text-sm text-muted-foreground">Annual losses from quality defects</p>
             </div>
             <div>
-              <div className="text-6xl font-bold text-orange-500 mb-4">60%</div>
-              <p className="text-xl text-muted-foreground">Of manufacturers lack adequate vision systems</p>
+              <div className="text-3xl font-bold text-orange-500 mb-2">60%</div>
+              <p className="text-sm text-muted-foreground">Of manufacturers lack adequate vision systems</p>
             </div>
             <div>
-              <div className="text-6xl font-bold text-yellow-500 mb-4">18 months</div>
-              <p className="text-xl text-muted-foreground">Average time to implement vision solutions</p>
+              <div className="text-3xl font-bold text-yellow-500 mb-2">18 months</div>
+              <p className="text-sm text-muted-foreground">Average time to implement vision solutions</p>
             </div>
           </div>
         </div>
