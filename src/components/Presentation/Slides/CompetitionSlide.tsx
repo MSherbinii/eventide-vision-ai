@@ -125,8 +125,8 @@ const CompetitionSlide = () => {
         <Badge variant="outline" className="text-lg px-6 py-2">
           COMPETITIVE LANDSCAPE
         </Badge>
-        <h1 className="text-5xl md:text-6xl font-bold">
-          <span className="gradient-text">Positioning in Event-Based</span><br />Industrial Vision
+        <h1 className="text-3xl md:text-4xl font-bold text-[#F2F6FA] tracking-[-0.01em]">
+          <span className="text-[#E6C069]">Positioning in Event-Based</span><br />Industrial Vision
         </h1>
         <p className="text-xl text-muted-foreground max-w-4xl mx-auto">
           Hardware vendors supply sensors; software platforms focus on frame-based. <strong>We're the first mover in MENA</strong> offering a full-stack <strong>event-based</strong> PaaS.
@@ -232,7 +232,7 @@ const CompetitionSlide = () => {
                         <p className="text-xs text-muted-foreground">{item.desc}</p>
               </div>
             </div>
-            <div className="text-xs text-muted-foreground mt-3">
+            <div className="text-xs text-[#93A1B5] text-center mt-3">
               Representative capabilities, based on public materials.
             </div>
           </Card>

@@ -108,7 +108,8 @@ const BusinessModelSlide = () => {
   ];
 
   return (
-    <div className="w-full h-full flex flex-col px-8 py-6">
+    <div className="w-full h-full flex flex-col px-8 py-6" 
+         style={{ background: 'linear-gradient(180deg, #0F2440 0%, #0A1526 35%, #0B172A 100%)' }}>
       {/* Header */}
       <div className="text-center space-y-4 mb-8">
         <Badge variant="outline" className="text-lg px-6 py-2">
@@ -152,8 +153,8 @@ const BusinessModelSlide = () => {
           {/* Pricing Tiers */}
           <div>
             <h3 className="text-3xl font-bold mb-6">Pricing Strategy</h3>
-            <div className="text-sm text-muted-foreground mt-4">
-              Public benchmark <strong>$100/stream/month</strong> (Google Visual Inspection AI) used as floor for full-stack pricing.
+            <div className="text-sm text-[#CBD5E1] mt-4">
+              Public benchmark <strong className="text-[#E6C069]">$100/stream/month</strong> (Google Visual Inspection AI) used as floor for full-stack pricing.
             </div>
             <div className="space-y-4">
               {pricingTiers.map((tier, index) => (

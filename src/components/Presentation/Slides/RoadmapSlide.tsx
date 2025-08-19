@@ -73,7 +73,9 @@ const RoadmapSlide = () => {
         </div>
       </div>
 
-      {/* Bottom Section - Critical Success Factors */}
+        <div className="text-xs text-[#93A1B5] text-center mt-3">
+          Africa/Cairo timezone. Dates align with XPRENEURS Batch #19 cadence.
+        </div>
       <motion.div 
         className="mt-6"
         initial={{ opacity: 0, y: 20 }}

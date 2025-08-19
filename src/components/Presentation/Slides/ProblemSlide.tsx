@@ -6,37 +6,38 @@ import { motion } from "framer-motion";
 const ProblemSlide = () => {
   const problems = [
     {
-      icon: <Clock className="w-12 h-12" />,
+      icon: <Clock className="w-12 h-12 text-[#E6C069]" />,
       title: "Processing Latency",
       description: "Frame pipelines choke on high-speed lines; events happen between frames.",
       impact: "",
-      color: "border-destructive/20 text-destructive"
+      color: "border-[#2C3D58] bg-[#122339]/92"
     },
     {
-      icon: <DollarSign className="w-12 h-12" />,
+      icon: <DollarSign className="w-12 h-12 text-[#00D1C1]" />,
       title: "High Data Costs",
       description: "Full-frame video creates heavy storage/egress and compute bills.",
       impact: "",
-      color: "border-orange-500/20 text-orange-500"
+      color: "border-[#2C3D58] bg-[#122339]/92"
     },
     {
-      icon: <TrendingDown className="w-12 h-12" />,
+      icon: <TrendingDown className="w-12 h-12 text-[#FFC466]" />,
       title: "Limited Performance",
       description: "Motion blur + glare miss micro-defects at line speed.",
       impact: "",
-      color: "border-yellow-500/20 text-yellow-500"
+      color: "border-[#2C3D58] bg-[#122339]/92"
     },
     {
-      icon: <AlertTriangle className="w-12 h-12" />,
+      icon: <AlertTriangle className="w-12 h-12 text-[#FF5E5E]" />,
       title: "Complex Integration",
       description: "Fragmented tools → multi-month, cross-vendor projects.",
       impact: "",
-      color: "border-blue-500/20 text-blue-500"
+      color: "border-[#2C3D58] bg-[#122339]/92"
     }
   ];
 
   return (
-    <div className="w-full h-full flex flex-col justify-center px-8 py-6">
+    <div className="w-full h-full flex flex-col justify-center px-8 py-6" 
+         style={{ background: 'linear-gradient(180deg, #0F2440 0%, #0A1526 35%, #0B172A 100%)' }}>
       {/* Header */}
       <div className="text-center space-y-4 mb-8">
         <Badge variant="outline" className="text-sm px-4 py-2">
@@ -61,14 +62,14 @@ const ProblemSlide = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: index * 0.2, duration: 0.6 }}
           >
-            <Card className={`p-4 bg-card/50 backdrop-blur-sm border-2 ${problem.color} hover:scale-105 transition-all duration-300 h-full`}>
+            <Card className={`p-4 ${problem.color} rounded-2xl shadow-[0_10px_30px_rgba(0,0,0,0.35)] hover:scale-105 transition-all duration-300 h-full`}>
               <div className="space-y-3">
-                <div className={`${problem.color} scale-75`}>
+                <div className="scale-75">
                   {problem.icon}
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold mb-2">{problem.title}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{problem.description}</p>
+                  <h3 className="text-lg font-bold mb-2 text-[#F2F6FA]">{problem.title}</h3>
+                  <p className="text-sm text-[#CBD5E1] leading-relaxed">{problem.description}</p>
                 </div>
               </div>
             </Card>
@@ -83,12 +84,12 @@ const ProblemSlide = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.8, duration: 0.6 }}
       >
-        <div className="p-6 bg-gradient-to-r from-muted/50 to-accent/10 rounded-xl border border-accent/20">
-          <h3 className="text-2xl font-bold mb-4 text-center">Pilot Goals</h3>
+        <div className="p-6 bg-[#122339]/92 rounded-2xl border border-[#00D1C1]/20 shadow-[0_10px_30px_rgba(0,0,0,0.35)]">
+          <h3 className="text-2xl font-bold mb-4 text-center text-[#F2F6FA]">Pilot Goals</h3>
           <div className="text-center space-y-2">
-            <p className="text-lg">Reduce rework and downtime; cut data/compute overhead.</p>
-            <p className="text-sm text-muted-foreground">
-              We'll publish <em>actual</em> % improvements after pilots.
+            <p className="text-lg text-[#CBD5E1]">Reduce rework/downtime; cut data/compute overhead.</p>
+            <p className="text-sm text-[#93A1B5]">
+              Actual % reported post-pilot.
             </p>
           </div>
         </div>
