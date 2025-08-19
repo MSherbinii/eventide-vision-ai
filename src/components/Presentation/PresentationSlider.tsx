@@ -2,7 +2,7 @@ import { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { ChevronLeft, ChevronRight, Play, Pause, RotateCcw, Maximize } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Play, Pause, RotateCcw, Maximize, Minimize2, ChevronUp } from 'lucide-react';
 
 interface Slide {
   id: string;
@@ -24,6 +24,7 @@ const PresentationSlider = ({
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isPlaying, setIsPlaying] = useState(autoPlay);
   const [isFullscreen, setIsFullscreen] = useState(false);
+  const [isMinimized, setIsMinimized] = useState(false);
 
   const nextSlide = useCallback(() => {
     setCurrentSlide((prev) => (prev + 1) % slides.length);
@@ -141,7 +142,38 @@ const PresentationSlider = ({
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 1 }}
       >
-        <div className="bg-card/95 backdrop-blur-sm rounded-full px-6 py-3 shadow-2xl border border-border/50 flex items-center gap-4">
+        <AnimatePresence>
+          {isMinimized ? (
+            /* Minimized State */
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.8 }}
+              className="bg-card/95 backdrop-blur-sm rounded-full px-4 py-2 shadow-2xl border border-border/50 flex items-center gap-2"
+            >
+              <div className="flex items-center gap-2">
+                <div className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                  isPlaying ? 'bg-primary animate-pulse' : 'bg-muted-foreground/50'
+                }`} />
+                <span className="text-xs text-muted-foreground">{currentSlide + 1}/{slides.length}</span>
+              </div>
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={() => setIsMinimized(false)}
+                className="rounded-full p-1 h-6 w-6"
+              >
+                <ChevronUp className="w-3 h-3" />
+              </Button>
+            </motion.div>
+          ) : (
+            /* Full Controls */
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 20 }}
+              className="bg-card/95 backdrop-blur-sm rounded-full px-6 py-3 shadow-2xl border border-border/50 flex items-center gap-4"
+            >
           {/* Previous Button */}
           <Button
             variant="ghost"
@@ -213,7 +245,19 @@ const PresentationSlider = ({
           >
             <Maximize className="w-4 h-4" />
           </Button>
-        </div>
+
+          {/* Minimize */}
+          <Button
+            variant="ghost"
+            size="sm"
+            onClick={() => setIsMinimized(true)}
+            className="rounded-full p-2"
+          >
+            <Minimize2 className="w-4 h-4" />
+          </Button>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </motion.div>
 
       {/* Slide Counter */}
