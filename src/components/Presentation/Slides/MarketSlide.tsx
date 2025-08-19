@@ -1,7 +1,7 @@
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge"; 
 import { TrendingUp, Clock, Lightbulb, Users, Building, Target } from "lucide-react";
-import MarketGrowthChart from "@/components/Charts/MarketGrowthChart";
+import { MarketAreaChart } from "@/components/Charts/MarketAreaChart";
 import { motion } from "framer-motion";
 
 const MarketSlide = () => {
@@ -34,7 +34,7 @@ const MarketSlide = () => {
 
   return (
     <div className="w-full h-full flex flex-col px-6 py-4" 
-         style={{ background: 'linear-gradient(180deg, #0F2440 0%, #0A1526 35%, #0B172A 100%)' }}>
+         style={{ background: 'linear-gradient(180deg, #0B1B2B 0%, #0F2233 35%, #122339 100%)' }}>
       {/* Header */}
       <div className="text-center space-y-3 mb-6">
         <Badge variant="outline" className="text-sm px-4 py-2 border-[#E6C069] text-[#E6C069] bg-transparent">
@@ -44,11 +44,8 @@ const MarketSlide = () => {
           <span className="text-[#E6C069]">Perfect Storm</span> of Opportunity
         </h1>
         <p className="text-sm text-[#CBD5E1] max-w-3xl mx-auto">
-          Global machine vision: $20.38B (2024) → $41.74B (2030) at 13.0% CAGR
+          Global machine-vision is $20.38B (2024) and projected to $41.74B by 2030 (13.0% CAGR). The Quality Assurance & Inspection application is the largest segment and the ME&A region is among the fastest-growing.
         </p>
-        <div className="text-xs text-[#93A1B5]">
-          Source: Grand View Research (2025)
-        </div>
       </div>
 
       <div className="flex-1 grid grid-cols-2 gap-6">
@@ -83,44 +80,62 @@ const MarketSlide = () => {
             </div>
           </div>
 
-          {/* Market Opportunity */}
+          {/* KPI Chips */}
           <div>
-            <h3 className="text-2xl font-bold mb-4 text-[#F2F6FA]">Market Opportunity</h3>
+            <h3 className="text-2xl font-bold mb-4 text-[#F8FAFC]">What this means for Eventide</h3>
             <div className="space-y-3">
-              <Card className="p-4 bg-[#122339]/92 border border-[#E6C069]/20 rounded-2xl shadow-[0_10px_30px_rgba(0,0,0,0.35)]">
-                <div className="space-y-2">
-                  <span className="font-semibold text-[#F2F6FA]">TAM (global machine vision)</span>
-                  <p className="text-xs text-[#CBD5E1]">$20.38B (2024) → $41.74B (2030)</p>
-                </div>
+              <Card className="p-4 bg-[#0F2233] border border-[#E6C069]/20 rounded-2xl shadow-[0_10px_30px_rgba(0,0,0,0.35)]">
+                <span className="font-semibold text-[#F8FAFC]">Global MV: $20.38B → $41.74B by 2030, 13.0% CAGR</span>
+                <p className="text-xs text-[#CBD5E1] mt-1">(GVR)</p>
               </Card>
               
-              <Card className="p-4 bg-[#122339]/92 border border-[#00D1C1]/20 rounded-2xl shadow-[0_10px_30px_rgba(0,0,0,0.35)]">
-                <div className="space-y-2">
-                  <span className="font-semibold text-[#F2F6FA]">SAM (QA & predictive in Pharma + F&B)</span>
-                  <p className="text-xs text-[#CBD5E1]">subset of TAM (to be sized with pilots)</p>
-                </div>
+              <Card className="p-4 bg-[#0F2233] border border-[#0EA5E9]/20 rounded-2xl shadow-[0_10px_30px_rgba(0,0,0,0.35)]">
+                <span className="font-semibold text-[#F8FAFC]">Largest application: Quality Assurance/Inspection</span>
+                <p className="text-xs text-[#CBD5E1] mt-1">(GVR segmentation)</p>
               </Card>
               
-              <Card className="p-4 bg-[#122339]/92 border border-[#FFC466]/20 rounded-2xl shadow-[0_10px_30px_rgba(0,0,0,0.35)]">
-                <div className="space-y-2">  
-                  <span className="font-semibold text-[#F2F6FA]">SOM (Egypt + GCC + DACH early adopters)</span>
-                  <p className="text-xs text-[#CBD5E1]">initial selling region</p>
-                </div>
+              <Card className="p-4 bg-[#0F2233] border border-[#22C55E]/20 rounded-2xl shadow-[0_10px_30px_rgba(0,0,0,0.35)]">
+                <span className="font-semibold text-[#F8FAFC]">Event-based niche: under-served vs. frame-based incumbents</span>
               </Card>
               
-              <div className="text-sm text-[#93A1B5] mt-3">
-                <strong>MEA:</strong> $1.61B (2024), ~13.5% CAGR to 2030
+              <Card className="p-4 bg-[#0F2233] border border-[#F59E0B]/20 rounded-2xl shadow-[0_10px_30px_rgba(0,0,0,0.35)]">
+                <span className="font-semibold text-[#F8FAFC]">Edge AI readiness: Jetson & cloud MLOps maturity</span>
+              </Card>
+            </div>
+          </div>
+
+          {/* TAM/SAM/SOM */}
+          <div>
+            <h4 className="text-lg font-bold mb-3 text-[#F8FAFC]">TAM / SAM / SOM</h4>
+            <div className="space-y-2">
+              <div className="text-sm text-[#CBD5E1]">
+                <strong className="text-[#F8FAFC]">TAM:</strong> GVR total = $20.38B → $41.74B
+              </div>
+              <div className="text-sm text-[#CBD5E1]">
+                <strong className="text-[#F8FAFC]">SAM:</strong> QA/predictive in Pharma + F&B (conservative % of TAM; validate with pilots)
+              </div>
+              <div className="text-sm text-[#CBD5E1]">
+                <strong className="text-[#F8FAFC]">SOM:</strong> Egypt+GCC+DACH early adopters (target plant count)
               </div>
             </div>
           </div>
         </div>
 
-        {/* Right Column - Market Growth Chart */}
-        <div className="flex flex-col">
-          <h3 className="text-2xl font-bold mb-3 text-center text-[#F2F6FA]">Market Growth</h3>
+        {/* Right Column - Market Charts */}
+        <div className="flex flex-col space-y-4">
+          <h3 className="text-2xl font-bold mb-3 text-center text-[#F8FAFC]">Global Machine Vision Market 2024–2030</h3>
           <div className="flex-1">
-            <MarketGrowthChart />
+            <MarketAreaChart />
           </div>
+          
+          {/* Mini doughnut placeholder */}
+          <Card className="p-4 bg-[#0F2233] border border-[#2C3D58] rounded-2xl">
+            <h4 className="text-sm font-bold text-[#F8FAFC] mb-2 text-center">Application Share</h4>
+            <div className="text-center">
+              <div className="text-lg font-bold text-[#0EA5E9]">QA & Inspection</div>
+              <div className="text-xs text-[#93A1B5]">Largest segment (illustrative; see source)</div>
+            </div>
+          </Card>
         </div>
       </div>
 
@@ -131,20 +146,20 @@ const MarketSlide = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 1, duration: 0.6 }}
       >
-        <div className="text-center p-4 bg-[#122339]/92 border border-[#E6C069]/20 rounded-2xl shadow-[0_10px_30px_rgba(0,0,0,0.35)]">
-          <h4 className="text-lg font-bold mb-2 text-[#F2F6FA]">🎯 First Mover Advantage</h4>
+        <div className="text-center p-4 bg-[#0F2233] border border-[#E6C069]/20 rounded-2xl shadow-[0_10px_30px_rgba(0,0,0,0.35)]">
+          <h4 className="text-lg font-bold mb-2 text-[#F8FAFC]">🎯 First Mover Edge in MENA + EU</h4>
           <p className="text-sm mb-3 text-[#CBD5E1]">
-            We are the <strong className="text-[#E6C069]">first mover in MENA</strong> offering a full-stack, event-based industrial vision PaaS.
+            <strong className="text-[#E6C069]">First-mover edge in MENA (GCC) + EU</strong> — fewer local event-based specialists; leverage German network via XPRENEURS.
           </p>
           <div className="grid grid-cols-3 gap-4 text-xs">
             <div className="text-[#CBD5E1]">
-              <strong className="text-[#F2F6FA]">Hardware Partners:</strong> Sony, Prophesee provide sensors but no complete solutions
+              <strong className="text-[#F8FAFC]">Sensor vendors ≠ turnkey PaaS:</strong> Prophesee + Sony IMX636 provide hardware, not complete solutions
             </div>
             <div className="text-[#CBD5E1]">
-              <strong className="text-[#F2F6FA]">Zero Competition:</strong> No other startup offers full-stack event-based industrial vision
+              <strong className="text-[#F8FAFC]">Few integrated options:</strong> Integrators mainly frame-based in industrial QA
             </div>
             <div className="text-[#CBD5E1]">
-              <strong className="text-[#F2F6FA]">Market Timing:</strong> Technology ready, demand high, competition non-existent
+              <strong className="text-[#F8FAFC]">Perfect timing:</strong> Event sensors matured + edge compute ready + Industry 4.0 budgets
             </div>
           </div>
         </div>

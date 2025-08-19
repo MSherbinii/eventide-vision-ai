@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 const TitleSlide = () => {
   return (
     <div className="w-full h-full flex flex-col justify-center relative overflow-hidden" 
-         style={{ background: 'linear-gradient(180deg, #0F2440 0%, #0A1526 35%, #0B172A 100%)' }}>
+         style={{ background: 'linear-gradient(180deg, #0B1B2B 0%, #0F2233 35%, #122339 100%)' }}>
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <img 
@@ -24,15 +24,15 @@ const TitleSlide = () => {
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           className="space-y-6 mb-12"
         >
-          <h1 className="text-5xl md:text-7xl font-bold leading-tight tracking-[-0.01em]">
-            <span className="block text-[#E6C069]">Eventide</span>
-            <span className="block text-[#F2F6FA] text-4xl md:text-6xl">
+          <h1 className="text-6xl md:text-7xl font-bold leading-tight tracking-[-0.01em]">
+            <span className="block text-[#E6C069]">Eventide Vision</span>
+            <span className="block text-[#F8FAFC] text-4xl md:text-5xl">
               Perception-as-a-Service for Factories
             </span>
           </h1>
           
           <p className="text-lg md:text-xl text-[#CBD5E1] max-w-3xl mx-auto">
-            Event-based + RGB vision • Edge AI • Analytics &amp; ROI
+            Event-based cameras + Edge AI → Fewer misses, less data, faster installs
           </p>
           
           <div className="text-sm text-[#E6C069] font-medium">
@@ -54,12 +54,13 @@ const TitleSlide = () => {
         
         {/* Source Attribution */}
         <motion.div
-          className="text-xs text-[#93A1B5] text-center"
+          className="text-xs text-[#93A1B5] text-center cursor-pointer hover:text-[#CBD5E1]"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.8, duration: 0.4 }}
+          title="Click to expand: Specs from Sony/Prophesee IMX636 & EVK4; market from GVR 2025"
         >
-          Source: Grand View Research (2025)
+          Specs from Sony/Prophesee IMX636 & EVK4; market from GVR 2025. <span className="text-[#0EA5E9]">ⓘ</span>
         </motion.div>
       </div>
     </div>

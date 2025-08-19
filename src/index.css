@@ -8,15 +8,14 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Investor Psychology-Optimized Palette */
-    /* Based on Alejandro Cremades' pitch deck color psychology research */
+    /* Light-Elevated Dark Theme for Premium Presentation */
     
-    /* Primary: Deep Professional Blue - Trustworthiness, Stability, Calmness */
-    --background: 222 15% 4%;  /* Rich Ink Black - Power, Professionalism */
-    --foreground: 210 14% 97%; /* Clean White - Purity, Professionalism */
+    /* Background: Light-elevated dark for high contrast */
+    --background: 213 22% 11%;  /* Light-elevated dark #0B1B2B */
+    --foreground: 210 14% 97%; /* Clean White #F8FAFC */
 
-    /* Cards: Navy Blue - Tech Industry Standard, Investor Confidence */
-    --card: 217 28% 12%;       /* Deep Navy Blue #1A2332 - Trust & Tech */
+    /* Cards: Enhanced readability */
+    --card: 213 28% 14%;       /* Enhanced card background #0F2233 */
     --card-foreground: 210 14% 97%;
 
     --popover: 217 28% 12%;

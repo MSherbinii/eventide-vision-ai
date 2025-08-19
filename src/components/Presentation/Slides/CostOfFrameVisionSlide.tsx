@@ -1,6 +1,7 @@
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { AnimatedGauge } from "@/components/ui/animated-gauge";
+import { ROICalculator } from "@/components/ui/roi-calculator";
 import { AlertTriangle, TrendingDown, Clock, DollarSign } from "lucide-react";
 import { motion } from "framer-motion";
 
@@ -42,7 +43,7 @@ const CostOfFrameVisionSlide = () => {
 
   return (
     <div className="w-full h-full flex flex-col px-6 py-4" 
-         style={{ background: 'linear-gradient(180deg, #0F2440 0%, #0A1526 35%, #0B172A 100%)' }}>
+         style={{ background: 'linear-gradient(180deg, #0B1B2B 0%, #0F2233 35%, #122339 100%)' }}>
       {/* Header */}
       <div className="text-center space-y-3 mb-6">
         <Badge variant="outline" className="text-sm px-4 py-2 border-[#E6C069] text-[#E6C069] bg-transparent">
@@ -62,32 +63,32 @@ const CostOfFrameVisionSlide = () => {
           <h3 className="text-2xl font-bold text-[#F2F6FA]">Annual Quality Losses</h3>
           <div className="grid grid-cols-2 gap-4">
             <AnimatedGauge
-              title="Storage/Egress"
-              icon={<DollarSign className="w-10 h-10 text-[#00D1C1]" />}
-              percentage={90}
-              label="RGB data volume"
-              color="#00D1C1"
+              title="Storage/Egress load"
+              icon={<DollarSign className="w-10 h-10 text-[#0EA5E9]" />}
+              percentage={0}
+              label="Use calculator on right"
+              color="#0EA5E9"
             />
             <AnimatedGauge
-              title="Compute Load"
-              icon={<Clock className="w-10 h-10 text-[#FFC466]" />}
-              percentage={85}
+              title="Compute load"
+              icon={<Clock className="w-10 h-10 text-[#F59E0B]" />}
+              percentage={0}
               label="Processing overhead"
-              color="#FFC466"
+              color="#F59E0B"
             />
             <AnimatedGauge
-              title="Scrap/Rework"
-              icon={<AlertTriangle className="w-10 h-10 text-[#FF5E5E]" />}
-              percentage={75}
+              title="Scrap & rework"
+              icon={<AlertTriangle className="w-10 h-10 text-[#F59E0B]" />}
+              percentage={0}
               label="Motion blur misses"
-              color="#FF5E5E"
+              color="#F59E0B"
             />
             <AnimatedGauge
-              title="Downtime"
-              icon={<TrendingDown className="w-10 h-10 text-[#E6C069]" />}
-              percentage={60}
+              title="Nuisance downtime"
+              icon={<TrendingDown className="w-10 h-10 text-[#F59E0B]" />}
+              percentage={0}
               label="False stops"
-              color="#E6C069"
+              color="#F59E0B"
             />
           </div>
 
@@ -105,49 +106,21 @@ const CostOfFrameVisionSlide = () => {
                 transition={{ delay: 1.5, duration: 1.5 }}
                 className="absolute top-0 left-0 h-full bg-[#00D1C1]/20 rounded-2xl"
               />
-              <Card className="relative p-4 bg-[#122339]/92 border border-[#00D1C1]/20 rounded-2xl shadow-[0_10px_30px_rgba(0,0,0,0.35)] text-center">
-                <Badge variant="secondary" className="mb-2 bg-[#00D1C1] text-white border-0">Pilot Target</Badge>
-                <div className="text-2xl font-bold text-[#00D1C1] mb-2">20–50% reduction</div>
-                <p className="text-xs text-[#93A1B5]">Per production line (to be replaced with measured results)</p>
+              <Card className="relative p-4 bg-[#0F2233] border border-[#0EA5E9]/20 rounded-2xl shadow-[0_10px_30px_rgba(0,0,0,0.35)] text-center">
+                <Badge variant="secondary" className="mb-2 bg-[#0EA5E9] text-white border-0">Pilot Target</Badge>
+                <div className="text-2xl font-bold text-[#0EA5E9] mb-2">20–50% reduction</div>
+                <p className="text-xs text-[#93A1B5]">We'll replace with measured pilot results by line</p>
               </Card>
             </div>
           </motion.div>
         </div>
 
-        {/* Right Column - Baseline Modeling */}
+        {/* Right Column - ROI Calculator */}
         <div className="space-y-4">
-          <h3 className="text-2xl font-bold text-[#F2F6FA]">Baseline Modeling (Illustrative)</h3>
+          <h3 className="text-2xl font-bold text-[#F8FAFC]">Baseline Model (Illustrative)</h3>
           
-          <Card className="p-4 bg-[#122339]/92 border border-[#2C3D58] rounded-2xl shadow-[0_10px_30px_rgba(0,0,0,0.35)]">
-            <div className="space-y-4">
-              <div className="space-y-3 text-sm">
-                <div className="flex items-center gap-2">
-                  <span className="font-semibold text-[#F2F6FA]">Data volume =</span>
-                  <span className="text-[#CBD5E1]">fps × resolution × bytes/pixel × hours</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <span className="font-semibold text-[#F2F6FA]">Rework cost =</span>
-                  <span className="text-[#CBD5E1]">defect rate × items/hour × scrap cost</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <span className="font-semibold text-[#F2F6FA]">Downtime cost =</span>
-                  <span className="text-[#CBD5E1]">lost throughput × margin/hour</span>
-                </div>
-              </div>
-              <div className="pt-3 border-t border-[#2C3D58]">
-                <p className="text-sm text-[#93A1B5] italic">
-                  We'll quantify these with each pilot and show verified ROI.
-                </p>
-              </div>
-            </div>
-          </Card>
-          
-          <div className="bg-[#122339]/92 border border-[#00D1C1]/20 rounded-2xl p-3 shadow-[0_10px_30px_rgba(0,0,0,0.35)]">
-            <Badge variant="secondary" className="mb-2 bg-[#00D1C1] text-white border-0">Pilot Target</Badge>
-            <p className="text-sm text-[#CBD5E1]">
-              Improvement band: 20–50% (to be replaced with real results)
-            </p>
-          </div>
+          {/* ROI Calculator Component */}
+          <ROICalculator title="Live ROI Calculator" />
 
           {/* Industry Context */}
           <div>
