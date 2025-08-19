@@ -2,170 +2,144 @@ import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import TimelineGantt from "@/components/Charts/TimelineGantt";
 
 const RoadmapSlide = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
-  const keyMilestones = [
+  
+  const phases = [
     {
-      quarter: "Q4 2025",
-      items: ["Company setup", "EVK4 procurement", "MVP alpha"]
+      name: "Foundation & Setup",
+      timeline: "Q4 2025",
+      progress: 85,
+      items: ["GmbH set-up", "Egypt office lease", "3× EVK4 kits procured", "MVP alpha"],
+      color: "from-primary to-accent"
     },
     {
-      quarter: "Q1-Q2 2026", 
-      items: ["XPRENEURS Batch #19", "Pilot LOI", "Demo day"]
+      name: "XPRENEURS & Pilots", 
+      timeline: "Mar–May 2026",
+      progress: 25,
+      items: ["Application window opens Dec 11, 2025", "1 DACH pilot LOI before program", "Demo Day by May", "≥2 pilots live"],
+      color: "from-accent to-warning"
     },
     {
-      quarter: "Q3-Q4 2026",
-      items: ["2 active pilots", "First paid conversion"]
-    },
-    {
-      quarter: "Q1-Q2 2027",
-      items: ["Seed funding", "Team expansion", "v2 platform"]
+      name: "Scale & Revenue",
+      timeline: "H2 2026 – Q2 2027", 
+      progress: 5,
+      items: ["1 paid conversion", ">99.5% counting accuracy", "Seed $1–2M raised", "Hire Eng Lead"],
+      color: "from-warning to-primary"
     }
   ];
 
   return (
-    <div className="w-full h-full flex flex-col px-6 py-4" 
-         style={{ background: 'linear-gradient(180deg, #0F2440 0%, #0A1526 35%, #0B172A 100%)' }}>
+    <div className="w-full h-full flex flex-col px-6 py-4 bg-gradient-to-br from-background via-[hsl(220_34%_8%)] to-[hsl(48_100%_8%)]">
+      {/* Dynamic Chromatic Background */}
+      <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 bg-gradient-to-tr from-warning/8 via-transparent to-primary/10"></div>
+        <div className="absolute top-1/5 left-1/6 w-96 h-96 bg-warning/10 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-1/4 right-1/5 w-80 h-80 bg-primary/8 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1.2s' }}></div>
+        <div className="absolute top-2/3 left-1/2 w-72 h-72 bg-accent/6 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2.8s' }}></div>
+      </div>
+      
       {/* Header */}
-      <div className="text-center space-y-3 mb-6">
-        <Badge variant="outline" className="text-sm px-4 py-2 border-[#E6C069] text-[#E6C069] bg-transparent">
+      <div className="relative z-10 text-center space-y-3 mb-6">
+        <Badge variant="outline" className="text-sm px-4 py-2 border-primary text-primary bg-transparent">
           24-MONTH ROADMAP
         </Badge>
-        <h1 className="text-3xl md:text-4xl font-bold text-[#F2F6FA]">
-          <span className="text-[#E6C069]">Path to Scale</span>
+        <h1 className="text-3xl md:text-4xl font-bold text-white">
+          <span className="text-primary">Path to Scale</span>
         </h1>
-        <p className="text-sm text-[#CBD5E1] max-w-3xl mx-auto">
+        <p className="text-sm text-muted max-w-3xl mx-auto">
           From MVP to market leader: absolute dates with verified program timelines
         </p>
       </div>
 
-      <div className="flex-1 grid grid-cols-3 gap-6">
-        {/* Left Column - Key Milestones */}
-        <div className="space-y-4">
-          <h3 className="text-xl font-bold text-[#F2F6FA]">Key Milestones</h3>
-          <div className="space-y-3">
-            {keyMilestones.map((milestone, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, x: -30 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: index * 0.1, duration: 0.5 }}
-              >
-                <Card className="p-4 hover:scale-105 transition-all duration-300 bg-[#122339]/92 border border-[#2C3D58] shadow-[0_10px_30px_rgba(0,0,0,0.35)]">
-                  <h4 className="font-bold text-sm text-[#E6C069] mb-2">
-                    {milestone.quarter}
-                  </h4>
-                  <ul className="space-y-1">
-                    {milestone.items.map((item, i) => (
-                      <li key={i} className="text-xs text-[#CBD5E1]">
-                        • {item}
-                      </li>
-                    ))}
-                  </ul>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-
-        {/* Center & Right Columns - Timeline */}
-        <div className="col-span-2">
-          <h3 className="text-xl font-bold text-[#F2F6FA] mb-4">Development Phases</h3>
-          <div className="space-y-4">
-            {[
-              { name: "Foundation & Setup", progress: 85, milestones: [
-                { title: "Company formed", achieved: true },
-                { title: "EVK4 ordered", achieved: true },
-                { title: "MVP Alpha", achieved: false }
-              ]},
-              { name: "XPRENEURS & Pilots", progress: 25, milestones: [
-                { title: "Application", achieved: false },
-                { title: "Pilot LOIs", achieved: false },
-                { title: "Demo Day", achieved: false }
-              ]},
-              { name: "Scale & Growth", progress: 5, milestones: [
-                { title: "Paid pilots", achieved: false },
-                { title: "Seed round", achieved: false },
-                { title: "Team expansion", achieved: false }
-              ]}
-            ].map((phase, index) => (
-              <motion.div 
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.2, duration: 0.5 }}
-                className="space-y-2"
-              >
-                <div className="flex justify-between items-center">
-                  <h4 className="text-sm font-semibold text-[#F2F6FA]">{phase.name}</h4>
-                  <span className="text-xs text-[#93A1B5]">{phase.progress}%</span>
+      <div className="relative z-10 flex-1 space-y-8">
+        {/* Timeline Phases */}
+        {phases.map((phase, index) => (
+          <motion.div
+            key={index}
+            ref={index === 0 ? ref : null}
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: index * 0.3, duration: 0.6 }}
+          >
+            <Card className="p-6 bg-card/80 backdrop-blur-sm border border-border rounded-2xl shadow-lg">
+              <div className="flex items-center justify-between mb-4">
+                <div>
+                  <h3 className="text-xl font-bold text-white">{phase.name}</h3>
+                  <div className="text-sm text-primary font-medium">{phase.timeline}</div>
                 </div>
-                
-                <div className="relative" ref={index === 0 ? ref : null}>
-                  <div className="absolute inset-0 h-4 bg-[#2C3D58] rounded-full" />
+                <Badge variant="outline" className="border-primary text-primary bg-primary/10">
+                  {phase.progress}% Complete
+                </Badge>
+              </div>
+              
+              {/* Progress Bar */}
+              <div className="relative mb-4" ref={index === 0 ? ref : null}>
+                <div className="h-3 bg-muted/20 rounded-full overflow-hidden">
                   <motion.div 
-                    className="h-4 bg-gradient-to-r from-[#00D1C1] to-[#E6C069] rounded-full"
+                    className={`h-full bg-gradient-to-r ${phase.color} rounded-full`}
                     initial={{ width: "0%" }}
                     animate={{ width: isInView ? `${phase.progress}%` : "0%" }}
                     transition={{ duration: 1.5, delay: index * 0.2 }}
                   />
                 </div>
-
-                {/* Milestones */}
-                <div className="flex justify-between items-center mt-2">
-                  {phase.milestones.map((milestone, mIndex) => (
-                    <motion.div 
-                      key={mIndex} 
-                      className="flex flex-col items-center"
-                      initial={{ scale: 0 }}
-                      animate={{ scale: isInView ? 1 : 0 }}
-                      transition={{ duration: 0.5, delay: (index * 0.2) + (mIndex * 0.1) + 1 }}
-                    >
-                      <div className={`w-3 h-3 rounded-full ${milestone.achieved ? 'bg-[#E6C069]' : 'bg-[#00D1C1]'} mb-1 shadow-lg`} />
-                      <span className="text-xs text-[#93A1B5] text-center max-w-[80px]">{milestone.title}</span>
-                    </motion.div>
-                  ))}
+                <div className="absolute right-0 top-4 text-xs text-muted">
+                  {phase.progress}%
                 </div>
-              </motion.div>
-            ))}
-          </div>
-          
-          <div className="text-xs text-[#93A1B5] text-center mt-4">
-            Africa/Cairo timezone. Dates aligned to XPRENEURS #19 cadence.
-          </div>
-        </div>
+              </div>
+              
+              {/* Milestone Items */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                {phase.items.map((item, itemIndex) => (
+                  <motion.div
+                    key={itemIndex}
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ delay: 0.8 + (index * 0.3) + (itemIndex * 0.1), duration: 0.4 }}
+                    className="flex items-center gap-2"
+                  >
+                    <div className={`w-2 h-2 rounded-full ${
+                      (index === 0 && itemIndex < 2) || (index === 1 && itemIndex === 0)
+                        ? 'bg-primary' 
+                        : 'bg-accent'
+                    }`}></div>
+                    <span className="text-sm text-muted">{item}</span>
+                  </motion.div>
+                ))}
+              </div>
+            </Card>
+          </motion.div>
+        ))}
       </div>
 
-      <motion.div 
-        className="mt-6"
-        initial={{ opacity: 0, y: 20 }}
+      {/* KPI Targets */}
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.8, duration: 0.6 }}
+        transition={{ delay: 1.2, duration: 0.6 }}
+        className="relative z-10 mt-6"
       >
         <div className="grid grid-cols-3 gap-4">
-          <Card className="p-4 bg-[#122339]/92 border border-[#E6C069]/20 shadow-[0_10px_30px_rgba(0,0,0,0.35)]">
-            <h4 className="font-semibold text-sm mb-2 text-[#F2F6FA]">🎯 XPRENEURS Advantage</h4>
-            <p className="text-xs text-[#CBD5E1]">
-              Batch #19 (Mar-May 2026) provides Germany market entry + €25K funding
-            </p>
+          <Card className="p-4 bg-card/80 backdrop-blur-sm border border-primary/20 rounded-2xl shadow-lg text-center">
+            <div className="text-lg font-bold text-primary mb-1">€100k+</div>
+            <div className="text-xs text-muted">ARR Target by Q4 2026</div>
           </Card>
           
-          <Card className="p-4 bg-[#122339]/92 border border-[#00D1C1]/20 shadow-[0_10px_30px_rgba(0,0,0,0.35)]">
-            <h4 className="font-semibold text-sm mb-2 text-[#F2F6FA]">⚡ First Mover Edge</h4>
-            <p className="text-xs text-[#CBD5E1]">
-              First mover in MENA with full-stack event-based PaaS (hardware-agnostic)
-            </p>
+          <Card className="p-4 bg-card/80 backdrop-blur-sm border border-accent/20 rounded-2xl shadow-lg text-center">
+            <div className="text-lg font-bold text-accent mb-1">&lt;6 months</div>
+            <div className="text-xs text-muted">Customer Payback Time</div>
           </Card>
           
-          <Card className="p-4 bg-[#122339]/92 border border-[#2C3D58] shadow-[0_10px_30px_rgba(0,0,0,0.35)]">
-            <h4 className="font-semibold text-sm mb-2 text-[#F2F6FA]">📈 Market Timing</h4>
-            <p className="text-xs text-[#CBD5E1]">
-              13% CAGR market + production-ready event sensors + automation demand
-            </p>
+          <Card className="p-4 bg-card/80 backdrop-blur-sm border border-warning/20 rounded-2xl shadow-lg text-center">
+            <div className="text-lg font-bold text-warning mb-1">10+ lines</div>
+            <div className="text-xs text-muted">Active Deployments Target</div>
           </Card>
+        </div>
+        
+        <div className="text-xs text-muted text-center mt-4">
+          Africa/Cairo timezone. Dates aligned to XPRENEURS #19 cadence.
         </div>
       </motion.div>
     </div>

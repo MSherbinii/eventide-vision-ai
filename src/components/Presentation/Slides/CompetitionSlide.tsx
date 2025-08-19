@@ -1,6 +1,6 @@
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { CheckCircle, X, Target } from "lucide-react";
+import { CheckCircle, Circle, Target } from "lucide-react";
 import { motion } from "framer-motion";
 
 const CompetitionSlide = () => {
@@ -36,16 +36,6 @@ const CompetitionSlide = () => {
       position: "Camera hardware focus"
     },
     {
-      name: "IDS Imaging",
-      hardware: true,
-      sdk: true,
-      integrator: false,
-      fullStackPaaS: false,
-      eventExpertise: false,
-      mesErp: false,
-      position: "Industrial cameras"
-    },
-    {
       name: "Prophesee",
       hardware: true,
       sdk: true,
@@ -53,265 +43,196 @@ const CompetitionSlide = () => {
       fullStackPaaS: false,
       eventExpertise: true,
       mesErp: false,
-      position: "Event sensors, no applications"
+      position: "Event sensors + SDK"
     },
     {
-      name: "Matroid/V7",
+      name: "Eventide",
       hardware: false,
-      sdk: false,
-      integrator: false,
-      fullStackPaaS: true,
-      eventExpertise: false,
-      mesErp: false,
-      position: "Software platform, RGB only"
-    },
-    {
-      name: "Our Solution",
-      hardware: true,
       sdk: true,
       integrator: true,
       fullStackPaaS: true,
       eventExpertise: true,
       mesErp: true,
-      position: "Complete event-based PaaS",
-      highlight: true
+      position: "Full-stack event-based PaaS"
     }
   ];
 
-  const capabilities = [
-    { name: "Hardware", description: "Camera sensors & systems" },
-    { name: "SDK", description: "Development tools & APIs" },
-    { name: "Integrator", description: "Custom implementation services" },
-    { name: "Full-Stack PaaS", description: "Complete cloud platform" },
-    { name: "Event Expertise", description: "Neuromorphic vision specialization" },
-    { name: "MES/ERP", description: "Enterprise system integration" }
-  ];
+  const categories = ["Hardware", "SDK", "Integrator", "Full-Stack PaaS", "Event Expertise", "MES/ERP"];
 
-  const positioningData = [
-    {
-      quadrant: "High Speed, Low Data",
-      companies: ["Our Solution"],
-      description: "Event-based advantage zone",
-      position: { x: 85, y: 85 },
-      color: "text-primary"
-    },
-    {
-      quadrant: "High Speed, High Data", 
-      companies: ["Cognex", "Keyence"],
-      description: "Performance with overhead",
-      position: { x: 85, y: 15 },
-      color: "text-orange-500"
-    },
-    {
-      quadrant: "Low Speed, High Data",
-      companies: ["Matroid", "V7"],
-      description: "Software platforms",
-      position: { x: 15, y: 15 },
-      color: "text-red-500"
-    },
-    {
-      quadrant: "Low Speed, Low Data",
-      companies: ["Basler", "IDS"],
-      description: "Basic hardware",
-      position: { x: 15, y: 85 },
-      color: "text-gray-500"
-    }
+  const scatterPlotData = [
+    { name: "Generalist frame-only", x: 20, y: 15, color: "text-muted" },
+    { name: "Basler/IDS", x: 45, y: 35, color: "text-muted" }, 
+    { name: "Cognex/Keyence", x: 75, y: 25, color: "text-muted" },
+    { name: "Eventide", x: 85, y: 90, color: "text-primary" }
   ];
 
   return (
-    <div className="w-full h-full flex flex-col px-8 py-6">
+    <div className="w-full h-full flex flex-col px-8 py-6 bg-gradient-to-br from-background via-[hsl(220_34%_8%)] to-[hsl(287_77%_8%)]">
+      {/* Dynamic Chromatic Background */}
+      <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 bg-gradient-to-tr from-primary/8 via-transparent to-secondary/10"></div>
+        <div className="absolute top-1/6 left-1/4 w-96 h-96 bg-primary/12 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-1/4 right-1/3 w-88 h-88 bg-secondary/8 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+        <div className="absolute top-3/4 left-2/3 w-64 h-64 bg-accent/6 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2.5s' }}></div>
+      </div>
+      
       {/* Header */}
-      <div className="text-center space-y-4 mb-8">
-        <Badge variant="outline" className="text-lg px-6 py-2">
+      <div className="relative z-10 text-center space-y-4 mb-8">
+        <Badge variant="outline" className="text-sm px-4 py-2 border-primary text-primary bg-transparent">
           COMPETITIVE LANDSCAPE
         </Badge>
-        <h1 className="text-3xl md:text-4xl font-bold text-[#F2F6FA] tracking-[-0.01em]">
-          <span className="text-[#E6C069]">Positioning in Event-Based</span><br />Industrial Vision
+        <h1 className="text-4xl md:text-5xl font-bold text-white tracking-[-0.01em]">
+          <span className="text-primary">Few Integrated</span> Event-Centric Options
         </h1>
-        <p className="text-xl text-muted-foreground max-w-4xl mx-auto">
-          Hardware vendors supply sensors; software platforms focus on frame-based. <strong>We're the first mover in MENA</strong> offering a full-stack <strong>event-based</strong> PaaS.
+        <p className="text-lg text-muted max-w-4xl mx-auto">
+          Sensor vendors ≠ turnkey PaaS; integrators mainly frame-based in industrial QA
         </p>
       </div>
 
-      <div className="flex-1 grid grid-cols-2 gap-8">
+      <div className="relative z-10 flex-1 grid grid-cols-1 lg:grid-cols-2 gap-8">
         {/* Left Column - Competitive Matrix */}
-        <div className="space-y-6">
-          <h3 className="text-3xl font-bold">Competitive Matrix</h3>
-          
-          <Card className="p-6">
+        <div>
+          <h3 className="text-2xl font-bold mb-6 text-white">Competitive Matrix</h3>
+          <Card className="p-6 bg-card/80 backdrop-blur-sm border border-border rounded-2xl shadow-lg">
             <div className="space-y-4">
               {/* Header */}
-              <div className="grid grid-cols-7 gap-2 pb-3 border-b border-border text-xs font-semibold">
-                <div>Company</div>
-                {capabilities.map((cap, index) => (
-                  <div key={index} className="text-center">{cap.name}</div>
+              <div className="grid grid-cols-7 gap-2 pb-3 border-b border-border">
+                <div className="text-sm font-semibold text-white">Company</div>
+                {categories.map((category, index) => (
+                  <div key={index} className="text-xs font-semibold text-muted text-center">
+                    {category}
+                  </div>
                 ))}
               </div>
               
-              {/* Competitor Rows */}
+              {/* Rows */}
               {competitors.map((competitor, index) => (
                 <motion.div
                   key={index}
-                  className={`grid grid-cols-7 gap-2 py-3 border-b border-border/30 text-xs ${
-                    competitor.highlight ? 'bg-primary/10 rounded-lg px-2' : ''
-                  }`}
-                  initial={{ opacity: 0, x: -50 }}
+                  initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: index * 0.1, duration: 0.5 }}
+                  className={`grid grid-cols-7 gap-2 py-2 rounded-lg ${
+                    competitor.name === "Eventide" 
+                      ? 'bg-primary/10 border border-primary/20' 
+                      : ''
+                  }`}
                 >
-                  <div className={`font-semibold ${competitor.highlight ? 'text-primary' : ''}`}>
+                  <div className={`text-sm font-semibold ${
+                    competitor.name === "Eventide" ? 'text-primary' : 'text-white'
+                  }`}>
                     {competitor.name}
                   </div>
-                  <div className="text-center">
-                    {competitor.hardware ? (
-                      <CheckCircle className="w-4 h-4 text-green-500 mx-auto" />
-                    ) : (
-                      <div className="w-4 h-4 mx-auto rounded-full border border-gray-400"></div>
-                    )}
+                  <div className="flex justify-center">
+                    {competitor.hardware ? 
+                      <CheckCircle className="w-4 h-4 text-primary" /> : 
+                      <Circle className="w-4 h-4 text-muted/50" />
+                    }
                   </div>
-                  <div className="text-center">
-                    {competitor.sdk ? (
-                      <CheckCircle className="w-4 h-4 text-green-500 mx-auto" />
-                    ) : (
-                      <div className="w-4 h-4 mx-auto rounded-full border border-gray-400"></div>
-                    )}
+                  <div className="flex justify-center">
+                    {competitor.sdk ? 
+                      <CheckCircle className="w-4 h-4 text-primary" /> : 
+                      <Circle className="w-4 h-4 text-muted/50" />
+                    }
                   </div>
-                  <div className="text-center">
-                    {competitor.integrator ? (
-                      <CheckCircle className="w-4 h-4 text-green-500 mx-auto" />
-                    ) : (
-                      <div className="w-4 h-4 mx-auto rounded-full border border-gray-400"></div>
-                    )}
+                  <div className="flex justify-center">
+                    {competitor.integrator ? 
+                      <CheckCircle className="w-4 h-4 text-primary" /> : 
+                      <Circle className="w-4 h-4 text-muted/50" />
+                    }
                   </div>
-                  <div className="text-center">
-                    {competitor.fullStackPaaS ? (
-                      <CheckCircle className="w-4 h-4 text-green-500 mx-auto" />
-                    ) : (
-                      <div className="w-4 h-4 mx-auto rounded-full border border-gray-400"></div>
-                    )}
+                  <div className="flex justify-center">
+                    {competitor.fullStackPaaS ? 
+                      <CheckCircle className="w-4 h-4 text-primary" /> : 
+                      <Circle className="w-4 h-4 text-muted/50" />
+                    }
                   </div>
-                  <div className="text-center">
-                    {competitor.eventExpertise ? (
-                      <CheckCircle className="w-4 h-4 text-green-500 mx-auto" />
-                    ) : (
-                      <div className="w-4 h-4 mx-auto rounded-full border border-gray-400"></div>
-                    )}
+                  <div className="flex justify-center">
+                    {competitor.eventExpertise ? 
+                      <CheckCircle className="w-4 h-4 text-primary" /> : 
+                      <Circle className="w-4 h-4 text-muted/50" />
+                    }
                   </div>
-                  <div className="text-center">
-                    {competitor.mesErp ? (
-                      <CheckCircle className="w-4 h-4 text-green-500 mx-auto" />
-                    ) : (
-                      <div className="w-4 h-4 mx-auto rounded-full border border-gray-400"></div>
-                    )}
+                  <div className="flex justify-center">
+                    {competitor.mesErp ? 
+                      <CheckCircle className="w-4 h-4 text-primary" /> : 
+                      <Circle className="w-4 h-4 text-muted/50" />
+                    }
                   </div>
                 </motion.div>
               ))}
             </div>
-          </Card>
-
-          {/* Key Differentiators */}
-          <div>
-            <h4 className="text-xl font-bold mb-4">Our Unique Position</h4>
-            <div className="space-y-3">
-              {[
-                { title: "Event-Based Specialization", desc: "Only company offering complete event vision solutions" },
-                { title: "Hardware Agnostic PaaS", desc: "Works with Sony, Prophesee, Samsung sensors" },
-                { title: "Recurring Revenue Model", desc: "SaaS pricing vs one-time hardware sales" }
-              ].map((item, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.8 + index * 0.1, duration: 0.5 }}
-                >
-                  <Card className="p-4 bg-gradient-to-r from-primary/10 to-secondary/10">
-                    <div className="flex items-start gap-3">
-                      <Target className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                      <div>
-                        <h5 className="font-semibold text-sm">{item.title}</h5>
-                        <p className="text-xs text-muted-foreground">{item.desc}</p>
-              </div>
-            </div>
-            <div className="text-xs text-[#93A1B5] text-center mt-3">
-              Representative capabilities, based on public materials.
+            <div className="mt-4 text-xs text-muted text-center">
+              Based on public docs as of 2025; scope = industrial QA deployments
             </div>
           </Card>
-                </motion.div>
-              ))}
-            </div>
-          </div>
         </div>
 
-        {/* Right Column - Positioning Map */}
-        <div className="space-y-6">
-          <h3 className="text-3xl font-bold">Market Positioning</h3>
-          
-          <Card className="p-6 h-80">
-            <div className="relative w-full h-full">
-              {/* Axes */}
-              <div className="absolute bottom-4 left-4 right-4 h-px bg-border"></div>
-              <div className="absolute bottom-4 left-4 top-4 w-px bg-border"></div>
+        {/* Right Column - Positioning Scatter Plot */}
+        <div>
+          <h3 className="text-2xl font-bold mb-6 text-white">Market Positioning</h3>
+          <Card className="p-6 bg-card/80 backdrop-blur-sm border border-border rounded-2xl shadow-lg">
+            <div className="relative w-full h-80">
+              <div className="absolute inset-0 border border-border rounded-lg"></div>
               
-              {/* Axis Labels */}
-              <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 text-xs text-muted-foreground">
+              {/* Axes Labels */}
+              <div className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 text-xs text-muted">
                 Processing Speed →
               </div>
-              <div className="absolute left-0 top-1/2 transform -translate-y-1/2 -rotate-90 text-xs text-muted-foreground">
+              <div className="absolute -left-12 top-1/2 transform -translate-y-1/2 -rotate-90 text-xs text-muted">
                 Data Efficiency →
               </div>
               
-              {/* Quadrants */}
-              {positioningData.map((quadrant, index) => (
+              {/* Data Points */}
+              {scatterPlotData.map((point, index) => (
                 <motion.div
                   key={index}
-                  className={`absolute transform -translate-x-1/2 -translate-y-1/2 ${quadrant.color}`}
-                  style={{ 
-                    left: `${quadrant.position.x}%`, 
-                    top: `${100 - quadrant.position.y}%` 
-                  }}
-                  initial={{ opacity: 0, scale: 0 }}
-                  animate={{ opacity: 1, scale: 1 }}
+                  initial={{ scale: 0, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
                   transition={{ delay: 0.5 + index * 0.2, duration: 0.5 }}
+                  className="absolute"
+                  style={{ 
+                    left: `${point.x}%`, 
+                    top: `${100 - point.y}%`,
+                    transform: 'translate(-50%, -50%)'
+                  }}
                 >
-                  <div className="text-center">
-                    <div className="w-3 h-3 rounded-full bg-current mb-1 mx-auto"></div>
-                    <div className="text-xs font-semibold whitespace-nowrap">
-                      {quadrant.companies.join(', ')}
-                    </div>
+                  <div className={`w-3 h-3 rounded-full ${
+                    point.name === "Eventide" 
+                      ? 'bg-primary shadow-lg shadow-primary/50' 
+                      : 'bg-muted/60'
+                  }`}></div>
+                  <div className={`text-xs mt-1 text-center whitespace-nowrap ${point.color}`}>
+                    {point.name}
                   </div>
                 </motion.div>
               ))}
             </div>
+            
+            <div className="mt-4 text-xs text-muted text-center">
+              Event-based sparsity; edge-first architecture
+            </div>
           </Card>
-
-          {/* Market Timing Advantage */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1, duration: 0.6 }}
-          >
-            <Card className="p-6 bg-gradient-to-r from-accent/10 to-primary/10 border-accent/20">
-              <h4 className="text-xl font-bold mb-4">🎯 First Mover Advantage</h4>
-              <div className="space-y-3 text-sm">
-                <div>
-                  <strong>Technology Ready:</strong> Event sensors matured (Sony IMX636, Prophesee EVK4)
-                </div>
-                <div>
-                  <strong>Market Timing:</strong> Industrial automation budgets at all-time highs
-                </div>
-                <div>
-                  <strong>Zero Competition:</strong> No other startup offers full-stack event-based industrial vision
-                </div>
-                <div className="text-center pt-4">
-                  <Badge variant="secondary" className="text-lg px-4 py-2">
-                    18-24 Month Head Start Window
-                  </Badge>
-                </div>
-              </div>
-            </Card>
-          </motion.div>
         </div>
       </div>
+
+      {/* Bottom CTA */}
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 1, duration: 0.6 }}
+        className="relative z-10 mt-8"
+      >
+        <Card className="p-6 bg-card/80 backdrop-blur-sm border border-primary/20 rounded-2xl shadow-lg text-center">
+          <h4 className="text-xl font-bold mb-3 text-white">Our Unique Position</h4>
+          <p className="text-base text-muted mb-4">
+            Only full-stack event-based PaaS focused on QA/Inspection for high-speed lines
+          </p>
+          <div className="text-sm text-primary">
+            <strong>First-mover edge in MENA (GCC) + EU</strong> — fewer local event-based specialists; leverage German network via XPRENEURS.
+          </div>
+        </Card>
+      </motion.div>
     </div>
   );
 };

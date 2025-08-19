@@ -19,27 +19,34 @@ const AskSlide = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-muted/20 to-background p-8">
+    <div className="min-h-screen bg-gradient-to-br from-background via-[hsl(220_34%_8%)] to-[hsl(213_100%_8%)] p-8">
+      {/* Dynamic Chromatic Background */}
+      <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 bg-gradient-to-tr from-accent/8 via-transparent to-primary/10"></div>
+        <div className="absolute top-1/4 left-1/5 w-96 h-96 bg-accent/12 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-1/3 right-1/4 w-80 h-80 bg-primary/8 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1.5s' }}></div>
+        <div className="absolute top-2/3 left-3/4 w-72 h-72 bg-warning/6 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '3s' }}></div>
+      </div>
       {/* Header */}
       <motion.div
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="text-center mb-12"
+        className="relative z-10 text-center mb-12"
       >
-        <Badge variant="outline" className="mb-4 font-heading text-sm border-accent text-accent">
+        <Badge variant="outline" className="mb-4 font-heading text-sm border-primary text-primary">
           FUNDING REQUEST
         </Badge>
-        <h1 className="text-3xl font-bold mb-6">
-          <span className="gradient-text">Lumina AI Pre-Seed Ask</span>
+        <h1 className="text-3xl font-bold mb-6 text-white">
+          <span className="text-primary">Eventide Vision Pre-Seed Ask</span>
         </h1>
-        <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+        <p className="text-xl text-muted max-w-3xl mx-auto">
           €500K to fund MVP development, pilot programs, and team building 
           to achieve seed-ready traction by mid-2027.
         </p>
       </motion.div>
 
-      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12">
+      <div className="relative z-10 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12">
         {/* Use of Funds */}
         <motion.div
           initial={{ opacity: 0, x: -50 }}
