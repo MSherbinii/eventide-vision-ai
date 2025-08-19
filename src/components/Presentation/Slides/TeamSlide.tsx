@@ -4,69 +4,80 @@ import { Users, MapPin, GraduationCap, Briefcase, Target, Star } from "lucide-re
 import { motion } from "framer-motion";
 
 const TeamSlide = () => {
-  const founderProfile = {
-    name: "Founder & CEO",
-    background: "Deep expertise in event-based computer vision",
-    experience: [
-      "Research in neuromorphic vision systems",
-      "Industrial automation consulting",
-      "Technical leadership in computer vision projects"
-    ],
-    skills: ["Event-based algorithms", "Industrial systems", "Technical leadership"]
-  };
+  const foundingTeam = [
+    {
+      name: "Mohamed El Sherbini",
+      role: "Founder & CEO", 
+      background: "Event-based computer vision expertise, technical leadership",
+      skills: ["Neuromorphic algorithms", "Industrial systems", "Strategic vision"]
+    },
+    {
+      name: "Aly Barakat",
+      role: "Co-Founder & COO",
+      background: "Operations and business development expertise", 
+      skills: ["Operations scaling", "Business strategy", "Market development"]
+    },
+    {
+      name: "Peter Essam", 
+      role: "Co-Founder & CIO",
+      background: "Information systems and technology infrastructure",
+      skills: ["System architecture", "IT infrastructure", "Data management"]
+    }
+  ];
 
   const keyHires = [
     {
-      role: "Engineering Lead",
+      role: "Chief Technology Officer (CTO)",
       location: "Egypt",
-      timeline: "Month 6",
+      timeline: "0-6 months",
       requirements: [
-        "Senior C++/Python engineer",
-        "5+ years computer vision experience", 
-        "Industrial systems background",
-        "Team leadership experience"
+        "PhD/MS Computer Vision or related",
+        "10+ years CV/ML leadership experience", 
+        "Event-based processing expertise",
+        "Industrial systems architecture",
+        "Team building and technical strategy"
       ],
-      equity: "0.5-1.0%",
+      equity: "2-4%",
       priority: "Critical"
     },
     {
       role: "Computer Vision Engineers (3)",
-      location: "Egypt",
-      timeline: "Month 12-15",
+      location: "Egypt", 
+      timeline: "0-6 months",
       requirements: [
         "Deep learning & computer vision",
         "Event-based processing knowledge",
-        "Embedded systems experience",
-        "Real-time systems optimization"
+        "Real-time systems optimization",
+        "Python/C++ proficiency"
       ],
-      equity: "0.2-0.5% each",
-      priority: "High"
+      equity: "0.3-0.8% each",
+      priority: "Critical"
     },
     {
-      role: "Sales Lead", 
-      location: "Germany/Dubai",
-      timeline: "Month 18",
+      role: "Full-Stack Engineers (2)",
+      location: "Egypt",
+      timeline: "3-9 months", 
       requirements: [
-        "Industrial automation sales",
+        "SaaS platform development",
+        "React/Node.js expertise",
+        "Cloud infrastructure (AWS/Azure)",
+        "Industrial IoT integration"
+      ],
+      equity: "0.2-0.5% each",
+      priority: "Critical"
+    },
+    {
+      role: "Sales Head",
+      location: "Germany/Dubai",
+      timeline: "After first pilot (6-12 months)",
+      requirements: [
+        "Industrial automation sales", 
         "DACH + GCC market experience",
         "Enterprise B2B relationships",
         "Technical sales capability"
       ],
-      equity: "0.3-0.7%",
+      equity: "0.5-1.0%",
       priority: "High"
-    },
-    {
-      role: "DevOps Engineer",
-      location: "Egypt",
-      timeline: "Month 20",
-      requirements: [
-        "Cloud infrastructure (AWS/Azure)",
-        "Edge deployment experience",
-        "Monitoring & observability",
-        "Security & compliance"
-      ],
-      equity: "0.2-0.4%",
-      priority: "Medium"
     }
   ];
 
@@ -137,42 +148,47 @@ const TeamSlide = () => {
           TEAM & HIRING STRATEGY
         </Badge>
         <h1 className="text-4xl md:text-5xl font-bold text-white tracking-[-0.01em]">
-          <span className="text-primary">A-Level Talent</span><br />at Egyptian Cost
+          <span className="text-primary">Experienced Founders</span><br />+ Critical Tech Hires
         </h1>
         <p className="text-lg text-muted max-w-4xl mx-auto">
-          World-class engineering team in Egypt with ESOP alignment, complemented by strategic advisory board
+          Proven founding team with complementary skills, focused on rapid technical team scaling
         </p>
       </div>
 
       <div className="relative z-10 flex-1 grid grid-cols-2 gap-8">
         {/* Left Column - Current Team & Hiring Plan */}
         <div className="space-y-6">
-          {/* Founder Profile */}
+          {/* Founding Team */}
           <div>
-            <h3 className="text-2xl font-bold mb-4">Current Team</h3>
-            <Card className="p-6 bg-gradient-to-r from-primary/10 to-secondary/10 border-primary/20">
-              <div className="flex items-start gap-4">
-                <div className="w-16 h-16 rounded-full bg-gradient-to-r from-primary to-primary-glow flex items-center justify-center">
-                  <Users className="w-8 h-8 text-white" />
-                </div>
-                <div className="flex-1">
-                  <h4 className="text-lg font-bold mb-2">{founderProfile.name}</h4>
-                  <p className="text-sm text-muted-foreground mb-3">{founderProfile.background}</p>
-                  <div className="grid grid-cols-3 gap-2">
-                    {founderProfile.skills.map((skill, index) => (
-                      <Badge key={index} variant="secondary" className="text-xs text-center">
-                        {skill}
-                      </Badge>
-                    ))}
+            <h3 className="text-2xl font-bold mb-4">Founding Team</h3>
+            <div className="space-y-4">
+              {foundingTeam.map((founder, index) => (
+                <Card key={index} className="p-6 bg-gradient-to-r from-primary/10 to-secondary/10 border-primary/20">
+                  <div className="flex items-start gap-4">
+                    <div className="w-16 h-16 rounded-full bg-gradient-to-r from-primary to-primary-glow flex items-center justify-center">
+                      <Users className="w-8 h-8 text-white" />
+                    </div>
+                    <div className="flex-1">
+                      <h4 className="text-lg font-bold mb-1 text-white">{founder.name}</h4>
+                      <p className="text-sm font-medium text-primary mb-2">{founder.role}</p>
+                      <p className="text-xs text-muted mb-3">{founder.background}</p>
+                      <div className="grid grid-cols-3 gap-2">
+                        {founder.skills.map((skill, idx) => (
+                          <Badge key={idx} variant="secondary" className="text-xs text-center">
+                            {skill}
+                          </Badge>
+                        ))}
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </div>
-            </Card>
+                </Card>
+              ))}
+            </div>
           </div>
 
-          {/* Key Hires Timeline */}
+          {/* Critical Hires Timeline */}
           <div>
-            <h3 className="text-2xl font-bold mb-4">Key Hires (Next 24 Months)</h3>
+            <h3 className="text-2xl font-bold mb-4">Critical Hires (Next 12 Months)</h3>
             <div className="space-y-4">
               {keyHires.map((hire, index) => (
                 <motion.div
@@ -308,10 +324,10 @@ const TeamSlide = () => {
             <Card className="p-6 bg-gradient-to-r from-green-500/10 to-blue-500/10 border-green-500/20 text-center">
               <h4 className="text-lg font-bold mb-3">Team Growth Target</h4>
               <div className="grid grid-cols-3 gap-4 text-sm">
-                <div>
-                  <div className="text-2xl font-bold gradient-text">8-12</div>
-                  <div className="text-muted-foreground">Team size by Month 24</div>
-                </div>
+              <div>
+                <div className="text-2xl font-bold gradient-text">6-9</div>
+                <div className="text-muted-foreground">Critical hires by Month 12</div>
+              </div>
                 <div>
                   <div className="text-2xl font-bold gradient-text">€60K</div>
                   <div className="text-muted-foreground">Avg senior engineer salary</div>
