@@ -83,10 +83,10 @@ const FinancialsSlide = () => {
 
   const revenueProjection = [
     { year: "Year 1", customers: 2, arpu: "€60K", revenue: "€120K", team: 4 },
-    { year: "Year 2", customers: 8, arpu: "€75K", revenue: "€600K", team: 8 },
-    { year: "Year 3", customers: 20, arpu: "€85K", revenue: "€1.7M", team: 15 },
-    { year: "Year 4", customers: 45, arpu: "€95K", revenue: "€4.3M", team: 28 },
-    { year: "Year 5", customers: 85, arpu: "€110K", revenue: "€9.4M", team: 50 }
+    { year: "Year 2", customers: 20, arpu: "€85K", revenue: "€1.7M", team: 15 },
+    { year: "Year 3", customers: 85, arpu: "€110K", revenue: "€9.4M", team: 50 },
+    { year: "Year 4", customers: 180, arpu: "€122K", revenue: "€22M", team: 85 },
+    { year: "Year 5", customers: 350, arpu: "€128K", revenue: "€45M", team: 150 }
   ];
 
   const fundingStrategy = [
@@ -253,7 +253,7 @@ const FinancialsSlide = () => {
             <h4 className="text-xl font-bold mb-4 text-center">🎯 Investment Highlights</h4>
             <div className="grid grid-cols-4 gap-6 text-center">
               <div>
-                <div className="text-2xl font-bold gradient-text">€9.4M</div>
+                <div className="text-2xl font-bold gradient-text">€45M</div>
                 <div className="text-sm text-muted-foreground">Revenue by Year 5</div>
               </div>
               <div>
