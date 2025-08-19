@@ -8,46 +8,46 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Light-Elevated Dark Theme for Premium Presentation */
+    /* Noir-Light Theme - Better Contrast */
     
-    /* Background: Light-elevated dark for high contrast */
-    --background: 213 22% 11%;  /* Light-elevated dark #0B1B2B */
-    --foreground: 210 14% 97%; /* Clean White #F8FAFC */
+    /* Background: Enhanced contrast dark */
+    --background: 220 44% 7%;       /* #0B1220 */
+    --foreground: 214 25% 89%;      /* #E6EAF2 */
 
-    /* Cards: Enhanced readability */
-    --card: 213 28% 14%;       /* Enhanced card background #0F2233 */
-    --card-foreground: 210 14% 97%;
+    /* Cards: 6-8% lighter than page */
+    --card: 220 34% 11%;            /* #111827 */
+    --card-foreground: 214 25% 89%; /* #E6EAF2 */
 
-    --popover: 217 28% 12%;
-    --popover-foreground: 210 14% 97%;
+    --popover: 220 34% 11%;
+    --popover-foreground: 214 25% 89%;
 
-    /* Primary: Strategic Blue Palette - Investor Decision-making */
-    --primary: 217 28% 12%;    /* Deep Navy - Trustworthiness */
-    --primary-foreground: 210 14% 97%;
-    --primary-glow: 217 32% 18%; /* Brighter navy for emphasis */
-    --primary-accent: 217 25% 15%;
+    /* Primary: Apple-like Teal */
+    --primary: 142 69% 58%;         /* #30D158 */
+    --primary-foreground: 220 44% 7%;
+    --primary-glow: 142 69% 65%;
+    --primary-accent: 142 69% 50%;
 
-    /* Secondary: Professional Graphite - Sophistication */
-    --secondary: 220 12% 18%;  /* Professional Graphite #2B3446 */
-    --secondary-foreground: 210 14% 97%;
-    --secondary-glow: 220 15% 22%;
+    /* Secondary: Enhanced surface */
+    --secondary: 220 25% 18%;       /* #1E293B */
+    --secondary-foreground: 214 25% 89%;
+    --secondary-glow: 220 25% 22%;
 
-    /* Accent: Growth Green - Action, Growth, Safe Environment */
-    --accent: 142 69% 45%;      /* Strategic Green #24B47E - Growth & Action */
-    --accent-foreground: 210 14% 97%;
-    --accent-glow: 142 69% 50%;
+    /* Accent: Apple Blue */
+    --accent: 213 100% 52%;         /* #0A84FF */
+    --accent-foreground: 214 25% 89%;
+    --accent-glow: 213 100% 60%;
     
-    /* Warning: Premium Purple - Innovation, Advanced Tech, Luxury */
-    --warning: 258 90% 66%;   /* Tech Purple #6C5CE7 - Innovation */
-    --warning-foreground: 210 14% 97%;
+    /* Warning: Apple Orange */
+    --warning: 31 100% 52%;         /* #FF9F0A */
+    --warning-foreground: 214 25% 89%;
 
-    /* Destructive: Minimal Red Usage - Avoided per psychology */
-    --destructive: 0 60% 50%;
-    --destructive-foreground: 210 14% 97%;
+    /* Destructive: Apple Red */
+    --destructive: 4 100% 59%;      /* #FF453A */
+    --destructive-foreground: 214 25% 89%;
 
-    /* Muted: Cool Gray Tones - Professional, Non-distracting */
-    --muted: 220 8% 25%;          /* Cool Gray */
-    --muted-foreground: 210 10% 80%;
+    /* Muted: Secondary text */
+    --muted: 213 19% 69%;           /* #9FB0C7 */
+    --muted-foreground: 213 14% 58%; /* #7B8794 */
 
     /* Borders: Subtle Professional Lines */
     --border: 220 12% 18%;        /* Graphite dividers */
