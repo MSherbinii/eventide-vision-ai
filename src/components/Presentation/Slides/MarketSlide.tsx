@@ -67,7 +67,7 @@ const MarketSlide = () => {
           <span className="gradient-text">Perfect Storm</span> of Opportunity
         </h1>
         <p className="text-sm text-muted-foreground max-w-3xl mx-auto">
-          Global machine vision: $20.38B (2024) → $41.74B (2030). MEA doubling to $3.4B.
+          Global machine vision: $20.4B (2024) → $41.7B (2030) at 13.5% CAGR
         </p>
       </div>
 

@@ -30,8 +30,8 @@ const AskSlide = () => {
         <Badge variant="outline" className="mb-4 font-heading text-sm border-accent text-accent">
           FUNDING REQUEST
         </Badge>
-        <h1 className="font-heading font-bold text-5xl mb-4 text-foreground">
-          Pre-Seed Ask
+        <h1 className="text-3xl font-bold mb-6">
+          <span className="gradient-text">Lumina AI Pre-Seed Ask</span>
         </h1>
         <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
           €500K to fund MVP development, pilot programs, and team building 

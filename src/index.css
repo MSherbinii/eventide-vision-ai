@@ -17,25 +17,22 @@ All colors MUST be HSL.
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    /* Eventide Vision color palette */
-    --primary: 215 57% 17%;  /* Navy #1A2E50 */
-    --primary-foreground: 0 0% 100%;
-    --primary-glow: 215 57% 25%;
-    --primary-accent: 215 57% 30%;
+    /* Lumina AI - Cool Rainbow Palette */
+    --primary: 214 100% 60%;  /* Electric Blue */
+    --primary-foreground: 225 15% 8%;
+    --primary-glow: 214 85% 75%;
+    --primary-accent: 214 100% 70%;
 
-    --secondary: 217 100% 35%; /* Light Steel Blue #A3C4D7 equivalent */
-    --secondary-foreground: 215 57% 17%;
-    --secondary-glow: 217 100% 45%;
+    --secondary: 190 100% 50%; /* Cyan */
+    --secondary-foreground: 225 15% 8%;
+    --secondary-glow: 190 85% 70%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 174 100% 38%; /* Teal #00C4B0 */
-    --accent-foreground: 0 0% 100%;
-    --accent-glow: 174 100% 50%;
+    --accent: 270 100% 65%; /* Purple */
+    --accent-foreground: 225 15% 8%;
+    --accent-glow: 270 85% 80%;
     
-    --warning: 25 95% 53%; /* Orange #FF8C42 */
-    --warning-foreground: 0 0% 100%;
+    --warning: 160 100% 60%; /* Mint */
+    --warning-foreground: 225 15% 8%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
@@ -44,15 +41,15 @@ All colors MUST be HSL.
     --input: 214.3 31.8% 91.4%;
     --ring: 240 100% 27%;
 
-    /* Advanced gradients for tech startup */
-    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
-    --gradient-secondary: linear-gradient(135deg, hsl(var(--secondary)), hsl(var(--secondary-glow)));
-    --gradient-accent: linear-gradient(135deg, hsl(var(--accent)), hsl(var(--accent-glow)));
-    --gradient-hero: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--secondary)) 50%, hsl(var(--accent)) 100%);
+    /* Modern Rainbow Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(214 100% 60%), hsl(270 100% 65%));
+    --gradient-secondary: linear-gradient(135deg, hsl(190 100% 50%), hsl(160 100% 60%));
+    --gradient-accent: linear-gradient(135deg, hsl(270 100% 65%), hsl(310 100% 65%));
+    --gradient-hero: linear-gradient(135deg, hsl(214 100% 60%) 0%, hsl(190 100% 50%) 50%, hsl(270 100% 65%) 100%);
     --gradient-subtle: linear-gradient(180deg, hsl(var(--background)), hsl(210 40% 98%));
-    --gradient-mesh: radial-gradient(circle at 20% 30%, hsl(var(--primary) / 0.3) 0%, transparent 50%), 
-                     radial-gradient(circle at 80% 70%, hsl(var(--secondary) / 0.3) 0%, transparent 50%),
-                     radial-gradient(circle at 60% 10%, hsl(var(--accent) / 0.2) 0%, transparent 50%);
+    --gradient-mesh: radial-gradient(circle at 20% 30%, hsl(214 100% 60% / 0.1) 0%, transparent 50%), 
+                     radial-gradient(circle at 80% 70%, hsl(190 100% 50% / 0.1) 0%, transparent 50%),
+                     radial-gradient(circle at 60% 10%, hsl(270 100% 65% / 0.1) 0%, transparent 50%);
 
     /* Tech-focused shadows */
     --shadow-primary: 0 10px 30px -10px hsl(var(--primary) / 0.3);
@@ -95,24 +92,21 @@ All colors MUST be HSL.
     --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 215 57% 17%;  /* Navy #1A2E50 */
-    --primary-foreground: 0 0% 100%;
-    --primary-glow: 215 57% 25%;
-    --primary-accent: 215 57% 30%;
+    --primary: 214 100% 60%;  /* Electric Blue */
+    --primary-foreground: 225 15% 8%;
+    --primary-glow: 214 85% 75%;
+    --primary-accent: 214 100% 70%;
 
-    --secondary: 217 100% 35%; /* Light Steel Blue */
-    --secondary-foreground: 215 57% 17%;
-    --secondary-glow: 217 100% 45%;
+    --secondary: 190 100% 50%; /* Cyan */
+    --secondary-foreground: 225 15% 8%;
+    --secondary-glow: 190 85% 70%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 174 100% 38%; /* Teal #00C4B0 */
-    --accent-foreground: 0 0% 100%;
-    --accent-glow: 174 100% 50%;
+    --accent: 270 100% 65%; /* Purple */
+    --accent-foreground: 225 15% 8%;
+    --accent-glow: 270 85% 80%;
     
-    --warning: 25 95% 53%; /* Orange #FF8C42 */
-    --warning-foreground: 0 0% 100%;
+    --warning: 160 100% 60%; /* Mint */
+    --warning-foreground: 225 15% 8%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
@@ -122,10 +116,10 @@ All colors MUST be HSL.
     --ring: 220 100% 50%;
 
     /* Dark mode gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
-    --gradient-secondary: linear-gradient(135deg, hsl(var(--secondary)), hsl(var(--secondary-glow)));
-    --gradient-accent: linear-gradient(135deg, hsl(var(--accent)), hsl(var(--accent-glow)));
-    --gradient-hero: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--secondary)) 50%, hsl(var(--accent)) 100%);
+    --gradient-primary: linear-gradient(135deg, hsl(214 100% 60%), hsl(270 100% 65%));
+    --gradient-secondary: linear-gradient(135deg, hsl(190 100% 50%), hsl(160 100% 60%));
+    --gradient-accent: linear-gradient(135deg, hsl(270 100% 65%), hsl(310 100% 65%));
+    --gradient-hero: linear-gradient(135deg, hsl(214 100% 60%) 0%, hsl(190 100% 50%) 50%, hsl(270 100% 65%) 100%);
     --gradient-subtle: linear-gradient(180deg, hsl(var(--background)), hsl(217.2 32.6% 15%));
 
     --shadow-primary: 0 10px 30px -10px hsl(var(--primary) / 0.4);

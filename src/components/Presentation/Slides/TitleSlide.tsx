@@ -28,7 +28,7 @@ const TitleSlide = () => {
           {/* Company Title */}
           <div className="space-y-4">
             <div className="text-4xl md:text-5xl font-bold tracking-tight">
-              <span className="gradient-text animate-float">Eventide Vision</span>
+              <span className="gradient-text animate-float">Lumina AI</span>
             </div>
             <div className="text-lg md:text-xl font-light text-muted-foreground">
               Perception-as-a-Service for Factories
@@ -47,18 +47,18 @@ const TitleSlide = () => {
               <div className="text-center space-y-2">
                 <Eye className="w-8 h-8 mx-auto text-primary animate-pulse-glow" />
                 <div className="text-2xl font-bold gradient-text">
-                  $<CountingNumber from={0} to={41.7} duration={3} />B
+                  $<CountingNumber from={0} to={20.4} duration={3} />B
                 </div>
-                <p className="text-sm text-muted-foreground">Market by 2030</p>
+                <p className="text-sm text-muted-foreground">Market Size 2024</p>
               </div>
             </Card>
             <Card className="p-4 bg-card/50 backdrop-blur-sm border-secondary/20 glow-effect floating-card">
               <div className="text-center space-y-2">
                 <Zap className="w-8 h-8 mx-auto text-secondary animate-bounce-slow" />
                 <div className="text-2xl font-bold gradient-text">
-                  <CountingNumber from={0} to={1000} duration={3} />x
+                  <CountingNumber from={0} to={120} duration={3} />dB
                 </div>
-                <p className="text-sm text-muted-foreground">Faster Processing</p>
+                <p className="text-sm text-muted-foreground">Dynamic Range</p>
               </div>
             </Card>
             <Card className="p-4 bg-card/50 backdrop-blur-sm border-accent/20 glow-effect floating-card">

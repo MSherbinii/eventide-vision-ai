@@ -68,8 +68,8 @@ const GoToMarketSlide = () => {
         <Badge variant="outline" className="mb-4 font-heading text-sm border-accent text-accent">
           GO-TO-MARKET STRATEGY
         </Badge>
-        <h1 className="font-heading font-bold text-5xl mb-4 text-foreground">
-          Where We Win First
+        <h1 className="text-2xl font-bold mb-3">
+          <span className="gradient-text">Lumina AI: Where We Win First</span>
         </h1>
         <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
           Launch pilots via GCC network and XPRENEURS/TUM in Germany. 
