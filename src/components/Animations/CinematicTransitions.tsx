@@ -1,5 +1,5 @@
-import { motion, useScroll, useTransform, useInView, useMotionValue, useSpring, animate } from 'framer-motion';
-import { useRef, ReactNode, useEffect } from 'react';
+import { motion, useScroll, useTransform, useInView } from 'framer-motion';
+import { useRef, ReactNode, useEffect, useState } from 'react';
 
 interface CinematicSectionProps {
   children: ReactNode;
@@ -17,79 +17,32 @@ export const CinematicSection = ({
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
-  const variants = {
-    hidden: {
-      opacity: 0,
-      y: direction === 'up' ? 100 : direction === 'down' ? -100 : 0,
-      x: direction === 'left' ? 100 : direction === 'right' ? -100 : 0,
-      scale: 0.8,
-      rotateX: direction === 'up' ? 25 : direction === 'down' ? -25 : 0,
-    },
-    visible: {
-      opacity: 1,
-      y: 0,
-      x: 0,
-      scale: 1,
-      rotateX: 0,
-      transition: {
-        duration: 1.2,
-        delay,
-        ease: "easeOut",
-        staggerChildren: 0.1
-      }
-    }
-  };
-
   return (
     <motion.div
       ref={ref}
-      initial="hidden"
-      animate={isInView ? "visible" : "hidden"}
-      variants={variants}
+      initial={{
+        opacity: 0,
+        y: direction === 'up' ? 100 : direction === 'down' ? -100 : 0,
+        x: direction === 'left' ? 100 : direction === 'right' ? -100 : 0,
+        scale: 0.8,
+        rotateX: direction === 'up' ? 25 : direction === 'down' ? -25 : 0,
+      }}
+      animate={isInView ? {
+        opacity: 1,
+        y: 0,
+        x: 0,
+        scale: 1,
+        rotateX: 0,
+      } : {}}
+      transition={{
+        duration: 1.2,
+        delay,
+        ease: "easeOut"
+      }}
       className={`perspective-1000 ${className}`}
     >
       {children}
     </motion.div>
-  );
-};
-
-export const CountingNumber = ({ 
-  from = 0, 
-  to, 
-  duration = 2,
-  className = "",
-  prefix = "",
-  suffix = "" 
-}: {
-  from?: number;
-  to: number;
-  duration?: number;
-  className?: string;
-  prefix?: string;
-  suffix?: string;
-}) => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
-  const count = useMotionValue(from);
-  const rounded = useSpring(count, { duration: duration * 1000 });
-
-  useEffect(() => {
-    if (isInView) {
-      animate(count, to, { duration });
-    }
-  }, [isInView, count, to, duration]);
-
-  return (
-    <motion.span
-      ref={ref}
-      className={className}
-      initial={{ opacity: 0 }}
-      animate={{ opacity: isInView ? 1 : 0 }}
-    >
-      {prefix}
-      <motion.span>{Math.round(rounded.get())}</motion.span>
-      {suffix}
-    </motion.span>
   );
 };
 
@@ -131,7 +84,7 @@ export const ZoomReveal = ({
       animate={isInView ? { scale: 1, opacity: 1 } : { scale, opacity: 0 }}
       transition={{ 
         duration: 1.5, 
-        ease: [0.25, 0.46, 0.45, 0.94]
+        ease: "easeOut"
       }}
       className={className}
     >
@@ -152,29 +105,23 @@ export const SlideReveal = ({
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
-  const variants = {
-    hidden: {
-      opacity: 0,
-      x: direction === 'left' ? -100 : direction === 'right' ? 100 : 0,
-      y: direction === 'up' ? 100 : direction === 'down' ? -100 : 0,
-    },
-    visible: {
-      opacity: 1,
-      x: 0,
-      y: 0,
-      transition: {
-        duration: 0.8,
-        ease: [0.25, 0.46, 0.45, 0.94]
-      }
-    }
-  };
-
   return (
     <motion.div
       ref={ref}
-      initial="hidden"
-      animate={isInView ? "visible" : "hidden"}
-      variants={variants}
+      initial={{
+        opacity: 0,
+        x: direction === 'left' ? -100 : direction === 'right' ? 100 : 0,
+        y: direction === 'up' ? 100 : direction === 'down' ? -100 : 0,
+      }}
+      animate={isInView ? {
+        opacity: 1,
+        x: 0,
+        y: 0,
+      } : {}}
+      transition={{
+        duration: 0.8,
+        ease: "easeOut"
+      }}
       className={className}
     >
       {children}
@@ -194,23 +141,15 @@ export const StaggerContainer = ({
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
 
-  const container = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: stagger,
-        delayChildren: 0.1
-      }
-    }
-  };
-
   return (
     <motion.div
       ref={ref}
-      initial="hidden"
-      animate={isInView ? "visible" : "hidden"}
-      variants={container}
+      initial={{ opacity: 0 }}
+      animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+      transition={{
+        staggerChildren: stagger,
+        delayChildren: 0.1
+      }}
       className={className}
     >
       {children}
@@ -225,25 +164,24 @@ export const StaggerItem = ({
   children: ReactNode; 
   className?: string;
 }) => {
-  const item = {
-    hidden: { 
-      opacity: 0, 
-      y: 50,
-      scale: 0.8
-    },
-    visible: { 
-      opacity: 1, 
-      y: 0,
-      scale: 1,
-      transition: {
-        duration: 0.6,
-        ease: [0.25, 0.46, 0.45, 0.94]
-      }
-    }
-  };
-
   return (
-    <motion.div variants={item} className={className}>
+    <motion.div 
+      initial={{ 
+        opacity: 0, 
+        y: 50,
+        scale: 0.8
+      }}
+      animate={{ 
+        opacity: 1, 
+        y: 0,
+        scale: 1
+      }}
+      transition={{
+        duration: 0.6,
+        ease: "easeOut"
+      }}
+      className={className}
+    >
       {children}
     </motion.div>
   );
@@ -266,6 +204,24 @@ export const CountingNumber = ({
 }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
+  const [displayValue, setDisplayValue] = useState(from);
+
+  useEffect(() => {
+    if (isInView) {
+      const startTime = Date.now();
+      const animate = () => {
+        const elapsed = Date.now() - startTime;
+        const progress = Math.min(elapsed / (duration * 1000), 1);
+        const currentValue = from + (to - from) * progress;
+        setDisplayValue(Math.round(currentValue));
+        
+        if (progress < 1) {
+          requestAnimationFrame(animate);
+        }
+      };
+      animate();
+    }
+  }, [isInView, from, to, duration]);
 
   return (
     <motion.span
@@ -273,25 +229,8 @@ export const CountingNumber = ({
       className={className}
       initial={{ opacity: 0 }}
       animate={{ opacity: isInView ? 1 : 0 }}
-      transition={{ duration: 0.5 }}
     >
-      {prefix}
-      <motion.span
-        initial={{ opacity: 0 }}
-        animate={isInView ? { opacity: 1 } : { opacity: 0 }}
-        transition={{ duration }}
-      >
-        {isInView && (
-          <motion.span
-            initial={from}
-            animate={to}
-            transition={{ duration, ease: "easeOut" }}
-          >
-            {({ value }: { value: number }) => Math.round(value)}
-          </motion.span>
-        )}
-      </motion.span>
-      {suffix}
+      {prefix}{displayValue}{suffix}
     </motion.span>
   );
 };
