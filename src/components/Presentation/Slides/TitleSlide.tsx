@@ -3,14 +3,16 @@ import { motion } from "framer-motion";
 
 const TitleSlide = () => {
   return (
-    <div className="w-full h-full flex flex-col justify-center relative overflow-hidden" 
-         style={{ background: 'linear-gradient(180deg, #0B1B2B 0%, #0F2233 35%, #122339 100%)' }}>
-      {/* Background Image with Overlay */}
+    <div className="w-full h-full flex flex-col justify-center relative overflow-hidden bg-gradient-to-br from-background via-[hsl(220_34%_8%)] to-[hsl(142_69%_8%)]">
+      {/* Chromatic Background Pattern */}
       <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 bg-gradient-to-tr from-primary/5 via-transparent to-accent/10"></div>
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-accent/8 rounded-full blur-3xl"></div>
         <img 
           src="/src/assets/hero-industrial.jpg" 
           alt="Industrial manufacturing facility" 
-          className="w-full h-full object-cover opacity-20"
+          className="w-full h-full object-cover opacity-15"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-transparent to-black/60" />
       </div>
@@ -25,17 +27,17 @@ const TitleSlide = () => {
           className="space-y-6 mb-12"
         >
           <h1 className="text-6xl md:text-7xl font-bold leading-tight tracking-[-0.01em]">
-            <span className="block text-[#E6C069]">Eventide Vision</span>
-            <span className="block text-[#F8FAFC] text-4xl md:text-5xl">
+            <span className="block text-primary">Eventide Vision</span>
+            <span className="block text-white text-4xl md:text-5xl">
               Perception-as-a-Service for Factories
             </span>
           </h1>
           
-          <p className="text-lg md:text-xl text-[#CBD5E1] max-w-3xl mx-auto">
+          <p className="text-lg md:text-xl text-muted max-w-3xl mx-auto">
             Event-based cameras + Edge AI → Fewer misses, less data, faster installs
           </p>
           
-          <div className="text-sm text-[#E6C069] font-medium">
+          <div className="text-sm text-primary font-medium">
             Hardware maturity + automation demand = first-mover opportunity
           </div>
         </motion.div>

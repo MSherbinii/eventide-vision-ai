@@ -8,60 +8,66 @@ import { motion } from "framer-motion";
 const ProblemSlide = () => {
   const problems = [
     {
-      icon: <Clock className="w-12 h-12 text-[#E6C069]" />,
+      icon: <Clock className="w-12 h-12 text-primary" />,
       title: "Processing Latency",
       description: "Frame pipelines choke on high-speed lines; events happen between frames.",
       impact: "",
-      color: "border-[#2C3D58] bg-[#122339]/92"
+      color: "border-border bg-card/80"
     },
     {
-      icon: <DollarSign className="w-12 h-12 text-[#00D1C1]" />,
+      icon: <DollarSign className="w-12 h-12 text-accent" />,
       title: "High Data Costs",
       description: "Full-frame video creates heavy storage/egress and compute bills.",
       impact: "",
-      color: "border-[#2C3D58] bg-[#122339]/92"
+      color: "border-border bg-card/80"
     },
     {
-      icon: <TrendingDown className="w-12 h-12 text-[#FFC466]" />,
+      icon: <TrendingDown className="w-12 h-12 text-warning" />,
       title: "Limited Performance",
       description: "Motion blur + glare miss micro-defects at line speed.",
       impact: "",
-      color: "border-[#2C3D58] bg-[#122339]/92"
+      color: "border-border bg-card/80"
     },
     {
-      icon: <AlertTriangle className="w-12 h-12 text-[#FF5E5E]" />,
+      icon: <AlertTriangle className="w-12 h-12 text-destructive" />,
       title: "Complex Integration",
       description: "Fragmented tools → multi-month, cross-vendor projects.",
       impact: "",
-      color: "border-[#2C3D58] bg-[#122339]/92"
+      color: "border-border bg-card/80"
     }
   ];
 
   return (
-    <div className="w-full h-full flex flex-col justify-center px-8 py-6" 
-         style={{ background: 'linear-gradient(180deg, #0F2440 0%, #0A1526 35%, #0B172A 100%)' }}>
+    <div className="w-full h-full flex flex-col justify-center px-8 py-6 bg-gradient-to-br from-background via-[hsl(220_34%_8%)] to-[hsl(4_100%_8%)]">
+      {/* Chromatic Background Pattern */}
+      <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 bg-gradient-to-tr from-destructive/5 via-transparent to-primary/10"></div>
+        <div className="absolute top-1/3 left-1/3 w-72 h-72 bg-destructive/8 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-1/3 right-1/3 w-64 h-64 bg-primary/10 rounded-full blur-3xl"></div>
+      </div>
+      
       {/* Header */}
-      <div className="text-center space-y-4 mb-8">
-        <Badge variant="outline" className="text-sm px-4 py-2 border-[#E6C069] text-[#E6C069] bg-transparent">
+      <div className="relative z-10 text-center space-y-4 mb-8">
+        <Badge variant="outline" className="text-sm px-4 py-2 border-primary text-primary bg-transparent">
           THE PROBLEM
         </Badge>
-        <h1 className="text-3xl md:text-4xl font-bold text-[#F2F6FA]">
+        <h1 className="text-3xl md:text-4xl font-bold text-white">
           Frame-based Vision Struggles
           <br />
-          <span className="text-[#E6C069]">at Line Speed</span>
+          <span className="text-primary">at Line Speed</span>
         </h1>
-        <p className="text-sm text-[#CBD5E1] max-w-2xl mx-auto">
+        <p className="text-sm text-muted max-w-2xl mx-auto">
           High-speed lines + variable lighting break frame-based vision. Motion blur misses defects; data is heavy and expensive to move/store.
         </p>
       </div>
 
       {/* Video Comparison */}
-      <div className="max-w-5xl mx-auto mb-8">
+      <div className="relative z-10 max-w-5xl mx-auto mb-8">
         <VideoCompare />
       </div>
 
       {/* Stats Grid */}
-      <div className="grid grid-cols-3 gap-4 max-w-4xl mx-auto mb-8">
+      <div className="relative z-10 grid grid-cols-3 gap-4 max-w-4xl mx-auto mb-8">
         <StatTile 
           value="Missed" 
           label="Micro-defects at line speed" 
@@ -79,24 +85,21 @@ const ProblemSlide = () => {
         />
       </div>
 
-      {/* Industry Impact */}
-      <motion.div 
-        className="max-w-4xl mx-auto"
+      {/* Bottom Banner */}
+      <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.8, duration: 0.6 }}
+        transition={{ delay: 1, duration: 0.6 }}
+        className="relative z-10 text-center"
       >
-        <div className="p-6 bg-[#122339]/92 rounded-2xl border border-[#00D1C1]/20 shadow-[0_10px_30px_rgba(0,0,0,0.35)]">
-          <h3 className="text-2xl font-bold mb-4 text-center text-[#F2F6FA]">Pilot Goals</h3>
-          <div className="text-center space-y-2">
-            <p className="text-lg text-[#CBD5E1]">Reduce rework/downtime; cut data/compute overhead.</p>
-            <p className="text-sm text-[#93A1B5]">
-              Actual % reported post-pilot.
-            </p>
-          </div>
-        </div>
+        <Card className="p-6 bg-card/80 backdrop-blur-sm border border-primary/20 rounded-2xl shadow-lg">
+          <h3 className="text-lg font-bold mb-3 text-white">The Solution is Clear</h3>
+          <p className="text-sm text-muted max-w-4xl mx-auto">
+            <strong className="text-primary">Pilot goals:</strong> reduce rework/downtime; cut data/compute overhead. Actual % reported post-pilot.
+          </p>
+        </Card>
         <div className="text-center mt-4">
-          <p className="text-xs text-[#93A1B5]">
+          <p className="text-xs text-muted-foreground">
             IMX636 pixel latency &lt;100 µs @1000 lux; HDR &gt;86 dB (up to &gt;120 dB in some conditions). Sony/Prophesee EVK4 specs.
           </p>
         </div>
