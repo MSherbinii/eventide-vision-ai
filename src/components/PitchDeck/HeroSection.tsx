@@ -70,11 +70,31 @@ const HeroSection = () => {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button variant="hero" size="xl" className="group neon-glow">
+            <Button 
+              variant="hero" 
+              size="xl" 
+              className="group neon-glow"
+              onClick={() => {
+                document.getElementById('problem')?.scrollIntoView({ 
+                  behavior: 'smooth',
+                  block: 'start'
+                });
+              }}
+            >
               View Pitch Deck
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Button>
-            <Button variant="tech" size="xl" className="shimmer-effect">
+            <Button 
+              variant="tech" 
+              size="xl" 
+              className="shimmer-effect"
+              onClick={() => {
+                document.getElementById('market')?.scrollIntoView({ 
+                  behavior: 'smooth',
+                  block: 'start'
+                });
+              }}
+            >
               Market Analysis
             </Button>
           </div>

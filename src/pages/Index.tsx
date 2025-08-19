@@ -6,7 +6,8 @@ import BusinessModelSection from "@/components/PitchDeck/BusinessModelSection";
 import TeamTimelineSection from "@/components/PitchDeck/TeamTimelineSection";
 import FundingSection from "@/components/PitchDeck/FundingSection";
 import ScrollProgressIndicator from "@/components/Animations/ScrollProgressIndicator";
-import Interactive3DTimeline from "@/components/3D/Interactive3DTimeline";
+import ScrollBasedTimeline from "@/components/3D/ScrollBasedTimeline";
+import MarketGrowthChart from "@/components/Charts/MarketGrowthChart";
 import Interactive3DChart from "@/components/3D/Interactive3DChart";
 import ParticleDataFlow from "@/components/3D/ParticleDataFlow";
 import { CinematicSection } from "@/components/Animations/CinematicTransitions";
@@ -73,6 +74,7 @@ const Index = () => {
         <CinematicSection direction="right">
           <div id="market">
             <MarketTimingSection />
+            <MarketGrowthChart className="my-12" />
             <Interactive3DChart className="my-20" />
           </div>
         </CinematicSection>
@@ -92,7 +94,7 @@ const Index = () => {
         <CinematicSection direction="right">
           <div id="team">
             <TeamTimelineSection />
-            <Interactive3DTimeline className="my-20" />
+            <ScrollBasedTimeline className="my-20" />
           </div>
         </CinematicSection>
 
