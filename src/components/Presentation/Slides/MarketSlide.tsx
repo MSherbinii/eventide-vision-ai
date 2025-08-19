@@ -1,7 +1,7 @@
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { TrendingUp, Clock, Lightbulb, Users, Building, Target } from "lucide-react";
-import Interactive3DChart from "@/components/3D/Interactive3DChart";
+import MarketGrowthChart from "@/components/Charts/MarketGrowthChart";
 import { motion } from "framer-motion";
 
 const MarketSlide = () => {
@@ -145,16 +145,11 @@ const MarketSlide = () => {
           </div>
         </div>
 
-        {/* Right Column - 3D Chart (Simplified) */}
+        {/* Right Column - Market Growth Chart */}
         <div className="flex flex-col">
           <h3 className="text-2xl font-bold mb-3 text-center">Market Growth</h3>
-          <div className="flex-1 bg-card/20 rounded-lg border border-border p-4 flex items-center justify-center">
-            <div className="text-center">
-              <div className="text-4xl mb-2">📈</div>
-              <div className="text-xl font-bold text-accent mb-1">$20.378B → $41.744B</div>
-              <div className="text-sm text-muted-foreground mb-2">2024 → 2030</div>
-              <div className="text-xs text-accent font-medium">13.0% CAGR</div>
-            </div>
+          <div className="flex-1">
+            <MarketGrowthChart />
           </div>
         </div>
       </div>

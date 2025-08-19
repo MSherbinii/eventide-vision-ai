@@ -1,16 +1,16 @@
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Zap, Database, Cpu, Shield, CheckCircle } from "lucide-react";
-import ParticleDataFlow from "@/components/3D/ParticleDataFlow";
+import TechComparisonTable from "@/components/Charts/TechComparisonTable";
 import { motion } from "framer-motion";
 
 const SolutionSlide = () => {
   const advantages = [
     {
       icon: <Zap className="w-10 h-10" />,
-      title: "1000x Faster Processing",
-      description: "Event-based sensors only capture changes, reducing data by 99%+",
-      metric: "< 1ms latency",
+      title: "µs-Level Processing",
+      description: "Event-based sensors only capture changes, <100 µs pixel latency",
+      metric: "< 100µs latency",
       color: "text-primary border-primary/20"
     },
     {
@@ -30,42 +30,9 @@ const SolutionSlide = () => {
     {
       icon: <Shield className="w-10 h-10" />,
       title: "Superior Accuracy",
-      description: "No motion blur, high dynamic range, microsecond precision",
-      metric: "> 99% accuracy",
-      color: "text-green-500 border-green-500/20"
-    }
-  ];
-
-  const comparison = [
-    {
-      category: "Response Time",
-      traditional: "30-60 FPS (fixed)",
-      eventBased: "Microsecond response",
-      advantage: "1000x faster"
-    },
-    {
-      category: "Data Processing",
-      traditional: "Process entire frames",
-      eventBased: "Only pixel changes",
-      advantage: "99% less data"
-    },
-    {
-      category: "Motion Blur",
-      traditional: "Significant at high speeds",
-      eventBased: "No motion blur ever",
-      advantage: "Perfect clarity"
-    },
-    {
-      category: "Dynamic Range",
-      traditional: "60-80dB limited",
-      eventBased: "120dB range",
-      advantage: "2x dynamic range"
-    },
-    {
-      category: "Power Consumption",
-      traditional: "High processing load",
-      eventBased: "Edge-optimized",
-      advantage: "10x more efficient"
+      description: "No motion blur, HDR >120 dB, microsecond precision",
+      metric: "> 99.5% accuracy",
+      color: "text-warning border-warning/20"
     }
   ];
 
@@ -146,42 +113,19 @@ const SolutionSlide = () => {
           </div>
         </div>
 
-        {/* Right Column - Comparison Table */}
+        {/* Right Column - Tech Comparison */}
         <div className="space-y-4">
-          <h3 className="text-2xl font-bold">Event vs Traditional</h3>
-          <Card className="p-4">
-            <div className="space-y-3">
-              <div className="grid grid-cols-4 gap-3 pb-2 border-b border-border text-xs font-semibold">
-                <div>Feature</div>
-                <div>Traditional RGB</div>
-                <div>Event-Based</div>
-                <div>Advantage</div>
-              </div>
-              {comparison.map((item, index) => (
-                <motion.div
-                  key={index}
-                  className="grid grid-cols-4 gap-3 py-2 border-b border-border/30 text-xs"
-                  initial={{ opacity: 0, x: 50 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.5 + index * 0.1, duration: 0.5 }}
-                >
-                  <div className="font-semibold">{item.category}</div>
-                  <div className="text-muted-foreground">{item.traditional}</div>
-                  <div className="text-primary">{item.eventBased}</div>
-                  <div className="text-green-500 font-semibold">{item.advantage}</div>
-                </motion.div>
-              ))}
-            </div>
-          </Card>
+          <h3 className="text-2xl font-bold">Technology Edge</h3>
+          <TechComparisonTable />
 
           {/* Solution Components */}
-          <div>
+          <div className="mt-4">
             <h4 className="text-lg font-bold mb-3">Complete Solution Stack</h4>
             <div className="space-y-2">
               {[
-                { title: "Hardware Integration", desc: "Prophesee EVK4 (IMX636): HD, <100 µs latency @1000 lux" },
-                { title: "AI Processing Engine", desc: "Custom deep learning models for event data" },
-                { title: "Management Portal", desc: "Complete software platform for monitoring & alerts" }
+                { title: "Hardware Integration", desc: "Prophesee EVK4 (IMX636): 1280×720, <100 μs @ 1000 lux" },
+                { title: "AI Processing Engine", desc: "Custom deep learning models optimized for event data" },
+                { title: "Management Portal", desc: "Real-time KPIs, audit trails, alerts & MES/ERP integration" }
               ].map((component, index) => (
                 <motion.div
                   key={index}
