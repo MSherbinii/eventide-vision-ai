@@ -12,15 +12,19 @@ const CostOfFrameVisionSlide = () => {
     computePercentage: 0,
     scrapPercentage: 0,
     downtimePercentage: 0,
+    integrationPercentage: 15,
     monthlyCosts: {
       storage: 0,
       compute: 0,
       rework: 0,
-      downtime: 0
+      downtime: 0,
+      integration: 6250
     },
     eventComputeCost: 0,
     rgbComputeCost: 0,
-    totalSavings: 0
+    totalSavings: 0,
+    rgbCameraCount: 4,
+    eventCameraCount: 4
   });
 
   // Industry-researched baseline calculations based on actual systems
@@ -85,15 +89,19 @@ const CostOfFrameVisionSlide = () => {
       computePercentage: Math.round((rgbComputeCost / totalRgbCosts) * 100), 
       scrapPercentage: Math.round((reworkCostMonthly / totalRgbCosts) * 100),
       downtimePercentage: Math.round((downtimeCostMonthly / totalRgbCosts) * 100),
+      integrationPercentage: 15,
       monthlyCosts: {
         storage: rgbStorageCost,
         compute: rgbComputeCost,
         rework: reworkCostMonthly,
-        downtime: downtimeCostMonthly
+        downtime: downtimeCostMonthly,
+        integration: 6250
       },
       rgbComputeCost: rgbComputeCost,
       eventComputeCost: eventComputeCost,
-      totalSavings: totalSavings
+      totalSavings: totalSavings,
+      rgbCameraCount: 4,
+      eventCameraCount: 4
     });
   }, []);
 
@@ -139,17 +147,17 @@ const CostOfFrameVisionSlide = () => {
               color="hsl(var(--warning))"
             />
             <AnimatedGauge
-              title="Scrap & Rework"
+              title="Quality Impact"
               icon={<AlertTriangle className="w-10 h-10 text-destructive" />}
               percentage={calculations.scrapPercentage}
               label={`$${calculations.monthlyCosts.rework.toLocaleString()}/month`}
               color="hsl(var(--destructive))"
             />
             <AnimatedGauge
-              title="False Downtime"
+              title="Integration Cost"
               icon={<TrendingDown className="w-10 h-10 text-accent" />}
-              percentage={calculations.downtimePercentage}
-              label={`$${calculations.monthlyCosts.downtime.toLocaleString()}/month`}
+              percentage={calculations.integrationPercentage || 15}
+              label={`$${(calculations.monthlyCosts.integration || 6250).toLocaleString()}/month`}
               color="hsl(var(--accent))"
             />
           </div>
@@ -158,12 +166,12 @@ const CostOfFrameVisionSlide = () => {
           <Card className="p-4 bg-card/80 backdrop-blur-sm border border-border rounded-2xl shadow-lg">
             <h4 className="text-sm font-bold mb-2 text-white">Research Basis</h4>
             <div className="space-y-1 text-xs text-muted">
-              <div>• <strong>RGB Compute:</strong> ${calculations.rgbComputeCost.toLocaleString()}/month (AWS g4dn.xlarge + 250W edge)</div>
-              <div>• <strong>Event Compute:</strong> ${calculations.eventComputeCost.toLocaleString()}/month (60% less + 15W edge)</div>
-              <div>• <strong>Monthly Savings:</strong> ${calculations.totalSavings.toLocaleString()} (87% TCO reduction)</div>
-              <div>• Storage + Egress: S3 + Kinesis + transfer costs</div>
-              <div>• Event data reduction: 100x less volume (conservative estimate)</div>
-              <div>• Sources: AWS pricing, Nature 2024, ArXiv neuromorphic studies</div>
+              <div>• <strong>RGB System:</strong> ${calculations.rgbComputeCost.toLocaleString()}/month ({calculations.rgbCameraCount} Basler 4K cameras)</div>
+              <div>• <strong>Event System:</strong> ${calculations.eventComputeCost.toLocaleString()}/month ({calculations.eventCameraCount} Sony IMX636 cameras)</div>
+              <div>• <strong>Monthly Savings:</strong> ${calculations.totalSavings.toLocaleString()} (compute + storage + accuracy gains)</div>
+              <div>• Top-tier cameras: Basler ace 2 Pro vs Sony/Prophesee EVK4</div>
+              <div>• Compute scales linearly with camera count and processing requirements</div>
+              <div>• Sources: Basler/Sony specs, AWS pricing, research papers</div>
             </div>
           </Card>
 
@@ -203,7 +211,9 @@ const CostOfFrameVisionSlide = () => {
                 ...newCalculations,
                 rgbComputeCost: newCalculations.monthlyCosts?.rgbCompute || prev.rgbComputeCost,
                 eventComputeCost: newCalculations.monthlyCosts?.eventCompute || prev.eventComputeCost,
-                totalSavings: newCalculations.monthlySavings || prev.totalSavings
+                totalSavings: newCalculations.monthlySavings || prev.totalSavings,
+                rgbCameraCount: newCalculations.rgbCameraCount || prev.rgbCameraCount,
+                eventCameraCount: newCalculations.eventCameraCount || prev.eventCameraCount
               }));
             }}
           />

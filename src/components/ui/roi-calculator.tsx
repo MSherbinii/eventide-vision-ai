@@ -11,31 +11,33 @@ interface ROICalculatorProps {
 
 export function ROICalculator({ title = "ROI Calculator (Illustrative)", onCalculationChange }: ROICalculatorProps) {
   const [inputs, setInputs] = useState({
+    rgbCameraCount: 4,
+    eventCameraCount: 4,
     fps: 60,
     itemsPerHour: 3600,
     defectRate: 0.3,
     scrapCost: 2.5,
     hoursPerDay: 24,
-    cameraType: 'rgb', // 'rgb', '3d', 'event'
+    cameraType: 'both', // 'rgb', 'event', 'both'
   });
 
   const [results, setResults] = useState({
-    rgbSystem: {
-      dataVolume: 0,
-      storageCost: 0,
-      computeCost: 0,
-      reworkCost: 0,
-      downtimeCost: 0,
-      totalCost: 0,
-    },
-    eventSystem: {
-      dataVolume: 0,
-      storageCost: 0,
-      computeCost: 0,
-      reworkCost: 0,
-      downtimeCost: 0,
-      totalCost: 0,
-    },
+      rgbSystem: {
+        dataVolume: 0,
+        storageCost: 0,
+        computeCost: 0,
+        reworkCost: 0,
+        integrationCost: 0,
+        totalCost: 0,
+      },
+      eventSystem: {
+        dataVolume: 0,
+        storageCost: 0,
+        computeCost: 0,
+        reworkCost: 0,
+        integrationCost: 0,
+        totalCost: 0,
+      },
     savings: {
       dataReduction: 0,
       costSavings: 0,
@@ -45,72 +47,97 @@ export function ROICalculator({ title = "ROI Calculator (Illustrative)", onCalcu
 
   // Calculate results whenever inputs change - based on research data
   useEffect(() => {
-    const resolution = 1920 * 1080; // 2MP industrial standard
     const daysInMonth = 30;
     
-    // RGB Camera System Calculations
-    const rgbBytesPerPixel = 3; // RGB 24-bit
-    const frameDataGBPerDay = (inputs.fps * resolution * rgbBytesPerPixel * inputs.hoursPerDay * 3600) / (1024 ** 3);
-    const frameDataGBPerMonth = frameDataGBPerDay * daysInMonth;
+    // Top-tier industrial camera specifications
+    const rgbCameraSpecs = {
+      name: "Basler ace 2 Pro 4K (Top-tier RGB)",
+      resolution: 3840 * 2160, // 4K industrial
+      fps: inputs.fps,
+      bitDepth: 24, // RGB 8-bit per channel
+      powerConsumption: 12, // Watts per camera
+      processingLoad: 1.0 // Baseline processing requirement
+    };
     
-    // Event-based system (research: 10x-1000x reduction, using 100x conservative)
-    const eventDataReduction = 100;
-    const eventDataGBPerMonth = frameDataGBPerMonth / eventDataReduction;
+    const eventCameraSpecs = {
+      name: "Sony IMX636 (Prophesee EVK4)",
+      resolution: 1280 * 720, // Event sensor resolution
+      eventsPerSecond: 20000, // Events per second per pixel capability
+      powerConsumption: 2, // Watts per camera (much lower)
+      processingLoad: 0.15 // 85% less processing needed
+    };
+    
+    // RGB System Costs (per camera, then multiply by count)
+    const rgbBytesPerPixel = rgbCameraSpecs.bitDepth / 8;
+    const rgbDataPerCameraPerDay = (rgbCameraSpecs.fps * rgbCameraSpecs.resolution * rgbBytesPerPixel * inputs.hoursPerDay * 3600) / (1024 ** 3);
+    const rgbTotalDataPerMonth = rgbDataPerCameraPerDay * daysInMonth * inputs.rgbCameraCount;
+    
+    // Event System Costs (significantly less data)
+    const eventDataReductionFactor = 150; // Conservative 150x reduction based on research
+    const eventTotalDataPerMonth = (rgbDataPerCameraPerDay / eventDataReductionFactor) * daysInMonth * inputs.eventCameraCount;
     
     // Storage costs (S3 + Kinesis + egress)
-    const storageCostPerGB = 0.023 + 0.014 + (0.09 * 0.1); // S3 + ingestion + 10% egress
-    const rgbStorageCost = frameDataGBPerMonth * storageCostPerGB;
-    const eventStorageCost = eventDataGBPerMonth * storageCostPerGB;
+    const storageCostPerGB = 0.023 + 0.014 + (0.09 * 0.1);
+    const rgbStorageCost = rgbTotalDataPerMonth * storageCostPerGB;
+    const eventStorageCost = eventTotalDataPerMonth * storageCostPerGB;
     
-    // Compute costs (AWS g4dn.xlarge research-based + edge hardware power)
-    const rgbComputeCostPerHour = 3.06 + (0.25 * 0.12); // GPU instance + 250W edge @ $0.12/kWh
-    const eventComputeCostPerHour = 0.85 + (0.015 * 0.12); // Lower compute + 15W edge
-    const rgbProcessingHours = inputs.hoursPerDay * daysInMonth; // Continuous processing
-    const eventProcessingHours = (inputs.hoursPerDay * 0.6) * daysInMonth; // 60% active time (more realistic)
+    // Edge compute costs (per camera)
+    const rgbEdgePowerCostPerCamera = (rgbCameraSpecs.powerConsumption / 1000) * 24 * daysInMonth * 0.12; // kW * hours * $/kWh
+    const eventEdgePowerCostPerCamera = (eventCameraSpecs.powerConsumption / 1000) * 24 * daysInMonth * 0.12;
     
-    const rgbComputeCost = rgbComputeCostPerHour * rgbProcessingHours;
-    const eventComputeCost = eventComputeCostPerHour * eventProcessingHours;
+    const rgbEdgePowerCost = rgbEdgePowerCostPerCamera * inputs.rgbCameraCount;
+    const eventEdgePowerCost = eventEdgePowerCostPerCamera * inputs.eventCameraCount;
     
-    // Quality costs
+    // Cloud compute costs (processing load scales with camera count and type)
+    const baseCloudComputePerHour = 2.50; // Industrial edge compute instance
+    const rgbCloudHoursPerMonth = inputs.hoursPerDay * daysInMonth * rgbCameraSpecs.processingLoad * inputs.rgbCameraCount;
+    const eventCloudHoursPerMonth = inputs.hoursPerDay * daysInMonth * eventCameraSpecs.processingLoad * inputs.eventCameraCount;
+    
+    const rgbCloudComputeCost = rgbCloudHoursPerMonth * baseCloudComputePerHour;
+    const eventCloudComputeCost = eventCloudHoursPerMonth * baseCloudComputePerHour;
+    
+    // Total compute costs (edge + cloud)
+    const rgbTotalComputeCost = rgbEdgePowerCost + rgbCloudComputeCost;
+    const eventTotalComputeCost = eventEdgePowerCost + eventCloudComputeCost;
+    
+    // Quality costs (defect detection accuracy difference)
     const defectsPerMonth = (inputs.itemsPerHour * inputs.hoursPerDay * daysInMonth) * (inputs.defectRate / 100);
     const baseReworkCost = defectsPerMonth * inputs.scrapCost;
     
-    // RGB has higher false positive rate due to motion blur
-    const rgbReworkCost = baseReworkCost * 1.2; // 20% more false positives
-    const eventReworkCost = baseReworkCost * 0.8; // 20% fewer false positives
+    // RGB has motion blur issues at high speeds, Event-based has better accuracy
+    const rgbAccuracyLoss = 0.15; // 15% accuracy loss due to motion blur at high speeds
+    const eventAccuracyGain = 0.25; // 25% better detection due to no motion blur
     
-    // Downtime costs (false stops more common with RGB)
-    const marginPerHour = 450; // Industry average
-    const rgbStopsPerMonth = 3 * 4.33; // 3 per week
-    const eventStopsPerMonth = 1 * 4.33; // 1 per week (more reliable)
-    const minutesPerStop = 15;
+    const rgbReworkCost = baseReworkCost * (1 + rgbAccuracyLoss);
+    const eventReworkCost = baseReworkCost * (1 - eventAccuracyGain);
     
-    const rgbDowntimeCost = (rgbStopsPerMonth * minutesPerStop / 60) * marginPerHour;
-    const eventDowntimeCost = (eventStopsPerMonth * minutesPerStop / 60) * marginPerHour;
+    // Integration & maintenance costs (monthly amortized)
+    const rgbIntegrationCost = 150000 / 24; // €150K integration amortized over 2 years
+    const eventIntegrationCost = 75000 / 24; // €75K integration (faster deployment)
     
-    // Total costs
-    const rgbTotalCost = rgbStorageCost + rgbComputeCost + rgbReworkCost + rgbDowntimeCost;
-    const eventTotalCost = eventStorageCost + eventComputeCost + eventReworkCost + eventDowntimeCost;
+    // Total system costs
+    const rgbTotalCost = rgbStorageCost + rgbTotalComputeCost + rgbReworkCost + rgbIntegrationCost;
+    const eventTotalCost = eventStorageCost + eventTotalComputeCost + eventReworkCost + eventIntegrationCost;
     
     const newResults = {
       rgbSystem: {
-        dataVolume: frameDataGBPerMonth,
+        dataVolume: rgbTotalDataPerMonth,
         storageCost: rgbStorageCost,
-        computeCost: rgbComputeCost,
+        computeCost: rgbTotalComputeCost,
         reworkCost: rgbReworkCost,
-        downtimeCost: rgbDowntimeCost,
+        integrationCost: rgbIntegrationCost,
         totalCost: rgbTotalCost,
       },
       eventSystem: {
-        dataVolume: eventDataGBPerMonth,
+        dataVolume: eventTotalDataPerMonth,
         storageCost: eventStorageCost,
-        computeCost: eventComputeCost,
+        computeCost: eventTotalComputeCost,
         reworkCost: eventReworkCost,
-        downtimeCost: eventDowntimeCost,
+        integrationCost: eventIntegrationCost,
         totalCost: eventTotalCost,
       },
       savings: {
-        dataReduction: Math.round(((frameDataGBPerMonth - eventDataGBPerMonth) / frameDataGBPerMonth) * 100),
+        dataReduction: Math.round(((rgbTotalDataPerMonth - eventTotalDataPerMonth) / rgbTotalDataPerMonth) * 100),
         costSavings: rgbTotalCost - eventTotalCost,
         percentageSavings: Math.round(((rgbTotalCost - eventTotalCost) / rgbTotalCost) * 100),
       }
@@ -122,20 +149,22 @@ export function ROICalculator({ title = "ROI Calculator (Illustrative)", onCalcu
     if (onCalculationChange) {
       onCalculationChange({
         storagePercentage: Math.round((rgbStorageCost / rgbTotalCost) * 100),
-        computePercentage: Math.round((rgbComputeCost / rgbTotalCost) * 100),
+        computePercentage: Math.round((rgbTotalComputeCost / rgbTotalCost) * 100),
         scrapPercentage: Math.round((rgbReworkCost / rgbTotalCost) * 100),
-        downtimePercentage: Math.round((rgbDowntimeCost / rgbTotalCost) * 100),
+        integrationPercentage: Math.round((rgbIntegrationCost / rgbTotalCost) * 100),
         monthlyCosts: {
           storage: rgbStorageCost,
-          compute: rgbComputeCost,
+          compute: rgbTotalComputeCost,
           rework: rgbReworkCost,
-          downtime: rgbDowntimeCost,
-          rgbCompute: rgbComputeCost,
-          eventCompute: eventComputeCost
+          integration: rgbIntegrationCost,
+          rgbCompute: rgbTotalComputeCost,
+          eventCompute: eventTotalComputeCost
         },
-        rgbComputeCost: rgbComputeCost,
-        eventComputeCost: eventComputeCost,
-        monthlySavings: rgbTotalCost - eventTotalCost
+        rgbComputeCost: rgbTotalComputeCost,
+        eventComputeCost: eventTotalComputeCost,
+        monthlySavings: rgbTotalCost - eventTotalCost,
+        rgbCameraCount: inputs.rgbCameraCount,
+        eventCameraCount: inputs.eventCameraCount
       });
     }
   }, [inputs, onCalculationChange]);
@@ -155,6 +184,28 @@ export function ROICalculator({ title = "ROI Calculator (Illustrative)", onCalcu
       <CardContent className="space-y-4">
         {/* Input Controls */}
         <div className="grid grid-cols-2 gap-4">
+          <div className="space-y-2">
+            <label className="text-sm font-medium text-muted">RGB Cameras: {inputs.rgbCameraCount}</label>
+            <Slider
+              value={[inputs.rgbCameraCount]}
+              onValueChange={(value) => handleInputChange('rgbCameraCount', value)}
+              max={12}
+              min={1}
+              step={1}
+              className="w-full"
+            />
+          </div>
+          <div className="space-y-2">
+            <label className="text-sm font-medium text-muted">Event Cameras: {inputs.eventCameraCount}</label>
+            <Slider
+              value={[inputs.eventCameraCount]}
+              onValueChange={(value) => handleInputChange('eventCameraCount', value)}
+              max={12}
+              min={1}
+              step={1}
+              className="w-full"
+            />
+          </div>
           <div className="space-y-2">
             <label className="text-sm font-medium text-muted">FPS: {inputs.fps}</label>
             <Slider
@@ -177,56 +228,21 @@ export function ROICalculator({ title = "ROI Calculator (Illustrative)", onCalcu
               className="w-full"
             />
           </div>
-          <div className="space-y-2">
-            <label className="text-sm font-medium text-muted">Defect Rate: {inputs.defectRate}%</label>
-            <Slider
-              value={[inputs.defectRate]}
-              onValueChange={(value) => handleInputChange('defectRate', value)}
-              max={1.0}
-              min={0.1}
-              step={0.1}
-              className="w-full"
-            />
-          </div>
-          <div className="space-y-2">
-            <label className="text-sm font-medium text-muted">Scrap Cost: ${inputs.scrapCost}</label>
-            <Slider
-              value={[inputs.scrapCost]}
-              onValueChange={(value) => handleInputChange('scrapCost', value)}
-              max={10}
-              min={1}
-              step={0.5}
-              className="w-full"
-            />
-          </div>
         </div>
 
         {/* RGB vs Event Comparison */}
         <div className="space-y-3 pt-4 border-t border-border">
-          <h4 className="text-sm font-bold text-white">RGB vs Event-Based Comparison</h4>
+          <h4 className="text-sm font-bold text-white">System Comparison</h4>
           
-          {/* Data Volume */}
-          <div className="grid grid-cols-3 gap-3 text-center">
-            <div>
-              <div className="flex items-center gap-1 justify-center mb-1">
-                <Database className="w-3 h-3 text-destructive" />
-                <span className="text-xs text-muted">RGB Data</span>
-              </div>
-              <div className="text-lg font-bold text-destructive">{(results.rgbSystem.dataVolume).toLocaleString()} GB</div>
+          {/* Camera Specs */}
+          <div className="grid grid-cols-2 gap-3 text-xs">
+            <div className="bg-destructive/10 p-2 rounded">
+              <div className="font-bold text-destructive">Basler ace 2 Pro 4K ({inputs.rgbCameraCount}x)</div>
+              <div className="text-muted">4K • {inputs.fps}fps • 12W each</div>
             </div>
-            <div>
-              <div className="flex items-center gap-1 justify-center mb-1">
-                <Database className="w-3 h-3 text-primary" />
-                <span className="text-xs text-muted">Event Data</span>
-              </div>
-              <div className="text-lg font-bold text-primary">{(results.eventSystem.dataVolume).toLocaleString()} GB</div>
-            </div>
-            <div>
-              <div className="flex items-center gap-1 justify-center mb-1">
-                <TrendingDown className="w-3 h-3 text-success" />
-                <span className="text-xs text-muted">Reduction</span>
-              </div>
-              <div className="text-lg font-bold text-success">{results.savings.dataReduction}%</div>
+            <div className="bg-primary/10 p-2 rounded">
+              <div className="font-bold text-primary">Sony IMX636 EVK4 ({inputs.eventCameraCount}x)</div>
+              <div className="text-muted">720p • 20K events/sec • 2W each</div>
             </div>
           </div>
           
@@ -262,10 +278,10 @@ export function ROICalculator({ title = "ROI Calculator (Illustrative)", onCalcu
         </div>
 
         <div className="space-y-1 text-xs text-muted">
-          <div>• <strong>Purpose:</strong> Show customer TCO reduction with event-based vision</div>
-          <div>• RGB: AWS g4dn.xlarge $3.06/hr + 250W edge compute</div>
-          <div>• Event: $0.85/hr processing + 15W edge (94% power reduction)</div>
-          <div>• Data: 100x reduction conservative (research shows 10x-1000x)</div>
+          <div>• <strong>Purpose:</strong> Compare total cost of ownership per camera</div>
+          <div>• RGB: Basler 4K cameras - high data, continuous processing</div>
+          <div>• Event: Sony IMX636 - sparse data, event-driven processing</div>
+          <div>• Scales with camera count - compute costs linear with cameras</div>
         </div>
       </CardContent>
     </Card>
