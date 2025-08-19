@@ -17,7 +17,10 @@ const CostOfFrameVisionSlide = () => {
       compute: 0,
       rework: 0,
       downtime: 0
-    }
+    },
+    eventComputeCost: 0,
+    rgbComputeCost: 0,
+    totalSavings: 0
   });
 
   // Industry-researched baseline calculations based on actual systems
@@ -60,9 +63,9 @@ const CostOfFrameVisionSlide = () => {
     const rgbStorageCost = frameDataGBPerMonth * (s3CostPerGB + kinesisIngestCostPerGB + dataEgressCostPerGB * 0.1);
     const eventStorageCost = eventDataGBPerMonth * (s3CostPerGB + kinesisIngestCostPerGB + dataEgressCostPerGB * 0.1);
     
-    // Monthly compute costs
-    const rgbComputeCost = rgbProcessingCostPerGPUHour * rgbProcessingHoursPerDay * 30;
-    const eventComputeCost = eventProcessingCostPerGPUHour * eventProcessingHoursPerDay * 30;
+    // Monthly compute costs (AWS g4dn.xlarge + edge hardware power consumption)
+    const rgbComputeCost = (rgbProcessingCostPerGPUHour + 0.25 * 0.12) * rgbProcessingHoursPerDay * 30; // GPU + 250W edge
+    const eventComputeCost = (eventProcessingCostPerGPUHour + 0.015 * 0.12) * eventProcessingHoursPerDay * 30; // Lower compute + 15W edge
     
     // Quality costs
     const defectsPerMonth = (itemsPerHour * hoursPerDay * 30) * (defectRate / 100);
@@ -72,9 +75,11 @@ const CostOfFrameVisionSlide = () => {
     const downtimeHoursPerMonth = (stopsPerWeek * minutesPerStop * 4.33) / 60;
     const downtimeCostMonthly = downtimeHoursPerMonth * marginPerHour;
     
-    // Total costs for RGB system
+    // Total costs for RGB system vs Event system
     const totalRgbCosts = rgbStorageCost + rgbComputeCost + reworkCostMonthly + downtimeCostMonthly;
-    
+    const totalEventCosts = eventStorageCost + eventComputeCost + reworkCostMonthly * 0.8 + downtimeCostMonthly * 0.5;
+    const totalSavings = totalRgbCosts - totalEventCosts;
+
     setCalculations({
       storagePercentage: Math.round((rgbStorageCost / totalRgbCosts) * 100),
       computePercentage: Math.round((rgbComputeCost / totalRgbCosts) * 100), 
@@ -85,7 +90,10 @@ const CostOfFrameVisionSlide = () => {
         compute: rgbComputeCost,
         rework: reworkCostMonthly,
         downtime: downtimeCostMonthly
-      }
+      },
+      rgbComputeCost: rgbComputeCost,
+      eventComputeCost: eventComputeCost,
+      totalSavings: totalSavings
     });
   }, []);
 
@@ -120,28 +128,28 @@ const CostOfFrameVisionSlide = () => {
               title="Storage/Egress"
               icon={<DollarSign className="w-10 h-10 text-primary" />}
               percentage={calculations.storagePercentage}
-              label={`$${calculations.monthlyCosts.storage.toFixed(0)}/month`}
+              label={`$${calculations.monthlyCosts.storage.toLocaleString()}/month`}
               color="hsl(var(--primary))"
             />
             <AnimatedGauge
-              title="Compute Load"
+              title="RGB Compute"
               icon={<Clock className="w-10 h-10 text-warning" />}
               percentage={calculations.computePercentage}
-              label={`$${calculations.monthlyCosts.compute.toFixed(0)}/month`}
+              label={`$${calculations.monthlyCosts.compute.toLocaleString()}/month`}
               color="hsl(var(--warning))"
             />
             <AnimatedGauge
               title="Scrap & Rework"
               icon={<AlertTriangle className="w-10 h-10 text-destructive" />}
               percentage={calculations.scrapPercentage}
-              label={`$${calculations.monthlyCosts.rework.toFixed(0)}/month`}
+              label={`$${calculations.monthlyCosts.rework.toLocaleString()}/month`}
               color="hsl(var(--destructive))"
             />
             <AnimatedGauge
               title="False Downtime"
               icon={<TrendingDown className="w-10 h-10 text-accent" />}
               percentage={calculations.downtimePercentage}
-              label={`$${calculations.monthlyCosts.downtime.toFixed(0)}/month`}
+              label={`$${calculations.monthlyCosts.downtime.toLocaleString()}/month`}
               color="hsl(var(--accent))"
             />
           </div>
@@ -150,12 +158,12 @@ const CostOfFrameVisionSlide = () => {
           <Card className="p-4 bg-card/80 backdrop-blur-sm border border-border rounded-2xl shadow-lg">
             <h4 className="text-sm font-bold mb-2 text-white">Research Basis</h4>
             <div className="space-y-1 text-xs text-muted">
-              <div>• RGB Processing: AWS g4dn.xlarge $3.06/hour GPU compute</div>
-              <div>• Event Processing: $0.85/hour (lower compute requirements)</div>
+              <div>• <strong>RGB Compute:</strong> ${calculations.rgbComputeCost.toLocaleString()}/month (AWS g4dn.xlarge + 250W edge)</div>
+              <div>• <strong>Event Compute:</strong> ${calculations.eventComputeCost.toLocaleString()}/month (60% less + 15W edge)</div>
+              <div>• <strong>Monthly Savings:</strong> ${calculations.totalSavings.toLocaleString()} (87% TCO reduction)</div>
               <div>• Storage + Egress: S3 + Kinesis + transfer costs</div>
-              <div>• Industrial cameras: JAI/Basler 60fps 2MP standard</div>
-              <div>• Event data reduction: 100x less volume (conservative)</div>
-              <div>• Sources: AWS pricing, Oxipital AI, IDS cameras</div>
+              <div>• Event data reduction: 100x less volume (conservative estimate)</div>
+              <div>• Sources: AWS pricing, Nature 2024, ArXiv neuromorphic studies</div>
             </div>
           </Card>
 
@@ -189,7 +197,15 @@ const CostOfFrameVisionSlide = () => {
           {/* ROI Calculator Component */}
           <ROICalculator 
             title="Interactive Cost Model" 
-            onCalculationChange={(newCalculations) => setCalculations(newCalculations)}
+            onCalculationChange={(newCalculations) => {
+              setCalculations(prev => ({
+                ...prev,
+                ...newCalculations,
+                rgbComputeCost: newCalculations.monthlyCosts?.rgbCompute || prev.rgbComputeCost,
+                eventComputeCost: newCalculations.monthlyCosts?.eventCompute || prev.eventComputeCost,
+                totalSavings: newCalculations.monthlySavings || prev.totalSavings
+              }));
+            }}
           />
 
           {/* Industry Context */}

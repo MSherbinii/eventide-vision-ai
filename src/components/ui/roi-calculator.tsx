@@ -130,7 +130,12 @@ export function ROICalculator({ title = "ROI Calculator (Illustrative)", onCalcu
           compute: rgbComputeCost,
           rework: rgbReworkCost,
           downtime: rgbDowntimeCost,
-        }
+          rgbCompute: rgbComputeCost,
+          eventCompute: eventComputeCost
+        },
+        rgbComputeCost: rgbComputeCost,
+        eventComputeCost: eventComputeCost,
+        monthlySavings: rgbTotalCost - eventTotalCost
       });
     }
   }, [inputs, onCalculationChange]);
