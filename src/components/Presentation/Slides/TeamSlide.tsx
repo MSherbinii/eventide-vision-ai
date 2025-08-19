@@ -124,21 +124,27 @@ const TeamSlide = () => {
   ];
 
   return (
-    <div className="w-full h-full flex flex-col px-8 py-6">
+    <div className="w-full h-full flex flex-col px-8 py-6 bg-gradient-to-br from-background via-[hsl(220_34%_8%)] to-[hsl(142_69%_8%)]">
+      {/* Chromatic Background Pattern */}
+      <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 bg-gradient-to-tr from-primary/5 via-transparent to-accent/10"></div>
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-accent/8 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+      </div>
       {/* Header */}
-      <div className="text-center space-y-4 mb-8">
-        <Badge variant="outline" className="text-lg px-6 py-2">
+      <div className="relative z-10 text-center space-y-4 mb-8">
+        <Badge variant="outline" className="text-sm px-4 py-2 border-primary text-primary bg-transparent">
           TEAM & HIRING STRATEGY
         </Badge>
-        <h1 className="text-5xl md:text-6xl font-bold">
-          <span className="gradient-text">A-Level Talent</span><br />at Egyptian Cost
+        <h1 className="text-4xl md:text-5xl font-bold text-white tracking-[-0.01em]">
+          <span className="text-primary">A-Level Talent</span><br />at Egyptian Cost
         </h1>
-        <p className="text-xl text-muted-foreground max-w-4xl mx-auto">
+        <p className="text-lg text-muted max-w-4xl mx-auto">
           World-class engineering team in Egypt with ESOP alignment, complemented by strategic advisory board
         </p>
       </div>
 
-      <div className="flex-1 grid grid-cols-2 gap-8">
+      <div className="relative z-10 flex-1 grid grid-cols-2 gap-8">
         {/* Left Column - Current Team & Hiring Plan */}
         <div className="space-y-6">
           {/* Founder Profile */}

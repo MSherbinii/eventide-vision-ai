@@ -29,7 +29,7 @@ const TitleSlide = () => {
           <h1 className="text-6xl md:text-7xl font-bold leading-tight tracking-[-0.01em]">
             <span className="block text-primary">Eventide Vision</span>
             <span className="block text-white text-4xl md:text-5xl">
-              Perception-as-a-Service for Factories
+              Event-Based Vision Intelligence
             </span>
           </h1>
           
@@ -49,9 +49,9 @@ const TitleSlide = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4, duration: 0.6 }}
         >
-          <StatTile value="$20.38B" label="Market Size 2024" />
-          <StatTile value="$41.74B" label="Market 2030" />
-          <StatTile value="13.0%" label="CAGR 2024→2030" />
+          <StatTile value="$15.83B" label="Vision Market 2025" />
+          <StatTile value="$23.63B" label="Vision Market 2030" />
+          <StatTile value="8.3%" label="CAGR 2025→2030" />
         </motion.div>
         
         {/* Source Attribution */}
@@ -60,9 +60,9 @@ const TitleSlide = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.8, duration: 0.4 }}
-          title="Click to expand: Specs from Sony/Prophesee IMX636 & EVK4; market from GVR 2025"
+           title="Click to expand: Machine Vision Market data from MarketsandMarkets 2025"
         >
-          Specs from Sony/Prophesee IMX636 & EVK4; market from GVR 2025. <span className="text-[#0EA5E9]">ⓘ</span>
+          Machine Vision Market data from MarketsandMarkets 2025. <span className="text-[#0EA5E9]">ⓘ</span>
         </motion.div>
       </div>
     </div>

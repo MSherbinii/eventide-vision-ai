@@ -51,13 +51,13 @@ const ProblemSlide = () => {
         <Badge variant="outline" className="text-sm px-4 py-2 border-primary text-primary bg-transparent">
           THE PROBLEM
         </Badge>
-        <h1 className="text-3xl md:text-4xl font-bold text-white">
+        <h1 className="text-4xl md:text-5xl font-bold text-white tracking-[-0.01em]">
           Frame-based Vision Struggles
           <br />
           <span className="text-primary">at Line Speed</span>
         </h1>
-        <p className="text-sm text-muted max-w-2xl mx-auto">
-          High-speed lines + variable lighting break frame-based vision. Motion blur misses defects; data is heavy and expensive to move/store.
+        <p className="text-lg text-muted max-w-4xl mx-auto">
+          High-speed manufacturing lines exceed RGB camera capabilities. Motion blur, lighting variations, and petabyte-scale data costs overwhelm traditional vision systems.
         </p>
       </div>
 
@@ -67,21 +67,21 @@ const ProblemSlide = () => {
       </div>
 
       {/* Stats Grid */}
-      <div className="relative z-10 grid grid-cols-3 gap-4 max-w-4xl mx-auto mb-8">
+      <div className="relative z-10 grid grid-cols-3 gap-6 max-w-5xl mx-auto mb-8">
         <StatTile 
-          value="Missed" 
-          label="Micro-defects at line speed" 
-          foot="RGB only"
+          value="9.31%" 
+          label="Machine Vision CAGR" 
+          foot="2024-2028 global growth"
         />
         <StatTile 
-          value="~100×" 
-          label="Higher data volume" 
-          foot="RGB streams (illustrative)"
+          value="96%" 
+          label="Data Reduction" 
+          foot="Event vs frame-based"
         />
         <StatTile 
-          value="<100 µs" 
-          label="Event latency (IMX636)" 
-          foot="vs ms-scale RGB"
+          value="100μs" 
+          label="Latency Edge" 
+          foot="Event response time"
         />
       </div>
 
@@ -95,14 +95,14 @@ const ProblemSlide = () => {
         <Card className="p-6 bg-card/80 backdrop-blur-sm border border-primary/20 rounded-2xl shadow-lg">
           <h3 className="text-lg font-bold mb-3 text-white">The Solution is Clear</h3>
           <p className="text-sm text-muted max-w-4xl mx-auto">
-            <strong className="text-primary">Pilot goals:</strong> reduce rework/downtime; cut data/compute overhead. Actual % reported post-pilot.
+            <strong className="text-primary">Manufacturing pain points:</strong> Edge compute costs $2-5K/month per line for RGB processing; event-based reduces to sub-$500/month with 96% less data.
           </p>
         </Card>
-        <div className="text-center mt-4">
-          <p className="text-xs text-muted-foreground">
-            IMX636 pixel latency &lt;100 µs @1000 lux; HDR &gt;86 dB (up to &gt;120 dB in some conditions). Sony/Prophesee EVK4 specs.
-          </p>
-        </div>
+          <div className="text-center mt-4">
+            <p className="text-xs text-muted-foreground">
+              Industrial edge computing requirements: millisecond response time for 1000+ fps production lines. Traditional RGB: 50-200ms; Events: &lt;1ms.
+            </p>
+          </div>
       </motion.div>
     </div>
   );

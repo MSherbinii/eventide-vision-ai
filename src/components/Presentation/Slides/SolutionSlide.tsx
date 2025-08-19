@@ -49,13 +49,13 @@ const SolutionSlide = () => {
       {/* Header */}
       <div className="relative z-10 text-center space-y-3 mb-6">
         <Badge variant="outline" className="text-sm px-4 py-2 border-primary text-primary bg-transparent">
-          PERCEPTION OS FOR THE FACTORY
+          EVENT-BASED VISION INTELLIGENCE
         </Badge>
-        <h1 className="text-3xl md:text-4xl font-bold text-white tracking-[-0.01em]">
-          <span className="text-primary">Perception OS</span> for the Factory
+        <h1 className="text-4xl md:text-5xl font-bold text-white tracking-[-0.01em]">
+          <span className="text-primary">Neuromorphic Vision</span> Intelligence
         </h1>
-        <p className="text-sm text-muted max-w-3xl mx-auto">
-          Event-based vision turns micro-events into actionable KPIs — calibrate upstream machinery, retrain staff where variance spikes, validate supplier quality.
+        <p className="text-lg text-muted max-w-4xl mx-auto">
+          Neuromorphic sensors detect microsecond changes — transforming quality control with 96% less data, μs-level response, and HDR imaging for challenging industrial environments.
         </p>
       </div>
 
@@ -129,7 +129,7 @@ const SolutionSlide = () => {
             <Card className="p-4 bg-card/80 backdrop-blur-sm border border-border rounded-2xl shadow-lg">
               <Pipeline />
               <p className="text-xs text-muted mt-3 text-center">
-                Anchor sensor: Sony/Prophesee <strong className="text-primary">IMX636 (EVK4)</strong> — 1280×720, pixel latency &lt;100 µs @1000 lux, HDR &gt;86 dB; up to &gt;120 dB (conditions).
+                Edge processing on industrial-grade hardware with 20,000+ sensor events/second capability.
               </p>
             </Card>
           </div>
