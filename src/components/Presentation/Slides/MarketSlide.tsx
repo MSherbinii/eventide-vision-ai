@@ -67,7 +67,7 @@ const MarketSlide = () => {
           <span className="gradient-text">Perfect Storm</span> of Opportunity
         </h1>
         <p className="text-sm text-muted-foreground max-w-3xl mx-auto">
-          Global machine vision: $20.4B (2024) → $41.7B (2030) at 13.5% CAGR
+          Global machine vision: $20.378B (2024) → $41.744B (2030) at 13.0% CAGR
         </p>
       </div>
 
@@ -143,9 +143,9 @@ const MarketSlide = () => {
           <div className="flex-1 bg-card/20 rounded-lg border border-border p-4 flex items-center justify-center">
             <div className="text-center">
               <div className="text-4xl mb-2">📈</div>
-              <div className="text-xl font-bold text-accent mb-1">$20.4B → $41.7B</div>
+              <div className="text-xl font-bold text-accent mb-1">$20.378B → $41.744B</div>
               <div className="text-sm text-muted-foreground mb-2">2024 → 2030</div>
-              <div className="text-xs text-accent font-medium">13.5% CAGR</div>
+              <div className="text-xs text-accent font-medium">13.0% CAGR</div>
             </div>
           </div>
         </div>

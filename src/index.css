@@ -8,62 +8,66 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Apple-like Professional Dark Palette */
+    --background: 222 15% 4%;  /* Ink Black #0B0C10 */
+    --foreground: 210 14% 97%; /* Soft White #F7F7F8 */
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 220 20% 10%;       /* Deep Navy #0F1A2C */
+    --card-foreground: 210 14% 97%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 220 20% 10%;
+    --popover-foreground: 210 14% 97%;
 
-    /* Lumina AI - Dark Royal Palette */
-    --primary: 240 45% 15%;  /* Deep Royal Blue */
-    --primary-foreground: 0 0% 98%;
-    --primary-glow: 240 60% 25%;
-    --primary-accent: 240 55% 20%;
+    /* Professional Royal Palette */
+    --primary: 220 20% 10%;    /* Deep Navy */
+    --primary-foreground: 210 14% 97%;
+    --primary-glow: 220 25% 15%;
+    --primary-accent: 220 22% 12%;
 
-    --secondary: 280 30% 20%; /* Deep Purple */
-    --secondary-foreground: 0 0% 98%;
-    --secondary-glow: 280 45% 30%;
+    --secondary: 220 12% 18%;  /* Graphite #2B3446 */
+    --secondary-foreground: 210 14% 97%;
+    --secondary-glow: 220 15% 22%;
 
-    --accent: 45 90% 55%; /* Royal Gold */
-    --accent-foreground: 0 0% 8%;
-    --accent-glow: 45 85% 65%;
+    --accent: 45 60% 56%;      /* Royal Gold #CDAA53 */
+    --accent-foreground: 222 15% 4%;
+    --accent-glow: 45 65% 60%;
     
-    --warning: 200 40% 25%; /* Deep Teal */
-    --warning-foreground: 0 0% 98%;
+    --warning: 174 100% 38%;   /* Professional Teal #00C2B2 */
+    --warning-foreground: 210 14% 97%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 60% 50%;
+    --destructive-foreground: 210 14% 97%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 240 100% 27%;
+    --muted: 220 8% 25%;          /* Cool Gray #C7CED9 */
+    --muted-foreground: 210 10% 80%;
 
-    /* Royal Dark Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(240 45% 15%), hsl(240 60% 25%));
-    --gradient-secondary: linear-gradient(135deg, hsl(280 30% 20%), hsl(280 45% 30%));
-    --gradient-accent: linear-gradient(135deg, hsl(45 90% 55%), hsl(45 85% 65%));
-    --gradient-hero: linear-gradient(135deg, hsl(240 45% 15%) 0%, hsl(280 30% 20%) 50%, hsl(45 90% 55%) 100%);
-    --gradient-subtle: linear-gradient(180deg, hsl(var(--background)), hsl(240 20% 8%));
-    --gradient-mesh: radial-gradient(circle at 20% 30%, hsl(240 45% 15% / 0.3) 0%, transparent 50%), 
-                     radial-gradient(circle at 80% 70%, hsl(280 30% 20% / 0.3) 0%, transparent 50%),
-                     radial-gradient(circle at 60% 10%, hsl(45 90% 55% / 0.2) 0%, transparent 50%);
+    --border: 220 12% 18%;        /* Graphite dividers */
+    --input: 220 15% 22%;
+    --ring: 174 100% 38%;         /* Teal focus ring */
 
-    /* Tech-focused shadows */
-    --shadow-primary: 0 10px 30px -10px hsl(var(--primary) / 0.3);
-    --shadow-secondary: 0 10px 30px -10px hsl(var(--secondary) / 0.3);
-    --shadow-glow: 0 0 40px hsl(var(--primary-glow) / 0.2);
-    --shadow-card: 0 4px 25px -5px hsl(var(--primary) / 0.1);
-    --shadow-massive: 0 50px 100px -20px hsl(var(--primary) / 0.4);
+    /* Apple-like Professional Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(220 20% 10%), hsl(220 25% 15%));
+    --gradient-secondary: linear-gradient(135deg, hsl(220 12% 18%), hsl(220 15% 22%));
+    --gradient-accent: linear-gradient(135deg, hsl(45 60% 56%), hsl(45 65% 60%));
+    --gradient-hero: linear-gradient(135deg, hsl(222 15% 4%) 0%, hsl(220 20% 10%) 50%, hsl(45 60% 56%) 100%);
+    --gradient-subtle: linear-gradient(180deg, hsl(var(--background)), hsl(220 20% 8%));
+    --gradient-mesh: radial-gradient(circle at 20% 30%, hsl(220 20% 10% / 0.4) 0%, transparent 50%), 
+                     radial-gradient(circle at 80% 70%, hsl(220 12% 18% / 0.3) 0%, transparent 50%),
+                     radial-gradient(circle at 60% 10%, hsl(45 60% 56% / 0.2) 0%, transparent 50%);
+
+    /* Professional Shadows */
+    --shadow-primary: 0 10px 30px -10px rgba(0, 0, 0, 0.35);
+    --shadow-secondary: 0 4px 20px -5px rgba(0, 0, 0, 0.25);
+    --shadow-glow: 0 0 40px hsl(var(--accent) / 0.2);
+    --shadow-card: 0 4px 25px -5px rgba(0, 0, 0, 0.15);
+    --shadow-massive: 0 50px 100px -20px rgba(0, 0, 0, 0.4);
     
-    /* Animation variables */
-    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    /* Apple-like Animation variables */
+    --transition-smooth: all 0.26s cubic-bezier(0.22, 1, 0.36, 1);
     --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
     --transition-elastic: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
-    --radius: 0.75rem;
+    --radius: 16px;
 
     --sidebar-background: 0 0% 98%;
 
@@ -83,49 +87,50 @@ All colors MUST be HSL.
   }
 
   .dark {
-    --background: 240 15% 5%;
-    --foreground: 0 0% 95%;
+    /* Apple-like Professional Dark Mode (same as light) */
+    --background: 222 15% 4%;  /* Ink Black */
+    --foreground: 210 14% 97%; /* Soft White */
 
-    --card: 240 10% 8%;
-    --card-foreground: 0 0% 95%;
+    --card: 220 20% 10%;       /* Deep Navy */
+    --card-foreground: 210 14% 97%;
 
-    --popover: 240 10% 8%;
-    --popover-foreground: 0 0% 95%;
+    --popover: 220 20% 10%;
+    --popover-foreground: 210 14% 97%;
 
-    --primary: 240 45% 15%;  /* Deep Royal Blue */
-    --primary-foreground: 0 0% 98%;
-    --primary-glow: 240 60% 25%;
-    --primary-accent: 240 55% 20%;
+    --primary: 220 20% 10%;    /* Deep Navy */
+    --primary-foreground: 210 14% 97%;
+    --primary-glow: 220 25% 15%;
+    --primary-accent: 220 22% 12%;
 
-    --secondary: 280 30% 20%; /* Deep Purple */
-    --secondary-foreground: 0 0% 98%;
-    --secondary-glow: 280 45% 30%;
+    --secondary: 220 12% 18%;  /* Graphite */
+    --secondary-foreground: 210 14% 97%;
+    --secondary-glow: 220 15% 22%;
 
-    --accent: 45 90% 55%; /* Royal Gold */
-    --accent-foreground: 0 0% 8%;
-    --accent-glow: 45 85% 65%;
+    --accent: 45 60% 56%;      /* Royal Gold */
+    --accent-foreground: 222 15% 4%;
+    --accent-glow: 45 65% 60%;
     
-    --warning: 200 40% 25%; /* Deep Teal */
-    --warning-foreground: 0 0% 98%;
+    --warning: 174 100% 38%;   /* Professional Teal */
+    --warning-foreground: 210 14% 97%;
 
-    --muted: 240 8% 15%;
-    --muted-foreground: 240 5% 65%;
+    --muted: 220 8% 25%;       /* Cool Gray */
+    --muted-foreground: 210 10% 80%;
 
-    --border: 240 8% 20%;
-    --input: 240 8% 18%;
-    --ring: 240 45% 25%;
+    --border: 220 12% 18%;     /* Graphite dividers */
+    --input: 220 15% 22%;
+    --ring: 174 100% 38%;      /* Teal focus ring */
 
-    /* Royal Dark Mode Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(240 45% 15%), hsl(240 60% 25%));
-    --gradient-secondary: linear-gradient(135deg, hsl(280 30% 20%), hsl(280 45% 30%));
-    --gradient-accent: linear-gradient(135deg, hsl(45 90% 55%), hsl(45 85% 65%));
-    --gradient-hero: linear-gradient(135deg, hsl(240 45% 15%) 0%, hsl(280 30% 20%) 50%, hsl(45 90% 55%) 100%);
-    --gradient-subtle: linear-gradient(180deg, hsl(var(--background)), hsl(240 10% 8%));
+    /* Consistent gradients in dark mode */
+    --gradient-primary: linear-gradient(135deg, hsl(220 20% 10%), hsl(220 25% 15%));
+    --gradient-secondary: linear-gradient(135deg, hsl(220 12% 18%), hsl(220 15% 22%));
+    --gradient-accent: linear-gradient(135deg, hsl(45 60% 56%), hsl(45 65% 60%));
+    --gradient-hero: linear-gradient(135deg, hsl(222 15% 4%) 0%, hsl(220 20% 10%) 50%, hsl(45 60% 56%) 100%);
+    --gradient-subtle: linear-gradient(180deg, hsl(var(--background)), hsl(220 20% 8%));
 
-    --shadow-primary: 0 10px 30px -10px hsl(var(--primary) / 0.4);
-    --shadow-secondary: 0 10px 30px -10px hsl(var(--secondary) / 0.4);
-    --shadow-glow: 0 0 40px hsl(var(--primary-glow) / 0.3);
-    --shadow-card: 0 4px 25px -5px hsl(var(--primary) / 0.2);
+    --shadow-primary: 0 10px 30px -10px rgba(0, 0, 0, 0.35);
+    --shadow-secondary: 0 4px 20px -5px rgba(0, 0, 0, 0.25);
+    --shadow-glow: 0 0 40px hsl(var(--accent) / 0.2);
+    --shadow-card: 0 4px 25px -5px rgba(0, 0, 0, 0.15);
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;

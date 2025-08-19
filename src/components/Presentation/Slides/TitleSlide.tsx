@@ -47,7 +47,7 @@ const TitleSlide = () => {
               <div className="text-center space-y-2">
                 <Eye className="w-8 h-8 mx-auto text-primary animate-pulse-glow" />
                 <div className="text-2xl font-bold gradient-text">
-                  $<CountingNumber from={0} to={20.4} duration={3} />B
+                  $<CountingNumber from={0} to={20.38} duration={3} />B
                 </div>
                 <p className="text-sm text-muted-foreground">Market Size 2024</p>
               </div>
@@ -56,16 +56,16 @@ const TitleSlide = () => {
               <div className="text-center space-y-2">
                 <Zap className="w-8 h-8 mx-auto text-secondary animate-bounce-slow" />
                 <div className="text-2xl font-bold gradient-text">
-                  <CountingNumber from={0} to={120} duration={3} />dB
+                  $<CountingNumber from={0} to={41.74} duration={3} />B
                 </div>
-                <p className="text-sm text-muted-foreground">Dynamic Range</p>
+                <p className="text-sm text-muted-foreground">Market 2030</p>
               </div>
             </Card>
             <Card className="p-4 bg-card/50 backdrop-blur-sm border-accent/20 glow-effect floating-card">
               <div className="text-center space-y-2">
                 <Target className="w-8 h-8 mx-auto text-accent animate-spin-slow" />
                 <div className="text-2xl font-bold gradient-text">
-                  <CountingNumber from={0} to={13.5} duration={3} />%
+                  <CountingNumber from={0} to={13.0} duration={3} />%
                 </div>
                 <p className="text-sm text-muted-foreground">Market CAGR</p>
               </div>
