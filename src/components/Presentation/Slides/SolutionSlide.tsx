@@ -91,7 +91,7 @@ const SolutionSlide = () => {
             <h4 className="text-lg font-bold mb-3 text-[#F2F6FA]">High-speed Counting Demo</h4>
             <Card className="p-4 bg-[#122339]/92 border border-[#2C3D58] rounded-2xl shadow-[0_10px_30px_rgba(0,0,0,0.35)]">
               <div className="relative">
-                <div className="aspect-video bg-gradient-to-br from-[#0F2440] to-[#0B172A] rounded-xl flex items-center justify-center">
+                <div className="aspect-[4/3] max-w-md bg-gradient-to-br from-[#0F2440] to-[#0B172A] rounded-xl flex items-center justify-center">
                   <Play className="w-16 h-16 text-[#00D1C1] opacity-80" />
                   <div className="absolute top-3 left-3">
                     <Badge variant="secondary" className="bg-[#00D1C1] text-white border-0">
