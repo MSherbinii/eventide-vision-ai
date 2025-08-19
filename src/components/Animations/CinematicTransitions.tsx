@@ -193,7 +193,8 @@ export const CountingNumber = ({
   duration = 2,
   className = "",
   prefix = "",
-  suffix = "" 
+  suffix = "",
+  decimals = 0
 }: {
   from?: number;
   to: number;
@@ -201,6 +202,7 @@ export const CountingNumber = ({
   className?: string;
   prefix?: string;
   suffix?: string;
+  decimals?: number;
 }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
@@ -213,7 +215,12 @@ export const CountingNumber = ({
         const elapsed = Date.now() - startTime;
         const progress = Math.min(elapsed / (duration * 1000), 1);
         const currentValue = from + (to - from) * progress;
-        setDisplayValue(Math.round(currentValue));
+        
+        if (decimals > 0) {
+          setDisplayValue(parseFloat(currentValue.toFixed(decimals)));
+        } else {
+          setDisplayValue(Math.round(currentValue));
+        }
         
         if (progress < 1) {
           requestAnimationFrame(animate);
@@ -221,7 +228,14 @@ export const CountingNumber = ({
       };
       animate();
     }
-  }, [isInView, from, to, duration]);
+  }, [isInView, from, to, duration, decimals]);
+
+  const formatValue = (value: number) => {
+    if (decimals > 0) {
+      return value.toFixed(decimals);
+    }
+    return Math.round(value).toString();
+  };
 
   return (
     <motion.span
@@ -230,7 +244,7 @@ export const CountingNumber = ({
       initial={{ opacity: 0 }}
       animate={{ opacity: isInView ? 1 : 0 }}
     >
-      {prefix}{displayValue}{suffix}
+      {prefix}{formatValue(displayValue)}{suffix}
     </motion.span>
   );
 };

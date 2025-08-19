@@ -17,22 +17,25 @@ All colors MUST be HSL.
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    /* Tech-focused color palette for perception technology startup */
-    --primary: 240 100% 27%;  /* Deep tech blue */
-    --primary-foreground: 210 40% 98%;
-    --primary-glow: 220 100% 50%;
-    --primary-accent: 200 100% 40%;
+    /* Eventide Vision color palette */
+    --primary: 215 57% 17%;  /* Navy #1A2E50 */
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 215 57% 25%;
+    --primary-accent: 215 57% 30%;
 
-    --secondary: 280 100% 20%; /* Deep purple for neuromorphic/AI theme */
-    --secondary-foreground: 210 40% 98%;
-    --secondary-glow: 270 100% 45%;
+    --secondary: 217 100% 35%; /* Light Steel Blue #A3C4D7 equivalent */
+    --secondary-foreground: 215 57% 17%;
+    --secondary-glow: 217 100% 45%;
 
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
 
-    --accent: 180 100% 35%; /* Teal for innovation */
-    --accent-foreground: 210 40% 98%;
-    --accent-glow: 175 100% 50%;
+    --accent: 174 100% 38%; /* Teal #00C4B0 */
+    --accent-foreground: 0 0% 100%;
+    --accent-glow: 174 100% 50%;
+    
+    --warning: 25 95% 53%; /* Orange #FF8C42 */
+    --warning-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
@@ -92,21 +95,24 @@ All colors MUST be HSL.
     --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 220 100% 50%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-    --primary-glow: 240 100% 60%;
-    --primary-accent: 200 100% 50%;
+    --primary: 215 57% 17%;  /* Navy #1A2E50 */
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 215 57% 25%;
+    --primary-accent: 215 57% 30%;
 
-    --secondary: 270 100% 45%;
-    --secondary-foreground: 210 40% 98%;
-    --secondary-glow: 280 100% 55%;
+    --secondary: 217 100% 35%; /* Light Steel Blue */
+    --secondary-foreground: 215 57% 17%;
+    --secondary-glow: 217 100% 45%;
 
     --muted: 217.2 32.6% 17.5%;
     --muted-foreground: 215 20.2% 65.1%;
 
-    --accent: 175 100% 50%;
-    --accent-foreground: 210 40% 98%;
-    --accent-glow: 180 100% 60%;
+    --accent: 174 100% 38%; /* Teal #00C4B0 */
+    --accent-foreground: 0 0% 100%;
+    --accent-glow: 174 100% 50%;
+    
+    --warning: 25 95% 53%; /* Orange #FF8C42 */
+    --warning-foreground: 0 0% 100%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
