@@ -1,6 +1,7 @@
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Zap, Database, Cpu, Shield, CheckCircle } from "lucide-react";
+import { Pipeline } from "@/components/ui/pipeline";
+import { Zap, Database, Cpu, Shield, CheckCircle, Play } from "lucide-react";
 import TechComparisonTable from "@/components/Charts/TechComparisonTable";
 import { motion } from "framer-motion";
 
@@ -85,31 +86,31 @@ const SolutionSlide = () => {
             ))}
           </div>
 
+          {/* Demo Section */}
+          <div className="mt-4">
+            <h4 className="text-lg font-bold mb-3 text-[#F2F6FA]">High-speed Counting Demo</h4>
+            <Card className="p-4 bg-[#122339]/92 border border-[#2C3D58] rounded-2xl shadow-[0_10px_30px_rgba(0,0,0,0.35)]">
+              <div className="relative">
+                <div className="aspect-video bg-gradient-to-br from-[#0F2440] to-[#0B172A] rounded-xl flex items-center justify-center">
+                  <Play className="w-16 h-16 text-[#00D1C1] opacity-80" />
+                  <div className="absolute top-3 left-3">
+                    <Badge variant="secondary" className="bg-[#00D1C1] text-white border-0">
+                      &gt;1,000 obj/s • &gt;99.5% demo accuracy
+                    </Badge>
+                  </div>
+                </div>
+                <p className="text-xs text-[#93A1B5] mt-2">
+                  Task-dependent demo results. Actual footage available upon pilot setup.
+                </p>
+              </div>
+            </Card>
+          </div>
+
           {/* Pipeline Diagram */}
           <div className="mt-4">
             <h4 className="text-lg font-bold mb-3 text-[#F2F6FA]">Solution Pipeline</h4>
             <Card className="p-4 bg-[#122339]/92 border border-[#2C3D58] rounded-2xl shadow-[0_10px_30px_rgba(0,0,0,0.35)]">
-              <div className="flex items-center justify-between text-center">
-                <div className="flex-1">
-                  <div className="text-sm font-semibold mb-1 text-[#F2F6FA]">Event + RGB</div>
-                  <div className="text-xs text-[#93A1B5]">Hybrid sensors</div>
-                </div>
-                <div className="text-[#00D1C1]">→</div>
-                <div className="flex-1">
-                  <div className="text-sm font-semibold mb-1 text-[#F2F6FA]">Edge AI</div>
-                  <div className="text-xs text-[#93A1B5]">NVIDIA Jetson</div>
-                </div>
-                <div className="text-[#00D1C1]">→</div>
-                <div className="flex-1">
-                  <div className="text-sm font-semibold mb-1 text-[#F2F6FA]">Cloud Portal</div>
-                  <div className="text-xs text-[#93A1B5]">KPIs, alerts</div>
-                </div>
-                <div className="text-[#00D1C1]">→</div>
-                <div className="flex-1">
-                  <div className="text-sm font-semibold mb-1 text-[#F2F6FA]">MES/ERP</div>
-                  <div className="text-xs text-[#93A1B5]">API integration</div>
-                </div>
-              </div>
+              <Pipeline />
             </Card>
           </div>
         </div>

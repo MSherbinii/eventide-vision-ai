@@ -1,5 +1,6 @@
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { AnimatedGauge } from "@/components/ui/animated-gauge";
 import { AlertTriangle, TrendingDown, Clock, DollarSign } from "lucide-react";
 import { motion } from "framer-motion";
 
@@ -56,44 +57,60 @@ const CostOfFrameVisionSlide = () => {
       </div>
 
       <div className="flex-1 grid grid-cols-2 gap-6">
-        {/* Left Column - Cost Breakdown */}
+        {/* Left Column - Animated Cost Gauges */}
         <div className="space-y-4">
           <h3 className="text-2xl font-bold text-[#F2F6FA]">Annual Quality Losses</h3>
-          <div className="grid grid-cols-2 gap-3">
-            {costFactors.map((factor, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: index * 0.15, duration: 0.5 }}
-              >
-                <Card className={`p-4 hover:scale-105 transition-all duration-300 ${factor.color} rounded-2xl shadow-[0_10px_30px_rgba(0,0,0,0.35)] h-full`}>
-                  <div className="text-center space-y-2">
-                    <div className="flex justify-center scale-75">
-                      {factor.icon}
-                    </div>
-                    <div>
-                      <div className="text-2xl font-bold text-[#E6C069] mb-1">{factor.percentage}</div>
-                      <h4 className="font-bold text-xs mb-2 text-[#F2F6FA]">{factor.title}</h4>
-                      <p className="text-xs text-[#CBD5E1]">{factor.description}</p>
-                    </div>
-                  </div>
-                </Card>
-              </motion.div>
-            ))}
+          <div className="grid grid-cols-2 gap-4">
+            <AnimatedGauge
+              title="Storage/Egress"
+              icon={<DollarSign className="w-10 h-10 text-[#00D1C1]" />}
+              percentage={90}
+              label="RGB data volume"
+              color="#00D1C1"
+            />
+            <AnimatedGauge
+              title="Compute Load"
+              icon={<Clock className="w-10 h-10 text-[#FFC466]" />}
+              percentage={85}
+              label="Processing overhead"
+              color="#FFC466"
+            />
+            <AnimatedGauge
+              title="Scrap/Rework"
+              icon={<AlertTriangle className="w-10 h-10 text-[#FF5E5E]" />}
+              percentage={75}
+              label="Motion blur misses"
+              color="#FF5E5E"
+            />
+            <AnimatedGauge
+              title="Downtime"
+              icon={<TrendingDown className="w-10 h-10 text-[#E6C069]" />}
+              percentage={60}
+              label="False stops"
+              color="#E6C069"
+            />
           </div>
 
-          {/* Total Cost Impact */}
+          {/* Pilot Target Impact */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.8, duration: 0.6 }}
+            transition={{ delay: 1.2, duration: 0.6 }}
+            className="mt-6"
           >
-            <Card className="p-4 bg-[#122339]/92 border border-[#00D1C1]/20 rounded-2xl shadow-[0_10px_30px_rgba(0,0,0,0.35)] text-center">
-              <h4 className="text-lg font-bold mb-2 text-[#F2F6FA]">Pilot Target Impact</h4>
-              <div className="text-2xl font-bold text-[#00D1C1] mb-2">20–50% reduction</div>
-              <p className="text-xs text-[#93A1B5]">Per production line (to be verified)</p>
-            </Card>
+            <div className="relative">
+              <motion.div
+                initial={{ width: 0 }}
+                animate={{ width: "100%" }}
+                transition={{ delay: 1.5, duration: 1.5 }}
+                className="absolute top-0 left-0 h-full bg-[#00D1C1]/20 rounded-2xl"
+              />
+              <Card className="relative p-4 bg-[#122339]/92 border border-[#00D1C1]/20 rounded-2xl shadow-[0_10px_30px_rgba(0,0,0,0.35)] text-center">
+                <Badge variant="secondary" className="mb-2 bg-[#00D1C1] text-white border-0">Pilot Target</Badge>
+                <div className="text-2xl font-bold text-[#00D1C1] mb-2">20–50% reduction</div>
+                <p className="text-xs text-[#93A1B5]">Per production line (to be replaced with measured results)</p>
+              </Card>
+            </div>
           </motion.div>
         </div>
 

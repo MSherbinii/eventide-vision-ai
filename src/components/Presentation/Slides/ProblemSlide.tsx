@@ -1,5 +1,7 @@
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { StatTile } from "@/components/ui/stat-tile";
+import VideoCompare from "@/components/ui/video-compare";
 import { AlertTriangle, DollarSign, Clock, TrendingDown } from "lucide-react";
 import { motion } from "framer-motion";
 
@@ -40,41 +42,41 @@ const ProblemSlide = () => {
          style={{ background: 'linear-gradient(180deg, #0F2440 0%, #0A1526 35%, #0B172A 100%)' }}>
       {/* Header */}
       <div className="text-center space-y-4 mb-8">
-        <Badge variant="outline" className="text-sm px-4 py-2">
+        <Badge variant="outline" className="text-sm px-4 py-2 border-[#E6C069] text-[#E6C069] bg-transparent">
           THE PROBLEM
         </Badge>
-        <h1 className="text-3xl md:text-4xl font-bold">
+        <h1 className="text-3xl md:text-4xl font-bold text-[#F2F6FA]">
           Frame-based Vision Struggles
           <br />
-          <span className="gradient-text">at Line Speed</span>
+          <span className="text-[#E6C069]">at Line Speed</span>
         </h1>
-        <p className="text-sm text-muted-foreground max-w-2xl mx-auto">
+        <p className="text-sm text-[#CBD5E1] max-w-2xl mx-auto">
           High-speed lines + variable lighting break frame-based vision. Motion blur misses defects; data is heavy and expensive to move/store.
         </p>
       </div>
 
-      {/* Problems Grid */}
-      <div className="grid grid-cols-2 gap-4 max-w-4xl mx-auto mb-8">
-        {problems.map((problem, index) => (
-          <motion.div
-            key={index}
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: index * 0.2, duration: 0.6 }}
-          >
-            <Card className={`p-4 ${problem.color} rounded-2xl shadow-[0_10px_30px_rgba(0,0,0,0.35)] hover:scale-105 transition-all duration-300 h-full`}>
-              <div className="space-y-3">
-                <div className="scale-75">
-                  {problem.icon}
-                </div>
-                <div>
-                  <h3 className="text-lg font-bold mb-2 text-[#F2F6FA]">{problem.title}</h3>
-                  <p className="text-sm text-[#CBD5E1] leading-relaxed">{problem.description}</p>
-                </div>
-              </div>
-            </Card>
-          </motion.div>
-        ))}
+      {/* Video Comparison */}
+      <div className="max-w-5xl mx-auto mb-8">
+        <VideoCompare />
+      </div>
+
+      {/* Stats Grid */}
+      <div className="grid grid-cols-3 gap-4 max-w-4xl mx-auto mb-8">
+        <StatTile 
+          value="Missed" 
+          label="Micro-defects at line speed" 
+          foot="RGB only"
+        />
+        <StatTile 
+          value="~100×" 
+          label="Higher data volume" 
+          foot="RGB streams (illustrative)"
+        />
+        <StatTile 
+          value="<100 µs" 
+          label="Event latency (IMX636)" 
+          foot="vs ms-scale RGB"
+        />
       </div>
 
       {/* Industry Impact */}
@@ -92,6 +94,11 @@ const ProblemSlide = () => {
               Actual % reported post-pilot.
             </p>
           </div>
+        </div>
+        <div className="text-center mt-4">
+          <p className="text-xs text-[#93A1B5]">
+            IMX636 pixel latency &lt;100 µs @1000 lux; HDR &gt;86 dB (up to &gt;120 dB in some conditions). Sony/Prophesee EVK4 specs.
+          </p>
         </div>
       </motion.div>
     </div>
