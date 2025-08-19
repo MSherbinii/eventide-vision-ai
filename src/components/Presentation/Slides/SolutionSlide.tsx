@@ -38,7 +38,7 @@ const SolutionSlide = () => {
   ];
 
   return (
-    <div className="w-full h-full flex flex-col px-6 py-4 bg-gradient-to-br from-background via-[hsl(220_34%_8%)] to-[hsl(142_69%_8%)]">
+    <div className="w-full h-screen flex flex-col px-6 py-4 bg-gradient-to-br from-background via-[hsl(220_34%_8%)] to-[hsl(142_69%_8%)]">
       {/* Chromatic Background Pattern */}
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-gradient-to-tr from-primary/5 via-transparent to-accent/10"></div>
@@ -59,11 +59,11 @@ const SolutionSlide = () => {
         </p>
       </div>
 
-      <div className="relative z-10 flex-1 grid grid-cols-1 lg:grid-cols-2 gap-8">
+      <div className="relative z-10 flex-1 grid grid-cols-1 lg:grid-cols-2 gap-6 mt-4">
         {/* Left Column - Advantages */}
-        <div className="space-y-6">
-          <h2 className="text-2xl font-bold text-white">Technology Edge</h2>
-          <div className="grid grid-cols-1 gap-4">
+        <div className="space-y-4">
+          <h2 className="text-xl font-bold text-white">Technology Edge</h2>
+          <div className="grid grid-cols-1 gap-3">
             {advantages.map((advantage, index) => (
               <motion.div
                 key={index}
@@ -71,19 +71,19 @@ const SolutionSlide = () => {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: index * 0.15, duration: 0.6 }}
               >
-                <Card className={`p-6 hover:scale-105 transition-all duration-300 ${advantage.color} backdrop-blur-sm shadow-lg`}>
-                  <div className="flex items-start space-x-4">
-                    <div className="text-primary">
+                <Card className={`p-4 hover:scale-105 transition-all duration-300 ${advantage.color} backdrop-blur-sm shadow-lg`}>
+                  <div className="flex items-start space-x-3">
+                    <div className="text-primary mt-1">
                       {advantage.icon}
                     </div>
                     <div className="flex-1">
-                      <h3 className="font-bold text-lg mb-2 text-white">
+                      <h3 className="font-bold text-base mb-2 text-white">
                         {advantage.title}
                       </h3>
-                      <p className="text-sm text-muted mb-3">
+                      <p className="text-xs text-muted mb-2">
                         {advantage.description}
                       </p>
-                      <div className="text-xs font-medium text-primary bg-primary/10 px-3 py-1 rounded-full inline-block">
+                      <div className="text-xs font-medium text-primary bg-primary/10 px-2 py-1 rounded-full inline-block">
                         {advantage.metric}
                       </div>
                     </div>
@@ -95,22 +95,22 @@ const SolutionSlide = () => {
         </div>
 
         {/* Right Column - Demo & Comparison */}
-        <div className="space-y-6">
-          <h2 className="text-2xl font-bold text-white">Live Demo</h2>
+        <div className="space-y-4">
+          <h2 className="text-xl font-bold text-white">Live Demo</h2>
           
-          <div className="mt-3">
-            <h4 className="text-base font-bold mb-2 text-white">High-speed Counting Demo</h4>
-            <Card className="p-3 bg-card/80 backdrop-blur-sm border border-border rounded-xl shadow-lg max-w-sm">
+          <div className="mt-2">
+            <h4 className="text-sm font-bold mb-2 text-white">High-speed Counting Demo</h4>
+            <Card className="p-3 bg-card/80 backdrop-blur-sm border border-border rounded-xl shadow-lg max-w-xs">
               <div className="relative">
                 <div className="aspect-[4/3] bg-gradient-to-br from-primary/20 to-accent/10 rounded-lg flex items-center justify-center border border-primary/30">
-                  <Play className="w-12 h-12 text-primary opacity-80" />
+                  <Play className="w-8 h-8 text-primary opacity-80" />
                   <div className="absolute top-2 left-2">
                     <Badge variant="secondary" className="bg-primary text-white border-0 text-xs px-2 py-1">
-                      &gt;1,000 obj/s • &gt;99.5%
+                      &gt;1K obj/s • &gt;99.5%
                     </Badge>
                   </div>
                 </div>
-                <p className="text-xs text-muted mt-2">
+                <p className="text-xs text-muted mt-1">
                   Task-dependent accuracy; validated per pilot
                 </p>
               </div>
@@ -119,17 +119,17 @@ const SolutionSlide = () => {
 
           {/* Tech Comparison Table */}
           <div>
-            <h4 className="text-lg font-bold mb-3 text-white">Event vs. Traditional</h4>
+            <h4 className="text-base font-bold mb-2 text-white">Event vs. Traditional</h4>
             <TechComparisonTable />
           </div>
 
           {/* Process Pipeline */}
           <div>
-            <h4 className="text-lg font-bold mb-3 text-white">Complete Solution Stack</h4>
-            <Card className="p-4 bg-card/80 backdrop-blur-sm border border-border rounded-2xl shadow-lg">
+            <h4 className="text-base font-bold mb-2 text-white">Complete Solution Stack</h4>
+            <Card className="p-3 bg-card/80 backdrop-blur-sm border border-border rounded-2xl shadow-lg">
               <Pipeline />
-              <p className="text-xs text-muted mt-3 text-center">
-                Edge processing on industrial-grade hardware with 20,000+ sensor events/second capability.
+              <p className="text-xs text-muted mt-2 text-center">
+                Edge processing: 15W vs 250W traditional systems (94% power reduction)
               </p>
             </Card>
           </div>

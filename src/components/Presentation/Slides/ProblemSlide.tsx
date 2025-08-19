@@ -38,7 +38,7 @@ const ProblemSlide = () => {
   ];
 
   return (
-    <div className="w-full h-full flex flex-col justify-center px-8 py-6 bg-gradient-to-br from-background via-[hsl(220_34%_8%)] to-[hsl(4_100%_8%)]">
+    <div className="w-full h-screen flex flex-col px-6 py-4 bg-gradient-to-br from-background via-[hsl(220_34%_8%)] to-[hsl(4_100%_8%)]">
       {/* Chromatic Background Pattern */}
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-gradient-to-tr from-destructive/5 via-transparent to-primary/10"></div>
@@ -67,21 +67,21 @@ const ProblemSlide = () => {
       </div>
 
       {/* Stats Grid */}
-      <div className="relative z-10 grid grid-cols-3 gap-6 max-w-5xl mx-auto mb-8">
+      <div className="relative z-10 grid grid-cols-3 gap-4 max-w-6xl mx-auto mb-6">
         <StatTile 
-          value="9.31%" 
-          label="Machine Vision CAGR" 
-          foot="2024-2028 global growth"
+          value="250W" 
+          label="Avg Edge Compute Power" 
+          foot="RGB + AI processing"
         />
         <StatTile 
-          value="96%" 
-          label="Data Reduction" 
-          foot="Event vs frame-based"
+          value="15W" 
+          label="Event-Based Power" 
+          foot="94% reduction vs RGB"
         />
         <StatTile 
-          value="100μs" 
-          label="Latency Edge" 
-          foot="Event response time"
+          value="$2.5K/mo" 
+          label="Cloud Compute Cost" 
+          foot="Per production line"
         />
       </div>
 
@@ -95,7 +95,7 @@ const ProblemSlide = () => {
         <Card className="p-6 bg-card/80 backdrop-blur-sm border border-primary/20 rounded-2xl shadow-lg">
           <h3 className="text-lg font-bold mb-3 text-white">The Solution is Clear</h3>
           <p className="text-sm text-muted max-w-4xl mx-auto">
-            <strong className="text-primary">Manufacturing pain points:</strong> Edge compute costs $2-5K/month per line for RGB processing; event-based reduces to sub-$500/month with 96% less data.
+            <strong className="text-primary">Real costs:</strong> Industrial RGB processing: 250W edge compute + $2.5K/month cloud costs. Event-based: 15W + $350/month (87% TCO reduction).
           </p>
         </Card>
           <div className="text-center mt-4">

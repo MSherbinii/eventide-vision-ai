@@ -135,7 +135,7 @@ const TeamSlide = () => {
   ];
 
   return (
-    <div className="w-full h-full flex flex-col px-8 py-6 bg-gradient-to-br from-background via-[hsl(220_34%_8%)] to-[hsl(142_69%_8%)]">
+    <div className="w-full h-screen flex flex-col px-6 py-4 bg-gradient-to-br from-background via-[hsl(220_34%_8%)] to-[hsl(142_69%_8%)]">
       {/* Chromatic Background Pattern */}
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-gradient-to-tr from-primary/5 via-transparent to-accent/10"></div>
@@ -155,7 +155,7 @@ const TeamSlide = () => {
         </p>
       </div>
 
-      <div className="relative z-10 flex-1 grid grid-cols-2 gap-8">
+      <div className="relative z-10 flex-1 grid grid-cols-2 gap-6">
         {/* Left Column - Current Team & Hiring Plan */}
         <div className="space-y-6">
           {/* Founding Team */}

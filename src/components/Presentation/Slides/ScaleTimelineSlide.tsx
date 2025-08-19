@@ -166,7 +166,7 @@ const ScaleTimelineSlide = () => {
   ];
 
   return (
-    <div className="w-full h-full flex flex-col px-8 py-6 bg-gradient-to-br from-background via-[hsl(220_34%_8%)] to-[hsl(142_69%_8%)]">
+    <div className="w-full h-screen flex flex-col px-6 py-4 bg-gradient-to-br from-background via-[hsl(220_34%_8%)] to-[hsl(142_69%_8%)]">
       {/* Chromatic Background Pattern */}
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-gradient-to-tr from-primary/5 via-transparent to-accent/10"></div>
@@ -187,11 +187,11 @@ const ScaleTimelineSlide = () => {
         </p>
       </div>
 
-      <div className="relative z-10 flex-1 space-y-8">
+      <div className="relative z-10 flex-1 space-y-6">
         {/* Timeline */}
         <div>
-          <h3 className="text-2xl font-bold text-white mb-6">Growth Timeline & Milestones</h3>
-          <div className="space-y-4">
+          <h3 className="text-xl font-bold text-white mb-4">Growth Timeline & Milestones</h3>
+          <div className="space-y-3">
             {timeline.map((phase, index) => (
               <motion.div
                 key={index}
@@ -199,12 +199,12 @@ const ScaleTimelineSlide = () => {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: index * 0.15, duration: 0.6 }}
               >
-                <Card className="p-6 bg-card/80 backdrop-blur-sm border border-border rounded-2xl shadow-lg hover:scale-[1.02] transition-all duration-300">
-                  <div className="grid grid-cols-12 gap-4 items-start">
+                <Card className="p-4 bg-card/80 backdrop-blur-sm border border-border rounded-2xl shadow-lg hover:scale-[1.02] transition-all duration-300">
+                  <div className="grid grid-cols-12 gap-3 items-start">
                     {/* Timeline Marker */}
                     <div className="col-span-2 text-center">
-                      <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center mb-2">
-                        <Milestone className="w-6 h-6 text-primary" />
+                      <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center mb-2">
+                        <Milestone className="w-5 h-5 text-primary" />
                       </div>
                       <div className="text-xs font-bold text-primary">{phase.period}</div>
                       <div className="text-xs text-muted">{phase.phase}</div>
@@ -212,9 +212,9 @@ const ScaleTimelineSlide = () => {
                     
                     {/* Key Metrics */}
                     <div className="col-span-3">
-                      <div className="space-y-2">
-                        <div className="text-lg font-bold text-accent">{phase.arr} ARR</div>
-                        <div className="text-sm text-white">{phase.customers} customers</div>
+                      <div className="space-y-1">
+                        <div className="text-base font-bold text-accent">{phase.arr} ARR</div>
+                        <div className="text-xs text-white">{phase.customers} customers</div>
                         <div className="text-xs text-muted">{phase.team}</div>
                         <Badge variant="outline" className="text-xs">
                           {phase.funding}
@@ -251,11 +251,11 @@ const ScaleTimelineSlide = () => {
         </div>
 
         {/* ARR Progression & Investor Returns */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           {/* ARR Progression */}
           <div>
-            <h3 className="text-2xl font-bold text-white mb-4">ARR Growth Trajectory</h3>
-            <Card className="p-6 bg-card/80 backdrop-blur-sm border border-border rounded-2xl shadow-lg">
+            <h3 className="text-lg font-bold text-white mb-3">ARR Growth Trajectory</h3>
+            <Card className="p-4 bg-card/80 backdrop-blur-sm border border-border rounded-2xl shadow-lg">
               <div className="space-y-4">
                 <div className="grid grid-cols-5 gap-2 pb-3 border-b border-border text-xs font-semibold text-muted">
                   <div>Year</div>
@@ -285,8 +285,8 @@ const ScaleTimelineSlide = () => {
 
           {/* Investor Returns */}
           <div>
-            <h3 className="text-2xl font-bold text-white mb-4">Investor Return Projections</h3>
-            <div className="space-y-3">
+            <h3 className="text-lg font-bold text-white mb-3">Investor Return Projections</h3>
+            <div className="space-y-2">
               {investorReturns.map((investment, index) => (
                 <motion.div
                   key={index}
@@ -294,7 +294,7 @@ const ScaleTimelineSlide = () => {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.7 + index * 0.1, duration: 0.5 }}
                 >
-                  <Card className="p-4 bg-card/80 backdrop-blur-sm border border-border rounded-xl shadow-lg">
+                  <Card className="p-3 bg-card/80 backdrop-blur-sm border border-border rounded-xl shadow-lg">
                     <div className="flex items-center justify-between mb-3">
                       <h4 className="font-bold text-sm text-white">{investment.round}</h4>
                       <Badge variant="secondary" className="text-xs">

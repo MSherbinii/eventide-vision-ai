@@ -117,7 +117,7 @@ const FinancialsSlide = () => {
   ];
 
   return (
-      <div className="w-full h-full flex flex-col px-8 py-6 bg-gradient-to-br from-background via-[hsl(220_34%_8%)] to-[hsl(142_69%_8%)]">
+      <div className="w-full h-screen flex flex-col px-6 py-4 bg-gradient-to-br from-background via-[hsl(220_34%_8%)] to-[hsl(142_69%_8%)]">
         {/* Chromatic Background Pattern */}
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-gradient-to-tr from-primary/5 via-transparent to-accent/10"></div>
@@ -137,12 +137,12 @@ const FinancialsSlide = () => {
         </p>
       </div>
 
-      <div className="relative z-10 flex-1 space-y-8">
+      <div className="relative z-10 flex-1 space-y-6">
         {/* Use of Funds */}
-        <div className="grid grid-cols-3 gap-6">
+        <div className="grid grid-cols-3 gap-4">
           <div className="col-span-2">
-            <h3 className="text-xl font-bold mb-4">Use of Funds (€2.5M Pre-Seed + Seed)</h3>
-            <div className="grid grid-cols-3 gap-4">
+            <h3 className="text-lg font-bold mb-3">Use of Funds (€2.5M Pre-Seed + Seed)</h3>
+            <div className="grid grid-cols-3 gap-3">
               {useOfFunds.map((fund, index) => (
                 <motion.div
                   key={index}
@@ -150,12 +150,12 @@ const FinancialsSlide = () => {
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ delay: index * 0.1, duration: 0.5 }}
                 >
-                  <Card className="p-4 text-center hover:scale-105 transition-all duration-300 h-full">
-                    <div className={`w-12 h-12 rounded-full bg-gradient-to-r ${fund.color} flex items-center justify-center text-white mx-auto mb-3`}>
-                      <span className="text-lg font-bold">{fund.percentage}%</span>
+                  <Card className="p-3 text-center hover:scale-105 transition-all duration-300 h-full">
+                    <div className={`w-10 h-10 rounded-full bg-gradient-to-r ${fund.color} flex items-center justify-center text-white mx-auto mb-2`}>
+                      <span className="text-sm font-bold">{fund.percentage}%</span>
                     </div>
-                    <h4 className="font-bold text-sm mb-1">{fund.category}</h4>
-                    <div className="text-xl font-bold gradient-text mb-2">{fund.amount}</div>
+                    <h4 className="font-bold text-xs mb-1">{fund.category}</h4>
+                    <div className="text-lg font-bold gradient-text mb-1">{fund.amount}</div>
                     <p className="text-xs text-muted-foreground">{fund.description}</p>
                   </Card>
                 </motion.div>
@@ -164,8 +164,8 @@ const FinancialsSlide = () => {
           </div>
 
           <div>
-            <h3 className="text-xl font-bold mb-4">Funding Strategy</h3>
-            <div className="space-y-3">
+            <h3 className="text-lg font-bold mb-3">Funding Strategy</h3>
+            <div className="space-y-2">
               {fundingStrategy.map((round, index) => (
                 <motion.div
                   key={index}
@@ -175,10 +175,10 @@ const FinancialsSlide = () => {
                 >
                   <Card className="p-3">
                     <div className="flex items-center justify-between mb-2">
-                      <h4 className="font-bold text-sm">{round.round}</h4>
+                      <h4 className="font-bold text-xs">{round.round}</h4>
                       <Badge variant="outline" className="text-xs">{round.timeline}</Badge>
                     </div>
-                    <div className="text-lg font-bold text-primary mb-1">{round.amount}</div>
+                    <div className="text-base font-bold text-primary mb-1">{round.amount}</div>
                     <p className="text-xs text-muted-foreground mb-1">{round.valuation}</p>
                     <p className="text-xs text-muted-foreground">{round.use}</p>
                   </Card>
@@ -190,8 +190,8 @@ const FinancialsSlide = () => {
 
         {/* Unit Economics */}
         <div>
-          <h3 className="text-xl font-bold mb-4">Unit Economics & Key Metrics</h3>
-          <div className="grid grid-cols-6 gap-4">
+          <h3 className="text-lg font-bold mb-3">Unit Economics & Key Metrics</h3>
+          <div className="grid grid-cols-6 gap-3">
             {unitEconomics.map((metric, index) => (
               <motion.div
                 key={index}
@@ -199,10 +199,10 @@ const FinancialsSlide = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5 + index * 0.1, duration: 0.5 }}
               >
-                <Card className="p-4 text-center hover:scale-105 transition-all duration-300 h-full">
-                  <div className="text-2xl font-bold gradient-text mb-2">{metric.value}</div>
-                  <h4 className="font-semibold text-xs mb-2">{metric.metric}</h4>
-                  <p className="text-xs text-muted-foreground mb-2">{metric.description}</p>
+                <Card className="p-3 text-center hover:scale-105 transition-all duration-300 h-full">
+                  <div className="text-lg font-bold gradient-text mb-1">{metric.value}</div>
+                  <h4 className="font-semibold text-xs mb-1">{metric.metric}</h4>
+                  <p className="text-xs text-muted-foreground mb-1">{metric.description}</p>
                   <Badge variant="secondary" className="text-xs">
                     {metric.trend}
                   </Badge>
@@ -214,8 +214,8 @@ const FinancialsSlide = () => {
 
         {/* Revenue Projection */}
         <div>
-          <h3 className="text-xl font-bold mb-4">5-Year Revenue Projection</h3>
-          <Card className="p-6">
+          <h3 className="text-lg font-bold mb-3">5-Year Revenue Projection</h3>
+          <Card className="p-4">
             <div className="space-y-4">
               <div className="grid grid-cols-5 gap-4 pb-3 border-b border-border text-sm font-semibold">
                 <div>Year</div>
@@ -249,24 +249,24 @@ const FinancialsSlide = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.2, duration: 0.6 }}
         >
-          <Card className="p-6 bg-gradient-to-r from-green-500/10 to-blue-500/10 border-green-500/20">
-            <h4 className="text-xl font-bold mb-4 text-center">🎯 Investment Highlights</h4>
-            <div className="grid grid-cols-4 gap-6 text-center">
+          <Card className="p-4 bg-gradient-to-r from-green-500/10 to-blue-500/10 border-green-500/20">
+            <h4 className="text-lg font-bold mb-3 text-center">🎯 Investment Highlights</h4>
+            <div className="grid grid-cols-4 gap-4 text-center">
               <div>
-                <div className="text-2xl font-bold gradient-text">€45M</div>
-                <div className="text-sm text-muted-foreground">Revenue by Year 5</div>
+                <div className="text-xl font-bold gradient-text">€45M</div>
+                <div className="text-xs text-muted-foreground">Revenue by Year 5</div>
               </div>
               <div>
-                <div className="text-2xl font-bold gradient-text">78%</div>
-                <div className="text-sm text-muted-foreground">Gross Margin</div>
+                <div className="text-xl font-bold gradient-text">78%</div>
+                <div className="text-xs text-muted-foreground">Gross Margin</div>
               </div>
               <div>
-                <div className="text-2xl font-bold gradient-text">11mo</div>
-                <div className="text-sm text-muted-foreground">Payback Period</div>
+                <div className="text-xl font-bold gradient-text">11mo</div>
+                <div className="text-xs text-muted-foreground">Payback Period</div>
               </div>
               <div>
-                <div className="text-2xl font-bold gradient-text">6.8:1</div>
-                <div className="text-sm text-muted-foreground">LTV:CAC Ratio</div>
+                <div className="text-xl font-bold gradient-text">6.8:1</div>
+                <div className="text-xs text-muted-foreground">LTV:CAC Ratio</div>
               </div>
             </div>
           </Card>
