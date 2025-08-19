@@ -5,6 +5,11 @@ import SolutionSection from "@/components/PitchDeck/SolutionSection";
 import BusinessModelSection from "@/components/PitchDeck/BusinessModelSection";
 import TeamTimelineSection from "@/components/PitchDeck/TeamTimelineSection";
 import FundingSection from "@/components/PitchDeck/FundingSection";
+import ScrollProgressIndicator from "@/components/Animations/ScrollProgressIndicator";
+import Interactive3DTimeline from "@/components/3D/Interactive3DTimeline";
+import Interactive3DChart from "@/components/3D/Interactive3DChart";
+import ParticleDataFlow from "@/components/3D/ParticleDataFlow";
+import { CinematicSection } from "@/components/Animations/CinematicTransitions";
 import { Button } from "@/components/ui/button";
 import { ArrowUp } from "lucide-react";
 import { useEffect, useState } from "react";
@@ -26,7 +31,9 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background overflow-x-hidden">
+      <ScrollProgressIndicator />
+      
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-sm border-b border-border/50">
         <div className="max-w-6xl mx-auto px-6 py-4">
@@ -49,25 +56,51 @@ const Index = () => {
 
       {/* Main Content */}
       <main>
-        <HeroSection />
-        <div id="problem">
-          <ProblemSection />
-        </div>
-        <div id="market">
-          <MarketTimingSection />
-        </div>
-        <div id="solution">
-          <SolutionSection />
-        </div>
-        <div id="business">
-          <BusinessModelSection />
-        </div>
-        <div id="team">
-          <TeamTimelineSection />
-        </div>
-        <div id="funding">
-          <FundingSection />
-        </div>
+        <CinematicSection>
+          <HeroSection />
+        </CinematicSection>
+        
+        <CinematicSection>
+          <ParticleDataFlow className="my-20" />
+        </CinematicSection>
+
+        <CinematicSection direction="left">
+          <div id="problem">
+            <ProblemSection />
+          </div>
+        </CinematicSection>
+
+        <CinematicSection direction="right">
+          <div id="market">
+            <MarketTimingSection />
+            <Interactive3DChart className="my-20" />
+          </div>
+        </CinematicSection>
+
+        <CinematicSection direction="up">
+          <div id="solution">
+            <SolutionSection />
+          </div>
+        </CinematicSection>
+
+        <CinematicSection direction="left">
+          <div id="business">
+            <BusinessModelSection />
+          </div>
+        </CinematicSection>
+
+        <CinematicSection direction="right">
+          <div id="team">
+            <TeamTimelineSection />
+            <Interactive3DTimeline className="my-20" />
+          </div>
+        </CinematicSection>
+
+        <CinematicSection direction="up">
+          <div id="funding">
+            <FundingSection />
+          </div>
+        </CinematicSection>
       </main>
 
       {/* Footer */}
@@ -80,7 +113,7 @@ const Index = () => {
           <div className="flex justify-center space-x-6 text-sm text-muted-foreground">
             <span>© 2025 PerceptionTech</span>
             <span>•</span>
-            <span>Pitch Deck v1.0</span>
+            <span>Pitch Deck v2.0</span>
             <span>•</span>
             <span>Pre-Seed Stage</span>
           </div>
