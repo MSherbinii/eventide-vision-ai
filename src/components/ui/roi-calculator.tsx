@@ -62,11 +62,11 @@ export function ROICalculator({ title = "ROI Calculator (Illustrative)", onCalcu
     const rgbStorageCost = frameDataGBPerMonth * storageCostPerGB;
     const eventStorageCost = eventDataGBPerMonth * storageCostPerGB;
     
-    // Compute costs (AWS g4dn.xlarge research-based)
-    const rgbComputeCostPerHour = 3.06; // GPU instance for RGB processing
-    const eventComputeCostPerHour = 0.85; // Lower compute for event processing
+    // Compute costs (AWS g4dn.xlarge research-based + edge hardware power)
+    const rgbComputeCostPerHour = 3.06 + (0.25 * 0.12); // GPU instance + 250W edge @ $0.12/kWh
+    const eventComputeCostPerHour = 0.85 + (0.015 * 0.12); // Lower compute + 15W edge
     const rgbProcessingHours = inputs.hoursPerDay * daysInMonth; // Continuous processing
-    const eventProcessingHours = (inputs.hoursPerDay * 0.5) * daysInMonth; // 50% active time
+    const eventProcessingHours = (inputs.hoursPerDay * 0.6) * daysInMonth; // 60% active time (more realistic)
     
     const rgbComputeCost = rgbComputeCostPerHour * rgbProcessingHours;
     const eventComputeCost = eventComputeCostPerHour * eventProcessingHours;
@@ -207,14 +207,14 @@ export function ROICalculator({ title = "ROI Calculator (Illustrative)", onCalcu
                 <Database className="w-3 h-3 text-destructive" />
                 <span className="text-xs text-muted">RGB Data</span>
               </div>
-              <div className="text-lg font-bold text-destructive">{results.rgbSystem.dataVolume.toFixed(0)} GB</div>
+              <div className="text-lg font-bold text-destructive">{(results.rgbSystem.dataVolume).toLocaleString()} GB</div>
             </div>
             <div>
               <div className="flex items-center gap-1 justify-center mb-1">
                 <Database className="w-3 h-3 text-primary" />
                 <span className="text-xs text-muted">Event Data</span>
               </div>
-              <div className="text-lg font-bold text-primary">{results.eventSystem.dataVolume.toFixed(0)} GB</div>
+              <div className="text-lg font-bold text-primary">{(results.eventSystem.dataVolume).toLocaleString()} GB</div>
             </div>
             <div>
               <div className="flex items-center gap-1 justify-center mb-1">
@@ -228,19 +228,19 @@ export function ROICalculator({ title = "ROI Calculator (Illustrative)", onCalcu
           {/* Cost Breakdown */}
           <div className="grid grid-cols-4 gap-2 text-xs">
             <div className="text-center">
-              <div className="text-destructive font-medium">${results.rgbSystem.storageCost.toFixed(0)}</div>
+              <div className="text-destructive font-medium">${(results.rgbSystem.storageCost).toLocaleString()}</div>
               <div className="text-muted">RGB Storage</div>
             </div>
             <div className="text-center">
-              <div className="text-warning font-medium">${results.rgbSystem.computeCost.toFixed(0)}</div>
+              <div className="text-warning font-medium">${(results.rgbSystem.computeCost).toLocaleString()}</div>
               <div className="text-muted">RGB Compute</div>
             </div>
             <div className="text-center">
-              <div className="text-primary font-medium">${results.eventSystem.computeCost.toFixed(0)}</div>
+              <div className="text-primary font-medium">${(results.eventSystem.computeCost).toLocaleString()}</div>
               <div className="text-muted">Event Compute</div>
             </div>
             <div className="text-center">
-              <div className="text-success font-medium">${results.savings.costSavings.toFixed(0)}</div>
+              <div className="text-success font-medium">${(results.savings.costSavings).toLocaleString()}</div>
               <div className="text-muted">Monthly Savings</div>
             </div>
           </div>
@@ -252,15 +252,15 @@ export function ROICalculator({ title = "ROI Calculator (Illustrative)", onCalcu
             {results.savings.percentageSavings}% Cost Reduction
           </div>
           <div className="text-sm text-muted">
-            Total monthly savings: <span className="text-primary font-medium">${results.savings.costSavings.toFixed(0)}</span>
+            Total monthly savings: <span className="text-primary font-medium">${(results.savings.costSavings).toLocaleString()}</span>
           </div>
         </div>
 
         <div className="space-y-1 text-xs text-muted">
-          <div>• RGB: AWS g4dn.xlarge $3.06/hr continuous processing</div>
-          <div>• Event: $0.85/hr processing (50% active time)</div>
-          <div>• Data: 100x reduction conservative estimate</div>
-          <div>• Sources: AWS pricing, Oxipital AI, IDS cameras</div>
+          <div>• <strong>Purpose:</strong> Show customer TCO reduction with event-based vision</div>
+          <div>• RGB: AWS g4dn.xlarge $3.06/hr + 250W edge compute</div>
+          <div>• Event: $0.85/hr processing + 15W edge (94% power reduction)</div>
+          <div>• Data: 100x reduction conservative (research shows 10x-1000x)</div>
         </div>
       </CardContent>
     </Card>
