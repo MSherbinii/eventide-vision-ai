@@ -80,9 +80,11 @@ const SolutionSlide = () => {
           <span className="gradient-text">Perception OS</span> for the Factory
         </h1>
         <p className="text-sm text-muted-foreground max-w-3xl mx-auto">
-          Event + RGB → NVIDIA Jetson (edge) → Secure gateway/cloud analytics → APIs to MES/ERP. 
-          μs latency, 120dB HDR, sparse data.
+          Event + RGB → Edge (Jetson) → Models → Portal (KPIs, audit, alerts) → MES/ERP API
         </p>
+        <div className="text-xs text-muted-foreground">
+          • µs-level temporal resolution • HDR up to &gt;120 dB • Sparse events → lower bandwidth & storage
+        </div>
       </div>
 
       <div className="flex-1 grid grid-cols-2 gap-6">
@@ -177,9 +179,9 @@ const SolutionSlide = () => {
             <h4 className="text-lg font-bold mb-3">Complete Solution Stack</h4>
             <div className="space-y-2">
               {[
-                { title: "Hardware Integration", desc: "Prophesee EVK4 HD, Sony IMX636 sensors" },
+                { title: "Hardware Integration", desc: "Prophesee EVK4 (IMX636): HD, <100 µs latency @1000 lux" },
                 { title: "AI Processing Engine", desc: "Custom deep learning models for event data" },
-                { title: "Management Portal", desc: "Complete software platform for monitoring" }
+                { title: "Management Portal", desc: "Complete software platform for monitoring & alerts" }
               ].map((component, index) => (
                 <motion.div
                   key={index}
@@ -206,8 +208,8 @@ const SolutionSlide = () => {
             <h4 className="text-lg font-bold mb-3">Primary Applications</h4>
             <div className="grid grid-cols-3 gap-2 text-xs">
               {[
-                "Quality Assurance", "Positioning", "Predictive Maintenance",
-                "Measurement", "Identification", "Vibration Monitoring"
+                "High-speed counting (~1000 obj/s)", "Predictive maintenance", "Area monitoring",
+                "Quality assurance", "Positioning", "Vibration detection"
               ].map((app, index) => (
                 <Badge key={index} variant="outline" className="text-center py-1 text-xs">
                   {app}

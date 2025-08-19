@@ -150,6 +150,9 @@ const BusinessModelSlide = () => {
           {/* Pricing Tiers */}
           <div>
             <h3 className="text-3xl font-bold mb-6">Pricing Strategy</h3>
+            <div className="text-xs text-muted-foreground mb-3">
+              Anchor: Google Vertex Visual Inspection AI = $100/stream/month (floor for full-stack solutions)
+            </div>
             <div className="space-y-4">
               {pricingTiers.map((tier, index) => (
                 <motion.div

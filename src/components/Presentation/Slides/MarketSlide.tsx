@@ -67,8 +67,11 @@ const MarketSlide = () => {
           <span className="gradient-text">Perfect Storm</span> of Opportunity
         </h1>
         <p className="text-sm text-muted-foreground max-w-3xl mx-auto">
-          Global machine vision: $20.378B (2024) → $41.744B (2030) at 13.0% CAGR
+          Global machine vision: $20.38B (2024) → $41.74B (2030) at 13.0% CAGR
         </p>
+        <div className="text-xs text-muted-foreground">
+          Source: Grand View Research, Machine Vision Market Size & Share Report
+        </div>
       </div>
 
       <div className="flex-1 grid grid-cols-2 gap-6">
@@ -131,8 +134,13 @@ const MarketSlide = () => {
                 </motion.div>
               ))}
             </div>
-            <div className="mt-3 text-xs text-muted-foreground">
-              Source: Grand View Research
+            <div className="mt-3 space-y-1">
+              <div className="text-xs text-muted-foreground">
+                Source: Grand View Research, Machine Vision Market Size & Share Report
+              </div>
+              <div className="text-xs text-warning">
+                MEA snapshot: ~$1.61B (2024), ~13.5% CAGR to 2030
+              </div>
             </div>
           </div>
         </div>
@@ -161,7 +169,7 @@ const MarketSlide = () => {
         <div className="text-center p-4 bg-gradient-to-r from-accent/10 to-primary/10 rounded-xl border border-accent/20">
           <h4 className="text-lg font-bold mb-2">🎯 First Mover Advantage</h4>
           <p className="text-sm mb-3">
-            We are the <strong>first startup globally</strong> providing complete end-to-end event-based vision solutions.
+            We are the <strong>first mover in MENA</strong> offering a full-stack, event-based industrial vision PaaS.
           </p>
           <div className="grid grid-cols-3 gap-4 text-xs">
             <div>

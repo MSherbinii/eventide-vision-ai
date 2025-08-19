@@ -28,7 +28,7 @@ const TitleSlide = () => {
           {/* Company Title */}
           <div className="space-y-4">
             <div className="text-4xl md:text-5xl font-bold tracking-tight">
-              <span className="gradient-text animate-float">Lumina AI</span>
+              <span className="gradient-text animate-float">Eventide Vision</span>
             </div>
             <div className="text-lg md:text-xl font-light text-muted-foreground">
               Perception-as-a-Service for Factories
