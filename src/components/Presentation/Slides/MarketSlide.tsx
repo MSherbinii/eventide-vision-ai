@@ -106,40 +106,33 @@ const MarketSlide = () => {
             </div>
           </div>
 
-          {/* Market Size */}
+          {/* Market Opportunity */}
           <div>
             <h3 className="text-2xl font-bold mb-4">Market Opportunity</h3>
             <div className="space-y-3">
-              {marketSizes.map((market, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, x: -50 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.5 + index * 0.2, duration: 0.5 }}
-                >
-                  <Card className="p-4 hover:scale-105 transition-all duration-300 glow-effect">
-                    <div className="flex items-center justify-between">
-                      <div>
-                        <div className={`text-2xl font-bold bg-gradient-to-r ${market.color} bg-clip-text text-transparent`}>
-                          {market.size}
-                        </div>
-                        <h4 className="font-semibold text-xs">{market.market}</h4>
-                        <p className="text-muted-foreground text-xs">{market.timeframe}</p>
-                      </div>
-                      <Badge variant="secondary" className="text-xs">
-                        {market.cagr} CAGR
-                      </Badge>
-                    </div>
-                  </Card>
-                </motion.div>
-              ))}
-            </div>
-            <div className="mt-3 space-y-1">
-              <div className="text-xs text-muted-foreground">
-                Source: Grand View Research, Machine Vision Market Size & Share Report
-              </div>
-              <div className="text-xs text-warning">
-                MEA snapshot: ~$1.61B (2024), ~13.5% CAGR to 2030
+              <Card className="p-4 bg-gradient-to-r from-primary/10 to-secondary/10 border border-primary/20">
+                <div className="space-y-2">
+                  <span className="font-semibold">TAM (global machine vision)</span>
+                  <p className="text-xs text-muted-foreground">$20.38B (2024) → $41.74B (2030)</p>
+                </div>
+              </Card>
+              
+              <Card className="p-4 bg-gradient-to-r from-secondary/10 to-accent/10 border border-secondary/20">
+                <div className="space-y-2">
+                  <span className="font-semibold">SAM (QA & predictive in Pharma + F&B)</span>
+                  <p className="text-xs text-muted-foreground">subset of TAM (to be sized with pilots)</p>
+                </div>
+              </Card>
+              
+              <Card className="p-4 bg-gradient-to-r from-accent/10 to-primary/10 border border-accent/20">
+                <div className="space-y-2">  
+                  <span className="font-semibold">SOM (Egypt + GCC + DACH early adopters)</span>
+                  <p className="text-xs text-muted-foreground">initial selling region</p>
+                </div>
+              </Card>
+              
+              <div className="text-sm text-muted-foreground mt-3">
+                <strong>MEA:</strong> $1.61B (2024), ~13.5% CAGR to 2030
               </div>
             </div>
           </div>

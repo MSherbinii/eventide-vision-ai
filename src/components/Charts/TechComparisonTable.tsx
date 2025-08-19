@@ -52,8 +52,8 @@ const TechComparisonTable = () => {
           </div>
         </div>
         
-        <div className="text-xs text-muted mt-3">
-          Source: {techSpecs.imx636.source}
+        <div className="text-xs text-muted text-center mt-3">
+          Anchor sensor: Sony/Prophesee IMX636 (EVK4). Task-dependent accuracy; industrial counting demos {'>'}99.5%.
         </div>
       </Card>
     </motion.div>

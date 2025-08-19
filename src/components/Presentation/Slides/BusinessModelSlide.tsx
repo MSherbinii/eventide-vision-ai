@@ -82,26 +82,28 @@ const BusinessModelSlide = () => {
 
   const marketComparison = [
     {
-      solution: "Our Platform",
-      setup: "$5K-25K",
-      monthly: "$500-2,500",
-      timeToValue: "2-4 weeks",
-      accuracy: ">99%",
+      solution: "Traditional Integrators",
+      setup: "Varies",
+      monthly: "Varies",
+      timeToValue: "Multi-month",
+      accuracy: "Frame-limited",
+      highlight: false
+    },
+    {
+      solution: "Cloud Vision APIs",
+      setup: "Variable",
+      monthly: "Per-use",
+      timeToValue: "Weeks-months",
+      accuracy: "General",
+      highlight: false
+    },
+    {
+      solution: "Eventide Vision PaaS",
+      setup: "$5k–$25k (target)",
+      monthly: "$500–$2,500 (target)",
+      timeToValue: "pilot in 4–8 weeks (target)",
+      accuracy: "task-dependent; demos >99.5% in high-speed counting",
       highlight: true
-    },
-    {
-      solution: "Traditional Vision",
-      setup: "$50K-200K",
-      monthly: "$5K-15K",
-      timeToValue: "6-12 months",
-      accuracy: "85-95%"
-    },
-    {
-      solution: "In-house Development",
-      setup: "$200K-500K",
-      monthly: "$10K-30K",
-      timeToValue: "12-24 months", 
-      accuracy: "Variable"
     }
   ];
 
@@ -150,8 +152,8 @@ const BusinessModelSlide = () => {
           {/* Pricing Tiers */}
           <div>
             <h3 className="text-3xl font-bold mb-6">Pricing Strategy</h3>
-            <div className="text-xs text-muted-foreground mb-3">
-              Anchor: Google Vertex Visual Inspection AI = $100/stream/month (floor for full-stack solutions)
+            <div className="text-sm text-muted-foreground mt-4">
+              Public benchmark <strong>$100/stream/month</strong> (Google Visual Inspection AI) used as floor for full-stack pricing.
             </div>
             <div className="space-y-4">
               {pricingTiers.map((tier, index) => (
@@ -209,8 +211,8 @@ const BusinessModelSlide = () => {
                 <div className="grid grid-cols-5 gap-3 pb-3 border-b border-border text-sm font-semibold">
                   <div>Solution</div>
                   <div>Setup Cost</div>
-                  <div>Monthly</div>
-                  <div>Time to Value</div>
+                  <div>Monthly Cost</div>
+                  <div>Implementation</div>
                   <div>Accuracy</div>
                 </div>
                 {marketComparison.map((item, index) => (

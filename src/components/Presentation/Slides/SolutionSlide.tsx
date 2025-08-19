@@ -8,30 +8,30 @@ const SolutionSlide = () => {
   const advantages = [
     {
       icon: <Zap className="w-10 h-10" />,
-      title: "µs-Level Processing",
-      description: "Event-based sensors only capture changes, <100 µs pixel latency",
-      metric: "< 100µs latency",
+      title: "μs-Level Latency",
+      description: "Event-driven processing responds to changes instantly, not frame-by-frame",
+      metric: "<100 μs @ 1000 lux",
       color: "text-primary border-primary/20"
     },
     {
       icon: <Database className="w-10 h-10" />,
-      title: "Massive Data Reduction",
-      description: "Only meaningful pixel changes are processed, not entire frames",
-      metric: "90% less storage",
+      title: "HDR Vision", 
+      description: "Handles bright glare and dark shadows simultaneously without exposure adjustments",
+      metric: ">86 dB; up to >120 dB (conditions)",
       color: "text-secondary border-secondary/20"
     },
     {
       icon: <Cpu className="w-10 h-10" />,
-      title: "Edge Processing Ready", 
-      description: "Optimized algorithms work on low-power embedded hardware",
-      metric: "10x power efficiency",
+      title: "Sparse Data",
+      description: "Transmit only pixel changes, reducing bandwidth and storage significantly",
+      metric: "Lower bandwidth & storage",
       color: "text-accent border-accent/20"
     },
     {
       icon: <Shield className="w-10 h-10" />,
-      title: "Superior Accuracy",
-      description: "No motion blur, HDR >120 dB, microsecond precision",
-      metric: "> 99.5% accuracy",
+      title: "Edge Processing",
+      description: "Edge-capable on Jetson-class hardware",
+      metric: "Edge-capable",
       color: "text-warning border-warning/20"
     }
   ];
@@ -50,7 +50,7 @@ const SolutionSlide = () => {
           Event + RGB → Edge (Jetson) → Models → Portal (KPIs, audit, alerts) → MES/ERP API
         </p>
         <div className="text-xs text-muted-foreground">
-          • µs-level temporal resolution • HDR up to &gt;120 dB • Sparse events → lower bandwidth & storage
+          • μs-level temporal resolution • HDR {'>'}86 dB; up to {'>'}120 dB (conditions) • Sparse events → lower bandwidth & storage; edge-capable on Jetson
         </div>
       </div>
 
