@@ -94,7 +94,7 @@ const MarketSlide = () => {
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ delay: index * 0.1, duration: 0.5 }}
                 >
-                  <Card className="p-6 text-center hover:scale-105 transition-all duration-300 bg-card border border-border rounded-2xl shadow-lg h-full">
+                  <Card className="p-8 text-center hover:scale-105 transition-all duration-300 bg-card border border-border rounded-2xl shadow-lg h-full">
                     <div className="mb-3 flex justify-center">
                       {factor.icon}
                     </div>
@@ -119,7 +119,7 @@ const MarketSlide = () => {
               {expandableChips.map((chip, index) => (
                 <Dialog key={chip.id}>
                   <DialogTrigger asChild>
-                    <Card className="p-4 bg-card border border-border/50 hover:border-primary/50 rounded-2xl shadow-lg cursor-pointer hover:shadow-xl transition-all duration-300">
+                    <Card className="p-6 bg-card border border-border/50 hover:border-primary/50 rounded-2xl shadow-lg cursor-pointer hover:shadow-xl transition-all duration-300">
                       <div className="flex items-center justify-between">
                         <span className="font-semibold text-white text-sm line-clamp-1">{chip.title}</span>
                         <ExpandIcon className="w-4 h-4 text-muted flex-shrink-0 ml-2" />

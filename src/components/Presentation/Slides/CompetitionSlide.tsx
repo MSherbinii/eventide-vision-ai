@@ -93,7 +93,7 @@ const CompetitionSlide = () => {
         {/* Left Column - Competitive Matrix */}
         <div>
           <h3 className="text-2xl font-bold mb-6 text-white">Competitive Matrix</h3>
-          <Card className="p-6 bg-card/80 backdrop-blur-sm border border-border rounded-2xl shadow-lg">
+          <Card className="p-8 bg-card/80 backdrop-blur-sm border border-border rounded-2xl shadow-lg">
             <div className="space-y-4">
               {/* Header */}
               <div className="grid grid-cols-7 gap-2 pb-3 border-b border-border">
@@ -171,7 +171,7 @@ const CompetitionSlide = () => {
         {/* Right Column - Positioning Scatter Plot */}
         <div>
           <h3 className="text-2xl font-bold mb-6 text-white">Market Positioning</h3>
-          <Card className="p-6 bg-card/80 backdrop-blur-sm border border-border rounded-2xl shadow-lg">
+          <Card className="p-8 bg-card/80 backdrop-blur-sm border border-border rounded-2xl shadow-lg">
             <div className="relative w-full h-80">
               <div className="absolute inset-0 border border-border rounded-lg"></div>
               
@@ -223,7 +223,7 @@ const CompetitionSlide = () => {
         transition={{ delay: 1, duration: 0.6 }}
         className="relative z-10 mt-8"
       >
-        <Card className="p-6 bg-card/80 backdrop-blur-sm border border-primary/20 rounded-2xl shadow-lg text-center">
+        <Card className="p-8 bg-card/80 backdrop-blur-sm border border-primary/20 rounded-2xl shadow-lg text-center">
           <h4 className="text-xl font-bold mb-3 text-white">Our Unique Position</h4>
           <p className="text-base text-muted mb-4">
             Only full-stack event-based PaaS focused on QA/Inspection for high-speed lines
