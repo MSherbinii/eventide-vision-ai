@@ -6,7 +6,7 @@ import SolutionSlide from "@/components/Presentation/Slides/SolutionSlide";
 import MarketSlide from "@/components/Presentation/Slides/MarketSlide";
 import BusinessModelSlide from "@/components/Presentation/Slides/BusinessModelSlide";
 import CompetitionSlide from "@/components/Presentation/Slides/CompetitionSlide";
-import RoadmapSlideV2 from "@/components/Presentation/Slides/RoadmapSlideV2";
+import RoadmapSlide from "@/components/Presentation/Slides/RoadmapSlide";
 import TeamSlide from "@/components/Presentation/Slides/TeamSlide";
 import AskSlideV2 from "@/components/Presentation/Slides/AskSlideV2";
 import { CustomCursor } from "@/components/ui/custom-cursor";
@@ -21,7 +21,7 @@ const CompactDeck = () => {
     { id: 'market', title: 'Market Opportunity', component: MarketSlide },
     { id: 'business-model', title: 'Business Model', component: BusinessModelSlide },
     { id: 'competition', title: 'Why We Win', component: CompetitionSlide },
-    { id: 'roadmap', title: 'Timeline & Milestones', component: RoadmapSlideV2 },
+    { id: 'roadmap', title: 'Timeline & Milestones', component: RoadmapSlide },
     { id: 'team', title: 'Team', component: TeamSlide },
     { id: 'ask', title: 'The Ask', component: AskSlideV2 }
   ];
