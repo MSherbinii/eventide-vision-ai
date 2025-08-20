@@ -81,7 +81,7 @@ const BusinessModelSlide = () => {
   ];
 
   return (
-    <div className="w-full h-full flex flex-col px-8 py-6 bg-background relative overflow-hidden max-w-[1320px] mx-auto">
+    <div className="w-full h-screen flex flex-col px-8 py-6 bg-background relative overflow-hidden">
       {/* Unified Animated Background */}
       <div className="animated-bg">
         <div className="floating-orb orb-primary" />
@@ -207,10 +207,10 @@ const BusinessModelSlide = () => {
             <h3 className="text-2xl font-bold mb-4 text-white">ROI Example</h3>
             <Card className="p-6 bg-card border border-primary/20 rounded-2xl shadow-lg">
               <div className="text-center">
-                <div className="text-3xl font-bold text-primary mb-2">At 0.3% scrap reduction</div>
-                <div className="text-lg text-muted mb-3">and 1 nuisance stop/week avoided</div>
-                <div className="text-2xl font-bold text-accent">Payback &lt;3 months</div>
-                <div className="text-xs text-muted-foreground mt-2">(Input-driven in live calculator)</div>
+                <div className="text-3xl font-bold text-primary mb-2">5% quality improvement</div>
+                <div className="text-lg text-muted mb-3">+ 2 hours less downtime/week</div>
+                <div className="text-2xl font-bold text-accent">ROI: €15k → €150k savings/year</div>
+                <div className="text-xs text-muted-foreground mt-2">Payback &lt;3 months on €15k pilot investment</div>
               </div>
             </Card>
           </div>
