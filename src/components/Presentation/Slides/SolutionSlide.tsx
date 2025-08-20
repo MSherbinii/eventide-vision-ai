@@ -125,11 +125,11 @@ const SolutionSlide = () => {
       </div>
 
       {/* Bottom Section: Industrial Applications + Comparison */}
-      <div className="relative z-10 flex-1 grid grid-cols-2 gap-8">
-        {/* Left: Industrial Applications */}
-        <div className="space-y-4">
+      <div className="relative z-10 flex-1 grid grid-cols-3 gap-6 min-h-0">
+        {/* Left: Industrial Applications - Takes 2/3 width */}
+        <div className="col-span-2 space-y-4">
           <h2 className="text-2xl font-bold text-white">Industrial Applications</h2>
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-2 gap-3 h-fit">
             {realWorldApplications.map((app, index) => (
               <motion.div
                 key={index}
@@ -163,7 +163,7 @@ const SolutionSlide = () => {
           {/* Deployed Industries */}
           <Card className="p-4 bg-card/80 backdrop-blur-sm border border-accent/20 rounded-xl shadow-lg">
             <h4 className="text-lg font-bold mb-3 text-white text-center">Deployed Industries</h4>
-            <div className="grid grid-cols-2 gap-2 text-sm text-center">
+            <div className="grid grid-cols-4 gap-2 text-sm text-center">
               <div className="p-2 bg-accent/10 rounded text-accent font-medium">Pharmaceutical</div>
               <div className="p-2 bg-primary/10 rounded text-primary font-medium">Food & Beverage</div>
               <div className="p-2 bg-warning/10 rounded text-warning font-medium">Electronics</div>
@@ -172,46 +172,42 @@ const SolutionSlide = () => {
           </Card>
         </div>
 
-        {/* Right: Comparison Table + Advantages */}
-        <div className="space-y-4">
+        {/* Right: Comparison Table + Advantages - Takes 1/3 width */}
+        <div className="col-span-1 space-y-4">
           <h2 className="text-2xl font-bold text-white">Technology Comparison</h2>
           
           {/* Comparison Table */}
-          <Card className="p-6 bg-card/80 backdrop-blur-sm border border-border rounded-xl shadow-lg">
+          <div className="h-fit">
             <TechComparisonTable />
-          </Card>
+          </div>
 
           {/* Key Benefits */}
-          <Card className="p-6 bg-card/80 backdrop-blur-sm border border-primary/20 rounded-xl shadow-lg">
-            <h4 className="text-lg font-bold mb-4 text-white">Event Vision Advantages</h4>
-            <div className="grid grid-cols-2 gap-4 text-sm">
-              <div className="space-y-2">
-                <div className="flex items-center gap-2">
-                  <CheckCircle className="w-4 h-4 text-primary" />
-                  <span className="text-white font-medium">Microsecond latency</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircle className="w-4 h-4 text-primary" />
-                  <span className="text-white font-medium">No motion blur</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircle className="w-4 h-4 text-primary" />
-                  <span className="text-white font-medium">120dB dynamic range</span>
-                </div>
+          <Card className="p-4 bg-card/80 backdrop-blur-sm border border-primary/20 rounded-xl shadow-lg">
+            <h4 className="text-lg font-bold mb-3 text-white">Event Vision Advantages</h4>
+            <div className="space-y-2 text-sm">
+              <div className="flex items-center gap-2">
+                <CheckCircle className="w-4 h-4 text-primary" />
+                <span className="text-white font-medium">Microsecond latency</span>
               </div>
-              <div className="space-y-2">
-                <div className="flex items-center gap-2">
-                  <CheckCircle className="w-4 h-4 text-primary" />
-                  <span className="text-white font-medium">96% data reduction</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircle className="w-4 h-4 text-primary" />
-                  <span className="text-white font-medium">Edge processing ready</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircle className="w-4 h-4 text-primary" />
-                  <span className="text-white font-medium">No complex lighting</span>
-                </div>
+              <div className="flex items-center gap-2">
+                <CheckCircle className="w-4 h-4 text-primary" />
+                <span className="text-white font-medium">No motion blur</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <CheckCircle className="w-4 h-4 text-primary" />
+                <span className="text-white font-medium">120dB dynamic range</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <CheckCircle className="w-4 h-4 text-primary" />
+                <span className="text-white font-medium">96% data reduction</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <CheckCircle className="w-4 h-4 text-primary" />
+                <span className="text-white font-medium">Edge processing ready</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <CheckCircle className="w-4 h-4 text-primary" />
+                <span className="text-white font-medium">No complex lighting</span>
               </div>
             </div>
           </Card>
