@@ -67,31 +67,39 @@ export function ROICalculator({ title = "ROI Calculator (Illustrative)", onCalcu
       processingLoad: 0.15 // 85% less processing needed
     };
     
-    // RGB System Costs (per camera, then multiply by count)
+    // RGB System Costs - using compressed video (not raw)
+    const rgbCompressionRatio = 50; // H.264 compression (raw to compressed)
     const rgbBytesPerPixel = rgbCameraSpecs.bitDepth / 8;
-    const rgbDataPerCameraPerDay = (rgbCameraSpecs.fps * rgbCameraSpecs.resolution * rgbBytesPerPixel * inputs.hoursPerDay * 3600) / (1024 ** 3);
-    const rgbTotalDataPerMonth = rgbDataPerCameraPerDay * daysInMonth * inputs.rgbCameraCount;
+    const rgbRawDataPerCameraPerDay = (rgbCameraSpecs.fps * rgbCameraSpecs.resolution * rgbBytesPerPixel * inputs.hoursPerDay * 3600) / (1024 ** 3);
+    const rgbCompressedDataPerCameraPerDay = rgbRawDataPerCameraPerDay / rgbCompressionRatio;
+    const rgbTotalDataPerMonth = rgbCompressedDataPerCameraPerDay * daysInMonth * inputs.rgbCameraCount;
     
-    // Event System Costs (significantly less data)
-    const eventDataReductionFactor = 150; // Conservative 150x reduction based on research
-    const eventTotalDataPerMonth = (rgbDataPerCameraPerDay / eventDataReductionFactor) * daysInMonth * inputs.eventCameraCount;
+    // Event System Costs (much less data, naturally sparse)
+    const eventDataReductionFactor = 150; // Conservative 150x reduction vs compressed RGB
+    const eventTotalDataPerMonth = (rgbCompressedDataPerCameraPerDay / eventDataReductionFactor) * daysInMonth * inputs.eventCameraCount;
     
     // Storage costs (S3 + Kinesis + egress)
     const storageCostPerGB = 0.023 + 0.014 + (0.09 * 0.1);
     const rgbStorageCost = rgbTotalDataPerMonth * storageCostPerGB;
     const eventStorageCost = eventTotalDataPerMonth * storageCostPerGB;
     
-    // Edge compute costs (per camera)
+    // Edge compute costs (scale with FPS and camera count)
+    const fpsMultiplier = inputs.fps / 30; // Baseline at 30fps
+    const workloadMultiplier = inputs.itemsPerHour / 3600; // Baseline at 3600 items/hour
+    
     const rgbEdgePowerCostPerCamera = (rgbCameraSpecs.powerConsumption / 1000) * 24 * daysInMonth * 0.12; // kW * hours * $/kWh
     const eventEdgePowerCostPerCamera = (eventCameraSpecs.powerConsumption / 1000) * 24 * daysInMonth * 0.12;
     
-    const rgbEdgePowerCost = rgbEdgePowerCostPerCamera * inputs.rgbCameraCount;
+    const rgbEdgePowerCost = rgbEdgePowerCostPerCamera * inputs.rgbCameraCount * fpsMultiplier;
     const eventEdgePowerCost = eventEdgePowerCostPerCamera * inputs.eventCameraCount;
     
-    // Cloud compute costs (processing load scales with camera count and type)
-    const baseCloudComputePerHour = 2.50; // Industrial edge compute instance
-    const rgbCloudHoursPerMonth = inputs.hoursPerDay * daysInMonth * rgbCameraSpecs.processingLoad * inputs.rgbCameraCount;
-    const eventCloudHoursPerMonth = inputs.hoursPerDay * daysInMonth * eventCameraSpecs.processingLoad * inputs.eventCameraCount;
+    // Cloud compute costs (scale with FPS, workload, and camera count)
+    const baseCloudComputePerHour = 8.50; // Industrial edge compute instance (increased for realistic costs)
+    const rgbProcessingMultiplier = fpsMultiplier * workloadMultiplier * rgbCameraSpecs.processingLoad;
+    const eventProcessingMultiplier = workloadMultiplier * eventCameraSpecs.processingLoad; // Event doesn't scale with FPS
+    
+    const rgbCloudHoursPerMonth = inputs.hoursPerDay * daysInMonth * rgbProcessingMultiplier * inputs.rgbCameraCount;
+    const eventCloudHoursPerMonth = inputs.hoursPerDay * daysInMonth * eventProcessingMultiplier * inputs.eventCameraCount;
     
     const rgbCloudComputeCost = rgbCloudHoursPerMonth * baseCloudComputePerHour;
     const eventCloudComputeCost = eventCloudHoursPerMonth * baseCloudComputePerHour;
@@ -111,9 +119,10 @@ export function ROICalculator({ title = "ROI Calculator (Illustrative)", onCalcu
     const rgbReworkCost = baseReworkCost * (1 + rgbAccuracyLoss);
     const eventReworkCost = baseReworkCost * (1 - eventAccuracyGain);
     
-    // Integration & maintenance costs (monthly amortized)
-    const rgbIntegrationCost = 150000 / 24; // €150K integration amortized over 2 years
-    const eventIntegrationCost = 75000 / 24; // €75K integration (faster deployment)
+    // Integration & maintenance costs (monthly amortized, scale with camera count)
+    const cameraComplexityMultiplier = Math.sqrt(inputs.rgbCameraCount + inputs.eventCameraCount) / Math.sqrt(8); // Baseline 8 cameras
+    const rgbIntegrationCost = (180000 / 24) * cameraComplexityMultiplier; // €180K integration amortized over 2 years
+    const eventIntegrationCost = (90000 / 24) * cameraComplexityMultiplier; // €90K integration (faster deployment)
     
     // Total system costs
     const rgbTotalCost = rgbStorageCost + rgbTotalComputeCost + rgbReworkCost + rgbIntegrationCost;
