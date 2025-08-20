@@ -11,6 +11,7 @@ import CompetitionSlide from "@/components/Presentation/Slides/CompetitionSlide"
 import RoadmapSlide from "@/components/Presentation/Slides/RoadmapSlide";
 import TeamSlide from "@/components/Presentation/Slides/TeamSlide";
 import AskSlide from "@/components/Presentation/Slides/AskSlide";
+import InvestorROISlide from "@/components/Presentation/Slides/InvestorROISlide";
 
 const Index = () => {
   const slides = [
@@ -25,7 +26,8 @@ const Index = () => {
     { id: 'competition', title: 'Competitive Landscape', component: CompetitionSlide },
     { id: 'roadmap', title: 'Roadmap & Milestones', component: RoadmapSlide },
     { id: 'team', title: 'Team & Hiring Plans', component: TeamSlide },
-    { id: 'ask', title: 'Pre-Seed Ask', component: AskSlide }
+    { id: 'ask', title: 'Pre-Seed Ask', component: AskSlide },
+    { id: 'investor-roi', title: 'Investor ROI Projection', component: InvestorROISlide }
   ];
 
   return (

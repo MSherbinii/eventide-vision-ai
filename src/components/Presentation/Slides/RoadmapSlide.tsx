@@ -9,62 +9,52 @@ const RoadmapSlide = () => {
   
   const timelinePhases = [
     {
-      period: "Q4 2025",
-      title: "Foundation & First Steps",
+      period: "Months 0-12",
+      title: "MVP + First Pilot + Market Validation",
       status: "In Progress",
       milestones: [
-        "Eventide GmbH incorporation completed",
-        "Cairo office established & equipped", 
-        "Event camera hardware secured (3x EVK4)",
-        "MVP alpha version with basic counting"
+        "Complete MVP development with core counting functionality",
+        "Secure first pilot customer in Germany/Egypt", 
+        "Validate >99% accuracy in real production environment",
+        "XPRENEURS program participation (if accepted)",
+        "Build foundational team and processes"
       ],
-      keyMetric: "MVP Ready",
+      keyMetric: "Product-Market Fit",
       color: "from-primary to-accent"
     },
     {
-      period: "Q1 2026", 
-      title: "XPRENEURS Program & Validation",
+      period: "Months 12-18", 
+      title: "Seed-Ready Phase",
       status: "Planned",
       milestones: [
-        "XPRENEURS application submitted (Dec 11, 2025)",
-        "1 German pilot LOI secured before program",
-        "Beta testing with initial manufacturing partner",
-        "Accuracy validation: >99% counting precision"
+        "Scale to 3-5 paying customers",
+        "Achieve €150K-€300K ARR",
+        "Build proven customer success cases",
+        "Prepare seed funding materials",
+        "Expand engineering team (2-3 hires)"
       ],
-      keyMetric: "Program Acceptance",
+      keyMetric: "Seed Readiness",
       color: "from-accent to-warning"
     },
     {
-      period: "Q2-Q3 2026",
-      title: "Pilot Deployment & Market Entry", 
-      status: "Roadmap",
+      period: "Months 18-24",
+      title: "Seed Growth & Scale", 
+      status: "Target",
       milestones: [
-        "2 active pilot deployments running",
-        "XPRENEURS Demo Day presentation (May 2026)",
-        "First customer testimonials & case studies",
-        "Product-market fit validation in industrial QA"
+        "Close seed round: €500K-€1M",
+        "Scale to €500K-€1M ARR",
+        "Expand to 10+ enterprise customers",
+        "International market entry",
+        "Build scalable operations & customer success"
       ],
-      keyMetric: "Market Validation",
+      keyMetric: "Scale Achievement",
       color: "from-warning to-primary"
-    },
-    {
-      period: "Q4 2026 - Q1 2027",
-      title: "Revenue & Team Growth",
-      status: "Target",  
-      milestones: [
-        "First paid customer conversion",
-        "€25-50K ARR milestone achieved",
-        "Seed funding round: €500K-1M raised",
-        "Engineering Lead hired (Germany/Egypt)"
-      ],
-      keyMetric: "Revenue Stream",
-      color: "from-primary to-accent"
     }
   ];
 
   const realisticTargets = [
-    { value: "€50K", label: "ARR Target End 2026", color: "primary" },
-    { value: "3-5", label: "Active Customers", color: "accent" },
+    { value: "€300K", label: "ARR Target Month 18", color: "primary" },
+    { value: "€1M", label: "ARR Target Month 24", color: "accent" },
     { value: "4-6 mo", label: "Customer ROI Time", color: "warning" }
   ];
 
@@ -84,10 +74,10 @@ const RoadmapSlide = () => {
           EXECUTION TIMELINE
         </Badge>
         <h1 className="text-3xl md:text-4xl font-bold text-white">
-          <span className="text-primary">24-Month Roadmap</span>
+          <span className="text-primary">Month-Based Timeline</span>
         </h1>
         <p className="text-sm text-muted max-w-3xl mx-auto">
-          Realistic milestones from MVP to first revenue with verified dates
+          Clear 24-month path from MVP to €1M ARR with realistic milestones
         </p>
       </div>
 

@@ -5,6 +5,7 @@ import { ROICalculator } from "@/components/ui/roi-calculator";
 import { AlertTriangle, TrendingDown, Clock, DollarSign } from "lucide-react";
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
+import { formatNumber, formatCurrency } from "@/lib/numberFormat";
 
 const CostOfFrameVisionSlide = () => {
   const [calculations, setCalculations] = useState({
@@ -136,28 +137,28 @@ const CostOfFrameVisionSlide = () => {
               title="Storage & Egress"
               icon={<DollarSign className="w-10 h-10 text-primary" />}
               percentage={calculations.storagePercentage}
-              label={`$${calculations.monthlyCosts.storage.toLocaleString()}/mo (${calculations.storagePercentage}% of RGB total)`}
+              label={`${formatNumber(calculations.monthlyCosts.storage, true)}/mo (${calculations.storagePercentage}% of RGB total)`}
               color="hsl(var(--primary))"
             />
             <AnimatedGauge
               title="RGB Compute & Power"
               icon={<Clock className="w-10 h-10 text-warning" />}
               percentage={calculations.computePercentage}
-              label={`$${calculations.monthlyCosts.compute.toLocaleString()}/mo (${calculations.computePercentage}% of RGB total)`}
+              label={`${formatNumber(calculations.monthlyCosts.compute, true)}/mo (${calculations.computePercentage}% of RGB total)`}
               color="hsl(var(--warning))"
             />
             <AnimatedGauge
               title="Quality & Rework"
               icon={<AlertTriangle className="w-10 h-10 text-destructive" />}
               percentage={calculations.scrapPercentage}
-              label={`$${calculations.monthlyCosts.rework.toLocaleString()}/mo (${calculations.scrapPercentage}% of RGB total)`}
+              label={`${formatNumber(calculations.monthlyCosts.rework, true)}/mo (${calculations.scrapPercentage}% of RGB total)`}
               color="hsl(var(--destructive))"
             />
             <AnimatedGauge
               title="Integration & Maintenance"
               icon={<TrendingDown className="w-10 h-10 text-accent" />}
               percentage={calculations.integrationPercentage || 15}
-              label={`$${(calculations.monthlyCosts.integration || 6250).toLocaleString()}/mo (${calculations.integrationPercentage || 15}% of RGB total)`}
+              label={`${formatNumber(calculations.monthlyCosts.integration || 6250, true)}/mo (${calculations.integrationPercentage || 15}% of RGB total)`}
               color="hsl(var(--accent))"
             />
           </div>
@@ -168,7 +169,7 @@ const CostOfFrameVisionSlide = () => {
             <div className="space-y-1 text-xs text-muted">
               <div>• <strong>Downtime Cost:</strong> $2.3M/hour automotive (Siemens 2024), up 2× from 2019</div>
               <div>• <strong>Total Loss:</strong> Fortune 500 lose 11% of revenue ($1.4T) to unplanned downtime</div>
-              <div>• <strong>Monthly Savings:</strong> ${calculations.totalSavings.toLocaleString()} (compute + storage + accuracy gains)</div>
+              <div>• <strong>Monthly Savings:</strong> {formatNumber(calculations.totalSavings, true)} (compute + storage + accuracy gains)</div>
               <div>• <strong>Event Advantage:</strong> 1000× data reduction, microsecond latency vs 33ms frames</div>
               <div>• <strong>Deployment:</strong> AI vision: 4-12 weeks vs traditional: 6+ months</div>
               <div>• <strong>Sources:</strong> Siemens True Cost Report 2024, Nature research, AWS pricing</div>
@@ -202,9 +203,18 @@ const CostOfFrameVisionSlide = () => {
         <div className="space-y-4">
           <h3 className="text-2xl font-bold text-white">Live ROI Calculator</h3>
           
+          {/* Compute Cost Comparison */}
+          <div className="mb-4 p-3 bg-card/60 backdrop-blur-sm border border-primary/20 rounded-lg">
+            <div className="text-sm font-medium text-primary mb-2">Compute Cost Comparison</div>
+            <div className="grid grid-cols-2 gap-2 text-xs">
+              <div className="text-muted">RGB: {formatNumber(calculations.rgbComputeCost, true)}/mo</div>
+              <div className="text-muted">Event: {formatNumber(calculations.eventComputeCost, true)}/mo</div>
+            </div>
+          </div>
+
           {/* ROI Calculator Component */}
           <ROICalculator 
-            title="Interactive Cost Model" 
+            title="Monthly Cost Breakdown (RGB/Event)" 
           onCalculationChange={(calc) => {
             setCalculations(prev => ({
               ...prev,
@@ -227,6 +237,33 @@ const CostOfFrameVisionSlide = () => {
             console.log('Updated calculations with research-backed data:', calc);
           }}
           />
+
+          {/* Customer ROI Snapshot */}
+          <Card className="p-4 bg-card/80 backdrop-blur-sm border border-primary/20 rounded-2xl shadow-lg">
+            <h4 className="text-lg font-bold mb-3 text-white">Customer ROI Snapshot</h4>
+            <div className="space-y-2 text-sm">
+              <div className="flex justify-between">
+                <span className="text-muted">Monthly Savings:</span>
+                <span className="text-primary font-semibold">{formatNumber(calculations.totalSavings, true)}</span>
+              </div>
+              <div className="flex justify-between">
+                <span className="text-muted">Integration Cost:</span>
+                <span className="text-white">{formatNumber(200000, true)}</span>
+              </div>
+              <div className="flex justify-between">
+                <span className="text-muted">Payback Period:</span>
+                <span className="text-accent font-semibold">
+                  {calculations.totalSavings > 0 ? Math.ceil(200000 / calculations.totalSavings) : 'N/A'} months
+                </span>
+              </div>
+              <div className="flex justify-between border-t border-border pt-2">
+                <span className="text-muted">12-Month Net Benefit:</span>
+                <span className="text-primary font-bold">
+                  {formatNumber(Math.max(0, calculations.totalSavings * 12 - 200000), true)}
+                </span>
+              </div>
+            </div>
+          </Card>
 
           {/* Industry Context */}
           <div>

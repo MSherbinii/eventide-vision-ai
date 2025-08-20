@@ -9,6 +9,7 @@ import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTr
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from './tooltip';
 import { Info, ExternalLink } from 'lucide-react';
 import { rgbCameras, eventCameras, scenePresets, compressionSpecs, costFactors, researchSources } from '@/data/cameras';
+import { formatNumber, formatCurrency } from '@/lib/numberFormat';
 
 interface ROICalculatorProps {
   title?: string;
@@ -445,20 +446,20 @@ export function ROICalculator({ title = "ROI Calculator", onCalculationChange }:
           <div className="flex items-center justify-between">
             <h3 className="font-semibold">Monthly Cost Breakdown</h3>
             <div className="flex items-center gap-2">
-              <span className="text-sm">Show:</span>
+              <span className="text-sm">System:</span>
               <Button
                 variant={showBreakdown === 'rgb' ? 'default' : 'outline'}
                 size="sm"
                 onClick={() => setShowBreakdown('rgb')}
               >
-                RGB System
+                RGB ({formatNumber(results.rgbTotalCost, true)}/mo)
               </Button>
               <Button
                 variant={showBreakdown === 'event' ? 'default' : 'outline'}
                 size="sm"
                 onClick={() => setShowBreakdown('event')}
               >
-                Event System
+                Event ({formatNumber(results.eventTotalCost, true)}/mo)
               </Button>
             </div>
           </div>
@@ -486,7 +487,7 @@ export function ROICalculator({ title = "ROI Calculator", onCalculationChange }:
                           {data.percentage.toFixed(1)}%
                         </div>
                         <div className="text-sm text-muted-foreground">
-                          ${data.cost.toFixed(0)}/mo
+                          {formatNumber(data.cost, true)}/mo
                         </div>
                       </div>
                     </Card>
@@ -509,10 +510,10 @@ export function ROICalculator({ title = "ROI Calculator", onCalculationChange }:
                 {results.percentageSavings.toFixed(1)}% cost reduction
               </div>
               <div className="text-xl font-semibold">
-                ${results.monthlySavings.toFixed(0)} saved per month
+                {formatNumber(results.monthlySavings, true)} saved per month
               </div>
               <div className="text-lg font-medium text-primary">
-                ${(results.monthlySavings * 12).toFixed(0)} annual savings
+                {formatNumber(results.monthlySavings * 12, true)} annual savings
               </div>
               <div className="text-sm text-muted-foreground mt-4">
                 Data reduction: <strong>{results.assumptions.dataReduction}x less</strong> than compressed RGB
