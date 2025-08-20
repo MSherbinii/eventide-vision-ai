@@ -7,7 +7,8 @@ import MarketSlide from "@/components/Presentation/Slides/MarketSlide";
 import BusinessModelSlide from "@/components/Presentation/Slides/BusinessModelSlide";
 import CompetitionSlide from "@/components/Presentation/Slides/CompetitionSlide";
 import RoadmapSlideV2 from "@/components/Presentation/Slides/RoadmapSlideV2";
-import TeamAskSlide from "@/components/Presentation/Slides/TeamAskSlide";
+import TeamSlide from "@/components/Presentation/Slides/TeamSlide";
+import AskSlideV2 from "@/components/Presentation/Slides/AskSlideV2";
 import { CustomCursor } from "@/components/ui/custom-cursor";
 
 // Compact Pre-Seed Deck with Premium Design
@@ -21,7 +22,8 @@ const CompactDeck = () => {
     { id: 'business-model', title: 'Business Model', component: BusinessModelSlide },
     { id: 'competition', title: 'Why We Win', component: CompetitionSlide },
     { id: 'roadmap', title: 'Timeline & Milestones', component: RoadmapSlideV2 },
-    { id: 'team-ask', title: 'Team + Ask', component: TeamAskSlide }
+    { id: 'team', title: 'Team', component: TeamSlide },
+    { id: 'ask', title: 'The Ask', component: AskSlideV2 }
   ];
 
   return (
