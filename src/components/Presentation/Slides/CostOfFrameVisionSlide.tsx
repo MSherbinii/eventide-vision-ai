@@ -205,17 +205,27 @@ const CostOfFrameVisionSlide = () => {
           {/* ROI Calculator Component */}
           <ROICalculator 
             title="Interactive Cost Model" 
-            onCalculationChange={(newCalculations) => {
-              setCalculations(prev => ({
-                ...prev,
-                ...newCalculations,
-                rgbComputeCost: newCalculations.monthlyCosts?.rgbCompute || prev.rgbComputeCost,
-                eventComputeCost: newCalculations.monthlyCosts?.eventCompute || prev.eventComputeCost,
-                totalSavings: newCalculations.monthlySavings || prev.totalSavings,
-                rgbCameraCount: newCalculations.rgbCameraCount || prev.rgbCameraCount,
-                eventCameraCount: newCalculations.eventCameraCount || prev.eventCameraCount
-              }));
-            }}
+          onCalculationChange={(calc) => {
+            setCalculations(prev => ({
+              ...prev,
+              // Use new structured data if available, otherwise fall back to legacy format
+              storagePercentage: calc.storagePercentage || prev.storagePercentage,
+              computePercentage: calc.computePercentage || prev.computePercentage,
+              scrapPercentage: calc.scrapPercentage || prev.scrapPercentage,
+              integrationPercentage: calc.integrationPercentage || prev.integrationPercentage,
+              monthlyCosts: {
+                ...prev.monthlyCosts,
+                ...(calc.monthlyCosts || {})
+              },
+              rgbComputeCost: calc.monthlyCosts?.rgbCompute || calc.rgbCosts?.compute || prev.rgbComputeCost,
+              eventComputeCost: calc.monthlyCosts?.eventCompute || calc.eventCosts?.compute || prev.eventComputeCost,
+              totalSavings: calc.monthlySavings || calc.savings?.monthly || prev.totalSavings,
+              rgbCameraCount: calc.rgbCameraCount || prev.rgbCameraCount,
+              eventCameraCount: calc.eventCameraCount || prev.eventCameraCount
+            }));
+            // Debug log for development
+            console.log('Updated calculations with research-backed data:', calc);
+          }}
           />
 
           {/* Industry Context */}
