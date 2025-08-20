@@ -64,6 +64,12 @@ All colors MUST be HSL.
                      radial-gradient(circle at 80% 70%, hsl(220 12% 18% / 0.3) 0%, transparent 50%),
                      radial-gradient(circle at 60% 10%, hsl(142 69% 45% / 0.2) 0%, transparent 50%);
 
+    /* Chromatic Titanium Gradients - Apple-inspired premium */
+    --gradient-titanium: linear-gradient(135deg, hsl(210 20% 85%) 0%, hsl(210 25% 75%) 25%, hsl(210 30% 65%) 50%, hsl(210 35% 55%) 75%, hsl(210 40% 45%) 100%);
+    --gradient-chromatic: linear-gradient(135deg, hsl(260 60% 65%) 0%, hsl(200 70% 60%) 25%, hsl(160 65% 55%) 50%, hsl(40 80% 65%) 75%, hsl(10 70% 60%) 100%);
+    --gradient-hero-light: linear-gradient(135deg, hsl(210 25% 90%) 0%, hsl(200 60% 80%) 30%, hsl(160 50% 70%) 60%, hsl(40 70% 75%) 100%);
+    --gradient-premium: linear-gradient(135deg, hsl(210 30% 88%) 0%, hsl(205 35% 82%) 25%, hsl(200 40% 76%) 50%, hsl(195 45% 70%) 75%, hsl(190 50% 64%) 100%);
+
     /* Professional Shadow System */
     --shadow-primary: 0 10px 30px -10px rgba(0, 0, 0, 0.35);
     --shadow-secondary: 0 4px 20px -5px rgba(0, 0, 0, 0.25);
