@@ -8,17 +8,17 @@ interface VideoCompareProps {
 }
 
 export default function VideoCompare({
-  leftSrc = "https://www.youtube.com/embed/6xOmo7Ikwzk?autoplay=1&mute=1&loop=1",
-  rightSrc = "https://www.youtube.com/embed/MjX3z-6n3iA?autoplay=1&mute=1&loop=1",
+  leftSrc = "https://www.youtube.com/embed/n-7vn4DYuDE?autoplay=1&mute=1&loop=1&start=30&end=90",
+  rightSrc = "https://www.youtube.com/embed/6xOmo7Ikwzk?autoplay=1&mute=1&loop=1&start=15&end=75",
   leftLabel = "Traditional RGB",
-  rightLabel = "Event-based (Prophesee)"
+  rightLabel = "Event-based (Sony)"
 }: VideoCompareProps) {
   const [showAnno, setShowAnno] = useState(true);
 
   const tile = (label: string, src: string) => (
     <div className="relative rounded-2xl border border-border bg-card overflow-hidden shadow-lg">
       <div className="absolute z-10 left-3 top-3 text-xs px-2 py-1 rounded-full bg-black/70 text-white font-medium">{label}</div>
-      <div className="aspect-video bg-muted">
+      <div className="aspect-video bg-muted" style={{ minHeight: '280px' }}>
         <iframe
           src={src}
           title={label}
@@ -29,7 +29,7 @@ export default function VideoCompare({
       </div>
       {showAnno && (
         <div className="absolute bottom-3 left-3 right-3 bg-black/50 text-white text-xs p-2 rounded">
-          {label === "Traditional RGB" ? "Standard frame-based capture" : "Event-driven sparse data"}
+          {label === "Traditional RGB" ? "Industrial frame-based inspection" : "Event-driven microsecond response"}
         </div>
       )}
     </div>
@@ -39,7 +39,7 @@ export default function VideoCompare({
     <div className="w-full">
       <div className="flex items-center justify-between mb-4">
         <div className="text-sm text-muted-foreground">
-          Latency: RGB (ms-scale) vs Event-based <strong>&lt;150 µs @1k lux</strong> (IMX636). Source: Sony/Prophesee.
+          Latency: RGB (10-50ms frame processing) vs Event-based <strong>&lt;100 µs @1k lux</strong> (Sony IMX636). Industrial inspection comparison.
         </div>
         <label className="flex items-center gap-2 text-sm text-muted-foreground">
           <input 
