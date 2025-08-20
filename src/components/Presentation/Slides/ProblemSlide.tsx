@@ -56,9 +56,14 @@ const ProblemSlide = () => {
           <br />
           <span className="text-primary">at Line Speed</span>
         </h1>
-        <p className="text-lg text-muted max-w-4xl mx-auto">
-          High-speed manufacturing lines exceed RGB camera capabilities. Motion blur, lighting variations, and petabyte-scale data costs overwhelm traditional vision systems.
-        </p>
+        <div className="text-lg max-w-4xl mx-auto space-y-2">
+          <p className="text-muted">
+            <strong className="text-white">Traditional RGB →</strong> blurred/missed micro-defects; slow frame latency (~10 ms+).
+          </p>
+          <p className="text-muted">
+            <strong className="text-white">Event-Based (Sony IMX636) →</strong> &lt;100 µs latency; sparse, low-power output.
+          </p>
+        </div>
       </div>
 
       {/* Video Comparison */}
@@ -67,22 +72,27 @@ const ProblemSlide = () => {
       </div>
 
       {/* Stats Grid */}
-      <div className="relative z-10 grid grid-cols-3 gap-4 max-w-6xl mx-auto mb-6">
-        <StatTile 
-          value="250W" 
-          label="Avg Edge Compute Power" 
-          foot="RGB + AI processing"
-        />
-        <StatTile 
-          value="15W" 
-          label="Event-Based Power" 
-          foot="94% reduction vs RGB"
-        />
-        <StatTile 
-          value="$2.5K/mo" 
-          label="Cloud Compute Cost" 
-          foot="Per production line"
-        />
+      <div className="relative z-10 grid grid-cols-4 gap-4 max-w-6xl mx-auto mb-6">
+        <div className="rounded-2xl border border-[#2C3D58] bg-[#122339]/92 px-4 py-4 shadow-[0_10px_30px_rgba(0,0,0,0.35)]">
+          <div className="text-lg font-bold text-white mb-1">Latency</div>
+          <div className="text-sm text-primary">~10 ms (frame) vs &lt;0.1 ms (event)</div>
+          <div className="text-xs text-[#93A1B5] mt-2">Source: Sony IMX636 spec</div>
+        </div>
+        <div className="rounded-2xl border border-[#2C3D58] bg-[#122339]/92 px-4 py-4 shadow-[0_10px_30px_rgba(0,0,0,0.35)]">
+          <div className="text-lg font-bold text-white mb-1">Sensor Power</div>
+          <div className="text-sm text-primary">&lt;100 mW event vs frame ≫</div>
+          <div className="text-xs text-[#93A1B5] mt-2">UAV platform: 10.7 mW</div>
+        </div>
+        <div className="rounded-2xl border border-[#2C3D58] bg-[#122339]/92 px-4 py-4 shadow-[0_10px_30px_rgba(0,0,0,0.35)]">
+          <div className="text-lg font-bold text-white mb-1">Edge Compute</div>
+          <div className="text-sm text-primary">~20 W</div>
+          <div className="text-xs text-[#93A1B5] mt-2">Jetson Xavier, 1080p/24fps</div>
+        </div>
+        <div className="rounded-2xl border border-[#2C3D58] bg-[#122339]/92 px-4 py-4 shadow-[0_10px_30px_rgba(0,0,0,0.35)]">
+          <div className="text-lg font-bold text-white mb-1">Cloud Vision Cost</div>
+          <div className="text-sm text-primary">$100/stream/mo</div>
+          <div className="text-xs text-[#93A1B5] mt-2">Visual Inspection AI benchmark</div>
+        </div>
       </div>
 
       {/* Bottom Banner */}
@@ -93,9 +103,8 @@ const ProblemSlide = () => {
         className="relative z-10 text-center"
       >
         <Card className="p-6 bg-card/80 backdrop-blur-sm border border-primary/20 rounded-2xl shadow-lg">
-          <h3 className="text-lg font-bold mb-3 text-white">The Solution is Clear</h3>
-          <p className="text-sm text-muted max-w-4xl mx-auto">
-            <strong className="text-primary">Real costs:</strong> Industrial RGB processing: 250W edge compute + $2.5K/month cloud costs. Event-based: 15W + $350/month (87% TCO reduction).
+          <p className="text-lg font-bold text-primary max-w-4xl mx-auto">
+            Event-based vision delivers microsecond latency, ultra-efficient data and power use, and ~80–90% total cost reduction compared to frame-only systems.
           </p>
         </Card>
           <div className="text-center mt-4">
