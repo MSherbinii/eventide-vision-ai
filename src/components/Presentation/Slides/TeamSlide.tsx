@@ -28,7 +28,7 @@ const TeamSlide = () => {
   const keyHires = [
     {
       role: "Chief Technology Officer (CTO)",
-      location: "Egypt",
+      location: "Germany (Munich)",
       timeline: "0-6 months",
       requirements: [
         "PhD/MS Computer Vision or related",
@@ -50,7 +50,7 @@ const TeamSlide = () => {
         "Real-time systems optimization",
         "Python/C++ proficiency"
       ],
-      equity: "0.3-0.8% each",
+      equity: "0.3-0.8% each (ESOP)",
       priority: "Critical"
     },
     {
@@ -91,8 +91,8 @@ const TeamSlide = () => {
     {
       icon: <Briefcase className="w-8 h-8" />,
       title: "Cost Advantage",
-      description: "Senior engineers at 30-40% of European salaries",
-      metric: "€30-50K vs €80-120K"
+      description: "Tiered compensation bands for Egypt-based engineers",
+      metric: "Class A: $700–1,000/mo • B: $500–700 • C: $300–500"
     },
     {
       icon: <MapPin className="w-8 h-8" />,

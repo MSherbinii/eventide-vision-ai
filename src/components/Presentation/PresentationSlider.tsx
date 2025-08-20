@@ -128,7 +128,7 @@ const PresentationSlider = ({
               duration: 0.5, 
               ease: "easeInOut"
             }}
-            className="absolute inset-0 w-full h-full"
+            className="absolute inset-0 w-full h-full overflow-y-auto pb-40"
           >
             {CurrentSlideComponent && <CurrentSlideComponent />}
           </motion.div>

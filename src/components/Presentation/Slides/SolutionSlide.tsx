@@ -1,9 +1,10 @@
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Pipeline } from "@/components/ui/pipeline";
-import { Zap, Database, Cpu, Shield, CheckCircle, Play } from "lucide-react";
+import { Zap, Database, Cpu, Shield, CheckCircle, Play, Maximize2 } from "lucide-react";
 import TechComparisonTable from "@/components/Charts/TechComparisonTable";
 import { motion } from "framer-motion";
+import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 
 const SolutionSlide = () => {
   const realWorldApplications = [
@@ -143,29 +144,55 @@ const SolutionSlide = () => {
           
           <div className="flex-1 space-y-4">
             {/* Performance Demo */}
-            <Card className="p-3 bg-card/80 backdrop-blur-sm border border-border rounded-xl shadow-lg">
-              <div className="relative">
-                <div className="aspect-[4/3] bg-gradient-to-br from-primary/20 to-accent/10 rounded-lg flex items-center justify-center border border-primary/30">
-                  <Play className="w-12 h-12 text-primary opacity-80 hover:scale-110 transition-transform duration-200" />
-                  <div className="absolute top-2 left-2">
-                    <Badge variant="secondary" className="bg-primary text-white border-0 text-xs px-2 py-1">
-                      Real-time • 1K+ obj/s
-                    </Badge>
+            <Dialog>
+              <DialogTrigger asChild>
+                <Card className="p-3 bg-card/80 backdrop-blur-sm border border-border rounded-xl shadow-lg cursor-pointer group">
+                  <div className="relative">
+                    <div className="aspect-[4/3] bg-gradient-to-br from-primary/20 to-accent/10 rounded-lg flex items-center justify-center border border-primary/30">
+                      <Play className="w-12 h-12 text-primary opacity-80 group-hover:scale-110 transition-transform duration-200" />
+                      <div className="absolute top-2 left-2">
+                        <Badge variant="secondary" className="bg-primary text-white border-0 text-xs px-2 py-1">
+                          Real-time • 1K+ obj/s
+                        </Badge>
+                      </div>
+                      <div className="absolute bottom-2 right-2">
+                        <Badge variant="secondary" className="bg-accent text-white border-0 text-xs px-2 py-1">
+                          99.5% accuracy
+                        </Badge>
+                      </div>
+                      <div className="absolute top-2 right-2 opacity-70 group-hover:opacity-100 transition-opacity">
+                        <Badge variant="outline" className="text-[10px] flex items-center gap-1">
+                          <Maximize2 className="w-3 h-3" /> Expand
+                        </Badge>
+                      </div>
+                    </div>
+                    <div className="mt-2 text-center">
+                      <h4 className="text-sm font-bold text-white mb-1">Pellet Counting @ 10 Bar Air Pressure</h4>
+                      <p className="text-xs text-muted">
+                        2mm pellets counted at 1,000+/second with Prophesee Onboard system
+                      </p>
+                    </div>
                   </div>
-                  <div className="absolute bottom-2 right-2">
-                    <Badge variant="secondary" className="bg-accent text-white border-0 text-xs px-2 py-1">
-                      99.5% accuracy
-                    </Badge>
+                </Card>
+              </DialogTrigger>
+              <DialogContent className="max-w-5xl p-0 overflow-hidden">
+                <div className="bg-card">
+                  <div className="aspect-[16/9] bg-gradient-to-br from-primary/20 to-accent/10 flex items-center justify-center border-b border-border">
+                    <Play className="w-16 h-16 text-primary opacity-80" />
+                  </div>
+                  <div className="p-4">
+                    <div className="flex items-center justify-between">
+                      <h4 className="text-base font-bold text-white">High-Speed Counting Demo</h4>
+                      <div className="flex items-center gap-2">
+                        <Badge variant="secondary" className="bg-primary text-white border-0 text-xs px-2 py-1">1K+ obj/s</Badge>
+                        <Badge variant="secondary" className="bg-accent text-white border-0 text-xs px-2 py-1">99.5% accuracy</Badge>
+                      </div>
+                    </div>
+                    <p className="text-xs text-muted mt-2">Prophesee event-based sensor • Microsecond latency • No motion blur</p>
                   </div>
                 </div>
-                <div className="mt-2 text-center">
-                  <h4 className="text-sm font-bold text-white mb-1">Pellet Counting @ 10 Bar Air Pressure</h4>
-                  <p className="text-xs text-muted">
-                    2mm pellets counted at 1,000+/second with Prophesee Onboard system
-                  </p>
-                </div>
-              </div>
-            </Card>
+              </DialogContent>
+            </Dialog>
 
             {/* Comparison Table */}
             <Card className="p-4 bg-card/80 backdrop-blur-sm border border-border rounded-xl shadow-lg">
@@ -174,14 +201,34 @@ const SolutionSlide = () => {
             </Card>
 
             {/* Solution Stack */}
-            <Card className="p-4 bg-card/80 backdrop-blur-sm border border-border rounded-xl shadow-lg">
-              <h4 className="text-base font-bold mb-2 text-white">Complete Solution Stack</h4>
-              <Pipeline />
-              <div className="text-xs text-muted mt-2 text-center space-y-1">
-                <div>Edge processing: 15W vs 250W traditional (94% reduction)</div>
-                <div>Mobile-grade computing platform • Continuous real-time processing</div>
-              </div>
-            </Card>
+            <Dialog>
+              <DialogTrigger asChild>
+                <Card className="p-4 bg-card/80 backdrop-blur-sm border border-border rounded-xl shadow-lg cursor-pointer group">
+                  <div className="flex items-center justify-between mb-2">
+                    <h4 className="text-base font-bold text-white">Complete Solution Stack</h4>
+                    <Badge variant="outline" className="text-[10px] flex items-center gap-1 opacity-80 group-hover:opacity-100">
+                      <Maximize2 className="w-3 h-3" /> Expand
+                    </Badge>
+                  </div>
+                  <Pipeline />
+                  <div className="text-xs text-muted mt-2 text-center space-y-1">
+                    <div>Edge processing: 15W vs 250W traditional (94% reduction)</div>
+                    <div>Mobile-grade computing platform • Continuous real-time processing</div>
+                  </div>
+                </Card>
+              </DialogTrigger>
+              <DialogContent className="max-w-5xl p-0 overflow-hidden">
+                <div className="bg-card p-6">
+                  <h4 className="text-lg font-bold text-white mb-3">Complete Solution Stack</h4>
+                  <div className="max-h-[70vh] overflow-auto pr-2">
+                    <Pipeline />
+                  </div>
+                  <div className="text-xs text-muted mt-3 text-center">
+                    Edge-first architecture enables lower TCO and faster deployment versus frame-only systems
+                  </div>
+                </div>
+              </DialogContent>
+            </Dialog>
 
             {/* Industry Applications */}
             <Card className="p-4 bg-card/80 backdrop-blur-sm border border-accent/20 rounded-xl shadow-lg">

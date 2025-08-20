@@ -1,6 +1,7 @@
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import { TrendingUp, Clock, Lightbulb, Users, Building, Target } from "lucide-react";
 
 const MarketTimingSection = () => {
@@ -99,12 +100,23 @@ const MarketTimingSection = () => {
         <div className="space-y-12">
           <h3 className="text-3xl font-bold text-center">Massive Market Opportunity</h3>
           
+          <TooltipProvider>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {marketSizes.map((market, index) => (
               <Card key={index} className="p-8 text-center hover:scale-105 transition-all duration-300 glow-effect">
-                <div className={`text-4xl font-bold bg-gradient-to-r ${market.color} bg-clip-text text-transparent mb-4`}>
-                  {market.size}
-                </div>
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <div className={`text-4xl font-bold bg-gradient-to-r ${market.color} bg-clip-text text-transparent mb-4`}>
+                      {market.size}
+                    </div>
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    <div className="text-xs">
+                      <div>Source: Grand View Research (Global MV 2025), MarketsandMarkets (2030)</div>
+                      <div>Assumptions: TAM includes hardware+software; SAM focuses QA/Inspection</div>
+                    </div>
+                  </TooltipContent>
+                </Tooltip>
                 <h4 className="font-semibold mb-2">{market.market}</h4>
                 <p className="text-muted-foreground text-sm mb-4">{market.timeframe}</p>
                 <Badge variant="secondary" className="text-xs">
@@ -113,6 +125,7 @@ const MarketTimingSection = () => {
               </Card>
             ))}
           </div>
+          </TooltipProvider>
 
           {/* Market Drivers */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-16">

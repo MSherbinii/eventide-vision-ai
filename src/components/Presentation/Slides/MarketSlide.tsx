@@ -1,6 +1,7 @@
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge"; 
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import { TrendingUp, Clock, Lightbulb, Users, Building, Target, ExpandIcon } from "lucide-react";
 import { MarketAreaChart } from "@/components/Charts/MarketAreaChart";
 import { motion } from "framer-motion";
@@ -60,24 +61,40 @@ const MarketSlide = () => {
   ];
 
   return (
-    <div className="w-full h-full flex flex-col px-6 py-4 bg-gradient-to-br from-background via-[hsl(220_34%_8%)] to-[hsl(142_69%_8%)]">
-      {/* Chromatic Background Pattern */}
+    <div className="w-full h-full flex flex-col px-8 py-6 bg-gradient-to-br from-background via-background to-primary/5">
+      {/* Subtle Background Pattern */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-gradient-to-tr from-primary/5 via-transparent to-accent/10"></div>
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/8 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-accent/10 rounded-full blur-3xl"></div>
+        <div className="absolute inset-0 bg-gradient-to-tr from-primary/3 via-transparent to-accent/5"></div>
+        <div className="absolute top-20 right-20 w-72 h-72 bg-primary/10 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 left-20 w-64 h-64 bg-accent/8 rounded-full blur-3xl"></div>
       </div>
       {/* Header */}
       <div className="relative z-10 text-center space-y-3 mb-6">
         <Badge variant="outline" className="text-sm px-4 py-2 border-primary text-primary bg-transparent">
           BIG & GROWING MARKET
         </Badge>
-        <h1 className="text-3xl md:text-4xl font-bold text-white tracking-[-0.01em]">
-          <span className="text-primary">Perfect Storm</span> of Opportunity
+        <h1 className="text-4xl md:text-5xl font-bold text-foreground tracking-tight">
+          <span className="text-primary">$41.7B Market</span> by 2030
         </h1>
-        <p className="text-base text-muted max-w-5xl mx-auto">
-          Global machine-vision is $20.38B (2024) and projected to $41.74B by 2030 (13.0% CAGR). The Quality Assurance & Inspection application is the largest segment and the ME&A region is among the fastest-growing.
-        </p>
+        <div className="flex items-center justify-center gap-3">
+          <p className="text-lg text-muted-foreground max-w-4xl mx-auto">
+            Machine vision growing at 13% CAGR. Event-based is the next frontier - we're first to market with a complete solution.
+          </p>
+          <TooltipProvider>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <Badge variant="outline" className="text-[10px] border-accent text-accent cursor-default">Vision 2034</Badge>
+              </TooltipTrigger>
+              <TooltipContent>
+                <div className="text-xs space-y-1">
+                  <div><strong>TAM (2034):</strong> ~$69.5B (industry consensus)</div>
+                  <div><strong>Drivers:</strong> QA/Inspection, logistics, automotive, electronics</div>
+                  <div><strong>Sources:</strong> Grand View Research (2025), MarketsandMarkets (2025)</div>
+                </div>
+              </TooltipContent>
+            </Tooltip>
+          </TooltipProvider>
+        </div>
       </div>
 
       <div className="relative z-10 flex-1 grid grid-cols-2 gap-6 min-h-0">
@@ -90,17 +107,17 @@ const MarketSlide = () => {
               {timingFactors.map((factor, index) => (
                 <motion.div
                   key={index}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1, duration: 0.5 }}
                 >
-                  <Card className="p-5 text-center hover:scale-105 transition-all duration-300 bg-card border border-border rounded-2xl shadow-lg h-full">
+                  <Card className="p-4 text-center hover:shadow-xl transition-all duration-300 bg-card border border-border rounded-xl h-full">
                     <div className="mb-2 flex justify-center">
                       {factor.icon}
                     </div>
                     <div className="text-2xl font-bold text-primary mb-1">{factor.percentage}</div>
-                    <div className="font-semibold mb-1 text-xs text-white">{factor.title}</div>
-                    <p className="text-xs text-muted">{factor.description}</p>
+                    <div className="font-semibold mb-1 text-sm text-foreground">{factor.title}</div>
+                    <p className="text-xs text-muted-foreground line-clamp-2">{factor.description}</p>
                   </Card>
                 </motion.div>
               ))}
@@ -121,7 +138,7 @@ const MarketSlide = () => {
                   <DialogTrigger asChild>
                     <Card className="p-4 bg-card border border-border/50 hover:border-primary/50 rounded-2xl shadow-lg cursor-pointer hover:shadow-xl transition-all duration-300">
                       <div className="flex items-center justify-between">
-                        <span className="font-semibold text-white text-sm line-clamp-1">{chip.title}</span>
+                        <span className="font-semibold text-white text-sm line-clamp-2">{chip.title}</span>
                         <ExpandIcon className="w-4 h-4 text-muted flex-shrink-0 ml-2" />
                       </div>
                     </Card>
@@ -157,7 +174,7 @@ const MarketSlide = () => {
         {/* Right Column - Market Charts */}
         <div className="flex flex-col space-y-4">
           <h3 className="text-2xl font-bold text-center text-white">Global Machine Vision Market 2024–2030</h3>
-          <div className="flex-1 bg-card border border-border rounded-2xl shadow-lg p-4 min-h-0">
+          <div className="flex-1 bg-card border border-border rounded-xl shadow-md p-4 min-h-0 overflow-hidden">
             <MarketAreaChart />
           </div>
           

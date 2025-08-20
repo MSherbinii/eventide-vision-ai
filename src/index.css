@@ -8,51 +8,51 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Noir-Light Theme - Better Contrast */
+    /* Investor-Optimized Light Theme */
     
-    /* Background: Enhanced contrast dark */
-    --background: 220 44% 7%;       /* #0B1220 */
-    --foreground: 214 25% 89%;      /* #E6EAF2 */
+    /* Background: Clean, professional white with subtle warmth */
+    --background: 0 0% 98%;         /* Near-white background */
+    --foreground: 220 20% 10%;      /* Dark charcoal text */
 
-    /* Cards: 6-8% lighter than page */
-    --card: 220 34% 11%;            /* #111827 */
-    --card-foreground: 214 25% 89%; /* #E6EAF2 */
+    /* Cards: Bright white with subtle shadows */
+    --card: 0 0% 100%;              /* Pure white cards */
+    --card-foreground: 220 20% 10%;
 
     --popover: 220 34% 11%;
     --popover-foreground: 214 25% 89%;
 
-    /* Primary: Apple-like Teal */
-    --primary: 142 69% 58%;         /* #30D158 */
-    --primary-foreground: 220 44% 7%;
-    --primary-glow: 142 69% 65%;
-    --primary-accent: 142 69% 50%;
+    /* Primary: Vibrant Green for Growth */
+    --primary: 142 70% 45%;         /* Energetic green */
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 142 70% 50%;
+    --primary-accent: 142 65% 40%;
 
-    /* Secondary: Enhanced surface */
-    --secondary: 220 25% 18%;       /* #1E293B */
-    --secondary-foreground: 214 25% 89%;
-    --secondary-glow: 220 25% 22%;
+    /* Secondary: Light gray surface */
+    --secondary: 220 15% 95%;       /* Light gray */
+    --secondary-foreground: 220 20% 20%;
+    --secondary-glow: 220 15% 90%;
 
-    /* Accent: Apple Blue */
-    --accent: 213 100% 52%;         /* #0A84FF */
-    --accent-foreground: 214 25% 89%;
-    --accent-glow: 213 100% 60%;
+    /* Accent: Trust Blue */
+    --accent: 213 94% 50%;          /* Professional blue */
+    --accent-foreground: 0 0% 100%;
+    --accent-glow: 213 94% 55%;
     
-    /* Warning: Apple Orange */
-    --warning: 31 100% 52%;         /* #FF9F0A */
-    --warning-foreground: 214 25% 89%;
+    /* Warning: Optimistic Orange */
+    --warning: 25 95% 53%;          /* Warm orange */
+    --warning-foreground: 0 0% 100%;
 
     /* Destructive: Apple Red */
     --destructive: 4 100% 59%;      /* #FF453A */
     --destructive-foreground: 214 25% 89%;
 
-    /* Muted: Secondary text */
-    --muted: 213 19% 69%;           /* #9FB0C7 */
-    --muted-foreground: 213 14% 58%; /* #7B8794 */
+    /* Muted: Subtle backgrounds */
+    --muted: 220 15% 96%;           /* Very light gray */
+    --muted-foreground: 220 10% 40%;
 
-    /* Borders: Subtle Professional Lines */
-    --border: 220 12% 18%;        /* Graphite dividers */
-    --input: 220 15% 22%;
-    --ring: 142 69% 45%;         /* Green focus ring - positive action */
+    /* Borders: Clean lines */
+    --border: 220 13% 91%;          /* Light gray borders */
+    --input: 220 13% 91%;
+    --ring: 142 70% 45%;            /* Green focus ring */
 
     /* Psychology-Based Gradients for Investor Appeal */
     --gradient-primary: linear-gradient(135deg, hsl(217 28% 12%), hsl(217 32% 18%)); /* Trust gradient */
