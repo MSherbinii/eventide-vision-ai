@@ -38,7 +38,7 @@ const ProblemSlide = () => {
   ];
 
   return (
-    <div className="w-full h-screen flex flex-col px-8 py-6 bg-background relative overflow-hidden">
+    <div className="w-full h-screen flex flex-col px-4 py-4 bg-background relative overflow-hidden">
       {/* Unified Animated Background */}
       <div className="animated-bg">
         <div className="floating-orb orb-primary" />
@@ -57,7 +57,7 @@ const ProblemSlide = () => {
           <br />
           <span className="text-primary">at Line Speed</span>
         </h1>
-        <div className="text-lg max-w-4xl mx-auto space-y-2">
+        <div className="text-lg max-w-6xl mx-auto space-y-2">
           <p className="text-muted">
             <strong className="text-white">Traditional RGB →</strong> blurred/missed micro-defects; slow frame latency (~10 ms+).
           </p>
@@ -68,12 +68,12 @@ const ProblemSlide = () => {
       </div>
 
       {/* Video Comparison */}
-      <div className="relative z-10 max-w-5xl mx-auto mb-8">
+      <div className="relative z-10 max-w-7xl mx-auto mb-8">
         <VideoCompare />
       </div>
 
       {/* Stats Grid */}
-      <div className="relative z-10 grid grid-cols-4 gap-4 max-w-6xl mx-auto mb-6">
+      <div className="relative z-10 grid grid-cols-4 gap-6 max-w-7xl mx-auto mb-6">
         <div className="rounded-2xl border border-[#2C3D58] bg-[#122339]/92 px-4 py-4 shadow-[0_10px_30px_rgba(0,0,0,0.35)]">
           <div className="text-lg font-bold text-white mb-1">Latency</div>
           <div className="text-sm text-primary">~10 ms (frame) vs &lt;0.1 ms (event)</div>
@@ -103,8 +103,8 @@ const ProblemSlide = () => {
         transition={{ delay: 1, duration: 0.6 }}
         className="relative z-10 text-center"
       >
-        <Card className="p-6 bg-card/80 backdrop-blur-sm border border-primary/20 rounded-2xl shadow-lg">
-          <p className="text-lg font-bold text-primary max-w-4xl mx-auto">
+        <Card className="p-8 bg-card/80 backdrop-blur-sm border border-primary/20 rounded-2xl shadow-lg max-w-6xl mx-auto">
+          <p className="text-xl font-bold text-primary">
             Event-based vision delivers microsecond latency, ultra-efficient data and power use, and ~80–90% total cost reduction compared to frame-only systems.
           </p>
         </Card>
