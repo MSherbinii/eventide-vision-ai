@@ -8,23 +8,23 @@ const WhyNowSlide = () => {
     {
       icon: Cpu,
       title: "Sony IMX636 Launch",
-      description: "Production-ready sensors shipping from Oct 2024",
+      description: "Production-ready sensors shipping Oct 2024.",
       status: "Shipping Now",
       color: "bg-primary"
     },
     {
       icon: TrendingUp,
       title: "Industrial Capex Surge",
-      description: "Projected global industrial equipment spending ~ $0.84 T in 2025 (~3–4 % YoY)",
+      description: "Global industrial equipment spend ~$0.84 trillion in 2025 (~3-4% YoY).",
       status: "Capex Surge",
-      color: "bg-accent"
+      color: "bg-primary"
     },
     {
       icon: AlertTriangle,
-      title: "Quality Control Crisis",
-      description: "Global product recalls hit six-year high in 2024 (2,450+ major campaigns)",
+      title: "Quality Crisis Peak",
+      description: "Global product recalls hit six-year high in 2024 (2,450+ campaigns).",
       status: "Quality Pain",
-      color: "bg-warning"
+      color: "bg-primary"
     }
   ];
 
@@ -32,22 +32,22 @@ const WhyNowSlide = () => {
     {
       title: "Commercial Availability",
       value: "Oct 2024",
-      description: "Sony/Prophesee IMX636 in products (LUCID, FRAMOS) – Oct 2024."
+      description: "IMX636 in production cameras (LUCID, FRAMOS) – Oct 2024."
     },
     {
-      title: "Vehicle Recalls", 
-      value: "27.7M",
-      description: "27.7 M cars recalled in 2024 (NHTSA)."
+      title: "QC Pressure", 
+      value: "Rising",
+      description: "QC/drift detection spend accelerating automation."
     },
     {
-      title: "Industrial Capex Trend",
+      title: "Capex Cycle",
       value: "Record",
-      description: "2025 industrial capex near record highs."
+      description: "Industrial capex in 2025 at near-record levels."
     },
     {
-      title: "Window Opening",
+      title: "Market Window",
       value: "2-3 yr",
-      description: "Production-ready sensors + recall pressure = 2–3 year technical moat."
+      description: "2–3 yr technical moat: sensors ready + QC urgency. MEA + DACH first mover."
     }
   ];
 
@@ -172,12 +172,13 @@ const WhyNowSlide = () => {
         transition={{ delay: 1.8, duration: 0.6 }}
         className="relative z-10 mt-8"
       >
-        <Card className="p-6 bg-primary/10 backdrop-blur-sm border border-primary/30 rounded-2xl shadow-lg">
+        <Card className="p-8 bg-primary/10 backdrop-blur-sm border border-primary/30 rounded-2xl shadow-lg">
           <p className="text-lg font-bold text-primary text-center max-w-6xl mx-auto">
-            This convergence of sensor availability, automation budgets, and quality urgency marks a breakaway moment—creating a 3-year window of technical leadership in event-based vision.
+            When sensor readiness, automation budgets, and quality urgency align, we enter a rare opportunity window for event-based vision leadership.
           </p>
-          <div className="text-xs text-muted text-center mt-3">
-            Sources: Recalls (NHTSA); Capex projections; MEA + DACH first-mover advantage.
+          <div className="text-xs text-muted text-center mt-4 space-y-1">
+            <div>Recalls: Global product recall trends, 2024 • Capex: Industrial Capex projections, 2025 (estimate)</div>
+            <div>Sensor launch: LUCID/Prophesee announcement</div>
           </div>
         </Card>
       </motion.div>
