@@ -73,7 +73,7 @@ const SolutionSlide = () => {
             <div className="aspect-[16/9] rounded-lg overflow-hidden mb-2">
               <iframe
                 className="w-full h-full"
-                src="https://www.youtube.com/embed/iKTDXKHLgmE?autoplay=0&mute=1&controls=1&showinfo=0&modestbranding=1"
+                src="https://www.youtube.com/embed/5plQO__oeL4?start=29&autoplay=0&mute=1&controls=1&showinfo=0&modestbranding=1"
                 title="High-Speed Counting Demo"
                 allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
@@ -94,7 +94,7 @@ const SolutionSlide = () => {
             <div className="aspect-[16/9] rounded-lg overflow-hidden mb-2">
               <iframe
                 className="w-full h-full"
-                src="https://www.youtube.com/embed/XzrKlNk7mCs?autoplay=0&mute=1&controls=1&showinfo=0&modestbranding=1"
+                src="https://www.youtube.com/embed/PbSVm4fix0c?start=5&autoplay=0&mute=1&controls=1&showinfo=0&modestbranding=1"
                 title="Surface Defect Detection"
                 allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
@@ -115,7 +115,7 @@ const SolutionSlide = () => {
             <div className="aspect-[16/9] rounded-lg overflow-hidden mb-2">
               <iframe
                 className="w-full h-full"
-                src="https://www.youtube.com/embed/kPCZESVfHoQ?autoplay=0&mute=1&controls=1&showinfo=0&modestbranding=1"
+                src="https://www.youtube.com/embed/AuUijt8D2tU?autoplay=0&mute=1&controls=1&showinfo=0&modestbranding=1"
                 title="Motion Analysis Demo"
                 allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
