@@ -52,18 +52,28 @@ const ProblemSlide = () => {
         <Badge variant="outline" className="text-sm px-4 py-2 border-primary text-primary bg-transparent">
           THE PROBLEM
         </Badge>
-        <h1 className="text-4xl md:text-5xl font-bold text-white tracking-[-0.01em]">
-          Frame-based Vision Struggles
-          <br />
-          <span className="text-primary">at Line Speed</span>
+        <h1 className="text-4xl md:text-5xl font-bold text-foreground tracking-tight">
+          Frame Vision Fails at <span className="text-gradient text-glow-animate">High-Speed, High-Variance</span>
         </h1>
-        <div className="text-lg max-w-6xl mx-auto space-y-2">
-          <p className="text-muted">
-            <strong className="text-white">Traditional RGB →</strong> blurred/missed micro-defects; slow frame latency (~10 ms+).
-          </p>
-          <p className="text-muted">
-            <strong className="text-white">Event-Based (Sony IMX636) →</strong> &lt;100 µs latency; sparse, low-power output.
-          </p>
+        <div className="text-base md:text-lg max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-3">
+          <div className="p-3 rounded-lg bg-card/60 border border-border">
+            <div className="text-foreground font-semibold mb-1">Latency & Blur</div>
+            <div className="text-muted-foreground">Events happen between frames → defects missed at line speed</div>
+          </div>
+          <div className="p-3 rounded-lg bg-card/60 border border-border">
+            <div className="text-foreground font-semibold mb-1">Data & Cloud Costs</div>
+            <div className="text-muted-foreground">Redundant full frames → storage, egress, GPU bills balloon</div>
+          </div>
+          <div className="p-3 rounded-lg bg-card/60 border border-border">
+            <div className="text-foreground font-semibold mb-1">Engineering Drag</div>
+            <div className="text-muted-foreground">Complex integration stacks → slow deployment, fragile ops</div>
+          </div>
+        </div>
+        <div className="flex items-center justify-center gap-2 flex-wrap">
+          <Badge variant="secondary">High-Speed QC</Badge>
+          <Badge variant="secondary">99.9% Uptime</Badge>
+          <Badge variant="secondary">Edge AI</Badge>
+          <Badge variant="secondary">Real-time MLOps</Badge>
         </div>
       </div>
 
@@ -72,7 +82,7 @@ const ProblemSlide = () => {
         <VideoCompare />
       </div>
 
-      {/* Stats Grid */}
+      {/* Impact Stats */}
       <div className="relative z-10 grid grid-cols-4 gap-6 max-w-7xl mx-auto mb-6">
         <div className="rounded-2xl border border-[#2C3D58] bg-[#122339]/92 px-4 py-4 shadow-[0_10px_30px_rgba(0,0,0,0.35)]">
           <div className="text-lg font-bold text-white mb-1">Latency</div>
@@ -105,7 +115,7 @@ const ProblemSlide = () => {
       >
         <Card className="p-8 bg-card/80 backdrop-blur-sm border border-primary/20 rounded-2xl shadow-lg max-w-6xl mx-auto">
           <p className="text-xl font-bold text-primary">
-            Event-based vision delivers microsecond latency, ultra-efficient data and power use, and ~80–90% total cost reduction compared to frame-only systems.
+            Event-based vision = Microsecond latency • 96% less data • 10× lower power • Weeks-to-value deployments.
           </p>
         </Card>
           <div className="text-center mt-4">
