@@ -4,7 +4,17 @@ import { Expand } from "lucide-react";
 
 const TitleSlide = () => {
   return (
-    <div className="w-full h-full flex flex-col justify-center relative overflow-hidden bg-background" style={{ background: 'var(--gradient-hero-light)' }}>
+    <div className="w-full h-screen flex flex-col justify-center relative overflow-hidden" style={{ background: 'var(--gradient-hero-light)' }}>
+      {/* Background Image - Full Window */}
+      <div className="absolute inset-0 z-0">
+        <img 
+          src="/src/assets/hero-industrial.jpg" 
+          alt="Industrial manufacturing facility" 
+          className="w-full h-full object-cover opacity-15"
+        />
+        <div className="absolute inset-0" style={{ background: 'var(--gradient-hero-light)' }} />
+        <div className="absolute inset-0" style={{ background: 'var(--gradient-mesh)' }} />
+      </div>
       {/* Expand Icon */}
       <motion.div 
         className="absolute top-6 right-6 z-20 cursor-pointer"
@@ -15,21 +25,9 @@ const TitleSlide = () => {
       >
         <Expand 
           size={24} 
-          className="text-muted-foreground hover:text-foreground transition-colors" 
+          className="text-foreground hover:text-primary transition-colors" 
         />
       </motion.div>
-      {/* Professional Background Pattern */}
-      <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0" style={{ background: 'var(--gradient-mesh)' }}></div>
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full blur-3xl bg-primary/5"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 rounded-full blur-3xl bg-accent/5"></div>
-        <img 
-          src="/src/assets/hero-industrial.jpg" 
-          alt="Industrial manufacturing facility" 
-          className="w-full h-full object-cover opacity-10 mix-blend-soft-light"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-background/40 via-transparent to-background/40" />
-      </div>
 
       {/* Content */}
       <div className="relative z-10 text-center px-8 py-16">

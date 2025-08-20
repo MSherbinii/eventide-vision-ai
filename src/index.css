@@ -45,9 +45,9 @@ All colors MUST be HSL.
     --destructive: 0 84% 60%;          /* Red for risks/problems */
     --destructive-foreground: 0 0% 100%;
 
-    /* Text hierarchy for readability */
+    /* Text hierarchy for readability - DARK TEXT ON LIGHT BACKGROUNDS */
     --muted: 210 17% 94%;              /* Light backgrounds for less important content */
-    --muted-foreground: 210 16% 46%;   /* Medium gray for secondary text */
+    --muted-foreground: 210 20% 35%;   /* DARK gray for secondary text - good contrast */
 
     /* Interface elements */
     --border: 210 20% 88%;             /* Subtle borders that don't compete with content */
