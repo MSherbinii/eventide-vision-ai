@@ -17,14 +17,14 @@ const WhyNowSlide = () => {
       title: "Industrial Capex Surge",
       description: "Global industrial equipment spend ~$0.84 trillion in 2025 (~3-4% YoY).",
       status: "Capex Surge",
-      color: "bg-primary"
+      color: "bg-accent"
     },
     {
       icon: AlertTriangle,
       title: "Quality Crisis Peak",
       description: "Global product recalls hit six-year high in 2024 (2,450+ campaigns).",
       status: "Quality Pain",
-      color: "bg-primary"
+      color: "bg-warning"
     }
   ];
 
