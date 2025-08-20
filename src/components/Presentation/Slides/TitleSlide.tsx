@@ -1,6 +1,7 @@
 import { StatTile } from "@/components/ui/stat-tile";
 import { motion } from "framer-motion";
 import { Expand } from "lucide-react";
+import heroIndustrialRobots from "@/assets/hero-industrial-robots.jpg";
 
 const TitleSlide = () => {
   return (
@@ -16,9 +17,9 @@ const TitleSlide = () => {
       {/* Background Image - Subtle Overlay */}
       <div className="absolute inset-0 z-0">
         <img 
-          src="/src/assets/hero-industrial.jpg" 
-          alt="Industrial manufacturing facility" 
-          className="w-full h-full object-cover opacity-5"
+          src={heroIndustrialRobots} 
+          alt="Industrial robots and automation facility" 
+          className="w-full h-full object-cover opacity-10"
         />
         <div className="absolute inset-0 bg-gradient-to-br from-background via-background/95 to-background/90" />
       </div>
