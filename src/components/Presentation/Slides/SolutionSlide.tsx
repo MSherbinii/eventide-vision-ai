@@ -133,6 +133,45 @@ const SolutionSlide = () => {
         </div>
       </div>
 
+      {/* Factory Applications Map (descriptive image) */}
+      <div className="relative z-10 max-w-5xl mx-auto mb-6">
+        <Dialog>
+          <DialogTrigger asChild>
+            <Card className="p-3 bg-card/80 backdrop-blur-sm border border-primary/20 rounded-xl shadow-lg cursor-pointer group hover:scale-[1.01] transition-all duration-300">
+              <div className="relative">
+                <div className="aspect-[16/9] rounded-lg overflow-hidden border border-primary/30">
+                  <img
+                    src="/factory-usecase-map.png"
+                    alt="Factory-wide event-based vision applications map"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="mt-3 text-center">
+                  <h4 className="text-base font-bold text-white mb-1">Factory Applications Map</h4>
+                  <p className="text-xs text-muted">Safety • Quality • Predictive Maintenance • Productivity — use-case placement across the line</p>
+                </div>
+                <div className="absolute top-3 right-3 opacity-70 group-hover:opacity-100 transition-opacity">
+                  <Badge variant="outline" className="text-[10px] flex items-center gap-1">
+                    <Maximize2 className="w-3 h-3" /> Expand
+                  </Badge>
+                </div>
+              </div>
+            </Card>
+          </DialogTrigger>
+          <DialogContent className="max-w-6xl p-0 overflow-hidden">
+            <div className="bg-card">
+              <div className="aspect-[16/9]">
+                <img
+                  src="/factory-usecase-map.png"
+                  alt="Factory-wide event-based vision applications map"
+                  className="w-full h-full object-contain bg-background"
+                />
+              </div>
+            </div>
+          </DialogContent>
+        </Dialog>
+      </div>
+
       {/* Bottom Section: Industrial Applications + Comparison */}
       <div className="relative z-10 flex-1 grid grid-cols-3 gap-6 min-h-0">
         {/* Left: Industrial Applications - Takes 2/3 width */}
