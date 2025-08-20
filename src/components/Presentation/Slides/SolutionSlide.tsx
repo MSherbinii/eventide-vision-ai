@@ -143,7 +143,7 @@ const SolutionSlide = () => {
           
           <div className="flex-1 space-y-4">
             {/* Performance Demo */}
-            <Card className="p-4 bg-card/80 backdrop-blur-sm border border-border rounded-xl shadow-lg">
+            <Card className="p-3 bg-card/80 backdrop-blur-sm border border-border rounded-xl shadow-lg">
               <div className="relative">
                 <div className="aspect-[4/3] bg-gradient-to-br from-primary/20 to-accent/10 rounded-lg flex items-center justify-center border border-primary/30">
                   <Play className="w-12 h-12 text-primary opacity-80 hover:scale-110 transition-transform duration-200" />
