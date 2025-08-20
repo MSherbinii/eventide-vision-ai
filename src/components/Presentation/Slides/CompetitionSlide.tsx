@@ -173,14 +173,37 @@ const CompetitionSlide = () => {
           <h3 className="text-2xl font-bold mb-6 text-white">Market Positioning</h3>
           <Card className="p-8 bg-card/80 backdrop-blur-sm border border-border rounded-2xl shadow-lg">
             <div className="relative w-full h-80">
-              <div className="absolute inset-0 border border-border rounded-lg"></div>
-              
-              {/* Axes Labels */}
-              <div className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 text-xs text-muted">
-                Processing Speed →
+              {/* Chart Background with Grid */}
+              <div className="absolute inset-0 border-2 border-border/40 rounded-lg bg-gradient-to-tr from-background/20 to-background/5">
+                {/* Grid Lines */}
+                <div className="absolute inset-0">
+                  {/* Vertical Grid Lines */}
+                  {[25, 50, 75].map((x) => (
+                    <div key={x} className="absolute h-full border-l border-border/20" style={{ left: `${x}%` }}></div>
+                  ))}
+                  {/* Horizontal Grid Lines */}
+                  {[25, 50, 75].map((y) => (
+                    <div key={y} className="absolute w-full border-t border-border/20" style={{ top: `${y}%` }}></div>
+                  ))}
+                </div>
               </div>
-              <div className="absolute -left-12 top-1/2 transform -translate-y-1/2 -rotate-90 text-xs text-muted">
-                Data Efficiency →
+              
+              {/* Axis Lines */}
+              <div className="absolute bottom-0 left-0 w-full h-0.5 bg-border"></div>
+              <div className="absolute bottom-0 left-0 w-0.5 h-full bg-border"></div>
+              
+              {/* X-Axis Labels */}
+              <div className="absolute -bottom-8 left-0 text-xs text-muted/70">Low</div>
+              <div className="absolute -bottom-8 right-0 text-xs text-muted/70">High</div>
+              <div className="absolute -bottom-12 left-1/2 transform -translate-x-1/2 text-sm font-medium text-white">
+                Real-Time Processing Speed (fps equivalent)
+              </div>
+              
+              {/* Y-Axis Labels */}
+              <div className="absolute -left-8 bottom-0 text-xs text-muted/70">Low</div>
+              <div className="absolute -left-8 top-0 text-xs text-muted/70">High</div>
+              <div className="absolute -left-16 top-1/2 transform -translate-y-1/2 -rotate-90 text-sm font-medium text-white origin-center">
+                Data Efficiency (% reduction vs. frames)
               </div>
               
               {/* Data Points */}
@@ -190,20 +213,39 @@ const CompetitionSlide = () => {
                   initial={{ scale: 0, opacity: 0 }}
                   animate={{ scale: 1, opacity: 1 }}
                   transition={{ delay: 0.5 + index * 0.2, duration: 0.5 }}
-                  className="absolute"
+                  className="absolute group cursor-pointer"
                   style={{ 
                     left: `${point.x}%`, 
                     top: `${100 - point.y}%`,
                     transform: 'translate(-50%, -50%)'
                   }}
                 >
-                  <div className={`w-3 h-3 rounded-full ${
+                  {/* Data Point */}
+                  <div className={`w-4 h-4 rounded-full border-2 transition-all duration-300 group-hover:scale-125 ${
                     point.name === "Eventide" 
-                      ? 'bg-primary shadow-lg shadow-primary/50' 
-                      : 'bg-muted/60'
-                  }`}></div>
-                  <div className={`text-xs mt-1 text-center whitespace-nowrap ${point.color}`}>
+                      ? 'bg-primary border-primary/50 shadow-lg shadow-primary/30' 
+                      : 'bg-muted/60 border-muted/40 group-hover:bg-muted/80'
+                  }`}>
+                    {point.name === "Eventide" && (
+                      <Target className="w-2 h-2 text-background absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" />
+                    )}
+                  </div>
+                  
+                  {/* Label */}
+                  <div className={`text-xs mt-2 text-center whitespace-nowrap font-medium transition-colors duration-300 ${
+                    point.name === "Eventide" ? 'text-primary' : 'text-muted group-hover:text-white'
+                  }`}>
                     {point.name}
+                  </div>
+                  
+                  {/* Hover Tooltip */}
+                  <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                    <div className="bg-background/90 backdrop-blur-sm border border-border rounded-lg px-3 py-2 text-xs text-white shadow-lg">
+                      <div className="font-medium">{point.name}</div>
+                      <div className="text-muted text-xs">
+                        Speed: {point.x}% | Efficiency: {point.y}%
+                      </div>
+                    </div>
                   </div>
                 </motion.div>
               ))}
