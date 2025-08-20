@@ -39,15 +39,18 @@ const TitleSlide = () => {
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          className="space-y-6 mb-12"
+          className="space-y-8 mb-12"
         >
           <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold leading-tight tracking-[-0.02em]">
-            <span className="block font-display bg-gradient-to-r from-slate-800 via-slate-700 to-slate-600 bg-clip-text text-transparent" style={{ 
-              background: 'var(--gradient-titanium)', 
-              WebkitBackgroundClip: 'text', 
-              WebkitTextFillColor: 'transparent',
-              backgroundClip: 'text'
-            }}>
+            <span 
+              className="block font-display bg-gradient-to-r from-slate-700 via-slate-800 to-slate-900 bg-clip-text text-transparent mb-2"
+              style={{ 
+                background: 'var(--gradient-titanium)', 
+                WebkitBackgroundClip: 'text', 
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text'
+              }}
+            >
               LuminaX
             </span>
             <span className="block text-slate-700 text-4xl md:text-5xl lg:text-6xl font-medium leading-tight">
@@ -55,7 +58,7 @@ const TitleSlide = () => {
             </span>
           </h1>
           
-          <div className="text-base text-slate-600 font-medium max-w-5xl mx-auto leading-relaxed">
+          <div className="text-lg text-slate-600 font-medium max-w-5xl mx-auto leading-relaxed">
             Event sensors are production-ready • Automation budgets rising • Microsecond-latency vision at scale
           </div>
         </motion.div>

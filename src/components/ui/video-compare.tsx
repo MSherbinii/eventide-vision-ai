@@ -8,69 +8,52 @@ interface VideoCompareProps {
 }
 
 export default function VideoCompare({
-  leftSrc = "/media/frame_rgb_line.mp4",
-  rightSrc = "/media/event_line_demo.mp4",
+  leftSrc = "https://www.youtube.com/embed/6xOmo7Ikwzk?autoplay=1&mute=1&loop=1",
+  rightSrc = "https://www.youtube.com/embed/MjX3z-6n3iA?autoplay=1&mute=1&loop=1",
   leftLabel = "Traditional RGB",
-  rightLabel = "Event-based (IMX636 demo)"
+  rightLabel = "Event-based (Prophesee)"
 }: VideoCompareProps) {
   const [showAnno, setShowAnno] = useState(true);
-  const leftRef = useRef<HTMLVideoElement>(null);
-  const rightRef = useRef<HTMLVideoElement>(null);
 
-  useEffect(() => {
-    const sync = () => {
-      if (!leftRef.current || !rightRef.current) return;
-      const t = leftRef.current.currentTime;
-      const d = Math.abs(rightRef.current.currentTime - t);
-      if (d > 0.05) rightRef.current.currentTime = t; // simple sync
-    };
-    const id = setInterval(sync, 250);
-    return () => clearInterval(id);
-  }, []);
-
-  const tile = (label: string, videoRef: any, src: string) => (
-    <div className="relative rounded-2xl border border-[#2C3D58] bg-[#122339]/92 overflow-hidden">
-      <div className="absolute z-10 left-3 top-3 text-xs px-2 py-1 rounded-full bg-black/50 text-white">{label}</div>
-      <video
-        ref={videoRef}
-        src={src}
-        muted
-        loop
-        playsInline
-        autoPlay
-        preload="metadata"
-        className="w-full h-[360px] object-cover"
-        poster="/media/poster.jpg"
-      />
-      {showAnno && (
-        <img
-          src="/media/overlay/bbox_overlay.png"
-          alt=""
-          className="pointer-events-none absolute inset-0 opacity-70"
+  const tile = (label: string, src: string) => (
+    <div className="relative rounded-2xl border border-border bg-card overflow-hidden shadow-lg">
+      <div className="absolute z-10 left-3 top-3 text-xs px-2 py-1 rounded-full bg-black/70 text-white font-medium">{label}</div>
+      <div className="aspect-video bg-muted">
+        <iframe
+          src={src}
+          title={label}
+          className="w-full h-full rounded-lg"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
         />
+      </div>
+      {showAnno && (
+        <div className="absolute bottom-3 left-3 right-3 bg-black/50 text-white text-xs p-2 rounded">
+          {label === "Traditional RGB" ? "Standard frame-based capture" : "Event-driven sparse data"}
+        </div>
       )}
     </div>
   );
 
   return (
     <div className="w-full">
-      <div className="flex items-center justify-between mb-3">
-        <div className="text-sm text-[#CBD5E1]">
-          Latency: RGB (ms-scale) vs Event-based <strong>&lt;100 µs @1000 lux</strong> (IMX636). Source: Sony/Prophesee EVK4.
+      <div className="flex items-center justify-between mb-4">
+        <div className="text-sm text-muted-foreground">
+          Latency: RGB (ms-scale) vs Event-based <strong>&lt;150 µs @1k lux</strong> (IMX636). Source: Sony/Prophesee.
         </div>
-        <label className="flex items-center gap-2 text-sm text-[#CBD5E1]">
+        <label className="flex items-center gap-2 text-sm text-muted-foreground">
           <input 
             type="checkbox" 
             checked={showAnno} 
             onChange={() => setShowAnno(v => !v)}
-            className="rounded border-[#2C3D58]" 
+            className="rounded border-border" 
           />
           Show annotations
         </label>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {tile(leftLabel, leftRef, leftSrc)}
-        {tile(rightLabel, rightRef, rightSrc)}
+        {tile(leftLabel, leftSrc)}
+        {tile(rightLabel, rightSrc)}
       </div>
     </div>
   );
