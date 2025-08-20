@@ -6,9 +6,19 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        'sans': ['Inter', '-apple-system', 'BlinkMacSystemFont', 'system-ui', 'sans-serif'],
-        'heading': ['Inter', '-apple-system', 'BlinkMacSystemFont', 'system-ui', 'sans-serif'],
-        'display': ['Inter', '-apple-system', 'BlinkMacSystemFont', 'system-ui', 'sans-serif'],
+        // Professional pitch deck font pairing (following expert recommendations)
+        'sans': ['Inter', '-apple-system', 'BlinkMacSystemFont', 'system-ui', 'sans-serif'], // Body text
+        'heading': ['Montserrat', 'Inter', '-apple-system', 'system-ui', 'sans-serif'], // Headlines & titles  
+        'display': ['Montserrat', 'Inter', '-apple-system', 'system-ui', 'sans-serif'], // Large display text
+      },
+      fontSize: {
+        // Pitch deck typography hierarchy (following 32-44pt headlines, 18-28pt body rule)
+        'headline': ['2.75rem', { lineHeight: '1.1', fontWeight: '700' }], // 44px headlines
+        'title': ['2.25rem', { lineHeight: '1.2', fontWeight: '600' }], // 36px titles
+        'subtitle': ['1.5rem', { lineHeight: '1.3', fontWeight: '500' }], // 24px subtitles
+        'body-large': ['1.25rem', { lineHeight: '1.4', fontWeight: '400' }], // 20px large body
+        'body': ['1.125rem', { lineHeight: '1.5', fontWeight: '400' }], // 18px standard body
+        'caption': ['0.875rem', { lineHeight: '1.4', fontWeight: '500' }], // 14px captions
       },
       colors: {
         // Psychology-Optimized Palette for Investor Presentations

@@ -40,7 +40,7 @@ const TitleSlide = () => {
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           className="space-y-8 mb-12"
         >
-          <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold leading-tight tracking-[-0.02em]">
+          <h1 className="pitch-headline text-6xl md:text-7xl lg:text-8xl font-heading leading-tight tracking-[-0.02em]">
             <span 
               className="block font-display mb-2"
               style={{ 
@@ -52,12 +52,12 @@ const TitleSlide = () => {
             >
               LuminaX
             </span>
-            <span className="block text-foreground text-4xl md:text-5xl lg:text-6xl font-medium leading-tight">
+            <span className="block text-foreground pitch-title text-4xl md:text-5xl lg:text-6xl font-medium leading-tight">
               Event-Based AI for Robotics & Automation
             </span>
           </h1>
           
-          <div className="text-lg text-muted-foreground font-medium max-w-5xl mx-auto leading-relaxed">
+          <div className="pitch-body text-lg text-muted-foreground font-medium max-w-5xl mx-auto leading-relaxed">
             Event sensors are production-ready • Automation budgets rising • Microsecond-latency vision at scale
           </div>
         </motion.div>

@@ -8,51 +8,51 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Professional Color Theory - Light Theme */
-    /* Based on 60-30-10 rule: 60% neutral, 30% secondary, 10% accent */
+    /* Professional Pitch Deck Color Theory - Light Theme */
+    /* Following 60-30-10 rule: 60% neutral foundation, 30% trust blue, 10% growth green */
     
-    /* Neutral Base (60%) - Cool Gray Palette */
-    --background: 210 20% 98%;         /* Pure professional white */
-    --foreground: 215 25% 15%;         /* Deep charcoal for maximum readability */
+    /* NEUTRAL FOUNDATION (60%) - High-contrast professional grays */
+    --background: 0 0% 100%;           /* Pure white for maximum professionalism */  
+    --foreground: 210 24% 12%;         /* Deep charcoal - perfect readability contrast */
 
-    /* Card surfaces with proper contrast */
-    --card: 210 20% 100%;              /* Clean white cards */
-    --card-foreground: 215 25% 15%;    /* Dark text on light cards */
+    /* Card surfaces optimized for pitch decks */
+    --card: 0 0% 100%;                 /* Clean white cards for content clarity */
+    --card-foreground: 210 24% 12%;    /* High contrast dark text */
 
-    --popover: 215 25% 15%;
-    --popover-foreground: 210 20% 95%;
+    --popover: 210 24% 12%;
+    --popover-foreground: 0 0% 98%;
 
-    /* Primary (30%) - Professional Blue (Trust & Stability) */
-    --primary: 210 100% 50%;           /* Pure professional blue */
-    --primary-foreground: 210 20% 98%; /* White text on blue */
-    --primary-glow: 210 100% 60%;
-    --primary-accent: 210 100% 40%;
+    /* TRUST & TECHNOLOGY (30%) - Professional blue for credibility */
+    --primary: 210 100% 50%;           /* Classic tech blue - builds investor confidence */
+    --primary-foreground: 0 0% 100%;   /* Pure white text on blue */
+    --primary-glow: 210 100% 60%;      /* Brighter blue for highlights */
+    --primary-accent: 210 100% 40%;    /* Darker blue for depth */
 
-    /* Secondary surfaces with subtle contrast */
-    --secondary: 210 20% 96%;          /* Light neutral gray */
-    --secondary-foreground: 215 25% 15%; /* Dark text on light background */
-    --secondary-glow: 210 20% 92%;
+    /* Secondary neutral surfaces */
+    --secondary: 210 17% 96%;          /* Subtle cool gray for backgrounds */
+    --secondary-foreground: 210 24% 12%; /* High contrast text */
+    --secondary-glow: 210 17% 92%;
 
-    /* Accent (10%) - Success Green (Growth & Action) */
-    --accent: 142 76% 36%;             /* Professional forest green */
-    --accent-foreground: 210 20% 98%;   /* White text on green */
-    --accent-glow: 142 76% 46%;
+    /* GROWTH & SUCCESS (10%) - Strategic green for key metrics */
+    --accent: 142 71% 45%;             /* Professional green - growth & positive outcomes */
+    --accent-foreground: 0 0% 100%;    /* White text on green */
+    --accent-glow: 142 71% 55%;        /* Brighter green for emphasis */
     
-    /* Status colors with proper contrast */
-    --warning: 38 92% 50%;             /* Amber warning */
-    --warning-foreground: 215 25% 15%;  /* Dark text on amber */
+    /* Semantic colors for pitch deck elements */
+    --warning: 38 92% 50%;             /* Amber for caution/attention */
+    --warning-foreground: 210 24% 12%; /* Dark text on amber */
 
-    --destructive: 0 84% 60%;          /* Clear red */
-    --destructive-foreground: 210 20% 98%;
+    --destructive: 0 84% 60%;          /* Red for risks/problems */
+    --destructive-foreground: 0 0% 100%;
 
-    /* Muted elements for hierarchy */
-    --muted: 210 20% 94%;              /* Subtle gray backgrounds */
-    --muted-foreground: 215 16% 47%;   /* Medium gray text */
+    /* Text hierarchy for readability */
+    --muted: 210 17% 94%;              /* Light backgrounds for less important content */
+    --muted-foreground: 210 16% 46%;   /* Medium gray for secondary text */
 
     /* Interface elements */
-    --border: 210 20% 89%;             /* Clear borders */
-    --input: 210 20% 96%;              /* Input backgrounds */
-    --ring: 210 100% 50%;              /* Focus ring matches primary */
+    --border: 210 20% 88%;             /* Subtle borders that don't compete with content */
+    --input: 210 17% 96%;              /* Input field backgrounds */
+    --ring: 210 100% 50%;              /* Focus states match primary */
 
     /* Professional Gradients - Color Theory Compliant */
     --gradient-primary: linear-gradient(135deg, hsl(210 100% 50%) 0%, hsl(210 100% 40%) 100%);
@@ -105,38 +105,38 @@ All colors MUST be HSL.
   }
 
   .dark {
-    /* Professional Dark Mode - High Contrast */
-    --background: 215 25% 8%;          /* Deep professional blue-black */
-    --foreground: 210 20% 95%;         /* High contrast white */
+    /* Professional Dark Mode for Pitch Decks - Maximum contrast & readability */
+    --background: 210 24% 8%;          /* Deep professional dark */
+    --foreground: 0 0% 98%;            /* Near-white for maximum readability */
 
-    --card: 215 25% 12%;               /* Dark cards with blue undertone */
-    --card-foreground: 210 20% 95%;
+    --card: 210 24% 12%;               /* Dark cards with professional undertone */
+    --card-foreground: 0 0% 98%;       /* High contrast white text */
 
-    --popover: 215 25% 12%;
-    --popover-foreground: 210 20% 95%;
+    --popover: 210 24% 12%;
+    --popover-foreground: 0 0% 98%;
 
-    --primary: 210 100% 55%;           /* Bright blue for dark mode */
-    --primary-foreground: 215 25% 8%;  /* Dark text on bright blue */
-    --primary-glow: 210 100% 65%;
+    --primary: 210 100% 60%;           /* Brighter blue for dark mode visibility */
+    --primary-foreground: 210 24% 8%;  /* Dark background on bright blue */
+    --primary-glow: 210 100% 70%;      /* Enhanced glow for dark mode */
     --primary-accent: 210 100% 45%;
 
-    --secondary: 215 20% 16%;          /* Dark secondary surfaces */
-    --secondary-foreground: 210 20% 90%;
-    --secondary-glow: 215 20% 20%;
+    --secondary: 210 20% 16%;          /* Dark secondary surfaces */
+    --secondary-foreground: 0 0% 95%;  /* Light text on dark */
+    --secondary-glow: 210 20% 20%;
 
-    --accent: 142 76% 50%;             /* Brighter green for dark mode */
-    --accent-foreground: 215 25% 8%;
-    --accent-glow: 142 76% 60%;
+    --accent: 142 71% 55%;             /* Brighter green for dark mode contrast */
+    --accent-foreground: 210 24% 8%;   /* Dark text on bright green */
+    --accent-glow: 142 71% 65%;
     
-    --warning: 38 92% 60%;             /* Brighter amber */
-    --warning-foreground: 215 25% 8%;
+    --warning: 38 92% 65%;             /* Enhanced amber for dark mode */
+    --warning-foreground: 210 24% 8%;
 
-    --muted: 215 20% 20%;              /* Medium dark surfaces */
-    --muted-foreground: 210 15% 70%;   /* Medium light text */
+    --muted: 210 20% 20%;              /* Medium dark surfaces */
+    --muted-foreground: 210 15% 70%;   /* Medium light text for hierarchy */
 
-    --border: 215 20% 24%;             /* Visible borders in dark */
-    --input: 215 20% 16%;
-    --ring: 210 100% 55%;
+    --border: 210 20% 24%;             /* Visible borders that don't overwhelm */
+    --input: 210 20% 16%;
+    --ring: 210 100% 60%;              /* Bright focus ring for dark mode */
 
     /* Dark mode gradients */
     --gradient-primary: linear-gradient(135deg, hsl(210 100% 55%) 0%, hsl(210 100% 45%) 100%);
@@ -178,8 +178,42 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
     font-feature-settings: "cv11", "ss01";
     font-variation-settings: "opsz" 32;
+    /* Professional pitch deck typography settings */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Professional typography hierarchy for pitch decks */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', 'Inter', system-ui, sans-serif;
+    font-weight: 600;
+    letter-spacing: -0.025em;
+  }
+
+  /* Ensure perfect readability in presentations */
+  .pitch-body {
+    font-size: 1.125rem; /* 18px minimum for readability */
+    line-height: 1.6;
+    color: hsl(var(--foreground));
+  }
+
+  .pitch-headline {
+    font-family: 'Montserrat', system-ui, sans-serif;
+    font-size: 2.75rem; /* 44px for presentations */
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.025em;
+  }
+
+  .pitch-title {
+    font-family: 'Montserrat', system-ui, sans-serif;
+    font-size: 2.25rem; /* 36px */
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
   }
 
   /* Custom scrollbar */
