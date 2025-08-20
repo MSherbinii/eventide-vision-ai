@@ -1,313 +1,388 @@
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { AnimatedGauge } from "@/components/ui/animated-gauge";
-import { ROICalculator } from "@/components/ui/roi-calculator";
-import { AlertTriangle, TrendingDown, Clock, DollarSign } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
+import { Switch } from "@/components/ui/switch";
+import { Info, Server, Zap, HardDrive, Cloud } from "lucide-react";
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import { formatNumber, formatCurrency } from "@/lib/numberFormat";
+import { BarChart, Bar, XAxis, YAxis, ResponsiveContainer, Cell } from "recharts";
 
 const CostOfFrameVisionSlide = () => {
+  const [selectedScenario, setSelectedScenario] = useState<'conservative' | 'typical' | 'aggressive'>('typical');
+  const [cloudClipsEnabled, setCloudClipsEnabled] = useState(false);
   const [calculations, setCalculations] = useState({
-    storagePercentage: 0,
-    computePercentage: 0,
-    scrapPercentage: 0,
-    downtimePercentage: 0,
-    integrationPercentage: 15,
-    monthlyCosts: {
-      storage: 0,
-      compute: 0,
-      rework: 0,
-      downtime: 0,
-      integration: 6250
-    },
-    eventComputeCost: 0,
-    rgbComputeCost: 0,
-    totalSavings: 0,
-    rgbCameraCount: 4,
-    eventCameraCount: 4
+    monthlySavings: 0,
+    paybackMonths: 0,
+    rgbCosts: { storage: 0, egress: 0, compute: 0, hardware: 0 },
+    eventCosts: { storage: 0, egress: 0, compute: 0, hardware: 0 }
   });
 
-  // Research-backed cost model for 8-camera production line deployment
-  useEffect(() => {
-    // Production line parameters (8 cameras, 16hr/day operation)
-    const cameras = 8;
-    const hoursPerDay = 16;
-    const daysPerMonth = 30;
-    const itemsPerHour = 3600; // High-speed production line
-    
-    // RGB System Storage Costs (Research-backed)
-    // Data: 4K@60fps = ~634GB/day/camera (H.265 compressed)
-    const rgbDataPerCameraPerDay = 634; // GB per camera per day
-    const rgbTotalDataPerMonth = rgbDataPerCameraPerDay * cameras * daysPerMonth;
-    
-    // Event System Storage (Nature 2024: 100x-1000x data reduction)
-    const eventDataReduction = 75; // Conservative 75x reduction
-    const eventTotalDataPerMonth = rgbTotalDataPerMonth / eventDataReduction;
-    
-    // Storage & Bandwidth (AWS S3 + ingestion + egress)
-    const storageCostPerGB = 0.023 + 0.014 + (0.09 * 0.15); // S3 + Kinesis + 15% egress
-    const rgbStorageCost = rgbTotalDataPerMonth * storageCostPerGB;
-    const eventStorageCost = eventTotalDataPerMonth * storageCostPerGB;
-    
-    // Compute Power Costs (Edge + Cloud processing)
-    // RGB Edge: Industrial cameras 25W + edge AI compute 200W = 225W per camera
-    // Event Edge: IMX636 1.5W + neuromorphic SNN processor 15W = 16.5W per camera
-    const powerCostPerKWh = 0.12;
-    const rgbEdgePowerCost = (225 / 1000) * hoursPerDay * daysPerMonth * powerCostPerKWh * cameras; // $311/month
-    const eventEdgePowerCost = (16.5 / 1000) * hoursPerDay * daysPerMonth * powerCostPerKWh * cameras; // $23/month
-    
-    // Cloud GPU Processing (continuous frame analysis vs sparse event processing)
-    const rgbCloudComputePerHour = 1.20; // AWS g4dn.xlarge
-    const rgbCloudCost = rgbCloudComputePerHour * hoursPerDay * daysPerMonth * cameras; // $4608/month
-    const eventCloudCost = rgbCloudCost * 0.08; // 92% reduction with SNN processing
-    
-    const rgbTotalComputeCost = rgbEdgePowerCost + rgbCloudCost;
-    const eventTotalComputeCost = eventEdgePowerCost + eventCloudCost;
-    
-    // Failed Detection & Quality Costs (Major RGB issue due to motion blur)
-    // RGB systems miss 2-5% of defects due to motion blur at production speeds
-    const defectRate = 0.025; // 2.5% baseline defect rate
-    const rgbMissedDetectionRate = 0.35; // RGB misses 35% due to motion blur
-    const eventMissedDetectionRate = 0.05; // Event catches 95% (no motion blur)
-    
-    const totalItemsPerMonth = itemsPerHour * hoursPerDay * daysPerMonth;
-    const costPerMissedDefect = 12; // Cost of defective product reaching customer
-    
-    const rgbFailedDetectionCost = totalItemsPerMonth * defectRate * rgbMissedDetectionRate * costPerMissedDefect;
-    const eventFailedDetectionCost = totalItemsPerMonth * defectRate * eventMissedDetectionRate * costPerMissedDefect;
-    
-    // Integration & Deployment (Research shows RGB requires significantly more setup)
-    // RGB: Complex calibration, lighting setup, maintenance
-    const rgbIntegrationCostPerCamera = 2800; // Monthly amortized cost
-    const eventIntegrationCostPerCamera = 1600; // Simpler, self-calibrating
-    const rgbIntegrationCost = rgbIntegrationCostPerCamera * cameras;
-    const eventIntegrationCost = eventIntegrationCostPerCamera * cameras;
-    
-    // Total system costs
-    const totalRgbCosts = rgbStorageCost + rgbTotalComputeCost + rgbFailedDetectionCost + rgbIntegrationCost;
-    const totalEventCosts = eventStorageCost + eventTotalComputeCost + eventFailedDetectionCost + eventIntegrationCost;
-    const totalSavings = totalRgbCosts - totalEventCosts;
+  // Scenario definitions with research-backed parameters
+  const scenarios = {
+    conservative: {
+      bitrateMbps: 6,
+      dataReduction: 10,
+      retention: 30
+    },
+    typical: {
+      bitrateMbps: 8,
+      dataReduction: 50,
+      retention: 30
+    },
+    aggressive: {
+      bitrateMbps: 12,
+      dataReduction: 200,
+      retention: 30
+    }
+  };
 
+  // Calculate costs based on scenario
+  useEffect(() => {
+    const scenario = scenarios[selectedScenario];
+    const cameras = 8;
+    const daysPerMonth = 30;
+    
+    // Monthly data calculation (GB)
+    // Formula: (cameras × bitrate_Mbps ÷ 8 MB/s) × 3600s × 24h × 30d ÷ 1024
+    const rgbMonthlyDataGB = (cameras * scenario.bitrateMbps / 8) * 3600 * 24 * daysPerMonth / 1024;
+    const eventMonthlyDataGB = rgbMonthlyDataGB / scenario.dataReduction;
+    
+    // Storage costs (S3 Standard: $0.023/GB-month)
+    const rgbStorageCost = rgbMonthlyDataGB * 0.023;
+    const eventStorageCost = eventMonthlyDataGB * 0.023;
+    
+    // Data egress costs (AWS: $0.09/GB first 10TB)
+    const egressPercentage = cloudClipsEnabled ? (scenario.dataReduction > 20 ? 0.05 : 0.15) : 0;
+    const rgbEgressCost = cloudClipsEnabled ? rgbMonthlyDataGB * egressPercentage * 0.09 : 0;
+    const eventEgressCost = cloudClipsEnabled ? eventMonthlyDataGB * egressPercentage * 0.09 : 0;
+    
+    // Compute costs (hardware amortization + energy)
+    // RGB: $4000 system → $111/mo amortization + 250W × 24/7 × $0.12/kWh
+    // Event: $1000 system → $28/mo amortization + 25W × 24/7 × $0.12/kWh
+    const rgbHardwareCost = 111; // 3-year amortization of $4000 system
+    const eventHardwareCost = 28; // 3-year amortization of $1000 system
+    
+    const energyCostKWh = 0.12;
+    const rgbEnergyCost = (250 / 1000) * 24 * daysPerMonth * energyCostKWh;
+    const eventEnergyCost = (25 / 1000) * 24 * daysPerMonth * energyCostKWh;
+    
+    const rgbComputeCost = rgbHardwareCost + rgbEnergyCost;
+    const eventComputeCost = eventHardwareCost + eventEnergyCost;
+    
+    // Total monthly costs
+    const rgbTotal = rgbStorageCost + rgbEgressCost + rgbComputeCost;
+    const eventTotal = eventStorageCost + eventEgressCost + eventComputeCost;
+    const monthlySavings = rgbTotal - eventTotal;
+    
+    // Payback calculation (assuming $3000 integration delta)
+    const integrationDelta = 3000;
+    const paybackMonths = integrationDelta / monthlySavings;
+    
     setCalculations({
-      storagePercentage: Math.round((rgbStorageCost / totalRgbCosts) * 100),
-      computePercentage: Math.round((rgbTotalComputeCost / totalRgbCosts) * 100), 
-      scrapPercentage: Math.round((rgbFailedDetectionCost / totalRgbCosts) * 100),
-      downtimePercentage: 0, // Not used in this model
-      integrationPercentage: Math.round((rgbIntegrationCost / totalRgbCosts) * 100),
-      monthlyCosts: {
+      monthlySavings,
+      paybackMonths,
+      rgbCosts: {
         storage: rgbStorageCost,
-        compute: rgbTotalComputeCost,
-        rework: rgbFailedDetectionCost,
-        downtime: 0,
-        integration: rgbIntegrationCost
+        egress: rgbEgressCost,
+        compute: rgbComputeCost,
+        hardware: rgbHardwareCost
       },
-      rgbComputeCost: rgbTotalComputeCost,
-      eventComputeCost: eventTotalComputeCost,
-      totalSavings: totalSavings,
-      rgbCameraCount: cameras,
-      eventCameraCount: cameras
+      eventCosts: {
+        storage: eventStorageCost,
+        egress: eventEgressCost,
+        compute: eventComputeCost,
+        hardware: eventHardwareCost
+      }
     });
-  }, []);
+  }, [selectedScenario, cloudClipsEnabled]);
+
+  // Prepare chart data for stacked bar comparison
+  const chartData = [
+    {
+      name: 'RGB System',
+      storage: calculations.rgbCosts.storage,
+      egress: calculations.rgbCosts.egress,
+      compute: calculations.rgbCosts.compute,
+      total: calculations.rgbCosts.storage + calculations.rgbCosts.egress + calculations.rgbCosts.compute
+    },
+    {
+      name: 'Event System',
+      storage: calculations.eventCosts.storage,
+      egress: calculations.eventCosts.egress,
+      compute: calculations.eventCosts.compute,
+      total: calculations.eventCosts.storage + calculations.eventCosts.egress + calculations.eventCosts.compute
+    }
+  ];
+
+  const colors = {
+    storage: 'hsl(var(--primary))',
+    egress: 'hsl(var(--warning))',
+    compute: 'hsl(var(--destructive))'
+  };
 
   return (
     <div className="w-full h-full flex flex-col px-6 py-4 bg-gradient-to-br from-background via-[hsl(220_34%_8%)] to-[hsl(4_100%_8%)]">
-      {/* Chromatic Background Pattern */}
+      {/* Background Pattern */}
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-gradient-to-tr from-destructive/5 via-transparent to-primary/10"></div>
         <div className="absolute top-1/4 left-1/4 w-80 h-80 bg-destructive/8 rounded-full blur-3xl"></div>
         <div className="absolute bottom-1/4 right-1/4 w-72 h-72 bg-primary/10 rounded-full blur-3xl"></div>
       </div>
       
-      {/* Header */}
-      <div className="relative z-10 text-center space-y-3 mb-6">
-        <Badge variant="outline" className="text-sm px-4 py-2 border-primary text-primary bg-transparent">
-          THE COST OF FRAME-ONLY VISION
-        </Badge>
+      {/* Header with One-line Takeaway */}
+      <div className="relative z-10 text-center space-y-4 mb-6">
+        <div className="flex items-center justify-center gap-2">
+          <Badge variant="outline" className="text-sm px-3 py-1 border-primary text-primary bg-transparent">
+            Edge-first
+          </Badge>
+          <div className="flex items-center gap-2">
+            <span className="text-xs text-muted">Cloud clips</span>
+            <Switch checked={cloudClipsEnabled} onCheckedChange={setCloudClipsEnabled} />
+          </div>
+        </div>
+        
         <h1 className="text-3xl md:text-4xl font-bold text-white tracking-[-0.01em]">
-          The Cost of <span className="text-primary">Frame-Only Vision</span>
+          Infrastructure <span className="text-primary">ROI Story</span>
         </h1>
-        <p className="text-sm text-muted max-w-3xl mx-auto">
-          Research-backed 8-camera deployment model: Event systems reduce power 14×, data 75×, failed detections 7×, and integration costs 43%.
+        
+        <p className="text-lg text-accent font-medium max-w-4xl mx-auto">
+          Event-based + edge storage cuts data & infra cost by ~90%+ per line; payback in months.
         </p>
+
+        {/* Scenario Pills */}
+        <div className="flex items-center justify-center gap-2 mt-4">
+          {(['conservative', 'typical', 'aggressive'] as const).map((scenario) => (
+            <Button
+              key={scenario}
+              variant={selectedScenario === scenario ? "default" : "outline"}
+              size="sm"
+              onClick={() => setSelectedScenario(scenario)}
+              className={selectedScenario === scenario ? "bg-primary text-white" : "border-border text-muted hover:text-white"}
+            >
+              {scenario.charAt(0).toUpperCase() + scenario.slice(1)}
+            </Button>
+          ))}
+        </div>
       </div>
 
-      <div className="relative z-10 flex-1 grid grid-cols-2 gap-6">
-        {/* Left Column - Animated Cost Gauges */}
-        <div className="space-y-4">
-          <h3 className="text-2xl font-bold text-white">8-Camera RGB System Cost Breakdown (Monthly)</h3>
-          <div className="grid grid-cols-2 gap-4">
-            <AnimatedGauge
-              title="Storage & Bandwidth"
-              icon={<DollarSign className="w-10 h-10 text-primary" />}
-              percentage={calculations.storagePercentage}
-              label={`${formatNumber(calculations.monthlyCosts.storage, true)}/mo (${calculations.storagePercentage}% of total)`}
-              color="hsl(var(--primary))"
-            />
-            <AnimatedGauge
-              title="Compute & Power"
-              icon={<Clock className="w-10 h-10 text-warning" />}
-              percentage={calculations.computePercentage}
-              label={`${formatNumber(calculations.monthlyCosts.compute, true)}/mo (${calculations.computePercentage}% of total)`}
-              color="hsl(var(--warning))"
-            />
-            <AnimatedGauge
-              title="Failed Detections"
-              icon={<AlertTriangle className="w-10 h-10 text-destructive" />}
-              percentage={calculations.scrapPercentage}
-              label={`${formatNumber(calculations.monthlyCosts.rework, true)}/mo (${calculations.scrapPercentage}% of total)`}
-              color="hsl(var(--destructive))"
-            />
-            <AnimatedGauge
-              title="Integration & Setup"
-              icon={<TrendingDown className="w-10 h-10 text-accent" />}
-              percentage={calculations.integrationPercentage}
-              label={`${formatNumber(calculations.monthlyCosts.integration, true)}/mo (${calculations.integrationPercentage}% of total)`}
-              color="hsl(var(--accent))"
-            />
-          </div>
+      <div className="relative z-10 flex-1 grid grid-cols-3 gap-6">
+        {/* Left Column - Hero Numbers */}
+        <div className="space-y-6">
+          {/* Monthly Savings */}
+          <Card className="p-6 bg-card/80 backdrop-blur-sm border border-primary/20 rounded-2xl shadow-lg text-center">
+            <div className="text-sm text-muted mb-2">Monthly Savings</div>
+            <div className="text-4xl font-bold text-primary mb-2">
+              {formatCurrency(calculations.monthlySavings)}
+            </div>
+            <div className="text-xs text-muted">per 8-camera line</div>
+          </Card>
 
-          {/* Research Sources */}
+          {/* Payback Period */}
+          <Card className="p-6 bg-card/80 backdrop-blur-sm border border-accent/20 rounded-2xl shadow-lg text-center">
+            <div className="text-sm text-muted mb-2">Payback Period</div>
+            <div className="text-4xl font-bold text-accent mb-2">
+              {Math.ceil(calculations.paybackMonths)}
+            </div>
+            <div className="text-xs text-muted">months</div>
+          </Card>
+
+          {/* Assumptions Drawer */}
+          <Sheet>
+            <SheetTrigger asChild>
+              <Button variant="outline" size="sm" className="w-full border-border text-muted hover:text-white">
+                <Info className="w-4 h-4 mr-2" />
+                Assumptions & Sources
+              </Button>
+            </SheetTrigger>
+            <SheetContent className="w-[400px] sm:w-[540px]">
+              <SheetHeader>
+                <SheetTitle>Model Assumptions</SheetTitle>
+                <SheetDescription>
+                  Research-backed parameters for {selectedScenario} scenario
+                </SheetDescription>
+              </SheetHeader>
+              <div className="mt-6 space-y-4">
+                <div className="space-y-2">
+                  <h4 className="font-semibold">Current Scenario: {selectedScenario}</h4>
+                  <div className="text-sm space-y-1">
+                    <div>• Bitrate: {scenarios[selectedScenario].bitrateMbps} Mbps/camera</div>
+                    <div>• Data reduction: {scenarios[selectedScenario].dataReduction}× less</div>
+                    <div>• Retention: {scenarios[selectedScenario].retention} days</div>
+                  </div>
+                </div>
+                
+                <div className="space-y-2">
+                  <h4 className="font-semibold">Fixed Parameters</h4>
+                  <div className="text-sm space-y-1">
+                    <div>• Cameras: 8 × 1080p@60fps</div>
+                    <div>• Storage: $0.023/GB-month (S3 Standard)</div>
+                    <div>• Energy: $0.12/kWh</div>
+                    <div>• RGB Power: 250W/system</div>
+                    <div>• Event Power: 25W/system</div>
+                    <div>• Data egress: $0.09/GB (first 10TB)</div>
+                  </div>
+                </div>
+
+                <div className="space-y-2">
+                  <h4 className="font-semibold">Sources</h4>
+                  <div className="text-xs space-y-1 text-muted-foreground">
+                    <div>• AWS S3 Standard pricing (public docs)</div>
+                    <div>• Jetson Orin power envelope (10-60W)</div>
+                    <div>• Event sensor data reduction (Prophesee, IDS)</div>
+                    <div>• Industrial GPU box ~250W typical</div>
+                  </div>
+                </div>
+              </div>
+            </SheetContent>
+          </Sheet>
+        </div>
+
+        {/* Middle Column - Stacked Bar Chart */}
+        <div className="space-y-4">
+          <h3 className="text-xl font-bold text-white text-center">Monthly Cost Comparison</h3>
+          
           <Card className="p-4 bg-card/80 backdrop-blur-sm border border-border rounded-2xl shadow-lg">
-            <h4 className="text-sm font-bold mb-2 text-white">Research Basis</h4>
-            <div className="space-y-1 text-xs text-muted">
-              <div>• <strong>Storage:</strong> RGB: 152TB/month vs Event: 2TB/month (75× reduction)</div>
-              <div>• <strong>Power & Compute:</strong> RGB: $5,169/mo vs Event: $392/mo (92% reduction)</div>
-              <div>• <strong>Failed Detections:</strong> RGB misses 35% due to motion blur vs Event: 5%</div>
-              <div>• <strong>Integration:</strong> RGB: $2.8K/camera vs Event: $1.6K/camera (43% simpler)</div>
-              <div>• <strong>Total Monthly Savings:</strong> {formatNumber(calculations.totalSavings, true)} for 8-camera system</div>
-              <div>• <strong>Annual ROI:</strong> {formatNumber(calculations.totalSavings * 12, true)} savings per year</div>
+            <div className="h-80">
+              <ResponsiveContainer width="100%" height="100%">
+                <BarChart data={chartData} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
+                  <XAxis dataKey="name" stroke="hsl(var(--muted))" />
+                  <YAxis stroke="hsl(var(--muted))" tickFormatter={(value) => `$${(value/1000).toFixed(1)}K`} />
+                  <Bar dataKey="storage" stackId="a" fill={colors.storage} />
+                  <Bar dataKey="egress" stackId="a" fill={colors.egress} />
+                  <Bar dataKey="compute" stackId="a" fill={colors.compute} />
+                </BarChart>
+              </ResponsiveContainer>
+            </div>
+            
+            {/* Legend */}
+            <div className="flex justify-center gap-4 mt-4 text-xs">
+              <div className="flex items-center gap-2">
+                <div className="w-3 h-3 rounded" style={{backgroundColor: colors.storage}}></div>
+                <span className="text-muted">Storage</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="w-3 h-3 rounded" style={{backgroundColor: colors.egress}}></div>
+                <span className="text-muted">Data Egress</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="w-3 h-3 rounded" style={{backgroundColor: colors.compute}}></div>
+                <span className="text-muted">Compute & HW</span>
+              </div>
             </div>
           </Card>
 
-          {/* Pilot Target Impact */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.2, duration: 0.6 }}
-            className="mt-6"
-          >
-            <div className="relative">
-              <motion.div
-                initial={{ width: 0 }}
-                animate={{ width: "100%" }}
-                transition={{ delay: 1.5, duration: 1.5 }}
-                className="absolute top-0 left-0 h-full bg-primary/20 rounded-2xl"
-              />
-              <Card className="relative p-4 bg-card/80 backdrop-blur-sm border border-primary/20 rounded-2xl shadow-lg text-center">
-                <Badge variant="secondary" className="mb-2 bg-primary text-white border-0">Pilot Target</Badge>
-                <div className="text-2xl font-bold text-primary mb-2">20–50% reduction</div>
-                <p className="text-xs text-muted">Measured pilot results will replace estimates</p>
-              </Card>
-            </div>
-          </motion.div>
+          {/* Cost Breakdown */}
+          <div className="grid grid-cols-2 gap-3 text-xs">
+            <Card className="p-3 bg-card/60 backdrop-blur-sm border border-border rounded-lg">
+              <div className="font-semibold text-white mb-2">RGB System</div>
+              <div className="space-y-1 text-muted">
+                <div className="flex justify-between">
+                  <span>Storage:</span>
+                  <span>{formatCurrency(calculations.rgbCosts.storage)}</span>
+                </div>
+                <div className="flex justify-between">
+                  <span>Egress:</span>
+                  <span>{formatCurrency(calculations.rgbCosts.egress)}</span>
+                </div>
+                <div className="flex justify-between">
+                  <span>Compute:</span>
+                  <span>{formatCurrency(calculations.rgbCosts.compute)}</span>
+                </div>
+                <div className="flex justify-between border-t border-border pt-1 font-semibold text-white">
+                  <span>Total:</span>
+                  <span>{formatCurrency(calculations.rgbCosts.storage + calculations.rgbCosts.egress + calculations.rgbCosts.compute)}</span>
+                </div>
+              </div>
+            </Card>
+            
+            <Card className="p-3 bg-card/60 backdrop-blur-sm border border-border rounded-lg">
+              <div className="font-semibold text-white mb-2">Event System</div>
+              <div className="space-y-1 text-muted">
+                <div className="flex justify-between">
+                  <span>Storage:</span>
+                  <span>{formatCurrency(calculations.eventCosts.storage)}</span>
+                </div>
+                <div className="flex justify-between">
+                  <span>Egress:</span>
+                  <span>{formatCurrency(calculations.eventCosts.egress)}</span>
+                </div>
+                <div className="flex justify-between">
+                  <span>Compute:</span>
+                  <span>{formatCurrency(calculations.eventCosts.compute)}</span>
+                </div>
+                <div className="flex justify-between border-t border-border pt-1 font-semibold text-white">
+                  <span>Total:</span>
+                  <span>{formatCurrency(calculations.eventCosts.storage + calculations.eventCosts.egress + calculations.eventCosts.compute)}</span>
+                </div>
+              </div>
+            </Card>
+          </div>
         </div>
 
-        {/* Right Column - ROI Calculator */}
+        {/* Right Column - Context & Validation */}
         <div className="space-y-4">
-          <h3 className="text-2xl font-bold text-white">Live ROI Calculator</h3>
+          <h3 className="text-xl font-bold text-white">Model Validation</h3>
           
-          {/* Compute Cost Comparison */}
-          <div className="mb-4 p-3 bg-card/60 backdrop-blur-sm border border-primary/20 rounded-lg">
-              <div className="text-sm font-medium text-primary mb-2">Power & Compute Cost Comparison</div>
-              <div className="grid grid-cols-2 gap-2 text-xs">
-                <div className="text-muted">RGB: $5,169/mo (1.8kW + Cloud GPU)</div>
-                <div className="text-muted">Event: $392/mo (132W + SNN)</div>
-              </div>
-          </div>
-
-          {/* ROI Calculator Component */}
-          <ROICalculator 
-            title="Monthly Cost Breakdown (RGB/Event)" 
-          onCalculationChange={(calc) => {
-            setCalculations(prev => ({
-              ...prev,
-              // Use new structured data if available, otherwise fall back to legacy format
-              storagePercentage: calc.storagePercentage || prev.storagePercentage,
-              computePercentage: calc.computePercentage || prev.computePercentage,
-              scrapPercentage: calc.scrapPercentage || prev.scrapPercentage,
-              integrationPercentage: calc.integrationPercentage || prev.integrationPercentage,
-              monthlyCosts: {
-                ...prev.monthlyCosts,
-                ...(calc.monthlyCosts || {})
-              },
-              rgbComputeCost: calc.monthlyCosts?.rgbCompute || calc.rgbCosts?.compute || prev.rgbComputeCost,
-              eventComputeCost: calc.monthlyCosts?.eventCompute || calc.eventCosts?.compute || prev.eventComputeCost,
-              totalSavings: calc.monthlySavings || calc.savings?.monthly || prev.totalSavings,
-              rgbCameraCount: calc.rgbCameraCount || prev.rgbCameraCount,
-              eventCameraCount: calc.eventCameraCount || prev.eventCameraCount
-            }));
-            // Debug log for development
-            console.log('Updated calculations with research-backed data:', calc);
-          }}
-          />
-
-          {/* Customer ROI Snapshot */}
-          <Card className="p-4 bg-card/80 backdrop-blur-sm border border-primary/20 rounded-2xl shadow-lg">
-            <h4 className="text-lg font-bold mb-3 text-white">Customer ROI Snapshot</h4>
+          {/* Data Volume Comparison */}
+          <Card className="p-4 bg-card/80 backdrop-blur-sm border border-border rounded-2xl shadow-lg">
+            <h4 className="font-semibold text-white mb-3">Data Volume ({selectedScenario})</h4>
             <div className="space-y-2 text-sm">
               <div className="flex justify-between">
-                <span className="text-muted">Monthly Savings:</span>
-                <span className="text-primary font-semibold">{formatNumber(calculations.totalSavings, true)}</span>
+                <span className="text-muted">RGB monthly:</span>
+                <span className="text-white">{((8 * scenarios[selectedScenario].bitrateMbps / 8) * 3600 * 24 * 30 / 1024 / 1024).toFixed(1)} TB</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-muted">Integration Cost:</span>
-                <span className="text-white">{formatNumber(200000, true)}</span>
-              </div>
-              <div className="flex justify-between">
-                <span className="text-muted">Payback Period:</span>
-                <span className="text-accent font-semibold">
-                  {calculations.totalSavings > 0 ? Math.ceil(200000 / calculations.totalSavings) : 'N/A'} months
-                </span>
+                <span className="text-muted">Event monthly:</span>
+                <span className="text-primary">{((8 * scenarios[selectedScenario].bitrateMbps / 8) * 3600 * 24 * 30 / 1024 / 1024 / scenarios[selectedScenario].dataReduction).toFixed(2)} TB</span>
               </div>
               <div className="flex justify-between border-t border-border pt-2">
-                <span className="text-muted">12-Month Net Benefit:</span>
-                <span className="text-primary font-bold">
-                  {formatNumber(Math.max(0, calculations.totalSavings * 12 - 200000), true)}
-                </span>
+                <span className="text-muted">Reduction factor:</span>
+                <span className="text-accent font-semibold">{scenarios[selectedScenario].dataReduction}×</span>
+              </div>
+            </div>
+          </Card>
+
+          {/* Power Comparison */}
+          <Card className="p-4 bg-card/80 backdrop-blur-sm border border-border rounded-2xl shadow-lg">
+            <h4 className="font-semibold text-white mb-3">Power & Compute</h4>
+            <div className="space-y-2 text-sm">
+              <div className="flex justify-between">
+                <span className="text-muted">RGB system:</span>
+                <span className="text-white">250W + amortization</span>
+              </div>
+              <div className="flex justify-between">
+                <span className="text-muted">Event system:</span>
+                <span className="text-primary">25W + amortization</span>
+              </div>
+              <div className="flex justify-between border-t border-border pt-2">
+                <span className="text-muted">Power reduction:</span>
+                <span className="text-accent font-semibold">10×</span>
               </div>
             </div>
           </Card>
 
           {/* Industry Context */}
-          <div>
-            <h4 className="text-lg font-bold mb-3 text-white">Industry Research</h4>
-            <div className="space-y-2">
-              {[
-                { stat: "11%", desc: "of Fortune 500 company revenues lost to unplanned downtime annually ($1.4T total - Siemens 2024)" },
-                { stat: "$2.3M", desc: "cost per hour of automotive production downtime, 2x higher than 2019 (Siemens True Cost Report)" },
-                { stat: "4-12 weeks", desc: "modern AI vision deployment vs 6+ months for traditional rule-based systems (Industry Research)" }
-              ].map((item, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 1 + index * 0.1, duration: 0.5 }}
-                >
-                  <Card className="p-3 bg-card/80 backdrop-blur-sm border border-border rounded-2xl shadow-lg">
-                    <div className="flex items-center gap-3">
-                      <div className="text-lg font-bold text-primary min-w-[60px]">{item.stat}</div>
-                      <p className="text-xs text-muted">{item.desc}</p>
-                    </div>
-                  </Card>
-                </motion.div>
-              ))}
+          <Card className="p-4 bg-card/80 backdrop-blur-sm border border-border rounded-2xl shadow-lg">
+            <h4 className="font-semibold text-white mb-3">Industry Benchmarks</h4>
+            <div className="space-y-2 text-xs text-muted">
+              <div>• Event sensors: 10×–1000× data reduction (Prophesee, IDS)</div>
+              <div>• S3 Standard: $0.023/GB-month (AWS public pricing)</div>
+              <div>• Jetson Orin: 10–60W envelope (NVIDIA specs)</div>
+              <div>• Industrial GPU boxes: 200–400W typical</div>
             </div>
-          </div>
+          </Card>
 
-          {/* Call to Action */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.5, duration: 0.6 }}
-          >
-            <Card className="p-4 bg-card/80 backdrop-blur-sm border border-primary/20 rounded-2xl shadow-lg text-center">
-              <h4 className="text-lg font-bold mb-2 text-white">The Solution is Clear</h4>
-              <p className="text-xs text-muted">
-                Research shows event-based vision offers 14× power reduction, 50× data reduction, and 37% lower integration costs.
-              </p>
-            </Card>
-          </motion.div>
+          {/* Footnote */}
+          <Card className="p-4 bg-destructive/10 backdrop-blur-sm border border-destructive/20 rounded-2xl shadow-lg">
+            <div className="text-xs text-destructive font-medium">
+              ⚠️ Infra-only ROI; quality/downtime upside next slide
+            </div>
+            <p className="text-xs text-muted mt-1">
+              This model counts only infrastructure costs. Quality improvements and downtime reduction provide additional ROI not shown here.
+            </p>
+          </Card>
         </div>
       </div>
     </div>
