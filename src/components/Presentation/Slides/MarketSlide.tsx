@@ -60,7 +60,7 @@ const MarketSlide = () => {
   ];
 
   return (
-    <div className="w-full h-full flex flex-col px-8 py-6 bg-gradient-to-br from-background via-[hsl(220_34%_8%)] to-[hsl(142_69%_8%)] max-w-[1320px] mx-auto">
+    <div className="w-full h-full flex flex-col px-6 py-4 bg-gradient-to-br from-background via-[hsl(220_34%_8%)] to-[hsl(142_69%_8%)]">
       {/* Chromatic Background Pattern */}
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-gradient-to-tr from-primary/5 via-transparent to-accent/10"></div>
@@ -68,25 +68,25 @@ const MarketSlide = () => {
         <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-accent/10 rounded-full blur-3xl"></div>
       </div>
       {/* Header */}
-      <div className="relative z-10 text-center space-y-4 mb-8">
+      <div className="relative z-10 text-center space-y-3 mb-6">
         <Badge variant="outline" className="text-sm px-4 py-2 border-primary text-primary bg-transparent">
           BIG & GROWING MARKET
         </Badge>
-        <h1 className="text-4xl md:text-5xl font-bold text-white tracking-[-0.01em]">
+        <h1 className="text-3xl md:text-4xl font-bold text-white tracking-[-0.01em]">
           <span className="text-primary">Perfect Storm</span> of Opportunity
         </h1>
-        <p className="text-lg text-muted max-w-4xl mx-auto">
+        <p className="text-base text-muted max-w-5xl mx-auto">
           Global machine-vision is $20.38B (2024) and projected to $41.74B by 2030 (13.0% CAGR). The Quality Assurance & Inspection application is the largest segment and the ME&A region is among the fastest-growing.
         </p>
       </div>
 
-      <div className="relative z-10 flex-1 grid grid-cols-2 gap-8">
+      <div className="relative z-10 flex-1 grid grid-cols-2 gap-6 min-h-0">
         {/* Left Column - Why Now & Expandable Chips */}
-        <div className="space-y-6">
+        <div className="space-y-5 flex flex-col">
           {/* Why Now Section */}
           <div>
-            <h3 className="text-3xl font-bold mb-4 text-white">Why Now?</h3>
-            <div className="grid grid-cols-2 gap-4">
+            <h3 className="text-2xl font-bold mb-3 text-white">Why Now?</h3>
+            <div className="grid grid-cols-2 gap-3">
               {timingFactors.map((factor, index) => (
                 <motion.div
                   key={index}
@@ -94,18 +94,18 @@ const MarketSlide = () => {
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ delay: index * 0.1, duration: 0.5 }}
                 >
-                  <Card className="p-8 text-center hover:scale-105 transition-all duration-300 bg-card border border-border rounded-2xl shadow-lg h-full">
-                    <div className="mb-3 flex justify-center">
+                  <Card className="p-5 text-center hover:scale-105 transition-all duration-300 bg-card border border-border rounded-2xl shadow-lg h-full">
+                    <div className="mb-2 flex justify-center">
                       {factor.icon}
                     </div>
-                    <div className="text-3xl font-bold text-primary mb-2">{factor.percentage}</div>
-                    <div className="font-semibold mb-2 text-sm text-white">{factor.title}</div>
+                    <div className="text-2xl font-bold text-primary mb-1">{factor.percentage}</div>
+                    <div className="font-semibold mb-1 text-xs text-white">{factor.title}</div>
                     <p className="text-xs text-muted">{factor.description}</p>
                   </Card>
                 </motion.div>
               ))}
             </div>
-            <div className="text-center mt-4">
+            <div className="text-center mt-3">
               <p className="text-xs text-muted-foreground">
                 Source: Bill Gross (Idealab) - TED Talk Analysis
               </p>
@@ -113,13 +113,13 @@ const MarketSlide = () => {
           </div>
 
           {/* Expandable Market Chips */}
-          <div>
-            <h3 className="text-3xl font-bold mb-4 text-white">What this means for Eventide</h3>
-            <div className="space-y-3">
+          <div className="flex-1">
+            <h3 className="text-2xl font-bold mb-3 text-white">What this means for Eventide</h3>
+            <div className="space-y-2">
               {expandableChips.map((chip, index) => (
                 <Dialog key={chip.id}>
                   <DialogTrigger asChild>
-                    <Card className="p-6 bg-card border border-border/50 hover:border-primary/50 rounded-2xl shadow-lg cursor-pointer hover:shadow-xl transition-all duration-300">
+                    <Card className="p-4 bg-card border border-border/50 hover:border-primary/50 rounded-2xl shadow-lg cursor-pointer hover:shadow-xl transition-all duration-300">
                       <div className="flex items-center justify-between">
                         <span className="font-semibold text-white text-sm line-clamp-1">{chip.title}</span>
                         <ExpandIcon className="w-4 h-4 text-muted flex-shrink-0 ml-2" />
@@ -139,8 +139,8 @@ const MarketSlide = () => {
 
           {/* TAM/SAM/SOM */}
           <div>
-            <h4 className="text-xl font-bold mb-3 text-white">TAM / SAM / SOM</h4>
-            <div className="space-y-2">
+            <h4 className="text-lg font-bold mb-2 text-white">TAM / SAM / SOM</h4>
+            <div className="space-y-1">
               <div className="text-sm text-muted">
                 <strong className="text-white">TAM:</strong> GVR total = $20.38B → $41.74B
               </div>
@@ -155,20 +155,35 @@ const MarketSlide = () => {
         </div>
 
         {/* Right Column - Market Charts */}
-        <div className="flex flex-col space-y-6">
-          <h3 className="text-3xl font-bold text-center text-white">Global Machine Vision Market 2024–2030</h3>
-          <div className="flex-1 bg-card border border-border rounded-2xl shadow-lg p-6">
+        <div className="flex flex-col space-y-4">
+          <h3 className="text-2xl font-bold text-center text-white">Global Machine Vision Market 2024–2030</h3>
+          <div className="flex-1 bg-card border border-border rounded-2xl shadow-lg p-4 min-h-0">
             <MarketAreaChart />
           </div>
           
           {/* Application Share Card */}
-          <Card className="p-6 bg-card border border-border rounded-2xl shadow-lg">
-            <h4 className="text-lg font-bold text-white mb-3 text-center">Application Share</h4>
+          <Card className="p-4 bg-card border border-border rounded-2xl shadow-lg">
+            <h4 className="text-base font-bold text-white mb-2 text-center">Application Share</h4>
             <div className="text-center">
-              <div className="text-xl font-bold text-accent">QA & Inspection</div>
+              <div className="text-lg font-bold text-accent">QA & Inspection</div>
               <div className="text-sm text-muted-foreground mt-1">Largest segment (illustrative; see source)</div>
-              <div className="mt-3 text-xs text-muted">
+              <div className="mt-2 text-xs text-muted">
                 <strong className="text-white">Hover micro-panel:</strong> Largest application: QA/Inspection; Fastest-growing regions include MEA
+              </div>
+            </div>
+          </Card>
+
+          {/* Regional Growth Card */}
+          <Card className="p-4 bg-card border border-border rounded-2xl shadow-lg">
+            <h4 className="text-base font-bold text-white mb-2 text-center">Regional Growth</h4>
+            <div className="grid grid-cols-2 gap-4 text-center">
+              <div>
+                <div className="text-lg font-bold text-primary">13.5%</div>
+                <div className="text-xs text-muted">MEA CAGR</div>
+              </div>
+              <div>
+                <div className="text-lg font-bold text-accent">14.0%</div>
+                <div className="text-xs text-muted">UAE CAGR</div>
               </div>
             </div>
           </Card>
@@ -177,17 +192,17 @@ const MarketSlide = () => {
 
       {/* First Mover Advantage */}
       <motion.div 
-        className="relative z-10 mt-8"
+        className="relative z-10 mt-4"
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 1, duration: 0.6 }}
       >
-        <div className="text-center p-6 bg-card border border-primary/20 rounded-2xl shadow-lg">
-          <h4 className="text-xl font-bold mb-3 text-white">🎯 First Mover Edge in MENA + EU</h4>
-          <p className="text-base mb-4 text-muted">
+        <div className="text-center p-4 bg-card border border-primary/20 rounded-2xl shadow-lg">
+          <h4 className="text-lg font-bold mb-2 text-white">🎯 First Mover Edge in MENA + EU</h4>
+          <p className="text-sm mb-3 text-muted">
             <strong className="text-primary">First-mover edge in MENA (GCC) + EU</strong> — fewer local event-based specialists; leverage German network via XPRENEURS.
           </p>
-          <div className="grid grid-cols-3 gap-6 text-sm">
+          <div className="grid grid-cols-3 gap-4 text-xs">
             <div className="text-muted">
               <strong className="text-white">Sensor vendors ≠ turnkey PaaS:</strong> Prophesee + Sony IMX636 provide hardware, not complete solutions
             </div>
