@@ -34,7 +34,7 @@ const TitleSlide = () => {
           </h1>
           
         <p className="text-lg text-muted max-w-4xl mx-auto">
-          Machine Vision Market: $15.83B (2025) → $23.63B (2030) at 8.3% CAGR — validated by MarketsandMarkets™
+          Machine Vision Market: $15.83B (2025) → $23.63B (2030) at 8.3% CAGR
         </p>
           
           <div className="text-sm text-primary font-medium">
