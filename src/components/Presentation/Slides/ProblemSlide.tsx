@@ -38,13 +38,14 @@ const ProblemSlide = () => {
   ];
 
   return (
-    <div className="w-full h-screen flex flex-col px-6 py-4 bg-gradient-to-br from-background via-[hsl(220_34%_8%)] to-[hsl(4_100%_8%)]">
-      {/* Chromatic Background Pattern */}
-      <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-gradient-to-tr from-destructive/5 via-transparent to-primary/10"></div>
-        <div className="absolute top-1/3 left-1/3 w-72 h-72 bg-destructive/8 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-1/3 right-1/3 w-64 h-64 bg-primary/10 rounded-full blur-3xl"></div>
+    <div className="w-full h-screen flex flex-col px-8 py-6 bg-background relative overflow-hidden">
+      {/* Unified Animated Background */}
+      <div className="animated-bg">
+        <div className="floating-orb orb-primary" />
+        <div className="floating-orb orb-accent" />
+        <div className="floating-orb orb-warning" />
       </div>
+      <div className="geometric-pattern" />
       
       {/* Header */}
       <div className="relative z-10 text-center space-y-4 mb-8">

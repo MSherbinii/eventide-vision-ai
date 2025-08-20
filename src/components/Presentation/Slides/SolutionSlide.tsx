@@ -141,15 +141,15 @@ const SolutionSlide = () => {
         {/* Right Column - Demo & Comparison */}
         <div className="space-y-4 flex flex-col">
           <h2 className="text-xl font-bold text-white">Live Performance Demo</h2>
-          
+
           <div className="flex-1 space-y-4">
             {/* Performance Demo */}
             <Dialog>
               <DialogTrigger asChild>
                 <Card className="p-3 bg-card/80 backdrop-blur-sm border border-border rounded-xl shadow-lg cursor-pointer group">
                   <div className="relative">
-                    <div className="aspect-[4/3] bg-gradient-to-br from-primary/20 to-accent/10 rounded-lg flex items-center justify-center border border-primary/30">
-                      <Play className="w-12 h-12 text-primary opacity-80 group-hover:scale-110 transition-transform duration-200" />
+                    <div className="aspect-[16/10] bg-gradient-to-br from-primary/20 to-accent/10 rounded-lg flex items-center justify-center border border-primary/30">
+                      <Play className="w-10 h-10 text-primary opacity-80 group-hover:scale-110 transition-transform duration-200" />
                       <div className="absolute top-2 left-2">
                         <Badge variant="secondary" className="bg-primary text-white border-0 text-xs px-2 py-1">
                           Real-time • 1K+ obj/s
@@ -177,8 +177,14 @@ const SolutionSlide = () => {
               </DialogTrigger>
               <DialogContent className="max-w-5xl p-0 overflow-hidden">
                 <div className="bg-card">
-                  <div className="aspect-[16/9] bg-gradient-to-br from-primary/20 to-accent/10 flex items-center justify-center border-b border-border">
-                    <Play className="w-16 h-16 text-primary opacity-80" />
+                  <div className="aspect-[16/9] bg-background border-b border-border">
+                    <iframe
+                      className="w-full h-full"
+                      src="https://www.youtube.com/embed/iKTDXKHLgmE"
+                      title="High-Speed Counting Demo"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                    />
                   </div>
                   <div className="p-4">
                     <div className="flex items-center justify-between">

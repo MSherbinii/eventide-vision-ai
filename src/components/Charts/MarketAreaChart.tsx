@@ -21,9 +21,9 @@ export function MarketAreaChart() {
               <stop offset="95%" stopColor="hsl(var(--accent))" stopOpacity={0.05}/>
             </linearGradient>
           </defs>
-          <CartesianGrid strokeDasharray="3 3" stroke="hsl(220 25% 18% / 0.4)" />
-          <XAxis dataKey="x" stroke="hsl(var(--muted))" fontSize={12} tickLine={false} axisLine={false} />
-          <YAxis stroke="hsl(var(--muted))" fontSize={12} tickLine={false} axisLine={false} domain={[0, 'auto']} unit="B" tickFormatter={(value) => `$${value}B`} />
+          <CartesianGrid strokeDasharray="3 3" stroke="hsl(220 15% 35% / 0.35)" />
+          <XAxis dataKey="x" stroke="hsl(var(--foreground) / 0.7)" fontSize={12} tickLine={false} axisLine={false} />
+          <YAxis stroke="hsl(var(--foreground) / 0.7)" fontSize={12} tickLine={false} axisLine={false} domain={[0, 'auto']} unit="B" tickFormatter={(value) => `$${value}B`} />
           <Tooltip formatter={(v) => [`$${typeof v === 'number' ? v.toFixed(2) : v}B`, 'Market Size']} contentStyle={{ background: 'hsl(var(--card))', border: '1px solid hsl(var(--border))', borderRadius: '12px', color: 'hsl(var(--foreground))' }} />
           <Area type="monotone" dataKey="y" stroke="hsl(var(--accent))" fillOpacity={1} fill="url(#marketFill)" strokeWidth={2} />
         </AreaChart>

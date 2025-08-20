@@ -6,24 +6,24 @@ import { motion } from "framer-motion";
 const BusinessModelSlide = () => {
   const pricingTiers = [
     {
-      name: "Core",
-      price: "€500",
+      name: "Pilot",
+      price: "€1,500",
       period: "per line/month",
-      description: "Single production line deployment",
+      description: "1-2 lines • validation phase",
       features: [
-        "Counting/label/lot-code detection",
-        "KPI dashboard and alerts",
-        "Basic real-time monitoring",
+        "Core detection (counting/lot/labels)",
+        "KPI dashboard & alerts",
+        "Standard monitoring",
         "Email support"
       ],
       target: "Small manufacturers",
       color: "border-primary/20"
     },
     {
-      name: "Pro", 
-      price: "€2,000",
+      name: "Growth", 
+      price: "€3,500",
       period: "per line/month",
-      description: "Multi-line factory deployment",
+      description: "3-5 lines • production scale",
       features: [
         "Anomaly detection models",
         "Audit trails and compliance",
@@ -36,9 +36,9 @@ const BusinessModelSlide = () => {
     },
     {
       name: "Enterprise",
-      price: "€3,000+",
+      price: "Custom",
       period: "per line/month",
-      description: "Full facility automation",
+      description: "Full facility automation • multi-site",
       features: [
         "Custom AI development",
         "Multi-site admin console",
@@ -81,21 +81,21 @@ const BusinessModelSlide = () => {
   ];
 
   return (
-    <div className="w-full h-full flex flex-col px-8 py-6 bg-gradient-to-br from-background via-[hsl(220_34%_8%)] to-[hsl(213_100%_8%)] max-w-[1320px] mx-auto">
-      {/* Dynamic Chromatic Background */}
-      <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-gradient-to-tr from-accent/8 via-transparent to-primary/12"></div>
-        <div className="absolute top-1/4 left-1/3 w-96 h-96 bg-accent/10 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-1/3 right-1/4 w-80 h-80 bg-primary/8 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1.5s' }}></div>
-        <div className="absolute top-2/3 left-1/6 w-72 h-72 bg-warning/6 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '3s' }}></div>
+    <div className="w-full h-full flex flex-col px-8 py-6 bg-background relative overflow-hidden max-w-[1320px] mx-auto">
+      {/* Unified Animated Background */}
+      <div className="animated-bg">
+        <div className="floating-orb orb-primary" />
+        <div className="floating-orb orb-accent" />
+        <div className="floating-orb orb-warning" />
       </div>
+      <div className="geometric-pattern" />
       {/* Header */}
       <div className="relative z-10 text-center space-y-4 mb-8">
         <Badge variant="outline" className="text-sm px-4 py-2 border-primary text-primary bg-transparent">
           BUSINESS MODEL
         </Badge>
-        <h1 className="text-4xl md:text-5xl font-bold text-white tracking-[-0.01em]">
-          <span className="text-primary">Recurring Revenue</span> SaaS Model
+        <h1 className="text-4xl md:text-5xl font-bold text-foreground tracking-tight">
+          <span className="text-gradient text-glow-animate">Recurring Revenue</span> SaaS Model
         </h1>
         <p className="text-lg text-muted max-w-4xl mx-auto">
           Perception-as-a-Service with tiered subscriptions, ensuring predictable recurring revenue
