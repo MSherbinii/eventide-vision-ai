@@ -1,9 +1,23 @@
 import { StatTile } from "@/components/ui/stat-tile";
 import { motion } from "framer-motion";
+import { Expand } from "lucide-react";
 
 const TitleSlide = () => {
   return (
     <div className="w-full h-full flex flex-col justify-center relative overflow-hidden bg-gradient-to-br from-background via-[hsl(220_34%_8%)] to-[hsl(142_69%_8%)]">
+      {/* Expand Icon */}
+      <motion.div 
+        className="absolute top-6 right-6 z-20 cursor-pointer"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.2, duration: 0.4 }}
+        title="Expand slide"
+      >
+        <Expand 
+          size={24} 
+          className="text-white/70 hover:text-white transition-colors" 
+        />
+      </motion.div>
       {/* Chromatic Background Pattern */}
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-gradient-to-tr from-primary/5 via-transparent to-accent/10"></div>
@@ -26,19 +40,15 @@ const TitleSlide = () => {
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           className="space-y-6 mb-12"
         >
-          <h1 className="text-6xl md:text-7xl font-bold leading-tight tracking-[-0.01em]">
+          <h1 className="text-7xl md:text-8xl font-bold leading-tight tracking-[-0.01em]">
             <span className="block text-primary">Eventide Vision</span>
-            <span className="block text-white text-4xl md:text-5xl">
+            <span className="block text-white text-5xl md:text-6xl">
               Event-Based Vision Intelligence
             </span>
           </h1>
           
-        <p className="text-lg text-muted max-w-4xl mx-auto">
-          Machine Vision Market: $15.83B (2025) → $23.63B (2030) at 8.3% CAGR
-        </p>
-          
-          <div className="text-sm text-primary font-medium">
-            Hardware maturity + automation demand = first-mover opportunity
+          <div className="text-base text-[#CBD5E1] font-medium max-w-5xl mx-auto leading-relaxed">
+            Event sensors are production-ready • Automation budgets rising • Microsecond-latency vision at scale
           </div>
         </motion.div>
 
@@ -49,9 +59,9 @@ const TitleSlide = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4, duration: 0.6 }}
         >
-          <StatTile value="$15.83B" label="Vision Market 2025" />
-          <StatTile value="$23.63B" label="Vision Market 2030" />
-          <StatTile value="8.3%" label="CAGR 2025→2030" />
+          <StatTile value="$20.38B" label="2024 Market Size" />
+          <StatTile value="$41.74B" label="2030 Market Size" />
+          <StatTile value="13.0%" label="CAGR (2024→2030)" />
         </motion.div>
         
         {/* Source Attribution */}
@@ -60,9 +70,9 @@ const TitleSlide = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.8, duration: 0.4 }}
-           title="Click to expand: Machine Vision Market data from MarketsandMarkets 2025"
+           title="Click to expand: Machine Vision Market data from Grand View Research 2025"
         >
-          Machine Vision Market data from MarketsandMarkets 2025. <span className="text-[#0EA5E9]">ⓘ</span>
+          Source: Grand View Research, Machine Vision Market, 2025. <span className="text-[#0EA5E9]">ⓘ</span>
         </motion.div>
       </div>
     </div>
