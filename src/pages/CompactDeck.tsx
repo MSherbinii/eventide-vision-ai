@@ -1,27 +1,27 @@
 import PresentationSlider from "@/components/Presentation/PresentationSlider";
 import TitleSlide from "@/components/Presentation/Slides/TitleSlide";
 import ProblemSlide from "@/components/Presentation/Slides/ProblemSlide";
+import CostOfFrameVisionSlide from "@/components/Presentation/Slides/CostOfFrameVisionSlide";
 import SolutionSlide from "@/components/Presentation/Slides/SolutionSlide";
 import MarketSlide from "@/components/Presentation/Slides/MarketSlide";
-import CostOfFrameVisionSlide from "@/components/Presentation/Slides/CostOfFrameVisionSlide";
 import BusinessModelSlide from "@/components/Presentation/Slides/BusinessModelSlide";
 import CompetitionSlide from "@/components/Presentation/Slides/CompetitionSlide";
-import TeamSlide from "@/components/Presentation/Slides/TeamSlide";
-import AskSlide from "@/components/Presentation/Slides/AskSlide";
+import RoadmapSlideV2 from "@/components/Presentation/Slides/RoadmapSlideV2";
+import TeamAskSlide from "@/components/Presentation/Slides/TeamAskSlide";
 import { CustomCursor } from "@/components/ui/custom-cursor";
 
-// Compact Pre-Seed Deck - 10 Slides
+// Compact Pre-Seed Deck with Premium Design
 const CompactDeck = () => {
   const slides = [
-    { id: 'title', title: 'LuminarX AI', component: TitleSlide },
+    { id: 'title', title: 'Eventide Vision', component: TitleSlide },
     { id: 'problem', title: 'The Problem', component: ProblemSlide },
     { id: 'cost', title: 'Cost Reality Check', component: CostOfFrameVisionSlide },
     { id: 'solution', title: 'Our Solution', component: SolutionSlide },
     { id: 'market', title: 'Market Opportunity', component: MarketSlide },
     { id: 'business-model', title: 'Business Model', component: BusinessModelSlide },
     { id: 'competition', title: 'Why We Win', component: CompetitionSlide },
-    { id: 'team', title: 'Team', component: TeamSlide },
-    { id: 'ask', title: 'The Ask', component: AskSlide }
+    { id: 'roadmap', title: 'Timeline & Milestones', component: RoadmapSlideV2 },
+    { id: 'team-ask', title: 'Team + Ask', component: TeamAskSlide }
   ];
 
   return (
