@@ -1,4 +1,4 @@
-# Eventide Vision Pitch Deck - Final Premium Improvements 🚀
+# LuminarX AI Pitch Deck - Final Premium Improvements 🚀
 
 ## Executive Summary
 

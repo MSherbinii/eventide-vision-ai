@@ -14,7 +14,7 @@ import { CustomCursor } from "@/components/ui/custom-cursor";
 // Compact Pre-Seed Deck with Premium Design
 const CompactDeck = () => {
   const slides = [
-    { id: 'title', title: 'Eventide Vision', component: TitleSlide },
+    { id: 'title', title: 'LuminarX AI', component: TitleSlide },
     { id: 'problem', title: 'The Problem', component: ProblemSlide },
     { id: 'cost', title: 'Cost Reality Check', component: CostOfFrameVisionSlide },
     { id: 'solution', title: 'Our Solution', component: SolutionSlide },

@@ -1,4 +1,4 @@
-# Eventide Vision Pitch Deck - Comprehensive Improvements & Validation
+# LuminarX AI Pitch Deck - Comprehensive Improvements & Validation
 
 ## Executive Summary
 
