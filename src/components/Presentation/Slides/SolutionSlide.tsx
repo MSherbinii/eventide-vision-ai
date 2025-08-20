@@ -68,7 +68,7 @@ const SolutionSlide = () => {
         {/* Left Column - Real Applications */}
         <div className="space-y-4 flex flex-col">
           <h2 className="text-xl font-bold text-white">Proven Industrial Applications</h2>
-          <div className="grid grid-cols-1 gap-3 flex-1">
+          <div className="grid grid-cols-1 gap-2 flex-1">
             {realWorldApplications.map((app, index) => (
               <motion.div
                 key={index}
