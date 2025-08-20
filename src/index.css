@@ -8,67 +8,77 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Investor-Optimized Light Theme */
+    /* Professional Color Theory - Light Theme */
+    /* Based on 60-30-10 rule: 60% neutral, 30% secondary, 10% accent */
     
-    /* Background: Clean, professional white with subtle warmth */
-    --background: 0 0% 98%;         /* Near-white background */
-    --foreground: 220 20% 10%;      /* Dark charcoal text */
+    /* Neutral Base (60%) - Cool Gray Palette */
+    --background: 210 20% 98%;         /* Pure professional white */
+    --foreground: 215 25% 15%;         /* Deep charcoal for maximum readability */
 
-    /* Cards: Bright white with subtle shadows */
-    --card: 0 0% 100%;              /* Pure white cards */
-    --card-foreground: 220 20% 10%;
+    /* Card surfaces with proper contrast */
+    --card: 210 20% 100%;              /* Clean white cards */
+    --card-foreground: 215 25% 15%;    /* Dark text on light cards */
 
-    --popover: 220 34% 11%;
-    --popover-foreground: 214 25% 89%;
+    --popover: 215 25% 15%;
+    --popover-foreground: 210 20% 95%;
 
-    /* Primary: Vibrant Green for Growth */
-    --primary: 142 70% 45%;         /* Energetic green */
-    --primary-foreground: 0 0% 100%;
-    --primary-glow: 142 70% 50%;
-    --primary-accent: 142 65% 40%;
+    /* Primary (30%) - Professional Blue (Trust & Stability) */
+    --primary: 210 100% 50%;           /* Pure professional blue */
+    --primary-foreground: 210 20% 98%; /* White text on blue */
+    --primary-glow: 210 100% 60%;
+    --primary-accent: 210 100% 40%;
 
-    /* Secondary: Light gray surface */
-    --secondary: 220 15% 95%;       /* Light gray */
-    --secondary-foreground: 220 20% 20%;
-    --secondary-glow: 220 15% 90%;
+    /* Secondary surfaces with subtle contrast */
+    --secondary: 210 20% 96%;          /* Light neutral gray */
+    --secondary-foreground: 215 25% 15%; /* Dark text on light background */
+    --secondary-glow: 210 20% 92%;
 
-    /* Accent: Trust Blue */
-    --accent: 213 94% 50%;          /* Professional blue */
-    --accent-foreground: 0 0% 100%;
-    --accent-glow: 213 94% 55%;
+    /* Accent (10%) - Success Green (Growth & Action) */
+    --accent: 142 76% 36%;             /* Professional forest green */
+    --accent-foreground: 210 20% 98%;   /* White text on green */
+    --accent-glow: 142 76% 46%;
     
-    /* Warning: Optimistic Orange */
-    --warning: 25 95% 53%;          /* Warm orange */
-    --warning-foreground: 0 0% 100%;
+    /* Status colors with proper contrast */
+    --warning: 38 92% 50%;             /* Amber warning */
+    --warning-foreground: 215 25% 15%;  /* Dark text on amber */
 
-    /* Destructive: Apple Red */
-    --destructive: 4 100% 59%;      /* #FF453A */
-    --destructive-foreground: 214 25% 89%;
+    --destructive: 0 84% 60%;          /* Clear red */
+    --destructive-foreground: 210 20% 98%;
 
-    /* Muted: Subtle backgrounds */
-    --muted: 220 15% 96%;           /* Very light gray */
-    --muted-foreground: 220 10% 40%;
+    /* Muted elements for hierarchy */
+    --muted: 210 20% 94%;              /* Subtle gray backgrounds */
+    --muted-foreground: 215 16% 47%;   /* Medium gray text */
 
-    /* Borders: Clean lines */
-    --border: 220 13% 91%;          /* Light gray borders */
-    --input: 220 13% 91%;
-    --ring: 142 70% 45%;            /* Green focus ring */
+    /* Interface elements */
+    --border: 210 20% 89%;             /* Clear borders */
+    --input: 210 20% 96%;              /* Input backgrounds */
+    --ring: 210 100% 50%;              /* Focus ring matches primary */
 
-    /* Psychology-Based Gradients for Investor Appeal */
-    --gradient-primary: linear-gradient(135deg, hsl(217 28% 12%), hsl(217 32% 18%)); /* Trust gradient */
-    --gradient-secondary: linear-gradient(135deg, hsl(220 12% 18%), hsl(220 15% 22%)); /* Professional gradient */
-    --gradient-accent: linear-gradient(135deg, hsl(142 69% 45%), hsl(142 69% 50%)); /* Growth gradient */
-    --gradient-hero: linear-gradient(135deg, hsl(222 15% 4%) 0%, hsl(217 28% 12%) 50%, hsl(142 69% 45%) 100%); /* Trust to growth */
-    --gradient-subtle: linear-gradient(180deg, hsl(var(--background)), hsl(217 28% 8%));
-    --gradient-mesh: radial-gradient(circle at 20% 30%, hsl(217 28% 12% / 0.4) 0%, transparent 50%), 
-                     radial-gradient(circle at 80% 70%, hsl(220 12% 18% / 0.3) 0%, transparent 50%),
-                     radial-gradient(circle at 60% 10%, hsl(142 69% 45% / 0.2) 0%, transparent 50%);
-
-    /* Chromatic Titanium Gradients - Apple-inspired premium */
-    --gradient-titanium: linear-gradient(135deg, hsl(210 20% 85%) 0%, hsl(210 25% 75%) 25%, hsl(210 30% 65%) 50%, hsl(210 35% 55%) 75%, hsl(210 40% 45%) 100%);
-    --gradient-chromatic: linear-gradient(135deg, hsl(260 60% 65%) 0%, hsl(200 70% 60%) 25%, hsl(160 65% 55%) 50%, hsl(40 80% 65%) 75%, hsl(10 70% 60%) 100%);
-    --gradient-hero-light: linear-gradient(135deg, hsl(210 25% 90%) 0%, hsl(200 60% 80%) 30%, hsl(160 50% 70%) 60%, hsl(40 70% 75%) 100%);
-    --gradient-premium: linear-gradient(135deg, hsl(210 30% 88%) 0%, hsl(205 35% 82%) 25%, hsl(200 40% 76%) 50%, hsl(195 45% 70%) 75%, hsl(190 50% 64%) 100%);
+    /* Professional Gradients - Color Theory Compliant */
+    --gradient-primary: linear-gradient(135deg, hsl(210 100% 50%) 0%, hsl(210 100% 40%) 100%);
+    --gradient-secondary: linear-gradient(135deg, hsl(210 20% 96%) 0%, hsl(210 20% 89%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(142 76% 36%) 0%, hsl(142 76% 46%) 100%);
+    
+    /* Light theme hero gradient - professional and readable */
+    --gradient-hero-light: linear-gradient(135deg, 
+      hsl(210 20% 98%) 0%, 
+      hsl(210 30% 94%) 30%, 
+      hsl(210 40% 90%) 60%, 
+      hsl(210 50% 86%) 100%
+    );
+    
+    /* Premium titanium gradient with proper contrast */
+    --gradient-titanium: linear-gradient(135deg, 
+      hsl(215 25% 25%) 0%, 
+      hsl(215 25% 35%) 25%, 
+      hsl(215 25% 45%) 50%, 
+      hsl(215 25% 35%) 75%, 
+      hsl(215 25% 25%) 100%
+    );
+    
+    /* Subtle mesh for backgrounds */
+    --gradient-mesh: radial-gradient(circle at 20% 30%, hsl(210 100% 50% / 0.05) 0%, transparent 50%), 
+                     radial-gradient(circle at 80% 70%, hsl(142 76% 36% / 0.05) 0%, transparent 50%);
 
     /* Professional Shadow System */
     --shadow-primary: 0 10px 30px -10px rgba(0, 0, 0, 0.35);
@@ -95,45 +105,55 @@ All colors MUST be HSL.
   }
 
   .dark {
-    /* Dark Mode: Same Psychology-Optimized Colors */
-    --background: 222 15% 4%;  /* Rich Black - Power */
-    --foreground: 210 14% 97%; /* Clean White - Professionalism */
+    /* Professional Dark Mode - High Contrast */
+    --background: 215 25% 8%;          /* Deep professional blue-black */
+    --foreground: 210 20% 95%;         /* High contrast white */
 
-    --card: 217 28% 12%;       /* Trust Blue */
-    --card-foreground: 210 14% 97%;
+    --card: 215 25% 12%;               /* Dark cards with blue undertone */
+    --card-foreground: 210 20% 95%;
 
-    --popover: 217 28% 12%;
-    --popover-foreground: 210 14% 97%;
+    --popover: 215 25% 12%;
+    --popover-foreground: 210 20% 95%;
 
-    --primary: 217 28% 12%;    /* Investor Trust Blue */
-    --primary-foreground: 210 14% 97%;
-    --primary-glow: 217 32% 18%;
-    --primary-accent: 217 25% 15%;
+    --primary: 210 100% 55%;           /* Bright blue for dark mode */
+    --primary-foreground: 215 25% 8%;  /* Dark text on bright blue */
+    --primary-glow: 210 100% 65%;
+    --primary-accent: 210 100% 45%;
 
-    --secondary: 220 12% 18%;  /* Professional Graphite */
-    --secondary-foreground: 210 14% 97%;
-    --secondary-glow: 220 15% 22%;
+    --secondary: 215 20% 16%;          /* Dark secondary surfaces */
+    --secondary-foreground: 210 20% 90%;
+    --secondary-glow: 215 20% 20%;
 
-    --accent: 142 69% 45%;      /* Growth Green */
-    --accent-foreground: 210 14% 97%;
-    --accent-glow: 142 69% 50%;
+    --accent: 142 76% 50%;             /* Brighter green for dark mode */
+    --accent-foreground: 215 25% 8%;
+    --accent-glow: 142 76% 60%;
     
-    --warning: 258 90% 66%;   /* Innovation Purple */
-    --warning-foreground: 210 14% 97%;
+    --warning: 38 92% 60%;             /* Brighter amber */
+    --warning-foreground: 215 25% 8%;
 
-    --muted: 220 8% 25%;       /* Cool Professional Gray */
-    --muted-foreground: 210 10% 80%;
+    --muted: 215 20% 20%;              /* Medium dark surfaces */
+    --muted-foreground: 210 15% 70%;   /* Medium light text */
 
-    --border: 220 12% 18%;     /* Subtle professional lines */
-    --input: 220 15% 22%;
-    --ring: 142 69% 45%;      /* Positive action green */
+    --border: 215 20% 24%;             /* Visible borders in dark */
+    --input: 215 20% 16%;
+    --ring: 210 100% 55%;
 
-    /* Consistent psychology-based gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(217 28% 12%), hsl(217 32% 18%));
-    --gradient-secondary: linear-gradient(135deg, hsl(220 12% 18%), hsl(220 15% 22%));
-    --gradient-accent: linear-gradient(135deg, hsl(142 69% 45%), hsl(142 69% 50%));
-    --gradient-hero: linear-gradient(135deg, hsl(222 15% 4%) 0%, hsl(217 28% 12%) 50%, hsl(142 69% 45%) 100%);
-    --gradient-subtle: linear-gradient(180deg, hsl(var(--background)), hsl(217 28% 8%));
+    /* Dark mode gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(210 100% 55%) 0%, hsl(210 100% 45%) 100%);
+    --gradient-secondary: linear-gradient(135deg, hsl(215 25% 12%) 0%, hsl(215 20% 20%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(142 76% 50%) 0%, hsl(142 76% 60%) 100%);
+    --gradient-hero: linear-gradient(135deg, 
+      hsl(215 25% 8%) 0%, 
+      hsl(215 25% 12%) 50%, 
+      hsl(210 100% 20%) 100%
+    );
+    --gradient-titanium: linear-gradient(135deg, 
+      hsl(210 20% 70%) 0%, 
+      hsl(210 20% 80%) 25%, 
+      hsl(210 20% 90%) 50%, 
+      hsl(210 20% 80%) 75%, 
+      hsl(210 20% 70%) 100%
+    );
 
     --shadow-primary: 0 10px 30px -10px rgba(0, 0, 0, 0.35);
     --shadow-secondary: 0 4px 20px -5px rgba(0, 0, 0, 0.25);

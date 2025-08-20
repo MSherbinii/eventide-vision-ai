@@ -4,7 +4,7 @@ import { Expand } from "lucide-react";
 
 const TitleSlide = () => {
   return (
-    <div className="w-full h-full flex flex-col justify-center relative overflow-hidden" style={{ background: 'var(--gradient-hero-light)' }}>
+    <div className="w-full h-full flex flex-col justify-center relative overflow-hidden bg-background" style={{ background: 'var(--gradient-hero-light)' }}>
       {/* Expand Icon */}
       <motion.div 
         className="absolute top-6 right-6 z-20 cursor-pointer"
@@ -15,21 +15,20 @@ const TitleSlide = () => {
       >
         <Expand 
           size={24} 
-          className="text-slate-600 hover:text-slate-800 transition-colors" 
+          className="text-muted-foreground hover:text-foreground transition-colors" 
         />
       </motion.div>
-      {/* Chromatic Background Pattern */}
+      {/* Professional Background Pattern */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0" style={{ background: 'var(--gradient-chromatic)', opacity: 0.08 }}></div>
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full blur-3xl" style={{ background: 'hsl(260 60% 65% / 0.12)' }}></div>
-        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 rounded-full blur-3xl" style={{ background: 'hsl(200 70% 60% / 0.10)' }}></div>
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] rounded-full blur-3xl" style={{ background: 'hsl(160 65% 55% / 0.06)' }}></div>
+        <div className="absolute inset-0" style={{ background: 'var(--gradient-mesh)' }}></div>
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full blur-3xl bg-primary/5"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 rounded-full blur-3xl bg-accent/5"></div>
         <img 
           src="/src/assets/hero-industrial.jpg" 
           alt="Industrial manufacturing facility" 
-          className="w-full h-full object-cover opacity-8 mix-blend-soft-light"
+          className="w-full h-full object-cover opacity-10 mix-blend-soft-light"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-white/20 via-transparent to-white/20" />
+        <div className="absolute inset-0 bg-gradient-to-r from-background/40 via-transparent to-background/40" />
       </div>
 
       {/* Content */}
@@ -43,7 +42,7 @@ const TitleSlide = () => {
         >
           <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold leading-tight tracking-[-0.02em]">
             <span 
-              className="block font-display bg-gradient-to-r from-slate-700 via-slate-800 to-slate-900 bg-clip-text text-transparent mb-2"
+              className="block font-display mb-2"
               style={{ 
                 background: 'var(--gradient-titanium)', 
                 WebkitBackgroundClip: 'text', 
@@ -53,12 +52,12 @@ const TitleSlide = () => {
             >
               LuminaX
             </span>
-            <span className="block text-slate-700 text-4xl md:text-5xl lg:text-6xl font-medium leading-tight">
+            <span className="block text-foreground text-4xl md:text-5xl lg:text-6xl font-medium leading-tight">
               Event-Based AI for Robotics & Automation
             </span>
           </h1>
           
-          <div className="text-lg text-slate-600 font-medium max-w-5xl mx-auto leading-relaxed">
+          <div className="text-lg text-muted-foreground font-medium max-w-5xl mx-auto leading-relaxed">
             Event sensors are production-ready • Automation budgets rising • Microsecond-latency vision at scale
           </div>
         </motion.div>
@@ -77,13 +76,13 @@ const TitleSlide = () => {
         
         {/* Source Attribution */}
         <motion.div
-          className="text-xs text-slate-500 text-center cursor-pointer hover:text-slate-600"
+          className="text-xs text-muted-foreground text-center cursor-pointer hover:text-foreground"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.8, duration: 0.4 }}
            title="Click to expand: Machine Vision Market data from Grand View Research 2025"
         >
-          Source: Grand View Research, Machine Vision Market, 2025. <span className="text-blue-500">ⓘ</span>
+          Source: Grand View Research, Machine Vision Market, 2025. <span className="text-primary">ⓘ</span>
         </motion.div>
       </div>
     </div>
