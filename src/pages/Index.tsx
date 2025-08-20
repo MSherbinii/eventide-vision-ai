@@ -15,16 +15,16 @@ import AskSlideV2 from "@/components/Presentation/Slides/AskSlideV2";
 const Index = () => {
   // Compact 10-slide deck optimized for pre-seed investors
   const slides = [
-    { id: 'title', title: 'LuminaX AI', component: TitleSlide },
+    { id: 'title', title: 'Eventide Vision', component: TitleSlide },
     { id: 'problem', title: 'The Problem', component: ProblemSlide },
     { id: 'solution', title: 'Our Solution', component: SolutionSlide },
     { id: 'market', title: 'Market Opportunity', component: MarketSlide },
     { id: 'business-model', title: 'Business Model', component: BusinessModelSlideV2 },
-    { id: 'go-to-market', title: 'Go-to-Market Strategy', component: GoToMarketSlide },
-    { id: 'competition', title: 'Competitive Advantage', component: CompetitionSlide },
-    { id: 'roadmap', title: 'Product Roadmap', component: RoadmapSlideV2 },
-    { id: 'team', title: 'Our Team', component: TeamSlide },
-    { id: 'ask', title: 'Investment Ask', component: AskSlideV2 }
+    { id: 'go-to-market', title: 'Go-to-Market', component: GoToMarketSlide },
+    { id: 'competition', title: 'Why We Win', component: CompetitionSlide },
+    { id: 'roadmap', title: 'Roadmap', component: RoadmapSlideV2 },
+    { id: 'team', title: 'Team', component: TeamSlide },
+    { id: 'ask', title: 'The Ask', component: AskSlideV2 }
   ];
 
   return (

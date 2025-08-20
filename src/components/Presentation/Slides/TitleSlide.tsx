@@ -4,16 +4,23 @@ import { Expand } from "lucide-react";
 
 const TitleSlide = () => {
   return (
-    <div className="w-full h-screen flex flex-col justify-center relative overflow-hidden" style={{ background: 'var(--gradient-hero-light)' }}>
-      {/* Background Image - Full Window */}
+    <div className="w-full h-screen flex flex-col justify-center relative overflow-hidden bg-background">
+      {/* Premium Animated Background */}
+      <div className="animated-bg">
+        <div className="floating-orb orb-primary" />
+        <div className="floating-orb orb-accent" />
+        <div className="floating-orb orb-warning" />
+      </div>
+      <div className="geometric-pattern" />
+      
+      {/* Background Image - Subtle Overlay */}
       <div className="absolute inset-0 z-0">
         <img 
           src="/src/assets/hero-industrial.jpg" 
           alt="Industrial manufacturing facility" 
-          className="w-full h-full object-cover opacity-15"
+          className="w-full h-full object-cover opacity-5"
         />
-        <div className="absolute inset-0" style={{ background: 'var(--gradient-hero-light)' }} />
-        <div className="absolute inset-0" style={{ background: 'var(--gradient-mesh)' }} />
+        <div className="absolute inset-0 bg-gradient-to-br from-background via-background/95 to-background/90" />
       </div>
       {/* Expand Icon */}
       <motion.div 
@@ -38,25 +45,25 @@ const TitleSlide = () => {
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           className="space-y-8 mb-12"
         >
-          <h1 className="pitch-headline text-6xl md:text-7xl lg:text-8xl font-heading leading-tight tracking-[-0.02em]">
+          <h1 className="pitch-headline text-6xl md:text-7xl lg:text-8xl font-heading leading-tight tracking-[-0.02em] relative">
             <span 
-              className="block font-display mb-2"
+              className="block font-display mb-2 text-gradient text-glow-animate relative"
               style={{ 
-                background: 'var(--gradient-titanium)', 
-                WebkitBackgroundClip: 'text', 
-                WebkitTextFillColor: 'transparent',
-                backgroundClip: 'text'
+                fontSize: 'inherit'
               }}
             >
-              LuminaX
+              <div className="absolute inset-0 blur-3xl opacity-30">
+                <span className="text-gradient">Eventide</span>
+              </div>
+              Eventide
             </span>
             <span className="block text-foreground pitch-title text-4xl md:text-5xl lg:text-6xl font-medium leading-tight">
-              Event-Based AI for Robotics & Automation
+              Event-Based Vision for Industry 4.0
             </span>
           </h1>
           
-          <div className="pitch-body text-lg text-muted-foreground font-medium max-w-5xl mx-auto leading-relaxed">
-            Event sensors are production-ready • Automation budgets rising • Microsecond-latency vision at scale
+          <div className="pitch-body text-xl text-foreground font-medium max-w-5xl mx-auto leading-relaxed">
+            <span className="text-primary neon-text">Event sensors are production-ready</span> • <span className="text-accent">96% data reduction</span> • <span className="text-warning">Microsecond latency</span>
           </div>
         </motion.div>
 
@@ -67,9 +74,15 @@ const TitleSlide = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4, duration: 0.6 }}
         >
-          <StatTile value="$20.38B" label="2024 Market Size" />
-          <StatTile value="$41.74B" label="2030 Market Size" />
-          <StatTile value="13.0%" label="CAGR (2024→2030)" />
+          <motion.div whileHover={{ scale: 1.05 }} className="glass-card card-hover-3d">
+            <StatTile value="$20.38B" label="2024 Market Size" />
+          </motion.div>
+          <motion.div whileHover={{ scale: 1.05 }} className="glass-card card-hover-3d">
+            <StatTile value="$41.74B" label="2030 Market Size" />
+          </motion.div>
+          <motion.div whileHover={{ scale: 1.05 }} className="glass-card card-hover-3d">
+            <StatTile value="13.0%" label="CAGR Growth" />
+          </motion.div>
         </motion.div>
         
         {/* Source Attribution */}

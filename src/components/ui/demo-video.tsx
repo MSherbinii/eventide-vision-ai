@@ -23,12 +23,11 @@ export const DemoVideo = ({
 }: DemoVideoProps) => {
   const [isPlaying, setIsPlaying] = useState(false);
 
-  // Video URLs for event-based vision demos - Updated with working videos
+  // Video URLs for event-based vision demos
   const demoVideos = {
-    "sony-event-sensor": "https://www.youtube.com/embed/6xOmo7Ikwzk",
-    "prophesee-metavision": "https://www.youtube.com/embed/MjX3z-6n3iA", 
-    "active-marker-tracking": "https://www.youtube.com/embed/j-LpkDpCxUU",
-    "machine-learning-events": "https://www.youtube.com/embed/UAiGM69aE3c"
+    "high-speed-counting": "https://www.youtube.com/embed/iKTDXKHLgmE",
+    "defect-detection": "https://www.youtube.com/embed/MJrGTV_2i0Q", 
+    "autonomous-tracking": "https://www.youtube.com/embed/LauQ6LWTkxM"
   };
 
   return (
@@ -130,22 +129,22 @@ export const DemoVideo = ({
 export const DemoGallery = () => {
   const demos = [
     {
-      title: "Sony Event-based Vision Sensor",
-      description: "Official Sony demonstration of neuromorphic vision technology and applications",
-      metrics: ["<150μs latency", "120dB dynamic range", "Low power"],
-      videoUrl: "https://www.youtube.com/embed/6xOmo7Ikwzk"
+      title: "High-Speed Counting Demo",
+      description: "Pellet counting at 1,000+ objects/second with 99.5% accuracy using Prophesee sensor",
+      metrics: ["1K+ obj/s", "99.5% accuracy", "10 Bar pressure"],
+      videoUrl: "https://www.youtube.com/embed/iKTDXKHLgmE"
     },
     {
-      title: "Prophesee Metavision Technology",
-      description: "Introduction to event-based vision technology inspired by human vision",
-      metrics: ["Sparse data", "Motion detection", "Real-time"],
-      videoUrl: "https://www.youtube.com/embed/MjX3z-6n3iA"
+      title: "Surface Defect Detection",
+      description: "Real-time detection of holes, scratches, and spots at 60m/s line speed",
+      metrics: ["60m/s speed", "Sub-mm precision", "No motion blur"],
+      videoUrl: "https://www.youtube.com/embed/MJrGTV_2i0Q"
     },
     {
-      title: "Ultra-Fast Marker Tracking",
-      description: "Active marker tracking at over 1000 Hz with event-based sensors",
-      metrics: [">1000 Hz", "~30mW power", "Ultra-precise"],
-      videoUrl: "https://www.youtube.com/embed/j-LpkDpCxUU"
+      title: "Autonomous Drone Tracking",
+      description: "Future application: Event-based vision for defense and aerospace",
+      metrics: ["200K fps equivalent", "120dB range", "µs latency"],
+      videoUrl: "https://www.youtube.com/embed/LauQ6LWTkxM"
     }
   ];
 
