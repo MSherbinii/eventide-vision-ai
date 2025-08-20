@@ -64,9 +64,13 @@ const CostOfFrameVisionSlide = () => {
     const eventStorageCost = eventMonthlyDataGB * 0.023;
     
     // Data egress costs (AWS: $0.09/GB first 10TB)
-    const egressPercentage = cloudClipsEnabled ? (scenario.dataReduction > 20 ? 0.05 : 0.15) : 0;
-    const rgbEgressCost = cloudClipsEnabled ? rgbMonthlyDataGB * egressPercentage * 0.09 : 0;
-    const eventEgressCost = cloudClipsEnabled ? eventMonthlyDataGB * egressPercentage * 0.09 : 0;
+    // Base egress: 2% for alerts/reporting, +8% if cloud clips enabled
+    const baseEgressPercentage = 0.02; // Always some egress for alerts/dashboards
+    const clipEgressPercentage = cloudClipsEnabled ? 0.08 : 0; // Additional if clips enabled
+    const totalEgressPercentage = baseEgressPercentage + clipEgressPercentage;
+    
+    const rgbEgressCost = rgbMonthlyDataGB * totalEgressPercentage * 0.09;
+    const eventEgressCost = eventMonthlyDataGB * totalEgressPercentage * 0.09;
     
     // Compute costs (hardware amortization + energy)
     // RGB: $4000 system → $111/mo amortization + 250W × 24/7 × $0.12/kWh
@@ -289,29 +293,22 @@ const CostOfFrameVisionSlide = () => {
           <h3 className="text-xl font-bold text-white text-center">Monthly Cost Comparison</h3>
           
           <Card className="p-4 bg-card/80 backdrop-blur-sm border border-border rounded-2xl shadow-lg">
-            <div className="h-80">
+            <motion.div 
+              className="h-80"
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+            >
               <ResponsiveContainer width="100%" height="100%">
                 <BarChart data={chartData} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
                   <XAxis dataKey="name" stroke="hsl(var(--muted-foreground))" />
                   <YAxis stroke="hsl(var(--muted-foreground))" tickFormatter={(value) => `$${(value/1000).toFixed(1)}K`} />
-                  <Bar dataKey="storage" stackId="a" fill={colors.storage}>
-                    {chartData.map((entry, index) => (
-                      <Cell key={`storage-${index}`} className="chart-bar-animated" />
-                    ))}
-                  </Bar>
-                  <Bar dataKey="egress" stackId="a" fill={colors.egress}>
-                    {chartData.map((entry, index) => (
-                      <Cell key={`egress-${index}`} className="chart-bar-animated" style={{ animationDelay: `${0.2}s` }} />
-                    ))}
-                  </Bar>
-                  <Bar dataKey="compute" stackId="a" fill={colors.compute}>
-                    {chartData.map((entry, index) => (
-                      <Cell key={`compute-${index}`} className="chart-bar-animated" style={{ animationDelay: `${0.4}s` }} />
-                    ))}
-                  </Bar>
+                  <Bar dataKey="storage" stackId="a" fill={colors.storage} />
+                  <Bar dataKey="egress" stackId="a" fill={colors.egress} />
+                  <Bar dataKey="compute" stackId="a" fill={colors.compute} />
                 </BarChart>
               </ResponsiveContainer>
-            </div>
+            </motion.div>
             
             {/* Legend */}
             <div className="flex justify-center gap-4 mt-4 text-xs">
