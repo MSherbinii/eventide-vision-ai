@@ -6,23 +6,13 @@ import heroIndustrialRobots from "@/assets/hero-industrial-robots.jpg";
 const TitleSlide = () => {
   return (
     <div className="w-full h-screen flex flex-col justify-center relative overflow-hidden bg-background">
-      {/* Premium Animated Background */}
+      {/* Unified Animated Background */}
       <div className="animated-bg">
         <div className="floating-orb orb-primary" />
         <div className="floating-orb orb-accent" />
         <div className="floating-orb orb-warning" />
       </div>
       <div className="geometric-pattern" />
-      
-      {/* Background Image - Subtle Overlay */}
-      <div className="absolute inset-0 z-0">
-        <img 
-          src={heroIndustrialRobots} 
-          alt="Industrial robots and automation facility" 
-          className="w-full h-full object-cover opacity-10"
-        />
-        <div className="absolute inset-0 bg-gradient-to-br from-background via-background/95 to-background/90" />
-      </div>
       {/* Expand Icon */}
       <motion.div 
         className="absolute top-6 right-6 z-20 cursor-pointer"
@@ -54,9 +44,9 @@ const TitleSlide = () => {
               }}
             >
               <div className="absolute inset-0 blur-3xl opacity-30">
-                <span className="text-gradient">Eventide</span>
+                <span className="text-gradient">LuminarX AI</span>
               </div>
-              Eventide
+              LuminarX AI
             </span>
             <span className="block text-foreground pitch-title text-4xl md:text-5xl lg:text-6xl font-medium leading-tight">
               Event-Based Vision for Industry 4.0

@@ -131,7 +131,7 @@ const MarketSlide = () => {
 
           {/* Expandable Market Chips */}
           <div className="flex-1">
-            <h3 className="text-2xl font-bold mb-3 text-white">What this means for Eventide</h3>
+            <h3 className="text-2xl font-bold mb-3 text-white">What this means for LuminarX AI</h3>
             <div className="space-y-2">
               {expandableChips.map((chip, index) => (
                 <Dialog key={chip.id}>

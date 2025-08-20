@@ -15,7 +15,7 @@ import AskSlideV2 from "@/components/Presentation/Slides/AskSlideV2";
 const Index = () => {
   // Compact 10-slide deck optimized for pre-seed investors
   const slides = [
-    { id: 'title', title: 'Eventide Vision', component: TitleSlide },
+    { id: 'title', title: 'LuminarX AI', component: TitleSlide },
     { id: 'problem', title: 'The Problem', component: ProblemSlide },
     { id: 'solution', title: 'Our Solution', component: SolutionSlide },
     { id: 'market', title: 'Market Opportunity', component: MarketSlide },

@@ -1,4 +1,4 @@
-// Validated Market Data for Eventide Vision Pitch Deck
+// Validated Market Data for LuminarX AI Pitch Deck
 // Sources: Grand View Research, MarketsandMarkets, Prophesee, Industry Reports
 
 export const marketData = {
@@ -138,7 +138,7 @@ export const marketData = {
       integration: "$20,000-100,000",
       maintenance: "15-20% annually"
     },
-    eventide: {
+    luminarx: {
       pilot: "$2,500/month (1-2 lines)",
       growth: "$7,500/month (3-5 lines)",
       enterprise: "Custom (unlimited)",
