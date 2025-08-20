@@ -130,34 +130,34 @@ const CostOfFrameVisionSlide = () => {
       <div className="relative z-10 flex-1 grid grid-cols-2 gap-6">
         {/* Left Column - Animated Cost Gauges */}
         <div className="space-y-4">
-          <h3 className="text-2xl font-bold text-white">Quality Cost Impact (Monthly)</h3>
+          <h3 className="text-2xl font-bold text-white">RGB System Cost Breakdown (Monthly)</h3>
           <div className="grid grid-cols-2 gap-4">
             <AnimatedGauge
-              title="Storage/Egress"
+              title="Storage & Egress"
               icon={<DollarSign className="w-10 h-10 text-primary" />}
               percentage={calculations.storagePercentage}
-              label={`$${calculations.monthlyCosts.storage.toLocaleString()}/month`}
+              label={`$${calculations.monthlyCosts.storage.toLocaleString()}/mo (${calculations.storagePercentage}% of RGB total)`}
               color="hsl(var(--primary))"
             />
             <AnimatedGauge
-              title="RGB Compute"
+              title="RGB Compute & Power"
               icon={<Clock className="w-10 h-10 text-warning" />}
               percentage={calculations.computePercentage}
-              label={`$${calculations.monthlyCosts.compute.toLocaleString()}/month`}
+              label={`$${calculations.monthlyCosts.compute.toLocaleString()}/mo (${calculations.computePercentage}% of RGB total)`}
               color="hsl(var(--warning))"
             />
             <AnimatedGauge
-              title="Quality Impact"
+              title="Quality & Rework"
               icon={<AlertTriangle className="w-10 h-10 text-destructive" />}
               percentage={calculations.scrapPercentage}
-              label={`$${calculations.monthlyCosts.rework.toLocaleString()}/month`}
+              label={`$${calculations.monthlyCosts.rework.toLocaleString()}/mo (${calculations.scrapPercentage}% of RGB total)`}
               color="hsl(var(--destructive))"
             />
             <AnimatedGauge
-              title="Integration Cost"
+              title="Integration & Maintenance"
               icon={<TrendingDown className="w-10 h-10 text-accent" />}
               percentage={calculations.integrationPercentage || 15}
-              label={`$${(calculations.monthlyCosts.integration || 6250).toLocaleString()}/month`}
+              label={`$${(calculations.monthlyCosts.integration || 6250).toLocaleString()}/mo (${calculations.integrationPercentage || 15}% of RGB total)`}
               color="hsl(var(--accent))"
             />
           </div>
