@@ -65,63 +65,72 @@ const SolutionSlide = () => {
         </p>
       </div>
 
-      {/* Centered Video Demo */}
-      <div className="relative z-10 max-w-3xl mx-auto mb-6">
-        <Dialog>
-          <DialogTrigger asChild>
-            <Card className="p-4 bg-card/80 backdrop-blur-sm border border-primary/20 rounded-xl shadow-lg cursor-pointer group hover:scale-105 transition-all duration-300">
-              <div className="relative">
-                <div className="aspect-[16/9] bg-gradient-to-br from-primary/20 to-accent/10 rounded-lg flex items-center justify-center border border-primary/30">
-                  <Play className="w-12 h-12 text-primary opacity-80 group-hover:scale-110 transition-transform duration-200" />
-                  <div className="absolute top-3 left-3">
-                    <Badge variant="secondary" className="bg-primary text-white border-0 text-sm px-3 py-1">
-                      Real-time • 1K+ obj/s
-                    </Badge>
-                  </div>
-                  <div className="absolute bottom-3 right-3">
-                    <Badge variant="secondary" className="bg-accent text-white border-0 text-sm px-3 py-1">
-                      99.5% accuracy
-                    </Badge>
-                  </div>
-                  <div className="absolute top-3 right-3 opacity-70 group-hover:opacity-100 transition-opacity">
-                    <Badge variant="outline" className="text-xs flex items-center gap-1">
-                      <Maximize2 className="w-3 h-3" /> Expand
-                    </Badge>
-                  </div>
-                </div>
-                <div className="mt-3 text-center">
-                  <h4 className="text-xl font-bold text-white mb-2">Live Performance Demo</h4>
-                  <p className="text-sm text-muted">
-                    Pellet counting at 10 Bar air pressure • 2mm pellets • Prophesee event sensor
-                  </p>
-                </div>
-              </div>
-            </Card>
-          </DialogTrigger>
-          <DialogContent className="max-w-5xl p-0 overflow-hidden">
-            <div className="bg-card">
-              <div className="aspect-[16/9] bg-background border-b border-border">
-                <iframe
-                  className="w-full h-full"
-                  src="https://www.youtube.com/embed/iKTDXKHLgmE"
-                  title="High-Speed Counting Demo"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                />
-              </div>
-              <div className="p-4">
-                <div className="flex items-center justify-between">
-                  <h4 className="text-base font-bold text-white">High-Speed Counting Demo</h4>
-                  <div className="flex items-center gap-2">
-                    <Badge variant="secondary" className="bg-primary text-white border-0 text-xs px-2 py-1">1K+ obj/s</Badge>
-                    <Badge variant="secondary" className="bg-accent text-white border-0 text-xs px-2 py-1">99.5% accuracy</Badge>
-                  </div>
-                </div>
-                <p className="text-xs text-muted mt-2">Prophesee event-based sensor • Microsecond latency • No motion blur</p>
+      {/* Industrial Video Demos */}
+      <div className="relative z-10 max-w-6xl mx-auto mb-6">
+        <div className="grid grid-cols-3 gap-4">
+          {/* High-Speed Counting */}
+          <Card className="p-3 bg-card/80 backdrop-blur-sm border border-primary/20 rounded-xl shadow-lg">
+            <div className="aspect-[16/9] rounded-lg overflow-hidden mb-2">
+              <iframe
+                className="w-full h-full"
+                src="https://www.youtube.com/embed/iKTDXKHLgmE?autoplay=0&mute=1&controls=1&showinfo=0&modestbranding=1"
+                title="High-Speed Counting Demo"
+                allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            </div>
+            <div className="text-center">
+              <h4 className="text-sm font-bold text-white mb-1">High-Speed Counting</h4>
+              <p className="text-xs text-muted mb-2">1K+ objects/second @ 99.5% accuracy</p>
+              <div className="flex gap-1 justify-center">
+                <Badge variant="secondary" className="bg-primary text-white border-0 text-xs px-2 py-1">1K+ obj/s</Badge>
+                <Badge variant="secondary" className="bg-accent text-white border-0 text-xs px-2 py-1">99.5%</Badge>
               </div>
             </div>
-          </DialogContent>
-        </Dialog>
+          </Card>
+
+          {/* Defect Detection */}
+          <Card className="p-3 bg-card/80 backdrop-blur-sm border border-accent/20 rounded-xl shadow-lg">
+            <div className="aspect-[16/9] rounded-lg overflow-hidden mb-2">
+              <iframe
+                className="w-full h-full"
+                src="https://www.youtube.com/embed/XzrKlNk7mCs?autoplay=0&mute=1&controls=1&showinfo=0&modestbranding=1"
+                title="Surface Defect Detection"
+                allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            </div>
+            <div className="text-center">
+              <h4 className="text-sm font-bold text-white mb-1">Defect Detection</h4>
+              <p className="text-xs text-muted mb-2">60m/s surface inspection</p>
+              <div className="flex gap-1 justify-center">
+                <Badge variant="secondary" className="bg-accent text-white border-0 text-xs px-2 py-1">60m/s</Badge>
+                <Badge variant="secondary" className="bg-warning text-white border-0 text-xs px-2 py-1">Real-time</Badge>
+              </div>
+            </div>
+          </Card>
+
+          {/* Motion Analysis */}
+          <Card className="p-3 bg-card/80 backdrop-blur-sm border border-warning/20 rounded-xl shadow-lg">
+            <div className="aspect-[16/9] rounded-lg overflow-hidden mb-2">
+              <iframe
+                className="w-full h-full"
+                src="https://www.youtube.com/embed/kPCZESVfHoQ?autoplay=0&mute=1&controls=1&showinfo=0&modestbranding=1"
+                title="Motion Analysis Demo"
+                allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            </div>
+            <div className="text-center">
+              <h4 className="text-sm font-bold text-white mb-1">Motion Analysis</h4>
+              <p className="text-xs text-muted mb-2">200K+ fps equivalent tracking</p>
+              <div className="flex gap-1 justify-center">
+                <Badge variant="secondary" className="bg-warning text-white border-0 text-xs px-2 py-1">200K+ fps</Badge>
+                <Badge variant="secondary" className="bg-primary text-white border-0 text-xs px-2 py-1">μs latency</Badge>
+              </div>
+            </div>
+          </Card>
+        </div>
       </div>
 
       {/* Bottom Section: Industrial Applications + Comparison */}
