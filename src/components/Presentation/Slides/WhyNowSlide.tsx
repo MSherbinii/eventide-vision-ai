@@ -1,55 +1,53 @@
 import { motion } from 'framer-motion';
 import { Badge } from '@/components/ui/badge';
 import { Card } from '@/components/ui/card';
-import { Clock, TrendingUp, Zap, CheckCircle, Target, Building2 } from 'lucide-react';
+import { Clock, TrendingUp, AlertTriangle, CheckCircle, Target, Building2, Cpu, DollarSign } from 'lucide-react';
 
 const WhyNowSlide = () => {
   const timingFactors = [
     {
-      icon: Clock,
-      title: "Sony IMX636 Commercial Launch",
-      description: "LUCID Triton2 EVS cameras shipping (Oct 2024)",
+      icon: Cpu,
+      title: "Sony IMX636 Launch",
+      description: "Production-ready sensors shipping from Oct 2024",
       status: "Shipping Now",
       color: "bg-primary"
     },
     {
       icon: TrendingUp,
-      title: "$841.7B Industrial Investment",
-      description: "2025 equipment spending surge (+3.8% growth)",
-      status: "Peak Deployment",
+      title: "Industrial Capex Surge",
+      description: "Projected global industrial equipment spending ~ $0.84 T in 2025 (~3–4 % YoY)",
+      status: "Capex Surge",
       color: "bg-accent"
     },
     {
-      icon: Zap,
-      title: "Event Vision Mass Production",
-      description: "SynSense $10M funding for sensor production",
-      status: "Manufacturing Scale",
+      icon: AlertTriangle,
+      title: "Quality Control Crisis",
+      description: "Global product recalls hit six-year high in 2024 (2,450+ major campaigns)",
+      status: "Quality Pain",
       color: "bg-warning"
-    },
-    {
-      icon: CheckCircle,
-      title: "Quality Crisis Peak",
-      description: "3,200+ recalls in 2024 (6-year high), $1.92B food losses",
-      status: "Market Pain Point",
-      color: "bg-destructive"
     }
   ];
 
   const marketDrivers = [
     {
       title: "Commercial Availability",
-      value: "Q4 2024",
-      description: "Sony/Prophesee IMX636 sensors in production cameras from LUCID, FRAMOS"
+      value: "Oct 2024",
+      description: "Sony/Prophesee IMX636 in products (LUCID, FRAMOS) – Oct 2024."
     },
     {
-      title: "Automotive Adoption", 
+      title: "Vehicle Recalls", 
       value: "27.7M",
-      description: "Vehicle recalls in 2024 driving demand for better QC systems"
+      description: "27.7 M cars recalled in 2024 (NHTSA)."
     },
     {
-      title: "Investment Climate",
-      value: "$841.7B",
-      description: "2025 industrial equipment spending - highest investment cycle in years"
+      title: "Industrial Capex Trend",
+      value: "Record",
+      description: "2025 industrial capex near record highs."
+    },
+    {
+      title: "Window Opening",
+      value: "2-3 yr",
+      description: "Production-ready sensors + recall pressure = 2–3 year technical moat."
     }
   ];
 
@@ -156,9 +154,9 @@ const WhyNowSlide = () => {
                   </p>
                   <div className="flex items-center gap-2">
                     <Building2 className="w-4 h-4 text-primary" />
-                    <span className="text-xs text-primary font-medium">
-                      MENA + DACH first-mover advantage via established networks
-                    </span>
+                   <span className="text-xs text-primary font-medium">
+                     MEA + DACH first-mover advantage.
+                   </span>
                   </div>
                 </div>
               </div>
@@ -167,29 +165,21 @@ const WhyNowSlide = () => {
         </div>
       </div>
 
-      {/* Bottom Statistics */}
+      {/* Bottom Banner */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 1.8, duration: 0.6 }}
         className="relative z-10 mt-8"
       >
-        <div className="grid grid-cols-3 gap-6">
-          <Card className="p-4 bg-card/80 backdrop-blur-sm border border-destructive/20 rounded-2xl shadow-lg text-center hover:scale-105 hover:shadow-2xl hover:border-destructive/40 transition-all duration-300">
-            <div className="text-xl font-bold text-destructive mb-1 hover:scale-110 transition-transform duration-200">3,200+</div>
-            <div className="text-xs text-muted">Product recalls in 2024 - 6-year high driving QC investment</div>
-          </Card>
-          
-          <Card className="p-4 bg-card/80 backdrop-blur-sm border border-accent/20 rounded-2xl shadow-lg text-center hover:scale-105 hover:shadow-2xl hover:border-accent/40 transition-all duration-300">
-            <div className="text-xl font-bold text-accent mb-1 hover:scale-110 transition-transform duration-200">Oct 2024</div>
-            <div className="text-xs text-muted">LUCID Triton2 EVS - First commercial event cameras shipping</div>
-          </Card>
-          
-          <Card className="p-4 bg-card/80 backdrop-blur-sm border border-warning/20 rounded-2xl shadow-lg text-center hover:scale-105 hover:shadow-2xl hover:border-warning/40 transition-all duration-300">
-            <div className="text-xl font-bold text-warning mb-1 hover:scale-110 transition-transform duration-200">$841.7B</div>
-            <div className="text-xs text-muted">2025 industrial equipment investment (+3.8% YoY growth)</div>
-          </Card>
-        </div>
+        <Card className="p-6 bg-primary/10 backdrop-blur-sm border border-primary/30 rounded-2xl shadow-lg">
+          <p className="text-lg font-bold text-primary text-center max-w-6xl mx-auto">
+            This convergence of sensor availability, automation budgets, and quality urgency marks a breakaway moment—creating a 3-year window of technical leadership in event-based vision.
+          </p>
+          <div className="text-xs text-muted text-center mt-3">
+            Sources: Recalls (NHTSA); Capex projections; MEA + DACH first-mover advantage.
+          </div>
+        </Card>
       </motion.div>
     </div>
   );
