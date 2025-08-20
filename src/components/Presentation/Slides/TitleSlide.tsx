@@ -43,7 +43,7 @@ const TitleSlide = () => {
           <h1 className="text-7xl md:text-8xl font-bold leading-tight tracking-[-0.01em]">
             <span className="block text-primary">Eventide Vision</span>
             <span className="block text-white text-5xl md:text-6xl">
-              Event-Based Vision Intelligence
+              Event-Based AI for Robotics & Automation
             </span>
           </h1>
           
