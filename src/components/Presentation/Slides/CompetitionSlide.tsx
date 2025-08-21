@@ -16,6 +16,46 @@ const CompetitionSlide = () => {
       position: "Hardware + basic software"
     },
     {
+      name: "Instrumental",
+      hardware: false,
+      sdk: true,
+      integrator: true,
+      fullStackPaaS: false,
+      eventExpertise: false,
+      mesErp: true,
+      position: "AI QC platform (frame-based)"
+    },
+    {
+      name: "Landing AI",
+      hardware: false,
+      sdk: true,
+      integrator: true,
+      fullStackPaaS: false,
+      eventExpertise: false,
+      mesErp: true,
+      position: "Vision platform + services"
+    },
+    {
+      name: "Elementary",
+      hardware: true,
+      sdk: true,
+      integrator: true,
+      fullStackPaaS: false,
+      eventExpertise: false,
+      mesErp: true,
+      position: "Edge cameras + AI (frame-based)"
+    },
+    {
+      name: "V7/Matroid",
+      hardware: false,
+      sdk: true,
+      integrator: true,
+      fullStackPaaS: false,
+      eventExpertise: false,
+      mesErp: false,
+      position: "Labeling + model ops (frame)"
+    },
+    {
       name: "Keyence", 
       hardware: true,
       sdk: false,
@@ -60,10 +100,11 @@ const CompetitionSlide = () => {
   const categories = ["Hardware", "SDK", "Integrator", "Full-Stack PaaS", "Event Expertise", "MES/ERP"];
 
   const scatterPlotData = [
-    { name: "Generalist frame-only", x: 20, y: 15, color: "text-muted" },
+    { name: "Generalist frame-only", x: 25, y: 20, color: "text-muted" },
     { name: "Basler/IDS", x: 45, y: 35, color: "text-muted" }, 
-    { name: "Cognex/Keyence", x: 75, y: 25, color: "text-muted" },
-    { name: "LuminarX AI", x: 85, y: 90, color: "text-primary" }
+    { name: "Cognex/Keyence", x: 70, y: 30, color: "text-muted" },
+    { name: "Instrumental/Landing AI", x: 60, y: 40, color: "text-muted" },
+    { name: "LuminarX AI", x: 85, y: 85, color: "text-primary" }
   ];
 
   return (
@@ -196,14 +237,14 @@ const CompetitionSlide = () => {
               <div className="absolute -bottom-8 left-0 text-xs text-muted/70">Low</div>
               <div className="absolute -bottom-8 right-0 text-xs text-muted/70">High</div>
               <div className="absolute -bottom-12 left-1/2 transform -translate-x-1/2 text-sm font-medium text-white">
-                Real-Time Processing Speed (fps equivalent)
+                Real-Time Line Speed Capability
               </div>
               
               {/* Y-Axis Labels */}
               <div className="absolute -left-8 bottom-0 text-xs text-muted/70">Low</div>
               <div className="absolute -left-8 top-0 text-xs text-muted/70">High</div>
               <div className="absolute -left-16 top-1/2 transform -translate-y-1/2 -rotate-90 text-sm font-medium text-white origin-center">
-                Data Efficiency (% reduction vs. frames)
+                Data Efficiency / Edge Suitability
               </div>
               
               {/* Data Points */}
