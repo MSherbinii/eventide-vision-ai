@@ -144,7 +144,7 @@ const ProblemSlide = () => {
           {/* Event vs Frame side-by-side (kept) */}
           <Card className="p-3 bg-card/80 backdrop-blur-sm border border-border rounded-xl shadow-lg">
             <div className="text-center text-xs text-muted mb-2">Event vs Frame (side-by-side)</div>
-            <VideoCompare />
+        <VideoCompare />
           </Card>
         </div>
       </div>

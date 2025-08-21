@@ -4,6 +4,7 @@ import ProblemSlide from "@/components/Presentation/Slides/ProblemSlide";
 import CostOfFrameVisionSlide from "@/components/Presentation/Slides/CostOfFrameVisionSlide";
 import SolutionSlide from "@/components/Presentation/Slides/SolutionSlide";
 import MarketSlide from "@/components/Presentation/Slides/MarketSlide";
+import GoToMarketSlide from "@/components/Presentation/Slides/GoToMarketSlide";
 import BusinessModelSlide from "@/components/Presentation/Slides/BusinessModelSlide";
 import CompetitionSlide from "@/components/Presentation/Slides/CompetitionSlide";
 import RoadmapSlide from "@/components/Presentation/Slides/RoadmapSlide";
@@ -19,6 +20,7 @@ const CompactDeck = () => {
     { id: 'cost', title: 'Cost Reality Check', component: CostOfFrameVisionSlide },
     { id: 'solution', title: 'Our Solution', component: SolutionSlide },
     { id: 'market', title: 'Market Opportunity', component: MarketSlide },
+    { id: 'gtm', title: 'Go-To-Market', component: GoToMarketSlide },
     { id: 'business-model', title: 'Business Model', component: BusinessModelSlide },
     { id: 'competition', title: 'Why We Win', component: CompetitionSlide },
     { id: 'roadmap', title: 'Timeline & Milestones', component: RoadmapSlide },
