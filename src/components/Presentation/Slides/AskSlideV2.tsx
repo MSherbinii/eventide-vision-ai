@@ -201,6 +201,41 @@ const AskSlideV2 = () => {
               ))}
             </div>
           </Card>
+
+          {/* CTA */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6 }}
+            className="space-y-3"
+          >
+            <Card className="p-6 bg-primary text-white text-center">
+              <h4 className="text-xl font-bold mb-2">Let's Build the Future Together</h4>
+              <p className="text-sm opacity-90 mb-4">
+                Join us in creating the perception OS for every factory
+              </p>
+              <div className="space-y-2">
+                <Button variant="secondary" size="lg" className="w-full font-semibold">
+                  <Mail className="w-4 h-4 mr-2" />
+                  Schedule a Meeting
+                </Button>
+              </div>
+            </Card>
+
+            {/* Contact Info */}
+            <Card className="p-4 bg-card/80">
+              <div className="space-y-2 text-sm">
+                <div className="flex items-center gap-2">
+                  <Mail className="w-4 h-4 text-primary" />
+                  <span className="text-muted-foreground">mohamed@luminarx.ai</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Phone className="w-4 h-4 text-primary" />
+                  <span className="text-muted-foreground">+49 xxx xxxx xxx</span>
+                </div>
+              </div>
+            </Card>
+          </motion.div>
         </div>
       </div>
 
