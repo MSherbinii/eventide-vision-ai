@@ -66,14 +66,14 @@ const SolutionSlide = () => {
       </div>
 
       {/* Industrial Video Demos */}
-      <div className="relative z-10 max-w-6xl mx-auto mb-6">
-        <div className="grid grid-cols-3 gap-4">
+      <div className="relative z-10 max-w-full mx-auto mb-8 px-8">
+        <div className="flex justify-between items-start gap-8">
           {/* Event-Based Demo 1 */}
-          <Card className="p-3 bg-card/80 backdrop-blur-sm border border-primary/20 rounded-xl shadow-lg">
+          <Card className="p-3 bg-card/80 backdrop-blur-sm border border-primary/20 rounded-xl shadow-lg scale-125 mx-4">
             <div className="aspect-[16/9] rounded-lg overflow-hidden mb-2">
               <iframe
                 className="w-full h-full"
-                src="https://www.youtube.com/embed/AuUijt8D2tU?autoplay=1&mute=1&controls=1&showinfo=0&modestbranding=1"
+                src="https://www.youtube.com/embed/AuUijt8D2tU?autoplay=1&mute=1&controls=1&showinfo=0&modestbranding=1&loop=1&playlist=AuUijt8D2tU"
                 title="Event-Based Vision Demo"
                 allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
@@ -90,11 +90,11 @@ const SolutionSlide = () => {
           </Card>
 
           {/* Event-Based Demo 2 */}
-          <Card className="p-3 bg-card/80 backdrop-blur-sm border border-accent/20 rounded-xl shadow-lg">
+          <Card className="p-3 bg-card/80 backdrop-blur-sm border border-accent/20 rounded-xl shadow-lg scale-125 mx-4">
             <div className="aspect-[16/9] rounded-lg overflow-hidden mb-2">
               <iframe
                 className="w-full h-full"
-                src="https://www.youtube.com/embed/5plQO__oeL4?start=25&autoplay=1&mute=1&controls=1&showinfo=0&modestbranding=1"
+                src="https://www.youtube.com/embed/5plQO__oeL4?start=25&autoplay=1&mute=1&controls=1&showinfo=0&modestbranding=1&loop=1&playlist=5plQO__oeL4"
                 title="Event Camera Applications"
                 allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
@@ -111,11 +111,11 @@ const SolutionSlide = () => {
           </Card>
 
           {/* Event-Based Demo 3 */}
-          <Card className="p-3 bg-card/80 backdrop-blur-sm border border-warning/20 rounded-xl shadow-lg">
+          <Card className="p-3 bg-card/80 backdrop-blur-sm border border-warning/20 rounded-xl shadow-lg scale-125 mx-4">
             <div className="aspect-[16/9] rounded-lg overflow-hidden mb-2">
               <iframe
                 className="w-full h-full"
-                src="https://www.youtube.com/embed/PbSVm4fix0c?start=5&autoplay=1&mute=1&controls=1&showinfo=0&modestbranding=1"
+                src="https://www.youtube.com/embed/PbSVm4fix0c?start=5&autoplay=1&mute=1&controls=1&showinfo=0&modestbranding=1&loop=1&playlist=PbSVm4fix0c"
                 title="Event Vision Technology"
                 allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
