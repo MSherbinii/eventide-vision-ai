@@ -65,6 +65,45 @@ const SolutionSlide = () => {
         </p>
       </div>
 
+      {/* Factory Applications Map (descriptive image) */}
+      <div className="relative z-10 max-w-5xl mx-auto mb-6">
+        <Dialog>
+          <DialogTrigger asChild>
+            <Card className="p-3 bg-card/80 backdrop-blur-sm border border-primary/20 rounded-xl shadow-lg cursor-pointer group hover:scale-[1.01] transition-all duration-300">
+              <div className="relative">
+                <div className="aspect-[16/9] rounded-lg overflow-hidden border border-primary/30">
+                  <img
+                    src="/lovable-uploads/8b333b2b-5ac1-4248-8c5d-43dfce05c0f7.png"
+                    alt="Factory-wide event-based vision applications map"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="mt-3 text-center">
+                  <h4 className="text-base font-bold text-white mb-1">Factory Applications Map</h4>
+                  <p className="text-xs text-muted">Safety • Quality • Predictive Maintenance • Productivity — use-case placement across the line</p>
+                </div>
+                <div className="absolute top-3 right-3 opacity-70 group-hover:opacity-100 transition-opacity">
+                  <Badge variant="outline" className="text-[10px] flex items-center gap-1">
+                    <Maximize2 className="w-3 h-3" /> Expand
+                  </Badge>
+                </div>
+              </div>
+            </Card>
+          </DialogTrigger>
+          <DialogContent className="max-w-6xl p-0 overflow-hidden">
+            <div className="bg-card">
+              <div className="aspect-[16/9]">
+                <img
+                  src="/lovable-uploads/8b333b2b-5ac1-4248-8c5d-43dfce05c0f7.png"
+                  alt="Factory-wide event-based vision applications map"
+                  className="w-full h-full object-contain bg-background"
+                />
+              </div>
+            </div>
+          </DialogContent>
+        </Dialog>
+      </div>
+
       {/* Industrial Video Demos */}
       <div className="relative z-10 max-w-6xl mx-auto mb-6">
         <div className="grid grid-cols-3 gap-4">
@@ -133,101 +172,34 @@ const SolutionSlide = () => {
         </div>
       </div>
 
-      {/* Factory Applications Map (descriptive image) */}
-      <div className="relative z-10 max-w-5xl mx-auto mb-6">
-        <Dialog>
-          <DialogTrigger asChild>
-            <Card className="p-3 bg-card/80 backdrop-blur-sm border border-primary/20 rounded-xl shadow-lg cursor-pointer group hover:scale-[1.01] transition-all duration-300">
-              <div className="relative">
-                <div className="aspect-[16/9] rounded-lg overflow-hidden border border-primary/30">
-                  <img
-                    src="/factory-usecase-map.png"
-                    alt="Factory-wide event-based vision applications map"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="mt-3 text-center">
-                  <h4 className="text-base font-bold text-white mb-1">Factory Applications Map</h4>
-                  <p className="text-xs text-muted">Safety • Quality • Predictive Maintenance • Productivity — use-case placement across the line</p>
-                </div>
-                <div className="absolute top-3 right-3 opacity-70 group-hover:opacity-100 transition-opacity">
-                  <Badge variant="outline" className="text-[10px] flex items-center gap-1">
-                    <Maximize2 className="w-3 h-3" /> Expand
-                  </Badge>
-                </div>
-              </div>
-            </Card>
-          </DialogTrigger>
-          <DialogContent className="max-w-6xl p-0 overflow-hidden">
-            <div className="bg-card">
-              <div className="aspect-[16/9]">
-                <img
-                  src="/factory-usecase-map.png"
-                  alt="Factory-wide event-based vision applications map"
-                  className="w-full h-full object-contain bg-background"
-                />
-              </div>
-            </div>
-          </DialogContent>
-        </Dialog>
-      </div>
-
-      {/* Bottom Section: Industrial Applications + Comparison */}
-      <div className="relative z-10 flex-1 grid grid-cols-3 gap-6 min-h-0">
-        {/* Left: Industrial Applications - Takes 2/3 width */}
-        <div className="col-span-2 space-y-4">
-          <h2 className="text-2xl font-bold text-white">Industrial Applications</h2>
-          <div className="grid grid-cols-2 gap-3 h-fit">
-            {realWorldApplications.map((app, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1, duration: 0.5 }}
-              >
-                <Card className={`p-4 hover:scale-105 transition-all duration-300 ${app.color} backdrop-blur-sm shadow-lg hover:shadow-xl hover:border-primary/30 h-full`}>
-                  <div className="text-center space-y-2">
-                    <div className="mx-auto w-fit hover:scale-110 transition-transform duration-200">
-                      {app.icon}
-                    </div>
-                    <h3 className="font-bold text-sm text-white">
-                      {app.title}
-                    </h3>
-                    <p className="text-xs text-muted leading-tight">
-                      {app.description}
-                    </p>
-                    <div className="text-xs text-muted-foreground italic">
-                      {app.industries}
-                    </div>
-                    <div className="text-xs font-medium text-primary bg-primary/10 px-2 py-1 rounded-full inline-block">
-                      {app.metric}
-                    </div>
-                  </div>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
+      {/* Bottom Section: Other Applications + Comparison */}
+      <div className="relative z-10 flex-1 grid grid-cols-2 gap-6 min-h-0">
+        {/* Left: Other Market Applications */}
+        <div className="space-y-4">
+          <h2 className="text-2xl font-bold text-white">Beyond Manufacturing</h2>
           
-          {/* Deployed Industries */}
+          {/* Other Industries */}
           <Card className="p-4 bg-card/80 backdrop-blur-sm border border-accent/20 rounded-xl shadow-lg">
-            <h4 className="text-lg font-bold mb-3 text-white text-center">Deployed Industries</h4>
-            <div className="grid grid-cols-4 gap-2 text-sm text-center">
-              <div className="p-2 bg-accent/10 rounded text-accent font-medium">Pharmaceutical</div>
-              <div className="p-2 bg-primary/10 rounded text-primary font-medium">Food & Beverage</div>
-              <div className="p-2 bg-warning/10 rounded text-warning font-medium">Electronics</div>
-              <div className="p-2 bg-accent/10 rounded text-accent font-medium">Manufacturing</div>
+            <h4 className="text-lg font-bold mb-3 text-white text-center">Market Expansion</h4>
+            <div className="grid grid-cols-2 gap-3 text-sm text-center">
+              <div className="p-3 bg-accent/10 rounded-lg text-accent font-medium">
+                <div className="text-base mb-1">🛡️ Defense</div>
+                <div className="text-xs text-muted">Surveillance & Tracking</div>
+              </div>
+              <div className="p-3 bg-primary/10 rounded-lg text-primary font-medium">
+                <div className="text-base mb-1">🚀 Space</div>
+                <div className="text-xs text-muted">Orbital Debris Monitoring</div>
+              </div>
+              <div className="p-3 bg-warning/10 rounded-lg text-warning font-medium">
+                <div className="text-base mb-1">🏥 Medical</div>
+                <div className="text-xs text-muted">Surgical Precision</div>
+              </div>
+              <div className="p-3 bg-accent/10 rounded-lg text-accent font-medium">
+                <div className="text-base mb-1">🚗 Automotive</div>
+                <div className="text-xs text-muted">ADAS & Robotics</div>
+              </div>
             </div>
           </Card>
-        </div>
-
-        {/* Right: Comparison Table + Advantages - Takes 1/3 width */}
-        <div className="col-span-1 space-y-4">
-          <h2 className="text-2xl font-bold text-white">Technology Comparison</h2>
-          
-          {/* Comparison Table */}
-          <div className="h-fit">
-            <TechComparisonTable />
-          </div>
 
           {/* Key Benefits */}
           <Card className="p-4 bg-card/80 backdrop-blur-sm border border-primary/20 rounded-xl shadow-lg">
@@ -259,6 +231,16 @@ const SolutionSlide = () => {
               </div>
             </div>
           </Card>
+        </div>
+
+        {/* Right: Technology Comparison */}
+        <div className="space-y-4">
+          <h2 className="text-2xl font-bold text-white">Technology Comparison</h2>
+          
+          {/* Comparison Table */}
+          <div className="h-fit">
+            <TechComparisonTable />
+          </div>
         </div>
       </div>
     </div>
