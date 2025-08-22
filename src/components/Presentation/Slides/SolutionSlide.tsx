@@ -185,36 +185,6 @@ const SolutionSlide = () => {
             </div>
           </Card>
 
-          {/* Key Benefits */}
-          <Card className="p-4 bg-card/80 backdrop-blur-sm border border-primary/20 rounded-xl shadow-lg">
-            <h4 className="text-lg font-bold mb-3 text-white">Event Vision Advantages</h4>
-            <div className="space-y-2 text-sm">
-              <div className="flex items-center gap-2">
-                <CheckCircle className="w-4 h-4 text-primary" />
-                <span className="text-white font-medium">Microsecond latency</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <CheckCircle className="w-4 h-4 text-primary" />
-                <span className="text-white font-medium">No motion blur</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <CheckCircle className="w-4 h-4 text-primary" />
-                <span className="text-white font-medium">120dB dynamic range</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <CheckCircle className="w-4 h-4 text-primary" />
-                <span className="text-white font-medium">96% data reduction</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <CheckCircle className="w-4 h-4 text-primary" />
-                <span className="text-white font-medium">Edge processing ready</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <CheckCircle className="w-4 h-4 text-primary" />
-                <span className="text-white font-medium">No complex lighting</span>
-              </div>
-            </div>
-          </Card>
         </div>
 
         {/* Right: Simple Business Comparison */}
