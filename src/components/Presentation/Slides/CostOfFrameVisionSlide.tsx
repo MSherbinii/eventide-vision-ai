@@ -286,6 +286,16 @@ const CostOfFrameVisionSlide = () => {
               </div>
             </SheetContent>
           </Sheet>
+
+          {/* ROI Footnote */}
+          <Card className="p-4 bg-destructive/10 backdrop-blur-sm border border-destructive/20 rounded-2xl shadow-lg">
+            <div className="text-xs text-destructive font-medium">
+              ⚠️ Infra-only ROI; quality/downtime upside next slide
+            </div>
+            <p className="text-xs text-muted mt-1">
+              This model counts only infrastructure costs. Quality improvements and downtime reduction provide additional ROI not shown here.
+            </p>
+          </Card>
         </div>
 
         {/* Middle Column - Stacked Bar Chart */}
@@ -428,15 +438,6 @@ const CostOfFrameVisionSlide = () => {
             </div>
           </Card>
 
-          {/* Footnote */}
-          <Card className="p-4 bg-destructive/10 backdrop-blur-sm border border-destructive/20 rounded-2xl shadow-lg">
-            <div className="text-xs text-destructive font-medium">
-              ⚠️ Infra-only ROI; quality/downtime upside next slide
-            </div>
-            <p className="text-xs text-muted mt-1">
-              This model counts only infrastructure costs. Quality improvements and downtime reduction provide additional ROI not shown here.
-            </p>
-          </Card>
         </div>
       </div>
     </div>
