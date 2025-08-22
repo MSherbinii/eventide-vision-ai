@@ -153,8 +153,8 @@ const ProblemSlide = () => {
         className="relative z-10 text-center"
       >
         <Card className="p-8 bg-card/80 backdrop-blur-sm border border-primary/20 rounded-2xl shadow-lg max-w-6xl mx-auto">
-          <p className="text-xl font-bold text-primary">
-            Event-based vision = Microsecond latency • 96% less data • 10× lower power • Weeks-to-value deployments.
+          <p className="text-xl font-bold text-destructive">
+            RGB frame vision = 10ms+ latency • 50x excess data • 10x higher power • Months-long integrations
           </p>
         </Card>
           <div className="text-center mt-4">
