@@ -202,7 +202,7 @@ const AskSlideV2 = () => {
             </div>
           </Card>
 
-          {/* CTA */}
+          {/* Compelling Motto */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -210,29 +210,14 @@ const AskSlideV2 = () => {
             className="space-y-3"
           >
             <Card className="p-6 bg-primary text-white text-center">
-              <h4 className="text-xl font-bold mb-2">Let's Build the Future Together</h4>
-              <p className="text-sm opacity-90 mb-4">
-                Join us in creating the perception OS for every factory
-              </p>
-              <div className="space-y-2">
-                <Button variant="secondary" size="lg" className="w-full font-semibold">
-                  <Mail className="w-4 h-4 mr-2" />
-                  Schedule a Meeting
-                </Button>
-              </div>
-            </Card>
-
-            {/* Contact Info */}
-            <Card className="p-4 bg-card/80">
-              <div className="space-y-2 text-sm">
-                <div className="flex items-center gap-2">
-                  <Mail className="w-4 h-4 text-primary" />
-                  <span className="text-muted-foreground">mohamed@luminarx.ai</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Phone className="w-4 h-4 text-primary" />
-                  <span className="text-muted-foreground">+49 xxx xxxx xxx</span>
-                </div>
+              <h4 className="text-xl font-bold mb-3">Transforming Industrial Vision</h4>
+              <div className="space-y-2 text-sm opacity-95">
+                <p>• <strong>96% cost reduction</strong> in data infrastructure</p>
+                <p>• <strong>10x lower power</strong> consumption</p>
+                <p>• <strong>Microsecond latency</strong> for real-time decisions</p>
+                <p className="text-base font-semibold pt-2 border-t border-white/20">
+                  Tech startups scale <span className="text-accent">10-50x faster</span> with event-based vision
+                </p>
               </div>
             </Card>
           </motion.div>
@@ -246,24 +231,10 @@ const AskSlideV2 = () => {
         transition={{ delay: 0.8 }}
         className="relative z-10 mt-6"
       >
-        <div className="flex items-center justify-between p-4 bg-gradient-to-r from-primary/10 to-accent/10 rounded-xl border border-primary/20">
-          <div className="flex items-center gap-8">
-            <div className="text-center">
-              <div className="text-2xl font-bold text-primary">€20B</div>
-              <div className="text-xs text-muted-foreground">Market Today</div>
-            </div>
-            <div className="text-center">
-              <div className="text-2xl font-bold text-accent">13% CAGR</div>
-              <div className="text-xs text-muted-foreground">Market Growth</div>
-            </div>
-            <div className="text-center">
-              <div className="text-2xl font-bold text-primary">First</div>
-              <div className="text-xs text-muted-foreground">Full-Stack Solution</div>
-            </div>
-          </div>
-          <div className="text-right">
-            <p className="text-lg font-bold text-foreground">Ready to Scale</p>
-            <p className="text-sm text-muted-foreground">MVP → €10M ARR in 24 months</p>
+        <div className="flex items-center justify-center p-4 bg-gradient-to-r from-primary/10 to-accent/10 rounded-xl border border-primary/20">
+          <div className="text-center">
+            <p className="text-2xl font-bold text-primary mb-2">The Event Vision Revolution</p>
+            <p className="text-base text-muted-foreground">Join the transformation that's enabling next-gen manufacturing at scale</p>
           </div>
         </div>
       </motion.div>
