@@ -2,8 +2,7 @@ import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Pipeline } from "@/components/ui/pipeline";
-import { Zap, Database, Cpu, Shield, CheckCircle, Play, Maximize2 } from "lucide-react";
-import TechComparisonTable from "@/components/Charts/TechComparisonTable";
+import { Zap, Database, Cpu, Shield, CheckCircle, Play, Maximize2, X } from "lucide-react";
 import { motion } from "framer-motion";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 
@@ -218,14 +217,80 @@ const SolutionSlide = () => {
           </Card>
         </div>
 
-        {/* Right: Technology Comparison */}
+        {/* Right: Simple Business Comparison */}
         <div className="space-y-4">
-          <h2 className="text-2xl font-bold text-white">Technology Comparison</h2>
+          <h2 className="text-2xl font-bold text-white">RGB vs Event Vision</h2>
           
-          {/* Comparison Table */}
-          <div className="h-fit">
-            <TechComparisonTable />
-          </div>
+          {/* Simple Comparison */}
+          <Card className="p-4 bg-card/80 backdrop-blur-sm border border-border rounded-xl shadow-lg">
+            <div className="space-y-4">
+              <div className="grid grid-cols-2 gap-4 text-sm">
+                <div className="text-center">
+                  <h4 className="font-bold text-white mb-3">Traditional RGB</h4>
+                </div>
+                <div className="text-center">
+                  <h4 className="font-bold text-primary mb-3">Event Vision</h4>
+                </div>
+              </div>
+              
+              <div className="space-y-3 text-sm">
+                <div className="grid grid-cols-2 gap-4 py-2 border-b border-border/30">
+                  <div className="flex items-center gap-2">
+                    <X className="w-4 h-4 text-destructive" />
+                    <span className="text-muted">High cloud costs</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CheckCircle className="w-4 h-4 text-primary" />
+                    <span className="text-white">96% cost reduction</span>
+                  </div>
+                </div>
+                
+                <div className="grid grid-cols-2 gap-4 py-2 border-b border-border/30">
+                  <div className="flex items-center gap-2">
+                    <X className="w-4 h-4 text-destructive" />
+                    <span className="text-muted">Motion blur issues</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CheckCircle className="w-4 h-4 text-primary" />
+                    <span className="text-white">No motion blur</span>
+                  </div>
+                </div>
+                
+                <div className="grid grid-cols-2 gap-4 py-2 border-b border-border/30">
+                  <div className="flex items-center gap-2">
+                    <X className="w-4 h-4 text-destructive" />
+                    <span className="text-muted">10ms+ latency</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CheckCircle className="w-4 h-4 text-primary" />
+                    <span className="text-white">Microsecond response</span>
+                  </div>
+                </div>
+                
+                <div className="grid grid-cols-2 gap-4 py-2 border-b border-border/30">
+                  <div className="flex items-center gap-2">
+                    <X className="w-4 h-4 text-destructive" />
+                    <span className="text-muted">Complex lighting</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CheckCircle className="w-4 h-4 text-primary" />
+                    <span className="text-white">Works in any light</span>
+                  </div>
+                </div>
+                
+                <div className="grid grid-cols-2 gap-4 py-2">
+                  <div className="flex items-center gap-2">
+                    <X className="w-4 h-4 text-destructive" />
+                    <span className="text-muted">High power usage</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CheckCircle className="w-4 h-4 text-primary" />
+                    <span className="text-white">10x lower power</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </Card>
         </div>
       </div>
     </div>
