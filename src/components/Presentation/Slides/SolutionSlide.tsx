@@ -107,64 +107,64 @@ const SolutionSlide = () => {
       {/* Industrial Video Demos */}
       <div className="relative z-10 max-w-6xl mx-auto mb-6">
         <div className="grid grid-cols-3 gap-4">
-          {/* High-Speed Counting */}
+          {/* Event-Based Demo 1 */}
           <Card className="p-3 bg-card/80 backdrop-blur-sm border border-primary/20 rounded-xl shadow-lg">
             <div className="aspect-[16/9] rounded-lg overflow-hidden mb-2">
               <iframe
                 className="w-full h-full"
-                src="https://www.youtube.com/embed/iKTDXKHLgmE?autoplay=0&mute=1&controls=1&showinfo=0&modestbranding=1"
-                title="High-Speed Counting Demo"
+                src="https://www.youtube.com/embed/AuUijt8D2tU?autoplay=0&mute=1&controls=1&showinfo=0&modestbranding=1"
+                title="Event-Based Vision Demo"
                 allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
               />
             </div>
             <div className="text-center">
-              <h4 className="text-sm font-bold text-white mb-1">High-Speed Counting</h4>
-              <p className="text-xs text-muted mb-2">1K+ objects/second @ 99.5% accuracy</p>
+              <h4 className="text-sm font-bold text-white mb-1">Event-Based Vision</h4>
+              <p className="text-xs text-muted mb-2">Real-time motion detection</p>
               <div className="flex gap-1 justify-center">
-                <Badge variant="secondary" className="bg-primary text-white border-0 text-xs px-2 py-1">1K+ obj/s</Badge>
-                <Badge variant="secondary" className="bg-accent text-white border-0 text-xs px-2 py-1">99.5%</Badge>
+                <Badge variant="secondary" className="bg-primary text-white border-0 text-xs px-2 py-1">Real-time</Badge>
+                <Badge variant="secondary" className="bg-accent text-white border-0 text-xs px-2 py-1">High-speed</Badge>
               </div>
             </div>
           </Card>
 
-          {/* Defect Detection */}
+          {/* Event-Based Demo 2 */}
           <Card className="p-3 bg-card/80 backdrop-blur-sm border border-accent/20 rounded-xl shadow-lg">
             <div className="aspect-[16/9] rounded-lg overflow-hidden mb-2">
               <iframe
                 className="w-full h-full"
-                src="https://www.youtube.com/embed/XzrKlNk7mCs?autoplay=0&mute=1&controls=1&showinfo=0&modestbranding=1"
-                title="Surface Defect Detection"
+                src="https://www.youtube.com/embed/5plQO__oeL4?start=25&autoplay=0&mute=1&controls=1&showinfo=0&modestbranding=1"
+                title="Event Camera Applications"
                 allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
               />
             </div>
             <div className="text-center">
-              <h4 className="text-sm font-bold text-white mb-1">Defect Detection</h4>
-              <p className="text-xs text-muted mb-2">60m/s surface inspection</p>
+              <h4 className="text-sm font-bold text-white mb-1">Industrial Applications</h4>
+              <p className="text-xs text-muted mb-2">Manufacturing use cases</p>
               <div className="flex gap-1 justify-center">
-                <Badge variant="secondary" className="bg-accent text-white border-0 text-xs px-2 py-1">60m/s</Badge>
-                <Badge variant="secondary" className="bg-warning text-white border-0 text-xs px-2 py-1">Real-time</Badge>
+                <Badge variant="secondary" className="bg-accent text-white border-0 text-xs px-2 py-1">Industrial</Badge>
+                <Badge variant="secondary" className="bg-warning text-white border-0 text-xs px-2 py-1">Precision</Badge>
               </div>
             </div>
           </Card>
 
-          {/* Motion Analysis */}
+          {/* Event-Based Demo 3 */}
           <Card className="p-3 bg-card/80 backdrop-blur-sm border border-warning/20 rounded-xl shadow-lg">
             <div className="aspect-[16/9] rounded-lg overflow-hidden mb-2">
               <iframe
                 className="w-full h-full"
-                src="https://www.youtube.com/embed/kPCZESVfHoQ?autoplay=0&mute=1&controls=1&showinfo=0&modestbranding=1"
-                title="Motion Analysis Demo"
+                src="https://www.youtube.com/embed/PbSVm4fix0c?start=5&autoplay=0&mute=1&controls=1&showinfo=0&modestbranding=1"
+                title="Event Vision Technology"
                 allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
               />
             </div>
             <div className="text-center">
-              <h4 className="text-sm font-bold text-white mb-1">Motion Analysis</h4>
-              <p className="text-xs text-muted mb-2">200K+ fps equivalent tracking</p>
+              <h4 className="text-sm font-bold text-white mb-1">Technology Demo</h4>
+              <p className="text-xs text-muted mb-2">Event camera capabilities</p>
               <div className="flex gap-1 justify-center">
-                <Badge variant="secondary" className="bg-warning text-white border-0 text-xs px-2 py-1">200K+ fps</Badge>
+                <Badge variant="secondary" className="bg-warning text-white border-0 text-xs px-2 py-1">Advanced</Badge>
                 <Badge variant="secondary" className="bg-primary text-white border-0 text-xs px-2 py-1">μs latency</Badge>
               </div>
             </div>
