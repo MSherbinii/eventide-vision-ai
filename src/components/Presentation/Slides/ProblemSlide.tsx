@@ -104,12 +104,12 @@ const ProblemSlide = () => {
             <DialogContent className="max-w-5xl p-0 overflow-hidden">
               <div className="bg-card">
                 <div className="aspect-[16/9] bg-background border-b border-border flex items-center justify-center">
-                  {/* High-speed motion blur failure */}
+                  {/* High-speed motion blur failure - from Prophesee */}
                   <iframe 
                     width="100%" 
                     height="100%" 
-                    src="https://www.youtube.com/embed/kPCdeM-42Y8?autoplay=1&mute=1&loop=1&playlist=kPCdeM-42Y8" 
-                    title="Event-based vs Frame-based Vision for High-Speed Motion" 
+                    src="https://www.youtube.com/embed/yv0_a4g-D-M?autoplay=1&mute=1&loop=1&playlist=yv0_a4g-D-M" 
+                    title="Prophesee Metavision®: Event-Based Vision for High-Speed Motion" 
                     frameBorder="0" 
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                     allowFullScreen>
@@ -142,12 +142,12 @@ const ProblemSlide = () => {
             <DialogContent className="max-w-5xl p-0 overflow-hidden">
               <div className="bg-card">
                 <div className="aspect-[16/9] bg-background border-b border-border flex items-center justify-center">
-                  {/* Glare/reflection failure */}
+                  {/* Glare/reflection failure - from Edmund Optics */}
                   <iframe 
                     width="100%" 
                     height="100%" 
-                    src="https://www.youtube.com/embed/3a90ykMBPNM?autoplay=1&mute=1&loop=1&playlist=3a90ykMBPNM" 
-                    title="Polarization Filter for Glare Removal in Machine Vision" 
+                    src="https://www.youtube.com/embed/8Y-8i42-iFE?autoplay=1&mute=1&loop=1&playlist=8Y-8i42-iFE" 
+                    title="Polarizers for Glare Reduction in Machine Vision" 
                     frameBorder="0" 
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                     allowFullScreen>
