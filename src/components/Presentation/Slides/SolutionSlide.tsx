@@ -1,5 +1,6 @@
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { Pipeline } from "@/components/ui/pipeline";
 import { Zap, Database, Cpu, Shield, CheckCircle, Play, Maximize2 } from "lucide-react";
 import TechComparisonTable from "@/components/Charts/TechComparisonTable";
@@ -133,30 +134,14 @@ const SolutionSlide = () => {
         </div>
       </div>
 
-      {/* Factory Applications Map (smaller popup) */}
-      <div className="relative z-10 max-w-3xl mx-auto mb-6">
+      {/* Factory Applications Map (button only) */}
+      <div className="relative z-10 text-center mb-6">
         <Dialog>
           <DialogTrigger asChild>
-            <Card className="p-2 bg-card/80 backdrop-blur-sm border border-primary/20 rounded-lg shadow-lg cursor-pointer group hover:scale-[1.02] transition-all duration-300">
-              <div className="relative">
-                <div className="aspect-[3/1] rounded-md overflow-hidden border border-primary/30">
-                  <img
-                    src="/lovable-uploads/8b333b2b-5ac1-4248-8c5d-43dfce05c0f7.png"
-                    alt="Factory-wide event-based vision applications map"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="mt-2 text-center">
-                  <h4 className="text-sm font-bold text-white mb-1">Factory Applications Map</h4>
-                  <p className="text-xs text-muted">Click to expand full map</p>
-                </div>
-                <div className="absolute top-2 right-2 opacity-70 group-hover:opacity-100 transition-opacity">
-                  <Badge variant="outline" className="text-[10px] flex items-center gap-1">
-                    <Maximize2 className="w-3 h-3" /> Expand
-                  </Badge>
-                </div>
-              </div>
-            </Card>
+            <Button variant="outline" size="sm" className="border-primary text-primary hover:bg-primary hover:text-white">
+              <Maximize2 className="w-4 h-4 mr-2" />
+              View Factory Applications Map
+            </Button>
           </DialogTrigger>
           <DialogContent className="max-w-6xl p-0 overflow-hidden">
             <div className="bg-card">
