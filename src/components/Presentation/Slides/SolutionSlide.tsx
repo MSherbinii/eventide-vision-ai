@@ -134,7 +134,7 @@ const SolutionSlide = () => {
       </div>
 
       {/* Factory Applications Map (button only) */}
-      <div className="relative z-10 text-center mb-6">
+      <div className="relative z-10 text-center mb-6 mt-4">
         <Dialog>
           <DialogTrigger asChild>
             <Button variant="outline" size="sm" className="border-primary text-primary hover:bg-primary hover:text-white">
