@@ -84,7 +84,7 @@ const ProblemSlide = () => {
           {/* Motion blur failure */}
           <Dialog>
             <DialogTrigger asChild>
-              <Card className="p-3 bg-card/80 backdrop-blur-sm border border-destructive/20 rounded-xl shadow-lg cursor-pointer group">
+              <Card className="p-3 bg-card/80 backdrop-blur-sm border border-destructive/20 rounded-xl shadow-lg cursor-pointer group scale-150">
                 <div className="relative">
                   <div className="aspect-[16/9] bg-gradient-to-br from-destructive/15 to-transparent rounded-lg flex items-center justify-center border border-destructive/30">
                     <Play className="w-10 h-10 text-destructive opacity-80 group-hover:scale-110 transition-transform duration-200" />
@@ -114,7 +114,7 @@ const ProblemSlide = () => {
           {/* Glare/lighting failure */}
           <Dialog>
             <DialogTrigger asChild>
-              <Card className="p-3 bg-card/80 backdrop-blur-sm border border-destructive/20 rounded-xl shadow-lg cursor-pointer group">
+              <Card className="p-3 bg-card/80 backdrop-blur-sm border border-destructive/20 rounded-xl shadow-lg cursor-pointer group scale-150">
                 <div className="relative">
                   <div className="aspect-[16/9] bg-gradient-to-br from-destructive/15 to-transparent rounded-lg flex items-center justify-center border border-destructive/30">
                     <Play className="w-10 h-10 text-destructive opacity-80 group-hover:scale-110 transition-transform duration-200" />
