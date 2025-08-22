@@ -80,7 +80,7 @@ const ProblemSlide = () => {
 
       {/* Failure Cases (RGB) */}
       <div className="relative z-10 max-w-7xl mx-auto mb-8">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {/* Motion blur failure */}
           <Dialog>
             <DialogTrigger asChild>
@@ -141,11 +141,6 @@ const ProblemSlide = () => {
             </DialogContent>
           </Dialog>
 
-          {/* Event vs Frame side-by-side (kept) */}
-          <Card className="p-3 bg-card/80 backdrop-blur-sm border border-border rounded-xl shadow-lg">
-            <div className="text-center text-xs text-muted mb-2">Event vs Frame (side-by-side)</div>
-        <VideoCompare />
-          </Card>
         </div>
       </div>
 
