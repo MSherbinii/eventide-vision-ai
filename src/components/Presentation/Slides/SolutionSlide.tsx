@@ -80,8 +80,8 @@ const SolutionSlide = () => {
               />
             </div>
             <div className="text-center">
-              <h4 className="text-sm font-bold text-white mb-1">Event-Based Vision</h4>
-              <p className="text-xs text-muted mb-2">Real-time motion detection</p>
+              <h4 className="text-sm font-bold text-white mb-1">Cable Velocity and Slippage</h4>
+              <p className="text-xs text-muted mb-2">Real-time cable monitoring</p>
               <div className="flex gap-1 justify-center">
                 <Badge variant="secondary" className="bg-primary text-white border-0 text-xs px-2 py-1">Real-time</Badge>
                 <Badge variant="secondary" className="bg-accent text-white border-0 text-xs px-2 py-1">High-speed</Badge>
@@ -101,10 +101,10 @@ const SolutionSlide = () => {
               />
             </div>
             <div className="text-center">
-              <h4 className="text-sm font-bold text-white mb-1">Industrial Applications</h4>
-              <p className="text-xs text-muted mb-2">Manufacturing use cases</p>
+              <h4 className="text-sm font-bold text-white mb-1">HIGH-SPEED COUNTING</h4>
+              <p className="text-xs text-muted mb-2">1,000+ objects/second</p>
               <div className="flex gap-1 justify-center">
-                <Badge variant="secondary" className="bg-accent text-white border-0 text-xs px-2 py-1">Industrial</Badge>
+                <Badge variant="secondary" className="bg-accent text-white border-0 text-xs px-2 py-1">1K+ obj/s</Badge>
                 <Badge variant="secondary" className="bg-warning text-white border-0 text-xs px-2 py-1">Precision</Badge>
               </div>
             </div>
@@ -122,10 +122,10 @@ const SolutionSlide = () => {
               />
             </div>
             <div className="text-center">
-              <h4 className="text-sm font-bold text-white mb-1">Technology Demo</h4>
-              <p className="text-xs text-muted mb-2">Event camera capabilities</p>
+              <h4 className="text-sm font-bold text-white mb-1">Particle Size Monitoring</h4>
+              <p className="text-xs text-muted mb-2">Real-time distribution analysis</p>
               <div className="flex gap-1 justify-center">
-                <Badge variant="secondary" className="bg-warning text-white border-0 text-xs px-2 py-1">Advanced</Badge>
+                <Badge variant="secondary" className="bg-warning text-white border-0 text-xs px-2 py-1">Real-time</Badge>
                 <Badge variant="secondary" className="bg-primary text-white border-0 text-xs px-2 py-1">μs latency</Badge>
               </div>
             </div>
