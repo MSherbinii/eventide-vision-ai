@@ -105,7 +105,15 @@ const ProblemSlide = () => {
               <div className="bg-card">
                 <div className="aspect-[16/9] bg-background border-b border-border flex items-center justify-center">
                   {/* Replace src with real failure case video URL */}
-                  <div className="text-center text-muted text-xs p-6">Add RGB failure video URL here (motion blur). Placeholder shown.</div>
+                  <iframe 
+                    width="100%" 
+                    height="100%" 
+                    src="https://www.youtube.com/embed/8c-623e_L2I?autoplay=1&mute=1&loop=1&playlist=8c-623e_L2I" 
+                    title="High Speed Camera Slow Motion Video" 
+                    frameBorder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowFullScreen>
+                  </iframe>
                 </div>
               </div>
             </DialogContent>
@@ -135,7 +143,15 @@ const ProblemSlide = () => {
               <div className="bg-card">
                 <div className="aspect-[16/9] bg-background border-b border-border flex items-center justify-center">
                   {/* Replace src with real failure case video URL */}
-                  <div className="text-center text-muted text-xs p-6">Add RGB failure video URL here (glare/lighting). Placeholder shown.</div>
+                  <iframe 
+                    width="100%" 
+                    height="100%" 
+                    src="https://www.youtube.com/embed/9_611-yVbdQ?autoplay=1&mute=1&loop=1&playlist=9_611-yVbdQ" 
+                    title="Polarization Filtering Demo" 
+                    frameBorder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowFullScreen>
+                  </iframe>
                 </div>
               </div>
             </DialogContent>
