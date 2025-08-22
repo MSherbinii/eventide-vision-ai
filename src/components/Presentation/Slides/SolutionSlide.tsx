@@ -66,8 +66,8 @@ const SolutionSlide = () => {
       </div>
 
       {/* Industrial Video Demos */}
-      <div className="relative z-10 max-w-full mx-auto mb-8 px-8">
-        <div className="flex justify-between items-start gap-8">
+      <div className="relative z-10 max-w-full mx-auto mb-8 px-16">
+        <div className="flex justify-between items-start gap-16">
           {/* Event-Based Demo 1 */}
           <Card className="p-3 bg-card/80 backdrop-blur-sm border border-primary/20 rounded-xl shadow-lg scale-125 mx-4">
             <div className="aspect-[16/9] rounded-lg overflow-hidden mb-2">
