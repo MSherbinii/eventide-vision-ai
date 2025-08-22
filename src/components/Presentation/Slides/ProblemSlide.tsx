@@ -104,12 +104,12 @@ const ProblemSlide = () => {
             <DialogContent className="max-w-5xl p-0 overflow-hidden">
               <div className="bg-card">
                 <div className="aspect-[16/9] bg-background border-b border-border flex items-center justify-center">
-                  {/* Replace src with real failure case video URL */}
+                  {/* High-speed motion blur failure */}
                   <iframe 
                     width="100%" 
                     height="100%" 
-                    src="https://www.youtube.com/embed/8c-623e_L2I?autoplay=1&mute=1&loop=1&playlist=8c-623e_L2I" 
-                    title="High Speed Camera Slow Motion Video" 
+                    src="https://www.youtube.com/embed/kPCdeM-42Y8?autoplay=1&mute=1&loop=1&playlist=kPCdeM-42Y8" 
+                    title="Event-based vs Frame-based Vision for High-Speed Motion" 
                     frameBorder="0" 
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                     allowFullScreen>
@@ -142,12 +142,12 @@ const ProblemSlide = () => {
             <DialogContent className="max-w-5xl p-0 overflow-hidden">
               <div className="bg-card">
                 <div className="aspect-[16/9] bg-background border-b border-border flex items-center justify-center">
-                  {/* Replace src with real failure case video URL */}
+                  {/* Glare/reflection failure */}
                   <iframe 
                     width="100%" 
                     height="100%" 
-                    src="https://www.youtube.com/embed/9_611-yVbdQ?autoplay=1&mute=1&loop=1&playlist=9_611-yVbdQ" 
-                    title="Polarization Filtering Demo" 
+                    src="https://www.youtube.com/embed/3a90ykMBPNM?autoplay=1&mute=1&loop=1&playlist=3a90ykMBPNM" 
+                    title="Polarization Filter for Glare Removal in Machine Vision" 
                     frameBorder="0" 
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                     allowFullScreen>
