@@ -79,8 +79,8 @@ const ProblemSlide = () => {
       </div>
 
       {/* Failure Cases (RGB) */}
-      <div className="relative z-10 max-w-7xl mx-auto mb-16">
-        <div className="flex justify-between items-start px-16 gap-24">
+      <div className="relative z-10 max-w-full mx-auto mb-16 px-8">
+        <div className="flex justify-between items-start px-32 gap-32">
           {/* Motion blur failure */}
           <Dialog>
             <DialogTrigger asChild>
