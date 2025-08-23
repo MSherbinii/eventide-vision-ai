@@ -9,23 +9,25 @@ const TeamSlide = () => {
     {
       name: "Mohamed El Sherbini",
       role: "Co-Founder & CEO", 
-      background: "ex-DLR; projects with NASA, Google DeepMind (via DLR), BMW, Helsing AI, Airbus Defence & Space. M.Sc. Electrical/Robotics (FAU Erlangen–Nürnberg)",
+      background: "PhD-level Researcher in Space Robotics (DLR)",
       skills: ["Neuromorphic algorithms", "Industrial systems", "Strategic vision"],
-      credentials: ["ex-DLR", "NASA projects", "DeepMind projects", "BMW", "Airbus D&S", "Helsing AI", "M.Sc FAU"]
+      credentials: [],
+      degreeTag: "M.Sc (FAU)"
     },
     {
       name: "Aly Barakat",
       role: "Co-Founder & COO",
-      background: "M.Sc. Electrical/Robotics (TUM); ops & biz dev; DACH/GCC partnerships",
+      background: "Ops & biz dev; DACH/GCC partnerships",
       skills: ["Operations scaling", "Business strategy", "Market development"],
-      credentials: ["M.Sc TUM", "DACH network", "GCC network"]
+      credentials: [],
+      degreeTag: "M.Sc (TUM)"
     },
     {
       name: "Peter Essam", 
       role: "Co-Founder & CIO",
       background: "Information systems and technology infrastructure",
       skills: ["System architecture", "IT infrastructure", "Data management"],
-      credentials: ["Enterprise IT", "Data governance"]
+      credentials: []
     }
   ];
 
@@ -186,9 +188,14 @@ const TeamSlide = () => {
                       <Users className="w-8 h-8 text-white" />
                     </div>
                     <div className="flex-1">
-                      <h4 className="text-lg font-bold mb-1 text-white">{founder.name}</h4>
-                      <p className="text-sm font-medium text-primary mb-2">{founder.role}</p>
-                      <p className="text-xs text-muted mb-3">{founder.background}</p>
+                      <div className="flex items-center gap-2 mb-1">
+                        <h4 className="text-lg font-bold text-white">{founder.name}</h4>
+                        {founder.degreeTag && (
+                          <Badge variant="outline" className="text-[10px]">{founder.degreeTag}</Badge>
+                        )}
+                      </div>
+                      <p className="text-sm font-medium text-primary mb-1">{founder.role}</p>
+                      <p className="text-xs text-muted mb-2">{founder.background}</p>
                       <div className="grid grid-cols-3 gap-2">
                         {founder.skills.map((skill, idx) => (
                           <Badge key={idx} variant="secondary" className="text-xs text-center">
@@ -196,13 +203,16 @@ const TeamSlide = () => {
                           </Badge>
                         ))}
                       </div>
-                      {founder.credentials && (
-                        <div className="flex flex-wrap gap-2 mt-2">
-                          {founder.credentials.map((c: string, i: number) => (
-                            <Badge key={i} variant="outline" className="text-[10px]">
-                              {c}
-                            </Badge>
-                          ))}
+                      {founder.name === "Mohamed El Sherbini" && (
+                        <div className="mt-3">
+                          <LogoStrip
+                            logos={[
+                              { alt: "DLR", src: "/logos/dlr.png" },
+                              { alt: "NASA", src: "/logos/nasa.png" },
+                              { alt: "DeepMind", src: "/logos/deepmind.png" },
+                            ]}
+                            maxHeight={22}
+                          />
                         </div>
                       )}
                     </div>
