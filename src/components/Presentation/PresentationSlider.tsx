@@ -115,7 +115,7 @@ const PresentationSlider = ({
   const CurrentSlideComponent = slides[currentSlide]?.component;
 
   return (
-    <div className={`relative w-full h-screen bg-background overflow-hidden ${isFullscreen ? 'z-50' : ''}`}>
+    <div className={`relative w-full h-screen bg-background ${isFullscreen ? 'z-50' : ''}`}>
       {/* Slide Content */}
       <div className="relative w-full h-full">
         <AnimatePresence mode="wait">
@@ -128,9 +128,15 @@ const PresentationSlider = ({
               duration: 0.5, 
               ease: "easeInOut"
             }}
-            className="absolute inset-0 w-full h-full overflow-y-auto pb-40"
+            className="absolute inset-0 w-full h-full overflow-y-auto overflow-x-hidden scrollbar-thin scrollbar-thumb-primary/20 scrollbar-track-transparent pb-40"
+            style={{ 
+              scrollBehavior: 'smooth',
+              overscrollBehavior: 'contain'
+            }}
           >
-            {CurrentSlideComponent && <CurrentSlideComponent />}
+            <div className="min-h-full w-full">
+              {CurrentSlideComponent && <CurrentSlideComponent />}
+            </div>
           </motion.div>
         </AnimatePresence>
       </div>
