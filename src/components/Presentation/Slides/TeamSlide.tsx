@@ -108,9 +108,9 @@ const TeamSlide = () => {
     },
     {
       icon: <Target className="w-8 h-8" />,
-      title: "Deep Networks & Hubs",
-      description: "DLR • TUM • FAU • XPRENEURS • Munich AI ecosystem • industry intros",
-      metric: "Warm intros • advisors • partners"
+      title: "Egypt Networks & GCC Access",
+      description: "Egypt tech ecosystem (ITIDA/TIEC) • Cairo/AUC/GUC alumni • local SIs • GCC connectors (KSA/UAE) • manufacturers/pilot sites",
+      metric: "Egypt ↔ GCC intros • pilots • partners"
     }
   ];
 
