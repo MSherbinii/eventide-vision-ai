@@ -10,6 +10,8 @@ interface LogoStripProps {
   className?: string;
   rowClassName?: string;
   maxHeight?: number;
+  grayscale?: boolean;
+  size?: 'sm' | 'md' | 'lg';
 }
 
 export const LogoStrip: React.FC<LogoStripProps> = ({
@@ -17,7 +19,13 @@ export const LogoStrip: React.FC<LogoStripProps> = ({
   className,
   rowClassName,
   maxHeight = 28,
+  grayscale = true,
+  size = 'md',
 }) => {
+  const sizeClass = size === 'sm' ? 'h-5 md:h-6' : size === 'lg' ? 'h-7 md:h-8' : 'h-6 md:h-7';
+  const fxClass = grayscale
+    ? 'grayscale opacity-70 hover:opacity-100 hover:grayscale-0 transition'
+    : 'opacity-80 hover:opacity-100 transition';
   return (
     <div className={"w-full " + (className ?? "")}>
       <div
@@ -31,8 +39,8 @@ export const LogoStrip: React.FC<LogoStripProps> = ({
             <img
               src={logo.src}
               alt={logo.alt}
-              style={{ maxHeight, height: maxHeight }}
-              className="object-contain w-auto"
+              style={{ maxHeight }}
+              className={`object-contain w-auto ${sizeClass} ${fxClass}`}
               loading="lazy"
             />
           </div>

@@ -184,17 +184,33 @@ const TeamSlide = () => {
               {foundingTeam.map((founder, index) => (
                 <Card key={index} className="p-6 bg-gradient-to-r from-primary/10 to-secondary/10 border-primary/20">
                   <div className="flex items-start gap-4">
-                    <div className="w-16 h-16 rounded-full bg-gradient-to-r from-primary to-primary-glow flex items-center justify-center">
+                    <div className="w-16 h-16 rounded-full bg-gradient-to-r from-primary to-primary-glow flex items-center justify-center ring-1 ring-primary/30 shadow-lg">
                       <Users className="w-8 h-8 text-white" />
                     </div>
                     <div className="flex-1">
-                      <div className="flex items-center gap-2 mb-1">
-                        <h4 className="text-lg font-bold text-white">{founder.name}</h4>
-                        {founder.degreeTag && (
-                          <Badge variant="outline" className="text-[10px]">{founder.degreeTag}</Badge>
+                      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+                        <div className="flex items-center gap-2">
+                          <h4 className="text-lg font-bold text-white">{founder.name}</h4>
+                          {founder.degreeTag && (
+                            <Badge variant="outline" className="text-[10px]">{founder.degreeTag}</Badge>
+                          )}
+                        </div>
+                        {founder.name === "Mohamed El Sherbini" && (
+                          <div className="rounded-md bg-card/50 backdrop-blur-sm border border-border/40 px-2 py-1">
+                            <LogoStrip
+                              logos={[
+                                { alt: "DLR", src: "/logos/dlr.png" },
+                                { alt: "NASA", src: "/logos/nasa.png" },
+                                { alt: "DeepMind", src: "/logos/deepmind.png" },
+                              ]}
+                              maxHeight={24}
+                              size="sm"
+                              grayscale
+                            />
+                          </div>
                         )}
                       </div>
-                      <p className="text-sm font-medium text-primary mb-1">{founder.role}</p>
+                      <p className="text-sm font-medium text-primary mt-1">{founder.role}</p>
                       <p className="text-xs text-muted mb-2">{founder.background}</p>
                       <div className="grid grid-cols-3 gap-2">
                         {founder.skills.map((skill, idx) => (
@@ -203,18 +219,6 @@ const TeamSlide = () => {
                           </Badge>
                         ))}
                       </div>
-                      {founder.name === "Mohamed El Sherbini" && (
-                        <div className="mt-3">
-                          <LogoStrip
-                            logos={[
-                              { alt: "DLR", src: "/logos/dlr.png" },
-                              { alt: "NASA", src: "/logos/nasa.png" },
-                              { alt: "DeepMind", src: "/logos/deepmind.png" },
-                            ]}
-                            maxHeight={22}
-                          />
-                        </div>
-                      )}
                     </div>
                   </div>
                 </Card>
