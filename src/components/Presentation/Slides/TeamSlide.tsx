@@ -7,7 +7,7 @@ const TeamSlide = () => {
   const foundingTeam = [
     {
       name: "Mohamed El Sherbini",
-      role: "Founder & CEO", 
+      role: "Co-Founder & CEO", 
       background: "Event-based computer vision expertise, technical leadership",
       skills: ["Neuromorphic algorithms", "Industrial systems", "Strategic vision"]
     },

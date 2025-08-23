@@ -18,6 +18,7 @@ const Index = () => {
     { id: 'title', title: 'LuminarX AI', component: TitleSlide },
     { id: 'problem', title: 'The Problem', component: ProblemSlide },
     { id: 'solution', title: 'Our Solution', component: SolutionSlide },
+    { id: 'cost-of-frame', title: 'Cost of Frame Vision', component: CostOfFrameVisionSlide },
     { id: 'market', title: 'Market Opportunity', component: MarketSlide },
     { id: 'business-model', title: 'Business Model', component: BusinessModelSlideV2 },
     { id: 'go-to-market', title: 'Go-to-Market', component: GoToMarketSlide },
