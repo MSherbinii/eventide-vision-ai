@@ -137,7 +137,7 @@ const CostOfFrameVisionSlide = () => {
   };
 
   return (
-    <div className="w-full h-full flex flex-col px-8 py-6 bg-gradient-to-br from-background via-background to-primary/5 relative overflow-hidden">
+    <div className="w-full min-h-screen flex flex-col px-8 py-6 bg-gradient-to-br from-background via-background to-primary/5 relative">
       {/* Animated Background */}
       <div className="animated-bg">
         <div className="floating-orb orb-primary" />

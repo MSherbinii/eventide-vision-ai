@@ -81,7 +81,7 @@ const BusinessModelSlideV2 = () => {
   };
 
   return (
-    <div className="w-full h-full flex flex-col px-8 py-6 bg-gradient-to-br from-background to-primary/5">
+    <div className="w-full min-h-screen flex flex-col px-8 py-6 bg-gradient-to-br from-background to-primary/5">
       {/* Clean Background */}
       <div className="absolute inset-0 z-0">
         <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>

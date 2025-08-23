@@ -61,7 +61,7 @@ const MarketSlide = () => {
   ];
 
   return (
-    <div className="w-full h-full flex flex-col px-8 py-6 bg-gradient-to-br from-background via-background to-primary/5">
+    <div className="w-full min-h-screen flex flex-col px-8 py-6 bg-gradient-to-br from-background via-background to-primary/5">
       {/* Subtle Background Pattern */}
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-gradient-to-tr from-primary/3 via-transparent to-accent/5"></div>

@@ -115,9 +115,9 @@ const PresentationSlider = ({
   const CurrentSlideComponent = slides[currentSlide]?.component;
 
   return (
-    <div className={`relative w-full h-screen bg-background ${isFullscreen ? 'z-50' : ''}`}>
+    <div className={`relative w-full min-h-screen bg-background ${isFullscreen ? 'z-50' : ''}`}>
       {/* Slide Content */}
-      <div className="relative w-full h-full">
+      <div className="relative w-full min-h-screen">
         <AnimatePresence mode="wait">
           <motion.div
             key={currentSlide}
@@ -134,7 +134,7 @@ const PresentationSlider = ({
               overscrollBehavior: 'contain'
             }}
           >
-            <div className="min-h-full w-full">
+            <div className="min-h-screen w-full">
               {CurrentSlideComponent && <CurrentSlideComponent />}
             </div>
           </motion.div>

@@ -89,7 +89,7 @@ const RoadmapSlideV2 = () => {
   const currentPhase = phases.find(p => p.id === selectedPhase) || phases[0];
 
   return (
-    <div className="w-full h-full flex flex-col px-8 py-6 bg-gradient-to-br from-background to-accent/5">
+    <div className="w-full min-h-screen flex flex-col px-8 py-6 bg-gradient-to-br from-background to-accent/5">
       {/* Clean Background */}
       <div className="absolute inset-0 z-0">
         <div className="absolute top-20 left-20 w-80 h-80 bg-accent/5 rounded-full blur-3xl"></div>

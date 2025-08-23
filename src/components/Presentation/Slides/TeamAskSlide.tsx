@@ -17,7 +17,7 @@ const TeamAskSlide = () => {
   ];
 
   return (
-    <div className="w-full h-screen flex flex-col px-8 py-6 bg-background relative overflow-hidden">
+    <div className="w-full min-h-screen flex flex-col px-8 py-6 bg-background relative">
       {/* Unified Animated Background */}
       <div className="animated-bg">
         <div className="floating-orb" style={{ width: 600, height: 600, background: 'radial-gradient(circle, hsl(var(--primary) / 0.3), transparent)', top: -200, left: -200 }} />

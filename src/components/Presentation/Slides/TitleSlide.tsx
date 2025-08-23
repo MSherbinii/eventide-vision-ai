@@ -5,7 +5,7 @@ import heroIndustrialRobots from "@/assets/hero-industrial-robots.jpg";
 
 const TitleSlide = () => {
   return (
-    <div className="w-full h-screen flex flex-col justify-center relative overflow-hidden bg-background">
+    <div className="w-full min-h-screen flex flex-col justify-center relative bg-background">
       {/* Unified Animated Background */}
       <div className="animated-bg">
         <div className="floating-orb orb-primary" />

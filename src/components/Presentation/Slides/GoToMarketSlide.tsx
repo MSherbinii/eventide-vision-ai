@@ -29,7 +29,7 @@ const GoToMarketSlide = () => {
   ];
 
   return (
-    <div className="w-full h-full flex flex-col px-8 py-6 bg-background relative overflow-hidden">
+    <div className="w-full min-h-screen flex flex-col px-8 py-6 bg-background relative">
       {/* Unified Animated Background */}
       <div className="animated-bg">
         <div className="floating-orb orb-primary" />
