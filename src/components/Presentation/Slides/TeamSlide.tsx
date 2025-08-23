@@ -1,6 +1,7 @@
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Users, MapPin, GraduationCap, Briefcase, Target, Star } from "lucide-react";
+import LogoStrip from "@/components/ui/logo-strip";
 import { motion } from "framer-motion";
 
 const TeamSlide = () => {
@@ -156,6 +157,19 @@ const TeamSlide = () => {
         <p className="text-lg text-muted max-w-4xl mx-auto">
           Proven founding team with complementary skills, focused on rapid technical team scaling
         </p>
+        <div className="max-w-4xl mx-auto">
+          <LogoStrip
+            logos={[
+              { alt: "NASA", src: "/logos/nasa.png" },
+              { alt: "DLR", src: "/logos/dlr.png" },
+              { alt: "DeepMind", src: "/logos/deepmind.png" },
+              { alt: "BMW", src: "/logos/bmw.webp" },
+              { alt: "Airbus Defence & Space", src: "/logos/airbus.jpeg" },
+              { alt: "FAU", src: "/logos/fau.png" },
+            ]}
+            maxHeight={28}
+          />
+        </div>
       </div>
 
       <div className="relative z-10 flex-1 grid grid-cols-2 gap-6">
