@@ -17,8 +17,8 @@ const CompactDeck = () => {
   const slides = [
     { id: 'title', title: 'LuminarX AI', component: TitleSlide },
     { id: 'problem', title: 'The Problem', component: ProblemSlide },
-    { id: 'cost', title: 'Cost Reality Check', component: CostOfFrameVisionSlide },
     { id: 'solution', title: 'Our Solution', component: SolutionSlide },
+    { id: 'cost', title: 'Cost Reality Check', component: CostOfFrameVisionSlide },
     { id: 'market', title: 'Market Opportunity', component: MarketSlide },
     { id: 'gtm', title: 'Go-To-Market', component: GoToMarketSlide },
     { id: 'business-model', title: 'Business Model', component: BusinessModelSlide },
