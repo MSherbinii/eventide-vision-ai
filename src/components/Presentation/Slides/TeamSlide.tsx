@@ -8,20 +8,23 @@ const TeamSlide = () => {
     {
       name: "Mohamed El Sherbini",
       role: "Co-Founder & CEO", 
-      background: "Event-based computer vision expertise, technical leadership",
-      skills: ["Neuromorphic algorithms", "Industrial systems", "Strategic vision"]
+      background: "ex-DLR; projects with NASA, Google DeepMind (via DLR), BMW, Helsing AI, Airbus Defence & Space. M.Sc. Electrical/Robotics (FAU Erlangen–Nürnberg)",
+      skills: ["Neuromorphic algorithms", "Industrial systems", "Strategic vision"],
+      credentials: ["ex-DLR", "NASA projects", "DeepMind projects", "BMW", "Airbus D&S", "Helsing AI", "M.Sc FAU"]
     },
     {
       name: "Aly Barakat",
       role: "Co-Founder & COO",
-      background: "Operations and business development expertise", 
-      skills: ["Operations scaling", "Business strategy", "Market development"]
+      background: "M.Sc. Electrical/Robotics (TUM); ops & biz dev; DACH/GCC partnerships",
+      skills: ["Operations scaling", "Business strategy", "Market development"],
+      credentials: ["M.Sc TUM", "DACH network", "GCC network"]
     },
     {
       name: "Peter Essam", 
       role: "Co-Founder & CIO",
       background: "Information systems and technology infrastructure",
-      skills: ["System architecture", "IT infrastructure", "Data management"]
+      skills: ["System architecture", "IT infrastructure", "Data management"],
+      credentials: ["Enterprise IT", "Data governance"]
     }
   ];
 
@@ -37,7 +40,7 @@ const TeamSlide = () => {
         "Industrial systems architecture",
         "Team building and technical strategy"
       ],
-      equity: "2-4%",
+      equity: "1.5–2.5%",
       priority: "Critical"
     },
     {
@@ -50,7 +53,7 @@ const TeamSlide = () => {
         "Real-time systems optimization",
         "Python/C++ proficiency"
       ],
-      equity: "0.3-0.8% each (ESOP)",
+      equity: "0.2–0.5% each (ESOP)",
       priority: "Critical"
     },
     {
@@ -63,7 +66,7 @@ const TeamSlide = () => {
         "Cloud infrastructure (AWS/Azure)",
         "Industrial IoT integration"
       ],
-      equity: "0.2-0.5% each",
+      equity: "0.15–0.35% each",
       priority: "Critical"
     },
     {
@@ -76,7 +79,7 @@ const TeamSlide = () => {
         "Enterprise B2B relationships",
         "Technical sales capability"
       ],
-      equity: "0.5-1.0%",
+      equity: "0.25–0.5% + plan",
       priority: "High"
     }
   ];
@@ -102,14 +105,14 @@ const TeamSlide = () => {
     },
     {
       icon: <Target className="w-8 h-8" />,
-      title: "Government Support",
-      description: "Tech startup incentives and regulatory support",
-      metric: "0% tax first 2 years"
+      title: "Deep Networks & Hubs",
+      description: "DLR • TUM • FAU • XPRENEURS • Munich AI ecosystem • industry intros",
+      metric: "Warm intros • advisors • partners"
     }
   ];
 
   const esopDetails = {
-    poolSize: "10-15%",
+    poolSize: "ESOP 8–12% + Advisors 2–3% (total 10–15%)",
     vestingSchedule: "4 years, 1-year cliff",
     eligibility: "Full-time employees after 90 days",
     strikes: "Fair market value at grant",
@@ -120,17 +123,17 @@ const TeamSlide = () => {
     {
       profile: "Industrial Automation Executive",
       value: "DACH market access, enterprise relationships",
-      equity: "0.5-1.0%"
+      equity: "0.25–0.5%"
     },
     {
       profile: "Computer Vision Research Leader",
       value: "Technical guidance, academic connections",
-      equity: "0.25-0.5%"
+      equity: "0.2–0.4%"
     },
     {
       profile: "GCC Manufacturing Executive",
       value: "Middle East market entry, customer introductions",
-      equity: "0.5-1.0%"
+      equity: "0.25–0.5%"
     }
   ];
 
@@ -179,6 +182,15 @@ const TeamSlide = () => {
                           </Badge>
                         ))}
                       </div>
+                      {founder.credentials && (
+                        <div className="flex flex-wrap gap-2 mt-2">
+                          {founder.credentials.map((c: string, i: number) => (
+                            <Badge key={i} variant="outline" className="text-[10px]">
+                              {c}
+                            </Badge>
+                          ))}
+                        </div>
+                      )}
                     </div>
                   </div>
                 </Card>

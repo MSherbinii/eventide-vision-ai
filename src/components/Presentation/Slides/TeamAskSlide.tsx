@@ -4,9 +4,9 @@ import { motion } from "framer-motion";
 
 const TeamAskSlide = () => {
   const team = [
-    { name: "Mohamed El Sherbini", role: "Founder & CEO", focus: "Event-based CV, industrial systems" },
-    { name: "Aly Barakat", role: "Co-Founder & COO", focus: "Ops & biz dev, market access" },
-    { name: "Peter Essam", role: "Co-Founder & CIO", focus: "Systems & IT architecture" }
+    { name: "Mohamed El Sherbini", role: "Founder & CEO", focus: "ex-DLR; projects with NASA, DeepMind (via DLR); M.Sc FAU" },
+    { name: "Aly Barakat", role: "Co-Founder & COO", focus: "M.Sc TUM; ops & biz dev; DACH/GCC network" },
+    { name: "Peter Essam", role: "Co-Founder & CIO", focus: "Systems & IT architecture; enterprise IT" }
   ];
 
   const funds = [
@@ -50,7 +50,7 @@ const TeamAskSlide = () => {
                       <div className="text-primary text-sm">{member.role}</div>
                       <div className="text-muted-foreground text-xs mt-1">{member.focus}</div>
                     </div>
-                    <Badge variant="secondary" className="text-xs">ESOP 10–15%</Badge>
+                    <Badge variant="secondary" className="text-xs">ESOP + Advisors 10–15%</Badge>
                   </div>
                 </Card>
               </motion.div>
@@ -93,7 +93,7 @@ const TeamAskSlide = () => {
             <div className="space-y-2 text-sm">
               <div className="flex items-center justify-between">
                 <span className="text-muted-foreground">Equity</span>
-                <span className="font-semibold text-primary">15%</span>
+                <span className="font-semibold text-primary">15% round • 10–15% ESOP+Advisors</span>
               </div>
               <div className="flex items-center justify-between">
                 <span className="text-muted-foreground">Use of Funds</span>
