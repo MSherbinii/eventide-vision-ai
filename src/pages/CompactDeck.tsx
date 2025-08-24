@@ -7,7 +7,7 @@ import MarketSlide from "@/components/Presentation/Slides/MarketSlide";
 import GoToMarketSlide from "@/components/Presentation/Slides/GoToMarketSlide";
 import BusinessModelSlide from "@/components/Presentation/Slides/BusinessModelSlide";
 import CompetitionSlide from "@/components/Presentation/Slides/CompetitionSlide";
-import ScaleTimelineSlide from "@/components/Presentation/Slides/ScaleTimelineSlide";
+import RoadmapSlide from "@/components/Presentation/Slides/RoadmapSlide";
 import TeamSlide from "@/components/Presentation/Slides/TeamSlide";
 import AskSlideV2 from "@/components/Presentation/Slides/AskSlideV2";
 import BusinessModelSlideV2 from "@/components/Presentation/Slides/BusinessModelSlideV2";
@@ -24,7 +24,7 @@ const CompactDeck = () => {
     { id: 'business-model', title: 'Business Model', component: BusinessModelSlideV2 },
     { id: 'gtm', title: 'Go-To-Market', component: GoToMarketSlide },
     { id: 'competition', title: 'Why We Win', component: CompetitionSlide },
-    { id: 'roadmap', title: 'Timeline & Milestones', component: ScaleTimelineSlide },
+    { id: 'roadmap', title: 'Timeline & Milestones', component: RoadmapSlide },
     { id: 'team', title: 'Team', component: TeamSlide },
     { id: 'ask', title: 'The Ask', component: AskSlideV2 }
   ];
