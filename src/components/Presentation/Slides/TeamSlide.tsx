@@ -11,16 +11,14 @@ const TeamSlide = () => {
       role: "Co-Founder & CEO", 
       background: "PhD-level Researcher in Space Robotics (DLR)",
       skills: ["Neuromorphic algorithms", "Industrial systems", "Strategic vision"],
-      credentials: [],
-      degreeTag: "M.Sc (FAU)"
+      credentials: []
     },
     {
       name: "Aly Barakat",
-      role: "Co-Founder & COO",
+      role: "Co-Founder & COO/CTO",
       background: "Ops & biz dev; DACH/GCC partnerships",
       skills: ["Operations scaling", "Business strategy", "Market development"],
-      credentials: [],
-      degreeTag: "M.Sc (TUM)"
+      credentials: []
     },
     {
       name: "Peter Essam", 
@@ -33,23 +31,9 @@ const TeamSlide = () => {
 
   const keyHires = [
     {
-      role: "Chief Technology Officer (CTO)",
-      location: "Germany (Munich)",
-      timeline: "0-6 months",
-      requirements: [
-        "PhD/MS Computer Vision or related",
-        "10+ years CV/ML leadership experience", 
-        "Event-based processing expertise",
-        "Industrial systems architecture",
-        "Team building and technical strategy"
-      ],
-      equity: "1.5–2.5%",
-      priority: "Critical"
-    },
-    {
       role: "Computer Vision Engineers (3)",
       location: "Egypt", 
-      timeline: "0-6 months",
+      timeline: "0-9 months",
       requirements: [
         "Deep learning & computer vision",
         "Event-based processing knowledge",
@@ -62,7 +46,7 @@ const TeamSlide = () => {
     {
       role: "Full-Stack Engineers (2)",
       location: "Egypt",
-      timeline: "3-9 months", 
+      timeline: "0-9 months", 
       requirements: [
         "SaaS platform development",
         "React/Node.js expertise",
@@ -71,6 +55,34 @@ const TeamSlide = () => {
       ],
       equity: "0.15–0.35% each",
       priority: "Critical"
+    },
+    {
+      role: "Lead Brand & Visual Designer",
+      location: "Egypt/Germany (remote-friendly)",
+      timeline: "0-3 months",
+      requirements: [
+        "Brand identity (logo, color, typography)",
+        "Product UI/UX + design system", 
+        "Social media creative + motion snippets",
+        "Figma, Adobe CC (Illustrator/After Effects)",
+        "Portfolio: B2B tech/industrial visuals"
+      ],
+      equity: "— (salary only)",
+      priority: "High"
+    },
+    {
+      role: "Social Media Manager",
+      location: "Egypt/Germany (remote-friendly)",
+      timeline: "0-3 months",
+      requirements: [
+        "Content calendar + channel strategy (LinkedIn/X)",
+        "Short-form video, basic edits (CapCut/PR)",
+        "Copywriting for technical audiences",
+        "Analytics + growth experiments",
+        "Coordination with design and founders"
+      ],
+      equity: "— (salary only)",
+      priority: "High"
     },
     {
       role: "Sales Head",
@@ -159,19 +171,6 @@ const TeamSlide = () => {
         <p className="text-lg text-muted max-w-4xl mx-auto">
           Proven founding team with complementary skills, focused on rapid technical team scaling
         </p>
-        <div className="max-w-4xl mx-auto">
-          <LogoStrip
-            logos={[
-              { alt: "NASA", src: "/logos/nasa.png" },
-              { alt: "DLR", src: "/logos/dlr.png" },
-              { alt: "DeepMind", src: "/logos/deepmind.png" },
-              { alt: "BMW", src: "/logos/bmw.webp" },
-              { alt: "Airbus Defence & Space", src: "/logos/airbus.jpeg" },
-              { alt: "FAU", src: "/logos/fau.png" },
-            ]}
-            maxHeight={28}
-          />
-        </div>
       </div>
 
       <div className="relative z-10 flex-1 grid grid-cols-2 gap-6">
@@ -190,10 +189,7 @@ const TeamSlide = () => {
                     <div className="flex-1">
                       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
                         <div className="flex items-center gap-2">
-                          <h4 className="text-lg font-bold text-white">{founder.name}</h4>
-                          {founder.degreeTag && (
-                            <Badge variant="outline" className="text-[10px]">{founder.degreeTag}</Badge>
-                          )}
+                          <h4 className="text-lg font-bold text-white">{`M.Sc, ${founder.name}`}</h4>
                         </div>
                         {founder.name === "Mohamed El Sherbini" && (
                           <div className="rounded-md bg-card/50 backdrop-blur-sm border border-border/40 px-2 py-1">
