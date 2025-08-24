@@ -70,12 +70,6 @@ const ProblemSlide = () => {
             <div className="text-muted-foreground">Complex integration stacks → slow deployment, fragile ops</div>
           </div>
         </div>
-        <div className="flex items-center justify-center gap-2 flex-wrap">
-          <Badge variant="secondary">High-Speed QC</Badge>
-          <Badge variant="secondary">99.9% Uptime</Badge>
-          <Badge variant="secondary">Edge AI</Badge>
-          <Badge variant="secondary">Real-time MLOps</Badge>
-        </div>
       </div>
 
       {/* Failure Cases (RGB) */}
