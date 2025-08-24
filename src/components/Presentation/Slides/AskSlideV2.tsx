@@ -8,7 +8,7 @@ const AskSlideV2 = () => {
   const fundingAllocation = [
     {
       category: "Product Development",
-      amount: "€240K",
+      amount: "€200K",
       percentage: "40%",
       details: [
         "MVP completion & testing",
@@ -19,7 +19,7 @@ const AskSlideV2 = () => {
     },
     {
       category: "Team Building",
-      amount: "€210K",
+      amount: "€175K",
       percentage: "35%",
       details: [
         "3-5 Class A engineers (0–9 mo)",
@@ -31,7 +31,7 @@ const AskSlideV2 = () => {
     },
     {
       category: "Market Entry",
-      amount: "€90K",
+      amount: "€75K",
       percentage: "15%",
       details: [
         "Pilot projects (3-5 customers)",
@@ -42,7 +42,7 @@ const AskSlideV2 = () => {
     },
     {
       category: "Operations",
-      amount: "€60K",
+      amount: "€50K",
       percentage: "10%",
       details: [
         "GmbH establishment",
@@ -54,12 +54,12 @@ const AskSlideV2 = () => {
   ];
 
   const investorTerms = {
-    raise: "€600K",
+    raise: "€500K",
     instrument: "SAFE (post-money)",
     valuationCap: "€6.0M",
     discount: "20%",
     targetOwnership: "8–10%",
-    runway: "18 months",
+    runway: "15–18 months",
     nextRound: "Seed in 12–18 mo @ €10–12M pre"
   };
 
@@ -92,10 +92,10 @@ const AskSlideV2 = () => {
           PRE-SEED INVESTMENT
         </Badge>
         <h1 className="text-4xl md:text-5xl font-bold text-foreground tracking-tight">
-          €600K Pre‑Seed to Build the <span className="text-primary">Future of Industrial Vision</span>
+          €500K Pre‑Seed to Build the <span className="text-primary">Future of Industrial Vision</span>
         </h1>
         <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-          18‑month runway to pilots and seed — standard pre‑seed SAFE terms
+          15–18‑month runway to pilots and seed — standard pre‑seed SAFE terms
         </p>
       </div>
 
