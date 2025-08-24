@@ -141,8 +141,8 @@ const TeamSlide = () => {
       equity: "0.25–0.5%"
     },
     {
-      profile: "Computer Vision Research Leader",
-      value: "Technical guidance, academic connections",
+      profile: "Professor of Computer Vision / AI",
+      value: "Academic leadership, technical guidance, talent pipeline",
       equity: "0.2–0.4%"
     },
     {
@@ -195,8 +195,8 @@ const TeamSlide = () => {
                           <div className="rounded-md bg-card/50 backdrop-blur-sm border border-border/40 px-2 py-1">
                             <LogoStrip
                               logos={[
-                                { alt: "DLR", src: "/logos/dlr.png" },
-                                { alt: "NASA", src: "/logos/nasa.png" },
+                                { alt: "DLR", src: "/logos/dlr.png", height: 26 },
+                                { alt: "Airbus Defence & Space", src: "/logos/airbus.jpeg" },
                                 { alt: "DeepMind", src: "/logos/deepmind.png" },
                               ]}
                               maxHeight={24}

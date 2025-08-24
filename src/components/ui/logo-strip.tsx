@@ -3,6 +3,7 @@ import React from "react";
 type Logo = {
   alt: string;
   src: string;
+  height?: number;
 };
 
 interface LogoStripProps {
@@ -39,7 +40,7 @@ export const LogoStrip: React.FC<LogoStripProps> = ({
             <img
               src={logo.src}
               alt={logo.alt}
-              style={{ maxHeight }}
+              style={{ maxHeight, height: logo.height ?? undefined }}
               className={`object-contain w-auto ${sizeClass} ${fxClass}`}
               loading="lazy"
             />
