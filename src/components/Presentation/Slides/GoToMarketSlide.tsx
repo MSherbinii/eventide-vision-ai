@@ -4,8 +4,8 @@ import { motion } from "framer-motion";
 
 const GoToMarketSlide = () => {
   const pilotExample = {
-    customer: "European Cable Manufacturer",
-    challenge: "Cable velocity & slipping monitoring at 300m/min production speed",
+    customer: "Mid-size Pharma Manufacturer",
+    challenge: "High-speed pill counting quality control (800 pills/minute)",
     solution: "2 production lines, 8-week pilot",
     timeline: "Week 1-2: Setup • Week 3-6: Training & Testing • Week 7-8: Validation",
     costs: {
@@ -14,8 +14,8 @@ const GoToMarketSlide = () => {
       annual: "€28,800/year"
     },
     roi: {
-      defectReduction: "€65K/year (3% waste reduction)",
-      downtimeReduction: "€35K/year (8% improvement)",
+      defectReduction: "€65K/year (2% waste reduction)",
+      downtimeReduction: "€35K/year (5% improvement)",
       totalSavings: "€100K/year",
       customerROI: "62% first year",
       payback: "7.8 months"
@@ -23,9 +23,9 @@ const GoToMarketSlide = () => {
   };
 
   const icp = [
-    { label: "Cable manufacturing", detail: "Velocity & slipping monitoring, 200-500m/min lines" },
-    { label: "Yarn production", detail: "Quality control, tension monitoring, defect detection" },
-    { label: "Wire drawing", detail: "Surface defects, diameter consistency" }
+    { label: "Pharma packaging", detail: "High-speed counting, cap/closure inspection, 600-1000 ppm" },
+    { label: "F&B bottling", detail: "High-speed counting, closure QC, packaging validation" },
+    { label: "Wire & cable manufacturing", detail: "Velocity monitoring, slipping detection, 200-500m/min" }
   ];
 
   const salesProcess = [
@@ -60,7 +60,7 @@ const GoToMarketSlide = () => {
           Validated <span className="text-primary">Pilot-to-Scale</span> Model
         </h1>
         <p className="text-lg text-muted-foreground max-w-4xl mx-auto">
-          Real customer example: €55K pilot generates 62% ROI in first year (industry validated)
+          Multi-industry approach: pharma, F&B, wire & cable. €55K pilot generates 62% ROI.
         </p>
       </div>
 

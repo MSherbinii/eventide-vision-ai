@@ -40,23 +40,23 @@ const MarketSlide = () => {
   const expandableChips = [
     {
       id: "tam",
-      title: "SAM → €8.2B by 2030",
-      content: "Cable manufacturing (€295B) + yarn/textile (€950B) × 2.5% automation penetration = €31B TAM. Quality monitoring: 27% share = €8.2B SAM."
+      title: "SAM → $14.6B by 2030",
+      content: "Quality inspection is 35% of $41.7B machine vision market = $14.6B. Our target: 0.5% share = $73M TAM within high-speed applications."
     },
     {
       id: "niche", 
-      title: "Velocity monitoring under-served",
-      content: "Current solutions can't handle 300m/min speeds with millisecond precision. Event-based vision solves motion blur at high speeds."
+      title: "Event-based niche under-served",
+      content: "Most incumbents are frame-based; event sensors (Sony/Prophesee) create new performance curve for high-speed applications."
     },
     {
       id: "edge",
-      title: "Cable & yarn quality pain points", 
-      content: "Typical 3-5% waste rates, 15-20% unplanned downtime. Our solution targets 25-40% reduction in both metrics."
+      title: "Edge AI & cloud MLOps mature", 
+      content: "Jetson-class edge + modern CI/CD for models reduce integration time from months to weeks."
     },
     {
       id: "first-mover",
       title: "First-mover in DACH + GCC",
-      content: "DACH cable market: €45B, GCC textile: €28B. Combined automation spend: €2.2B annually, growing 12% CAGR."
+      content: "Target DACH + GCC first where capex budgets are highest. Focus: pharma, F&B, and wire & cable manufacturing."
     }
   ];
 
@@ -74,11 +74,11 @@ const MarketSlide = () => {
           BIG & GROWING MARKET
         </Badge>
         <h1 className="text-4xl md:text-5xl font-bold text-foreground tracking-tight">
-          <span className="text-primary">$8.2B Addressable</span> by 2030
+          <span className="text-primary">$41.7B Market</span> by 2030
         </h1>
         <div className="flex items-center justify-center gap-3">
           <p className="text-lg text-muted-foreground max-w-4xl mx-auto">
-            Cable & yarn manufacturing automation growing at 12% CAGR. Our target: velocity & quality monitoring segment.
+            Machine vision growing at 13% CAGR. Our target: 0.5% share ($200M) in quality inspection segment.
           </p>
           <TooltipProvider>
             <Tooltip>
@@ -87,8 +87,8 @@ const MarketSlide = () => {
               </TooltipTrigger>
               <TooltipContent>
                 <div className="text-xs space-y-1">
-                  <div><strong>SAM (2034):</strong> ~€12.8B (cable & yarn quality automation)</div>
-                  <div><strong>Drivers:</strong> High-speed monitoring, waste reduction, downtime prevention</div>
+                  <div><strong>SAM (2034):</strong> ~$18.2B (quality inspection segment)</div>
+                  <div><strong>Drivers:</strong> QA/Inspection, high-speed applications, event-based advantages</div>
                   <div><strong>Sources:</strong> Grand View Research (2025), MarketsandMarkets (2025)</div>
                 </div>
               </TooltipContent>

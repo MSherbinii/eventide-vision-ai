@@ -96,7 +96,7 @@ const BusinessModelSlideV2 = () => {
           Proven <span className="text-primary">SaaS Economics</span>
         </h1>
         <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-          Validated pricing model: €29K ARPU with 5.2-month payback and 8.6:1 LTV:CAC ratio
+          Multi-industry SaaS: targeting 0.5% of $14.6B quality inspection market
         </p>
       </div>
 
@@ -212,12 +212,12 @@ const BusinessModelSlideV2 = () => {
 
           {/* Customer Example */}
           <Card className="p-4 bg-card/80">
-            <h5 className="font-semibold text-foreground mb-2">Real Pilot Example</h5>
+            <h5 className="font-semibold text-foreground mb-2">Target Industries</h5>
             <div className="space-y-1 text-sm text-muted-foreground">
-              <div>• <strong>Cable manufacturing:</strong> 2 lines, €55K setup</div>
-              <div>• <strong>Annual savings:</strong> €100K (waste + downtime reduction)</div>
-              <div>• <strong>Customer ROI:</strong> 62% first year</div>
-              <div>• <strong>Our revenue:</strong> €29K/year per customer</div>
+              <div>• <strong>Pharma:</strong> High-speed counting, quality control</div>
+              <div>• <strong>F&B:</strong> Packaging validation, closure inspection</div>
+              <div>• <strong>Wire & cable:</strong> Velocity monitoring, defect detection</div>
+              <div>• <strong>Avg. customer ROI:</strong> 62% first year, €29K ARPU</div>
             </div>
           </Card>
         </div>
