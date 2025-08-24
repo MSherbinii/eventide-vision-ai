@@ -7,7 +7,7 @@ const BusinessModelSlideV2 = () => {
   const pricingTiers = [
     {
       name: "Pilot (per line)",
-      price: "€1,200",
+      price: "€2,800",
       period: "/month",
       description: "1-2 lines • 8-week validation",
       features: [
@@ -21,7 +21,7 @@ const BusinessModelSlideV2 = () => {
     },
     {
       name: "Growth (per line)",
-      price: "€2,200",
+      price: "€4,200",
       period: "/month",
       description: "3-8 lines • production scale",
       features: [
@@ -35,7 +35,7 @@ const BusinessModelSlideV2 = () => {
     },
     {
       name: "Enterprise",
-      price: "€1,800",
+      price: "€3,500",
       period: "/line/month",
       description: "Full facility • multi-site",
       features: [
@@ -60,7 +60,7 @@ const BusinessModelSlideV2 = () => {
     {
       stream: "Monthly SaaS",
       description: "Per line subscription",
-      amount: "€1.2K–€2.2K/line",
+      amount: "€2.8K–€4.2K/line",
       icon: <TrendingUp className="w-5 h-5" />
     },
     {
@@ -72,9 +72,9 @@ const BusinessModelSlideV2 = () => {
   ];
 
   const unitEconomics = {
-    cac: "€10,000",
-    ltv: "€86,400",
-    payback: "5.2 months",
+    cac: "€15,000",
+    ltv: "€151,200",
+    payback: "7.8 months",
     grossMargin: "75%",
     nrr: "115%"
   };
@@ -96,7 +96,7 @@ const BusinessModelSlideV2 = () => {
           Proven <span className="text-primary">SaaS Economics</span>
         </h1>
         <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-          Multi-industry SaaS: targeting 0.5% of $14.6B quality inspection market
+          Industrial SaaS: €50K ARPU with 7.8-month payback and 10:1 LTV:CAC ratio
         </p>
       </div>
 
@@ -217,7 +217,7 @@ const BusinessModelSlideV2 = () => {
               <div>• <strong>Pharma:</strong> High-speed counting, quality control</div>
               <div>• <strong>F&B:</strong> Packaging validation, closure inspection</div>
               <div>• <strong>Wire & cable:</strong> Velocity monitoring, defect detection</div>
-              <div>• <strong>Avg. customer ROI:</strong> 62% first year, €29K ARPU</div>
+              <div>• <strong>Avg. customer ROI:</strong> 62% first year, €50K ARPU</div>
             </div>
           </Card>
         </div>
@@ -234,21 +234,21 @@ const BusinessModelSlideV2 = () => {
                       <div className="flex items-center justify-between">
             <div className="flex items-center gap-6">
               <div className="text-center">
-                <div className="text-2xl font-bold text-primary">8.6:1</div>
+                <div className="text-2xl font-bold text-primary">10:1</div>
                 <div className="text-xs text-muted-foreground">LTV:CAC Ratio</div>
               </div>
               <div className="text-center">
-                <div className="text-2xl font-bold text-accent">€29K</div>
+                <div className="text-2xl font-bold text-accent">€50K</div>
                 <div className="text-xs text-muted-foreground">Annual Contract Value</div>
               </div>
               <div className="text-center">
-                <div className="text-2xl font-bold text-primary">5.2 mo</div>
+                <div className="text-2xl font-bold text-primary">7.8 mo</div>
                 <div className="text-xs text-muted-foreground">Payback Period</div>
               </div>
             </div>
             <div className="text-right">
-              <p className="text-sm font-semibold text-foreground">Path to €1M ARR in ~30 months</p>
-              <p className="text-xs text-muted-foreground">~35 customers × €29K ARPU</p>
+              <p className="text-sm font-semibold text-foreground">Path to €1M ARR in ~20 months</p>
+              <p className="text-xs text-muted-foreground">~20 customers × €50K ARPU</p>
             </div>
           </div>
         </Card>

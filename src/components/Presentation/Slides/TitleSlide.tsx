@@ -54,7 +54,7 @@ const TitleSlide = () => {
           </h1>
           
           <div className="pitch-body text-xl text-foreground font-medium max-w-5xl mx-auto leading-relaxed">
-            <span className="text-primary neon-text">Event sensors are production-ready</span> • <span className="text-accent">96% data reduction</span> • <span className="text-warning">Microsecond latency</span>
+            <span className="text-primary neon-text">Event sensors are production-ready</span> • <span className="text-accent">75% cost reduction</span> • <span className="text-warning">Microsecond latency</span>
           </div>
         </motion.div>
 

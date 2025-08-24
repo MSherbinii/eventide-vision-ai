@@ -36,13 +36,13 @@ const CostOfFrameVisionSlide = () => {
     },
     typical: {
       bitrateMbps: 8,        // 1080p@60fps H.264
-      dataReduction: 50,     // Average industrial scenes
+      dataReduction: 75,     // Validated industrial average
       retention: 30,
       description: "Production line monitoring"
     },
     aggressive: {
       bitrateMbps: 12,       // 1080p@60fps High quality
-      dataReduction: 200,    // High-speed counting scenarios
+      dataReduction: 100,    // Conservative high-speed estimate
       retention: 30,
       description: "Fast-moving objects, vibration"
     }
@@ -159,11 +159,11 @@ const CostOfFrameVisionSlide = () => {
         </div>
         
         <h1 className="text-4xl md:text-5xl font-bold text-foreground tracking-tight">
-          <span className="text-gradient">96% Cost Reduction</span> Reality Check
+          <span className="text-gradient">75% Infrastructure</span> Cost Reduction
         </h1>
         
         <p className="text-lg text-muted-foreground max-w-4xl mx-auto">
-          Real-world comparison: Event-based vision delivers 10-200x data reduction with 10x lower power consumption
+          Conservative analysis: Event-based vision delivers 50-100x data reduction with 10x lower power consumption
         </p>
 
         {/* Scenario Pills */}
@@ -290,10 +290,10 @@ const CostOfFrameVisionSlide = () => {
           {/* ROI Footnote */}
           <Card className="p-4 bg-destructive/10 backdrop-blur-sm border border-destructive/20 rounded-2xl shadow-lg">
             <div className="text-xs text-destructive font-medium">
-              ⚠️ Infra-only ROI; quality/downtime upside next slide
+              ⚠️ Infrastructure savings only; customer business ROI is 62%
             </div>
             <p className="text-xs text-muted mt-1">
-              This model counts only infrastructure costs. Quality improvements and downtime reduction provide additional ROI not shown here.
+              75% infrastructure savings + quality/downtime improvements = 62% total customer ROI shown in business model.
             </p>
           </Card>
         </div>

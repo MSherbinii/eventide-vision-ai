@@ -10,13 +10,13 @@ const GoToMarketSlide = () => {
     timeline: "Week 1-2: Setup • Week 3-6: Training & Testing • Week 7-8: Validation",
     costs: {
       setup: "€55,000 one-time",
-      monthly: "€2,400/month (€1,200/line)",
-      annual: "€28,800/year"
+      monthly: "€8,400/month (€4,200/line)",
+      annual: "€100,800/year"
     },
     roi: {
-      defectReduction: "€65K/year (2% waste reduction)",
-      downtimeReduction: "€35K/year (5% improvement)",
-      totalSavings: "€100K/year",
+      defectReduction: "€105K/year (3% waste reduction)",
+      downtimeReduction: "€58K/year (7% improvement)",
+      totalSavings: "€163K/year",
       customerROI: "62% first year",
       payback: "7.8 months"
     }
@@ -37,8 +37,8 @@ const GoToMarketSlide = () => {
   const kpis = [
     { k: "Pilots/quarter", v: "3-4" },
     { k: "Pilot→Production", v: "75%" },
-    { k: "ARPU", v: "€29K" },
-    { k: "Payback period", v: "5.2 mo" }
+    { k: "ARPU", v: "€50K" },
+    { k: "Payback period", v: "7.8 mo" }
   ];
 
   return (
@@ -60,7 +60,7 @@ const GoToMarketSlide = () => {
           Validated <span className="text-primary">Pilot-to-Scale</span> Model
         </h1>
         <p className="text-lg text-muted-foreground max-w-4xl mx-auto">
-          Multi-industry approach: pharma, F&B, wire & cable. €55K pilot generates 62% ROI.
+          Multi-industry approach: pharma, F&B, wire & cable. €105K pilot generates 62% ROI.
         </p>
       </div>
 

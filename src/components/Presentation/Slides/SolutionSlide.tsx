@@ -61,7 +61,7 @@ const SolutionSlide = () => {
           <span className="text-primary">Event-Based Vision</span> in Action
         </h1>
         <p className="text-lg text-muted max-w-4xl mx-auto">
-          Real deployments: 1,000+ objects/second counting, 60m/s defect detection, and 200K+ fps motion analysis with 96% less data.
+          Real deployments: 1,000+ objects/second counting, 60m/s defect detection, and 200K+ fps motion analysis with 75% cost reduction.
         </p>
       </div>
 
@@ -211,7 +211,7 @@ const SolutionSlide = () => {
                   </div>
                   <div className="flex items-center gap-2">
                     <CheckCircle className="w-4 h-4 text-primary" />
-                    <span className="text-white">96% cost reduction</span>
+                    <span className="text-white">75% infrastructure savings</span>
                   </div>
                 </div>
                 

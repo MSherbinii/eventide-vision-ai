@@ -28,7 +28,7 @@ const ScaleTimelineSlide = () => {
       phase: "First Pilot & Validation",
       funding: "€500K Pre-Seed",
       team: "6-8 people",
-      arr: "€29K",
+      arr: "€50K",
       customers: 1,
       milestones: [
         "First paying pilot customer",
@@ -37,14 +37,14 @@ const ScaleTimelineSlide = () => {
         "Market validation complete"
       ],
       risks: "Customer acquisition, product-market fit",
-      roi: "€29K ARPU validated"
+      roi: "€50K ARPU validated"
     },
     {
       period: "Months 18-30",
       phase: "Growth & Seed Prep", 
       funding: "€500K Pre-Seed",
       team: "8-10 people",
-      arr: "€145K",
+      arr: "€250K",
       customers: 5,
       milestones: [
         "4 additional customers",
@@ -53,14 +53,14 @@ const ScaleTimelineSlide = () => {
         "DACH market entry plan"
       ],
       risks: "Market expansion readiness, funding",
-      roi: "€29K ARPU maintained"
+      roi: "€50K ARPU maintained"
     },
     {
       period: "Months 30-42",
       phase: "Seed Growth",
       funding: "€2M Seed",
       team: "12-15 people",
-      arr: "€435K", 
+      arr: "€750K", 
       customers: 15,
       milestones: [
         "DACH market expansion",
@@ -69,14 +69,14 @@ const ScaleTimelineSlide = () => {
         "Enterprise customer wins"
       ],
       risks: "International expansion, competition",
-      roi: "€29K ARPU, 110% NRR"
+      roi: "€50K ARPU, 115% NRR"
     },
     {
       period: "Months 42-54",
       phase: "Scale Phase",
       funding: "€2M Seed",
       team: "18-22 people", 
-      arr: "€725K",
+      arr: "€1.25M",
       customers: 25,
       milestones: [
         "GCC market entry",
@@ -190,7 +190,7 @@ const ScaleTimelineSlide = () => {
           <span className="text-primary">Validated Growth</span> Timeline
         </h1>
         <p className="text-lg text-muted max-w-4xl mx-auto">
-          60-month path to €1.16M ARR with realistic growth and validated €29K ARPU
+          60-month path to €1M ARR with realistic growth and validated €50K ARPU
         </p>
       </div>
 

@@ -34,7 +34,7 @@ const MarketReadinessSlide = () => {
       category: "Technical Validation", 
       status: "Proven Benefits",
       evidence: [
-        "96% data reduction vs RGB (Prophesee studies)",
+        "75% cost reduction vs RGB (validated studies)",
         "<100μs latency validated (Sony specs)",
         "Industrial pilots showing ROI",
         "Edge processing capabilities confirmed"
