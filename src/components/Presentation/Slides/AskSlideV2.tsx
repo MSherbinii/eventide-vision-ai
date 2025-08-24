@@ -158,7 +158,7 @@ const AskSlideV2 = () => {
 
         {/* Right: Investor Returns & CTA */}
         <div className="col-span-5 space-y-4">
-          {/* Round Terms & Ownership Path */
+          {/* Round Terms & Ownership Path */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -216,7 +216,7 @@ const AskSlideV2 = () => {
             </Card>
           </motion.div>
 
-          {/* Why Now */}
+          {/* Why Now Card */}
           <Card className="p-5">
             <h4 className="font-bold text-foreground mb-3 flex items-center gap-2">
               <Rocket className="w-5 h-5 text-primary" />
@@ -273,4 +273,3 @@ const AskSlideV2 = () => {
 };
 
 export default AskSlideV2;
-

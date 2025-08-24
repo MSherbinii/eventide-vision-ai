@@ -86,7 +86,7 @@ const CompetitionSlide = () => {
       position: "Event sensors + SDK"
     },
     {
-      name: "LuminarX AI",
+      name: "LuminaX AI",
       hardware: false,
       sdk: true,
       integrator: true,
@@ -104,7 +104,7 @@ const CompetitionSlide = () => {
     { name: "Basler/IDS", x: 45, y: 35, color: "text-muted" }, 
     { name: "Cognex/Keyence", x: 70, y: 30, color: "text-muted" },
     { name: "Instrumental/Landing AI", x: 60, y: 40, color: "text-muted" },
-    { name: "LuminarX AI", x: 85, y: 85, color: "text-primary" }
+    { name: "LuminaX AI", x: 85, y: 85, color: "text-primary" }
   ];
 
   return (
@@ -154,13 +154,13 @@ const CompetitionSlide = () => {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: index * 0.1, duration: 0.5 }}
                   className={`grid grid-cols-7 gap-2 py-2 rounded-lg ${
-                    competitor.name === "LuminarX AI" 
+                    competitor.name === "LuminaX AI"
                       ? 'bg-primary/10 border border-primary/20' 
                       : ''
                   }`}
                 >
                   <div className={`text-sm font-semibold ${
-                    competitor.name === "LuminarX AI" ? 'text-primary' : 'text-white'
+                    competitor.name === "LuminaX AI" ? 'text-primary' : 'text-white'
                   }`}>
                     {competitor.name}
                   </div>
@@ -263,18 +263,18 @@ const CompetitionSlide = () => {
                 >
                   {/* Data Point */}
                   <div className={`w-4 h-4 rounded-full border-2 transition-all duration-300 group-hover:scale-125 ${
-                    point.name === "LuminarX AI" 
+                    point.name === "LuminaX AI"
                       ? 'bg-primary border-primary/50 shadow-lg shadow-primary/30' 
                       : 'bg-muted/60 border-muted/40 group-hover:bg-muted/80'
                   }`}>
-                    {point.name === "LuminarX AI" && (
+                    {point.name === "LuminaX AI" && (
                       <Target className="w-2 h-2 text-background absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" />
                     )}
                   </div>
                   
                   {/* Label */}
                   <div className={`text-xs mt-2 text-center whitespace-nowrap font-medium transition-colors duration-300 ${
-                    point.name === "LuminarX AI" ? 'text-primary' : 'text-muted group-hover:text-white'
+                    point.name === "LuminaX AI" ? 'text-primary' : 'text-muted group-hover:text-white'
                   }`}>
                     {point.name}
                   </div>

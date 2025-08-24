@@ -44,9 +44,9 @@ const TitleSlide = () => {
               }}
             >
               <div className="absolute inset-0 blur-3xl opacity-30">
-                <span className="text-gradient">LuminarX AI</span>
+                <span className="text-gradient">LuminaX AI</span>
               </div>
-              LuminarX AI
+              LuminaX AI
             </span>
             <span className="block text-foreground pitch-title text-4xl md:text-5xl lg:text-6xl font-medium leading-tight">
               Event-Based Vision for Industry 4.0

@@ -70,7 +70,7 @@ const BusinessModelSlide = () => {
       highlight: false
     },
     {
-      solution: "LuminarX AI PaaS",
+      solution: "LuminaX AI PaaS",
       setup: "€5k–€25k (target)",
       monthly: "€500–€2,500 (target)",
       timeToValue: "4–8 weeks (target)",
