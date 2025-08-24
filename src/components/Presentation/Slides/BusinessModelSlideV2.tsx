@@ -212,12 +212,17 @@ const BusinessModelSlideV2 = () => {
 
           {/* Customer Example */}
           <Card className="p-4 bg-card/80">
-            <h5 className="font-semibold text-foreground mb-2">Target Industries</h5>
+            <h5 className="font-semibold text-foreground mb-2">Target Industries & Cost Context</h5>
             <div className="space-y-1 text-sm text-muted-foreground">
               <div>• <strong>Pharma:</strong> High-speed counting, quality control</div>
               <div>• <strong>F&B:</strong> Packaging validation, closure inspection</div>
               <div>• <strong>Wire & cable:</strong> Velocity monitoring, defect detection</div>
               <div>• <strong>Avg. customer ROI:</strong> 62% first year, €50K ARPU</div>
+              <div className="border-t border-border/30 pt-2 mt-2">
+                <div>• <strong>Small mfg:</strong> €50K = 0.2% of €25M revenue</div>
+                <div>• <strong>Mid mfg:</strong> €50K = 0.05% of €100M revenue</div>
+                <div>• <strong>Large mfg:</strong> €50K = 0.01% of €500M+ revenue</div>
+              </div>
             </div>
           </Card>
         </div>
