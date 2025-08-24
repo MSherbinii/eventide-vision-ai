@@ -7,9 +7,9 @@ const BusinessModelSlideV2 = () => {
   const pricingTiers = [
     {
       name: "Pilot (per line)",
-      price: "€1,500",
+      price: "€1,200",
       period: "/month",
-      description: "Single site, 1–2 lines",
+      description: "1-2 lines • 8-week validation",
       features: [
         "Up to 4 cameras/line",
         "Standard support",
@@ -21,11 +21,11 @@ const BusinessModelSlideV2 = () => {
     },
     {
       name: "Growth (per line)",
-      price: "€3,000",
+      price: "€2,200",
       period: "/month",
-      description: "3–8 lines, multi-station",
+      description: "3-8 lines • production scale",
       features: [
-        "Up to 12 cameras/line",
+        "Up to 8 cameras/line",
         "Priority support",
         "Real-time analytics",
         "MES/ERP integration"
@@ -35,15 +35,15 @@ const BusinessModelSlideV2 = () => {
     },
     {
       name: "Enterprise",
-      price: "Custom",
-      period: "pricing",
-      description: "Full facility coverage",
+      price: "€1,800",
+      period: "/line/month",
+      description: "Full facility • multi-site",
       features: [
-        "Unlimited lines",
-        "Unlimited cameras",
+        "Unlimited cameras/line",
         "24/7 dedicated support",
         "On-site training",
-        "SLA guarantees"
+        "SLA guarantees",
+        "Custom AI models"
       ],
       color: "border-accent",
       popular: false
@@ -54,29 +54,29 @@ const BusinessModelSlideV2 = () => {
     {
       stream: "Integration Fee",
       description: "One-time setup & customization",
-      amount: "€5K–€25K",
+      amount: "€25K–€55K",
       icon: <Zap className="w-5 h-5" />
     },
     {
       stream: "Monthly SaaS",
       description: "Per line subscription",
-      amount: "€1.5K–€3K/line",
+      amount: "€1.2K–€2.2K/line",
       icon: <TrendingUp className="w-5 h-5" />
     },
     {
-      stream: "Success Fees",
-      description: "Performance-based upside",
-      amount: "5–10% savings",
+      stream: "Maintenance & Support",
+      description: "20% of integration annually",
+      amount: "€5K–€11K/year",
       icon: <DollarSign className="w-5 h-5" />
     }
   ];
 
   const unitEconomics = {
-    cac: "€20,000",
-    ltv: "€150,000",
-    payback: "9–12 months",
-    grossMargin: "75–80%",
-    nrr: "120%"
+    cac: "€10,000",
+    ltv: "€86,400",
+    payback: "5.2 months",
+    grossMargin: "75%",
+    nrr: "115%"
   };
 
   return (
@@ -96,7 +96,7 @@ const BusinessModelSlideV2 = () => {
           Proven <span className="text-primary">SaaS Economics</span>
         </h1>
         <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-          Land with integration, expand with value — targeting $175K ARPU with 125% NRR
+          Validated pricing model: €29K ARPU with 5.2-month payback and 8.6:1 LTV:CAC ratio
         </p>
       </div>
 
@@ -210,13 +210,14 @@ const BusinessModelSlideV2 = () => {
             </Card>
           </motion.div>
 
-          {/* Customer Examples */}
+          {/* Customer Example */}
           <Card className="p-4 bg-card/80">
-            <h5 className="font-semibold text-foreground mb-2">Target Customers</h5>
+            <h5 className="font-semibold text-foreground mb-2">Real Pilot Example</h5>
             <div className="space-y-1 text-sm text-muted-foreground">
-              <div>• Mid-size pharma: 5-20 production lines</div>
-              <div>• F&B manufacturers: High-speed packaging</div>
-              <div>• Automotive suppliers: Quality critical parts</div>
+              <div>• <strong>Pharma packaging:</strong> 2 lines, €55K setup</div>
+              <div>• <strong>Annual savings:</strong> €480K (defect reduction)</div>
+              <div>• <strong>Customer ROI:</strong> 509% first year</div>
+              <div>• <strong>Our revenue:</strong> €29K/year per customer</div>
             </div>
           </Card>
         </div>
@@ -230,24 +231,24 @@ const BusinessModelSlideV2 = () => {
         className="relative z-10 mt-6"
       >
         <Card className="p-4 bg-gradient-to-r from-primary/10 to-accent/10 border-primary/20">
-          <div className="flex items-center justify-between">
+                      <div className="flex items-center justify-between">
             <div className="flex items-center gap-6">
               <div className="text-center">
-                <div className="text-2xl font-bold text-primary">7:1</div>
+                <div className="text-2xl font-bold text-primary">8.6:1</div>
                 <div className="text-xs text-muted-foreground">LTV:CAC Ratio</div>
               </div>
               <div className="text-center">
-                <div className="text-2xl font-bold text-accent">€72K</div>
-                <div className="text-xs text-muted-foreground">Avg Annual Contract (3 lines)</div>
+                <div className="text-2xl font-bold text-accent">€29K</div>
+                <div className="text-xs text-muted-foreground">Annual Contract Value</div>
               </div>
               <div className="text-center">
-                <div className="text-2xl font-bold text-primary">90%+</div>
-                <div className="text-xs text-muted-foreground">Gross Retention</div>
+                <div className="text-2xl font-bold text-primary">5.2 mo</div>
+                <div className="text-xs text-muted-foreground">Payback Period</div>
               </div>
             </div>
             <div className="text-right">
-              <p className="text-sm font-semibold text-foreground">Path to €1M ARR in ~24 months</p>
-              <p className="text-xs text-muted-foreground">~15 customers × €72K ARPU</p>
+              <p className="text-sm font-semibold text-foreground">Path to €1M ARR in ~30 months</p>
+              <p className="text-xs text-muted-foreground">~35 customers × €29K ARPU</p>
             </div>
           </div>
         </Card>

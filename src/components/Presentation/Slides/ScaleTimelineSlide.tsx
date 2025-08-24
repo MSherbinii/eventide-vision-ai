@@ -28,40 +28,40 @@ const ScaleTimelineSlide = () => {
       phase: "First Pilot & Validation",
       funding: "€500K Pre-Seed",
       team: "6-8 people",
-      arr: "€150K",
-      customers: 1,
+      arr: "€58K",
+      customers: 2,
       milestones: [
-        "First paying pilot customer",
+        "2 paying pilot customers",
         "Full-stack engineers hired",
         "Successful deployment & case study",
         "Market validation complete"
       ],
       risks: "Customer acquisition, product-market fit",
-      roi: "Early revenue validation"
+      roi: "€29K ARPU validated"
     },
     {
       period: "Months 12-18",
       phase: "Seed Preparation", 
       funding: "€500K Pre-Seed",
       team: "8-10 people",
-      arr: "€850K",
-      customers: 5,
+      arr: "€290K",
+      customers: 10,
       milestones: [
-        "3 additional customers",
+        "8 additional customers",
         "Sales processes refined",
         "Seed funding preparation", 
         "DACH market entry plan"
       ],
       risks: "Market expansion readiness, funding",
-      roi: "€170K ARPU demonstrated"
+      roi: "€29K ARPU maintained"
     },
     {
       period: "Months 18-24",
       phase: "Seed Growth",
       funding: "€2M Seed",
       team: "15-18 people",
-      arr: "€2.8M", 
-      customers: 16,
+      arr: "€580K", 
+      customers: 20,
       milestones: [
         "DACH market expansion",
         "Sales Lead hired",
@@ -69,15 +69,15 @@ const ScaleTimelineSlide = () => {
         "Enterprise customer wins"
       ],
       risks: "International expansion, competition",
-      roi: "€175K ARPU, 125% NRR"
+      roi: "€29K ARPU, 115% NRR"
     },
     {
       period: "Months 24-30",
       phase: "Scale Phase",
       funding: "€2M Seed",
       team: "25-30 people", 
-      arr: "€6.2M",
-      customers: 35,
+      arr: "€1.16M",
+      customers: 40,
       milestones: [
         "GCC market entry",
         "Advanced AI features",
@@ -85,23 +85,23 @@ const ScaleTimelineSlide = () => {
         "Series A preparation"
       ],
       risks: "Competitive response, execution at scale",
-      roi: "€177K ARPU, path to profitability"
+      roi: "€29K ARPU, path to profitability"
     },
     {
       period: "Months 30-36",
       phase: "Series A Growth", 
       funding: "€8M Series A",
       team: "45-60 people",
-      arr: "€12.5M",
-      customers: 70,
+      arr: "€2.32M",
+      customers: 80,
       milestones: [
         "Multi-market leadership",
         "Profitability achieved", 
         "Strategic acquisition offers",
-        "€150M+ valuation"
+        "€30M+ valuation"
       ],
       risks: "Market saturation, exit timing",
-      roi: "€178K ARPU, 40%+ gross margin"
+      roi: "€29K ARPU, 75%+ gross margin"
     }
   ];
 
@@ -111,42 +111,42 @@ const ScaleTimelineSlide = () => {
       equity: "15%",
       valuation: "€3.3M pre-money",
       exitMonth: "36",
-      exitValuation: "€150M", 
-      returnMultiple: "45x",
-      exitValue: "€22.5M",
-      irr: "180%",
-      roiMonths: "30 months to 10x return"
+      exitValuation: "€30M", 
+      returnMultiple: "9x",
+      exitValue: "€4.5M",
+      irr: "85%",
+      roiMonths: "30 months to 5x return"
     },
     {
-      round: "Seed (€2M for 18%)", 
-      equity: "18%",
-      valuation: "€11M pre-money",
+      round: "Seed (€2M for 20%)", 
+      equity: "20%",
+      valuation: "€10M pre-money",
       exitMonth: "36",
-      exitValuation: "€150M",
-      returnMultiple: "13.6x",
-      exitValue: "€27M", 
-      irr: "120%",
-      roiMonths: "24 months to 5x return"
+      exitValuation: "€30M",
+      returnMultiple: "3x",
+      exitValue: "€6M", 
+      irr: "45%",
+      roiMonths: "18 months to 2x return"
     },
     {
-      round: "Series A (€8M for 20%)",
-      equity: "20%", 
-      valuation: "€40M pre-money",
+      round: "Series A (€8M for 25%)",
+      equity: "25%", 
+      valuation: "€24M pre-money",
       exitMonth: "36", 
-      exitValuation: "€150M",
-      returnMultiple: "3.75x",
-      exitValue: "€30M",
-      irr: "65%", 
-      roiMonths: "18 months to 2x return"
+      exitValuation: "€30M",
+      returnMultiple: "0.9x",
+      exitValue: "€7.5M",
+      irr: "-5%", 
+      roiMonths: "Late stage protection"
     }
   ];
 
   const arrProgression = [
-    { year: "Year 1", arr: "€300K", growth: "", customers: 4, arpu: "€75K" },
-    { year: "Year 2", arr: "€1.2M", growth: "+300%", customers: 16, arpu: "€75K" },
-    { year: "Year 3", arr: "€3.6M", growth: "+200%", customers: 48, arpu: "€75K" },
-    { year: "Year 4", arr: "€7.2M", growth: "+100%", customers: 96, arpu: "€75K" },
-    { year: "Year 5", arr: "€12.5M", growth: "+74%", customers: 166, arpu: "€75K" }
+    { year: "Year 1", arr: "€58K", growth: "", customers: 2, arpu: "€29K" },
+    { year: "Year 2", arr: "€580K", growth: "+900%", customers: 20, arpu: "€29K" },
+    { year: "Year 3", arr: "€2.32M", growth: "+300%", customers: 80, arpu: "€29K" },
+    { year: "Year 4", arr: "€4.64M", growth: "+100%", customers: 160, arpu: "€29K" },
+    { year: "Year 5", arr: "€7.25M", growth: "+56%", customers: 250, arpu: "€29K" }
   ];
 
   const scaleFactors = [
@@ -187,10 +187,10 @@ const ScaleTimelineSlide = () => {
           PATH TO SCALE
         </Badge>
         <h1 className="text-4xl md:text-5xl font-bold text-white tracking-[-0.01em]">
-          <span className="text-primary">Realistic Growth</span> Timeline
+          <span className="text-primary">Validated Growth</span> Timeline
         </h1>
         <p className="text-lg text-muted max-w-4xl mx-auto">
-          36-month path to €12.5M ARR with clear investor ROI milestones
+          36-month path to €2.3M ARR with realistic €29K ARPU and proven unit economics
         </p>
       </div>
 
@@ -304,27 +304,27 @@ const ScaleTimelineSlide = () => {
         className="relative z-10 mt-6"
       >
         <Card className="p-6 bg-card/80 backdrop-blur-sm border border-primary/20 rounded-2xl shadow-lg text-center">
-          <h4 className="text-xl font-bold mb-4 text-white">Conservative Exit Scenarios</h4>
+          <h4 className="text-xl font-bold mb-4 text-white">Realistic Exit Scenarios</h4>
             <div className="grid grid-cols-3 gap-6">
               <div>
-                <div className="text-2xl font-bold text-primary">€150M</div>
+                <div className="text-2xl font-bold text-primary">€30M</div>
                 <div className="text-sm text-muted">Conservative Exit (Month 36)</div>
-                <div className="text-xs text-accent">12x revenue multiple</div>
+                <div className="text-xs text-accent">13x revenue multiple</div>
               </div>
               <div>
-                <div className="text-2xl font-bold text-accent">€300M</div>
-                <div className="text-sm text-muted">Market Leader (Month 42)</div>
+                <div className="text-2xl font-bold text-accent">€60M</div>
+                <div className="text-sm text-muted">Strong Growth (Month 42)</div>
                 <div className="text-xs text-accent">20x revenue multiple</div>
               </div>
               <div>
-                <div className="text-2xl font-bold text-warning">€500M+</div>
-                <div className="text-sm text-muted">IPO Path (Month 48)</div>
+                <div className="text-2xl font-bold text-warning">€120M+</div>
+                <div className="text-sm text-muted">Market Leader (Month 48)</div>
                 <div className="text-xs text-accent">Platform valuation</div>
               </div>
             </div>
             <div className="mt-4 space-y-2">
-              <p className="text-sm text-primary font-bold">Pre-Seed Investor (€500K for 15%): €22.5M return = 45x multiple in 36 months</p>
-              <p className="text-xs text-muted">Based on comparable SaaS exits in industrial automation sector</p>
+              <p className="text-sm text-primary font-bold">Pre-Seed Investor (€500K for 15%): €4.5M return = 9x multiple in 36 months</p>
+              <p className="text-xs text-muted">Based on validated €29K ARPU and realistic industrial automation benchmarks</p>
             </div>
         </Card>
       </motion.div>
