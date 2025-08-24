@@ -8,7 +8,7 @@ const AskSlideV2 = () => {
   const fundingAllocation = [
     {
       category: "Product Development",
-      amount: "€200K",
+      amount: "€240K",
       percentage: "40%",
       details: [
         "MVP completion & testing",
@@ -19,19 +19,20 @@ const AskSlideV2 = () => {
     },
     {
       category: "Team Building",
-      amount: "€150K",
-      percentage: "30%",
+      amount: "€210K",
+      percentage: "35%",
       details: [
-        "3-5 Class A engineers (Egypt)",
-        "CTO/Lead engineer (Germany)",
-        "15% ESOP pool setup",
+        "3-5 Class A engineers (0–9 mo)",
+        "Lead Brand & Visual Designer (0–3 mo)",
+        "Social Media Manager (0–3 mo)",
+        "ESOP pool setup (10–15%)",
         "Advisory board compensation"
       ]
     },
     {
       category: "Market Entry",
-      amount: "€100K",
-      percentage: "20%",
+      amount: "€90K",
+      percentage: "15%",
       details: [
         "Pilot projects (3-5 customers)",
         "Industry trade shows",
@@ -41,7 +42,7 @@ const AskSlideV2 = () => {
     },
     {
       category: "Operations",
-      amount: "€50K",
+      amount: "€60K",
       percentage: "10%",
       details: [
         "GmbH establishment",
@@ -52,27 +53,29 @@ const AskSlideV2 = () => {
     }
   ];
 
-  const investorReturns = {
-    investment: "€500K",
-    equity: "15%",
-    valuation: "€3.3M pre-money",
-    targetExit: "36 months",
-    expectedReturn: "45x (€22.5M)",
-    exitValuation: "€150M+"
+  const investorTerms = {
+    raise: "€600K",
+    instrument: "SAFE (post-money)",
+    valuationCap: "€6.0M",
+    discount: "20%",
+    targetOwnership: "8–10%",
+    runway: "18 months",
+    nextRound: "Seed in 12–18 mo @ €10–12M pre"
   };
 
   const milestoneTargets = [
-    { timeline: "Month 3", target: "MVP Complete", metric: "3 engineers hired" },
-    { timeline: "Month 6", target: "First Pilot", metric: "€50K contract" },
-    { timeline: "Month 12", target: "Product-Market Fit", metric: "5 customers, €300K ARR" },
-    { timeline: "Month 18", target: "Seed Ready", metric: "€1.5M ARR, 15 customers" }
+    { timeline: "Month 3", target: "MVP Alpha", metric: "Core counting + dashboard" },
+    { timeline: "Month 6", target: "First Pilot Signed", metric: "LOI + SOW" },
+    { timeline: "Month 9", target: "First Paid Pilot", metric: "€25–50K pilot" },
+    { timeline: "Month 12", target: "3 Paying Pilots", metric: "€150–300K ARR run-rate" },
+    { timeline: "Month 18", target: "Seed Ready", metric: "5–8 customers, €300–600K ARR" }
   ];
 
   const whyNow = [
     "Event-based vision market inflection point",
     "First-mover advantage in MENA/DACH",
     "Proven founding team with domain expertise",
-    "Clear path to €10M ARR in 24 months"
+    "Path to €1M ARR in 24 months"
   ];
 
   return (
@@ -89,10 +92,10 @@ const AskSlideV2 = () => {
           PRE-SEED INVESTMENT
         </Badge>
         <h1 className="text-4xl md:text-5xl font-bold text-foreground tracking-tight">
-          €500K to Build the <span className="text-primary">Future of Industrial Vision</span>
+          €600K Pre‑Seed to Build the <span className="text-primary">Future of Industrial Vision</span>
         </h1>
         <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-          Join us in revolutionizing manufacturing with event-based AI — targeting 45x return in 36 months
+          18‑month runway to pilots and seed — standard pre‑seed SAFE terms
         </p>
       </div>
 
@@ -151,35 +154,43 @@ const AskSlideV2 = () => {
 
         {/* Right: Investor Returns & CTA */}
         <div className="col-span-5 space-y-4">
-          {/* Expected Returns */}
+          {/* Round Terms & Ownership Path */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.3 }}
           >
             <Card className="p-6 bg-gradient-to-br from-primary/20 to-accent/20 border-primary/30">
-              <h4 className="text-xl font-bold text-foreground mb-4">Investor Returns</h4>
+              <h4 className="text-xl font-bold text-foreground mb-4">Round Terms & Ownership Path</h4>
               <div className="space-y-3">
                 <div className="flex justify-between items-center">
-                  <span className="text-sm text-muted-foreground">Investment</span>
-                  <span className="text-lg font-bold text-foreground">{investorReturns.investment}</span>
+                  <span className="text-sm text-muted-foreground">Raise</span>
+                  <span className="text-lg font-bold text-foreground">{investorTerms.raise}</span>
                 </div>
                 <div className="flex justify-between items-center">
-                  <span className="text-sm text-muted-foreground">Equity</span>
-                  <span className="text-lg font-bold text-primary">{investorReturns.equity}</span>
+                  <span className="text-sm text-muted-foreground">Instrument</span>
+                  <span className="text-lg font-bold text-primary">{investorTerms.instrument}</span>
                 </div>
                 <div className="flex justify-between items-center">
-                  <span className="text-sm text-muted-foreground">Pre-money Valuation</span>
-                  <span className="text-lg font-bold text-foreground">{investorReturns.valuation}</span>
+                  <span className="text-sm text-muted-foreground">Valuation Cap</span>
+                  <span className="text-lg font-bold text-foreground">{investorTerms.valuationCap}</span>
                 </div>
-                <div className="border-t border-border/50 pt-3 mt-3">
+                <div className="flex justify-between items-center">
+                  <span className="text-sm text-muted-foreground">Discount</span>
+                  <span className="text-lg font-bold text-foreground">{investorTerms.discount}</span>
+                </div>
+                <div className="border-t border-border/50 pt-3 mt-3 space-y-3">
                   <div className="flex justify-between items-center">
-                    <span className="text-sm text-muted-foreground">Target Exit</span>
-                    <span className="text-lg font-bold text-accent">{investorReturns.targetExit}</span>
+                    <span className="text-sm text-muted-foreground">Target Ownership @ Close</span>
+                    <span className="text-lg font-bold text-accent">{investorTerms.targetOwnership}</span>
                   </div>
                   <div className="flex justify-between items-center">
-                    <span className="text-sm text-muted-foreground">Expected Return</span>
-                    <span className="text-lg font-bold text-primary">{investorReturns.expectedReturn}</span>
+                    <span className="text-sm text-muted-foreground">Runway</span>
+                    <span className="text-lg font-bold text-primary">{investorTerms.runway}</span>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span className="text-sm text-muted-foreground">Next Round</span>
+                    <span className="text-lg font-bold text-foreground">{investorTerms.nextRound}</span>
                   </div>
                 </div>
               </div>
@@ -243,3 +254,4 @@ const AskSlideV2 = () => {
 };
 
 export default AskSlideV2;
+
