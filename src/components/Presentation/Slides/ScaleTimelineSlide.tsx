@@ -24,14 +24,14 @@ const ScaleTimelineSlide = () => {
       roi: "Foundation building"
     },
     {
-      period: "Months 6-12", 
+      period: "Months 6-18", 
       phase: "First Pilot & Validation",
       funding: "€500K Pre-Seed",
       team: "6-8 people",
-      arr: "€58K",
-      customers: 2,
+      arr: "€29K",
+      customers: 1,
       milestones: [
-        "2 paying pilot customers",
+        "First paying pilot customer",
         "Full-stack engineers hired",
         "Successful deployment & case study",
         "Market validation complete"
@@ -40,28 +40,28 @@ const ScaleTimelineSlide = () => {
       roi: "€29K ARPU validated"
     },
     {
-      period: "Months 12-18",
-      phase: "Seed Preparation", 
+      period: "Months 18-30",
+      phase: "Growth & Seed Prep", 
       funding: "€500K Pre-Seed",
       team: "8-10 people",
-      arr: "€290K",
-      customers: 10,
+      arr: "€145K",
+      customers: 5,
       milestones: [
-        "8 additional customers",
+        "4 additional customers",
         "Sales processes refined",
-        "Seed funding preparation", 
+        "Seed funding secured", 
         "DACH market entry plan"
       ],
       risks: "Market expansion readiness, funding",
       roi: "€29K ARPU maintained"
     },
     {
-      period: "Months 18-24",
+      period: "Months 30-42",
       phase: "Seed Growth",
       funding: "€2M Seed",
-      team: "15-18 people",
-      arr: "€580K", 
-      customers: 20,
+      team: "12-15 people",
+      arr: "€435K", 
+      customers: 15,
       milestones: [
         "DACH market expansion",
         "Sales Lead hired",
@@ -69,15 +69,15 @@ const ScaleTimelineSlide = () => {
         "Enterprise customer wins"
       ],
       risks: "International expansion, competition",
-      roi: "€29K ARPU, 115% NRR"
+      roi: "€29K ARPU, 110% NRR"
     },
     {
-      period: "Months 24-30",
+      period: "Months 42-54",
       phase: "Scale Phase",
       funding: "€2M Seed",
-      team: "25-30 people", 
-      arr: "€1.16M",
-      customers: 40,
+      team: "18-22 people", 
+      arr: "€725K",
+      customers: 25,
       milestones: [
         "GCC market entry",
         "Advanced AI features",
@@ -88,20 +88,20 @@ const ScaleTimelineSlide = () => {
       roi: "€29K ARPU, path to profitability"
     },
     {
-      period: "Months 30-36",
+      period: "Months 54-60",
       phase: "Series A Growth", 
-      funding: "€8M Series A",
-      team: "45-60 people",
-      arr: "€2.32M",
-      customers: 80,
+      funding: "€5M Series A",
+      team: "25-35 people",
+      arr: "€1.16M",
+      customers: 40,
       milestones: [
-        "Multi-market leadership",
-        "Profitability achieved", 
-        "Strategic acquisition offers",
-        "€30M+ valuation"
+        "Multi-market presence",
+        "Cash flow positive", 
+        "Strategic partnership offers",
+        "€20M+ valuation"
       ],
-      risks: "Market saturation, exit timing",
-      roi: "€29K ARPU, 75%+ gross margin"
+      risks: "Market competition, execution at scale",
+      roi: "€29K ARPU, 70%+ gross margin"
     }
   ];
 
@@ -110,43 +110,43 @@ const ScaleTimelineSlide = () => {
       round: "Pre-Seed (€500K for 15%)",
       equity: "15%",
       valuation: "€3.3M pre-money",
-      exitMonth: "36",
-      exitValuation: "€30M", 
-      returnMultiple: "9x",
-      exitValue: "€4.5M",
-      irr: "85%",
-      roiMonths: "30 months to 5x return"
+      exitMonth: "60",
+      exitValuation: "€20M", 
+      returnMultiple: "6x",
+      exitValue: "€3M",
+      irr: "42%",
+      roiMonths: "48 months to 4x return"
     },
     {
       round: "Seed (€2M for 20%)", 
       equity: "20%",
-      valuation: "€10M pre-money",
-      exitMonth: "36",
-      exitValuation: "€30M",
-      returnMultiple: "3x",
-      exitValue: "€6M", 
-      irr: "45%",
-      roiMonths: "18 months to 2x return"
+      valuation: "€8M pre-money",
+      exitMonth: "60",
+      exitValuation: "€20M",
+      returnMultiple: "2.5x",
+      exitValue: "€4M", 
+      irr: "25%",
+      roiMonths: "30 months to 2x return"
     },
     {
-      round: "Series A (€8M for 25%)",
+      round: "Series A (€5M for 25%)",
       equity: "25%", 
-      valuation: "€24M pre-money",
-      exitMonth: "36", 
-      exitValuation: "€30M",
-      returnMultiple: "0.9x",
-      exitValue: "€7.5M",
-      irr: "-5%", 
-      roiMonths: "Late stage protection"
+      valuation: "€15M pre-money",
+      exitMonth: "60", 
+      exitValuation: "€20M",
+      returnMultiple: "1.25x",
+      exitValue: "€5M",
+      irr: "8%", 
+      roiMonths: "Capital preservation"
     }
   ];
 
   const arrProgression = [
-    { year: "Year 1", arr: "€58K", growth: "", customers: 2, arpu: "€29K" },
-    { year: "Year 2", arr: "€580K", growth: "+900%", customers: 20, arpu: "€29K" },
-    { year: "Year 3", arr: "€2.32M", growth: "+300%", customers: 80, arpu: "€29K" },
-    { year: "Year 4", arr: "€4.64M", growth: "+100%", customers: 160, arpu: "€29K" },
-    { year: "Year 5", arr: "€7.25M", growth: "+56%", customers: 250, arpu: "€29K" }
+    { year: "Year 1", arr: "€29K", growth: "", customers: 1, arpu: "€29K" },
+    { year: "Year 2", arr: "€145K", growth: "+400%", customers: 5, arpu: "€29K" },
+    { year: "Year 3", arr: "€435K", growth: "+200%", customers: 15, arpu: "€29K" },
+    { year: "Year 4", arr: "€725K", growth: "+67%", customers: 25, arpu: "€29K" },
+    { year: "Year 5", arr: "€1.16M", growth: "+60%", customers: 40, arpu: "€29K" }
   ];
 
   const scaleFactors = [
@@ -190,7 +190,7 @@ const ScaleTimelineSlide = () => {
           <span className="text-primary">Validated Growth</span> Timeline
         </h1>
         <p className="text-lg text-muted max-w-4xl mx-auto">
-          36-month path to €2.3M ARR with realistic €29K ARPU and proven unit economics
+          60-month path to €1.16M ARR with realistic growth and validated €29K ARPU
         </p>
       </div>
 
@@ -304,27 +304,27 @@ const ScaleTimelineSlide = () => {
         className="relative z-10 mt-6"
       >
         <Card className="p-6 bg-card/80 backdrop-blur-sm border border-primary/20 rounded-2xl shadow-lg text-center">
-          <h4 className="text-xl font-bold mb-4 text-white">Realistic Exit Scenarios</h4>
+          <h4 className="text-xl font-bold mb-4 text-white">Conservative Exit Scenarios</h4>
             <div className="grid grid-cols-3 gap-6">
               <div>
-                <div className="text-2xl font-bold text-primary">€30M</div>
-                <div className="text-sm text-muted">Conservative Exit (Month 36)</div>
-                <div className="text-xs text-accent">13x revenue multiple</div>
+                <div className="text-2xl font-bold text-primary">€20M</div>
+                <div className="text-sm text-muted">Conservative Exit (Month 60)</div>
+                <div className="text-xs text-accent">17x revenue multiple</div>
               </div>
               <div>
-                <div className="text-2xl font-bold text-accent">€60M</div>
-                <div className="text-sm text-muted">Strong Growth (Month 42)</div>
-                <div className="text-xs text-accent">20x revenue multiple</div>
+                <div className="text-2xl font-bold text-accent">€35M</div>
+                <div className="text-sm text-muted">Strong Growth (Month 72)</div>
+                <div className="text-xs text-accent">25x revenue multiple</div>
               </div>
               <div>
-                <div className="text-2xl font-bold text-warning">€120M+</div>
-                <div className="text-sm text-muted">Market Leader (Month 48)</div>
+                <div className="text-2xl font-bold text-warning">€60M+</div>
+                <div className="text-sm text-muted">Market Leader (Month 84)</div>
                 <div className="text-xs text-accent">Platform valuation</div>
               </div>
             </div>
             <div className="mt-4 space-y-2">
-              <p className="text-sm text-primary font-bold">Pre-Seed Investor (€500K for 15%): €4.5M return = 9x multiple in 36 months</p>
-              <p className="text-xs text-muted">Based on validated €29K ARPU and realistic industrial automation benchmarks</p>
+              <p className="text-sm text-primary font-bold">Pre-Seed Investor (€500K for 15%): €3M return = 6x multiple in 60 months</p>
+              <p className="text-xs text-muted">Based on realistic industrial automation startup growth patterns</p>
             </div>
         </Card>
       </motion.div>

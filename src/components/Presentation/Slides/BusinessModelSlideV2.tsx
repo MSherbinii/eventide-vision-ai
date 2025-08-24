@@ -214,9 +214,9 @@ const BusinessModelSlideV2 = () => {
           <Card className="p-4 bg-card/80">
             <h5 className="font-semibold text-foreground mb-2">Real Pilot Example</h5>
             <div className="space-y-1 text-sm text-muted-foreground">
-              <div>• <strong>Pharma packaging:</strong> 2 lines, €55K setup</div>
-              <div>• <strong>Annual savings:</strong> €480K (defect reduction)</div>
-              <div>• <strong>Customer ROI:</strong> 509% first year</div>
+              <div>• <strong>Cable manufacturing:</strong> 2 lines, €55K setup</div>
+              <div>• <strong>Annual savings:</strong> €100K (waste + downtime reduction)</div>
+              <div>• <strong>Customer ROI:</strong> 62% first year</div>
               <div>• <strong>Our revenue:</strong> €29K/year per customer</div>
             </div>
           </Card>

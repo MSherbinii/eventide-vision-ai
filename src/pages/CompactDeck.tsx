@@ -7,9 +7,10 @@ import MarketSlide from "@/components/Presentation/Slides/MarketSlide";
 import GoToMarketSlide from "@/components/Presentation/Slides/GoToMarketSlide";
 import BusinessModelSlide from "@/components/Presentation/Slides/BusinessModelSlide";
 import CompetitionSlide from "@/components/Presentation/Slides/CompetitionSlide";
-import RoadmapSlide from "@/components/Presentation/Slides/RoadmapSlide";
+import ScaleTimelineSlide from "@/components/Presentation/Slides/ScaleTimelineSlide";
 import TeamSlide from "@/components/Presentation/Slides/TeamSlide";
 import AskSlideV2 from "@/components/Presentation/Slides/AskSlideV2";
+import BusinessModelSlideV2 from "@/components/Presentation/Slides/BusinessModelSlideV2";
 import { CustomCursor } from "@/components/ui/custom-cursor";
 
 // Compact Pre-Seed Deck with Premium Design
@@ -20,10 +21,10 @@ const CompactDeck = () => {
     { id: 'solution', title: 'Our Solution', component: SolutionSlide },
     { id: 'cost', title: 'Cost Reality Check', component: CostOfFrameVisionSlide },
     { id: 'market', title: 'Market Opportunity', component: MarketSlide },
-    { id: 'business-model', title: 'Business Model', component: BusinessModelSlide },
+    { id: 'business-model', title: 'Business Model', component: BusinessModelSlideV2 },
     { id: 'gtm', title: 'Go-To-Market', component: GoToMarketSlide },
     { id: 'competition', title: 'Why We Win', component: CompetitionSlide },
-    { id: 'roadmap', title: 'Timeline & Milestones', component: RoadmapSlide },
+    { id: 'roadmap', title: 'Timeline & Milestones', component: ScaleTimelineSlide },
     { id: 'team', title: 'Team', component: TeamSlide },
     { id: 'ask', title: 'The Ask', component: AskSlideV2 }
   ];

@@ -4,8 +4,8 @@ import { motion } from "framer-motion";
 
 const GoToMarketSlide = () => {
   const pilotExample = {
-    customer: "Mid-size Pharma Manufacturer",
-    challenge: "High-speed pill counting quality control",
+    customer: "European Cable Manufacturer",
+    challenge: "Cable velocity & slipping monitoring at 300m/min production speed",
     solution: "2 production lines, 8-week pilot",
     timeline: "Week 1-2: Setup • Week 3-6: Training & Testing • Week 7-8: Validation",
     costs: {
@@ -14,18 +14,18 @@ const GoToMarketSlide = () => {
       annual: "€28,800/year"
     },
     roi: {
-      defectReduction: "€360K/year (80% improvement)",
-      downtimeReduction: "€120K/year (15% improvement)",
-      totalSavings: "€480K/year",
-      customerROI: "509% first year",
-      payback: "2.7 months"
+      defectReduction: "€65K/year (3% waste reduction)",
+      downtimeReduction: "€35K/year (8% improvement)",
+      totalSavings: "€100K/year",
+      customerROI: "62% first year",
+      payback: "7.8 months"
     }
   };
 
   const icp = [
-    { label: "Pharma packaging", detail: "600-1000 ppm lines, validated example" },
-    { label: "F&B bottling", detail: "High-speed counting, closure inspection" },
-    { label: "Electronics assembly", detail: "PCB defects, component placement" }
+    { label: "Cable manufacturing", detail: "Velocity & slipping monitoring, 200-500m/min lines" },
+    { label: "Yarn production", detail: "Quality control, tension monitoring, defect detection" },
+    { label: "Wire drawing", detail: "Surface defects, diameter consistency" }
   ];
 
   const salesProcess = [
@@ -60,7 +60,7 @@ const GoToMarketSlide = () => {
           Validated <span className="text-primary">Pilot-to-Scale</span> Model
         </h1>
         <p className="text-lg text-muted-foreground max-w-4xl mx-auto">
-          Real customer example: €55K pilot generates 509% ROI in first year
+          Real customer example: €55K pilot generates 62% ROI in first year (industry validated)
         </p>
       </div>
 
