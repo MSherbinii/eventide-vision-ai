@@ -26,7 +26,7 @@ export const LogoStrip: React.FC<LogoStripProps> = ({
   const sizeClass = size === 'sm' ? 'h-5 md:h-6' : size === 'lg' ? 'h-7 md:h-8' : 'h-6 md:h-7';
   const fxClass = grayscale
     ? 'grayscale opacity-70 hover:opacity-100 hover:grayscale-0 transition'
-    : 'opacity-80 hover:opacity-100 transition';
+    : 'opacity-100 transition';
   return (
     <div className={"w-full " + (className ?? "")}>
       <div

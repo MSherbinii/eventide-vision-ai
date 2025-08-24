@@ -179,14 +179,13 @@ const TeamSlide = () => {
                           <div className="rounded-md bg-card/50 backdrop-blur-sm border border-border/40 px-2 py-1">
                             <LogoStrip
                               logos={[
-                                { alt: "DLR", src: "/logos/dlr.png", height: 26 },
-                                { alt: "NASA", src: "/logos/nasa.png" },
-                                { alt: "DeepMind", src: "/logos/deepmind-small.webp" },
-                                { alt: "Airbus Defence & Space", src: "/logos/airbus.jpeg" },
+                                { alt: "DLR", src: "/logos/dlr.png", height: 30 },
+                                { alt: "NASA", src: "/logos/nasa.png", height: 28 },
+                                { alt: "DeepMind", src: "/logos/deepmind-small.webp", height: 26 },
+                                { alt: "Airbus Defence & Space", src: "/logos/airbus.jpeg", height: 26 },
                               ]}
-                              maxHeight={24}
+                              maxHeight={32}
                               size="sm"
-                              grayscale
                               rowClassName="gap-x-3 gap-y-1"
                             />
                           </div>
@@ -196,13 +195,12 @@ const TeamSlide = () => {
                             <LogoStrip
                               logos={[
                                 { alt: "TUM", src: "/logos/tum.svg" },
-                                { alt: "Mouser Electronics", src: "/logos/mouser.svg" },
                                 { alt: "McKinsey & Company", src: "/logos/mckinsey.png" },
                                 { alt: "Rohde & Schwarz", src: "/logos/rohde-schwarz.jpeg" },
+                                { alt: "Mouser Electronics", src: "/logos/mouser.svg" },
                               ]}
-                              maxHeight={22}
+                              maxHeight={26}
                               size="sm"
-                              grayscale
                               rowClassName="gap-x-3 gap-y-1"
                             />
                           </div>
