@@ -181,11 +181,43 @@ const TeamSlide = () => {
                               logos={[
                                 { alt: "DLR", src: "/logos/dlr.png", height: 26 },
                                 { alt: "NASA", src: "/logos/nasa.png" },
-                                { alt: "DeepMind", src: "/logos/deepmind.png" },
+                                { alt: "DeepMind", src: "/logos/deepmind-small.webp" },
+                                { alt: "Airbus Defence & Space", src: "/logos/airbus.jpeg" },
                               ]}
                               maxHeight={24}
                               size="sm"
                               grayscale
+                              rowClassName="gap-x-3 gap-y-1"
+                            />
+                          </div>
+                        )}
+                        {founder.name === "Aly Barakat" && (
+                          <div className="rounded-md bg-card/50 backdrop-blur-sm border border-border/40 px-2 py-1">
+                            <LogoStrip
+                              logos={[
+                                { alt: "TUM", src: "/logos/tum.svg" },
+                                { alt: "Mouser Electronics", src: "/logos/mouser.svg" },
+                                { alt: "McKinsey & Company", src: "/logos/mckinsey.png" },
+                                { alt: "Rohde & Schwarz", src: "/logos/rohde-schwarz.jpeg" },
+                              ]}
+                              maxHeight={22}
+                              size="sm"
+                              grayscale
+                              rowClassName="gap-x-3 gap-y-1"
+                            />
+                          </div>
+                        )}
+                        {founder.name === "Peter Essam" && (
+                          <div className="rounded-md bg-card/50 backdrop-blur-sm border border-border/40 px-2 py-1">
+                            <LogoStrip
+                              logos={[
+                                { alt: "SAP", src: "/logos/sap.png" },
+                                { alt: "BestSecret", src: "/logos/bestsecret.gif" },
+                              ]}
+                              maxHeight={22}
+                              size="sm"
+                              grayscale
+                              rowClassName="gap-x-3 gap-y-1"
                             />
                           </div>
                         )}
