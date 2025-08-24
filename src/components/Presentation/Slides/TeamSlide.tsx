@@ -57,29 +57,13 @@ const TeamSlide = () => {
       priority: "Critical"
     },
     {
-      role: "Lead Brand & Visual Designer",
+      role: "Brand & Content Lead (Design + Social)",
       location: "Egypt/Germany (remote-friendly)",
       timeline: "0-3 months",
       requirements: [
-        "Brand identity (logo, color, typography)",
-        "Product UI/UX + design system", 
-        "Social media creative + motion snippets",
-        "Figma, Adobe CC (Illustrator/After Effects)",
-        "Portfolio: B2B tech/industrial visuals"
-      ],
-      equity: "— (salary only)",
-      priority: "High"
-    },
-    {
-      role: "Social Media Manager",
-      location: "Egypt/Germany (remote-friendly)",
-      timeline: "0-3 months",
-      requirements: [
-        "Content calendar + channel strategy (LinkedIn/X)",
-        "Short-form video, basic edits (CapCut/PR)",
-        "Copywriting for technical audiences",
-        "Analytics + growth experiments",
-        "Coordination with design and founders"
+        "Brand identity, UI/UX, and social creative",
+        "Design system + motion snippets",
+        "Content calendar and channel strategy"
       ],
       equity: "— (salary only)",
       priority: "High"
@@ -361,12 +345,12 @@ const TeamSlide = () => {
               <h4 className="text-lg font-bold mb-3">Team Growth Target</h4>
               <div className="grid grid-cols-3 gap-4 text-sm">
               <div>
-                <div className="text-2xl font-bold gradient-text">6-9</div>
+                <div className="text-2xl font-bold gradient-text">4-7</div>
                 <div className="text-muted-foreground">Critical hires by Month 12</div>
               </div>
                 <div>
-                  <div className="text-2xl font-bold gradient-text">€60K</div>
-                  <div className="text-muted-foreground">Avg senior engineer salary</div>
+                  <div className="text-2xl font-bold gradient-text">€30K</div>
+                  <div className="text-muted-foreground">Avg senior engineer salary (Egypt)</div>
                 </div>
                 <div>
                   <div className="text-2xl font-bold gradient-text">12%</div>

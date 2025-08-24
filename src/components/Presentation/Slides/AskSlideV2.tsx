@@ -23,8 +23,7 @@ const AskSlideV2 = () => {
       percentage: "35%",
       details: [
         "3-5 Class A engineers (0–9 mo)",
-        "Lead Brand & Visual Designer (0–3 mo)",
-        "Social Media Manager (0–3 mo)",
+        "Brand & Content Lead (Design + Social) (0–3 mo)",
         "ESOP pool setup (10–15%)",
         "Advisory board compensation"
       ]
@@ -58,9 +57,7 @@ const AskSlideV2 = () => {
     round: "Priced equity (Pre‑Seed)",
     preMoney: "€3.0M",
     postMoney: "€3.5M",
-    investorOwnership: "~14.3% at close",
-    liquidationPref: "1× non‑participating (standard)",
-    proRata: "Pro‑rata rights (pre‑seed/seed)",
+    investorOwnership: "15% at close",
     board: "No board seat; advisory seat optional",
     runway: "15–18 months",
     nextRound: "Seed in 12–18 mo @ €10–12M pre",
@@ -187,14 +184,6 @@ const AskSlideV2 = () => {
                   <div className="flex justify-between items-center">
                     <span className="text-sm text-muted-foreground">Investor Ownership @ Close</span>
                     <span className="text-lg font-bold text-accent">{roundTerms.investorOwnership}</span>
-                  </div>
-                  <div className="flex justify-between items-center">
-                    <span className="text-sm text-muted-foreground">Liquidation Preference</span>
-                    <span className="text-lg font-bold text-primary">{roundTerms.liquidationPref}</span>
-                  </div>
-                  <div className="flex justify-between items-center">
-                    <span className="text-sm text-muted-foreground">Pro‑rata Rights</span>
-                    <span className="text-lg font-bold text-foreground">{roundTerms.proRata}</span>
                   </div>
                   <div className="flex justify-between items-center">
                     <span className="text-sm text-muted-foreground">Board</span>
