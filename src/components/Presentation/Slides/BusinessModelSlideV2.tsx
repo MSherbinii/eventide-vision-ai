@@ -6,30 +6,29 @@ import { motion } from "framer-motion";
 const BusinessModelSlideV2 = () => {
   const pricingTiers = [
     {
-      name: "Pilot",
-      price: "$2,500",
+      name: "Pilot (per line)",
+      price: "€1,500",
       period: "/month",
-      description: "Perfect for validation",
+      description: "Single site, 1–2 lines",
       features: [
-        "1-2 production lines",
-        "Up to 4 cameras",
+        "Up to 4 cameras/line",
         "Standard support",
-        "Monthly reports"
+        "Monthly reports",
+        "Basic dashboard"
       ],
       color: "border-muted",
       popular: false
     },
     {
-      name: "Growth",
-      price: "$7,500",
+      name: "Growth (per line)",
+      price: "€3,000",
       period: "/month",
-      description: "Scale your operations",
+      description: "3–8 lines, multi-station",
       features: [
-        "3-5 production lines",
-        "Up to 12 cameras",
+        "Up to 12 cameras/line",
         "Priority support",
         "Real-time analytics",
-        "Custom integrations"
+        "MES/ERP integration"
       ],
       color: "border-primary",
       popular: true
@@ -55,29 +54,29 @@ const BusinessModelSlideV2 = () => {
     {
       stream: "Integration Fee",
       description: "One-time setup & customization",
-      amount: "$15K-50K",
+      amount: "€5K–€25K",
       icon: <Zap className="w-5 h-5" />
     },
     {
       stream: "Monthly SaaS",
-      description: "Platform access & updates",
-      amount: "$2.5K-15K+",
+      description: "Per line subscription",
+      amount: "€1.5K–€3K/line",
       icon: <TrendingUp className="w-5 h-5" />
     },
     {
       stream: "Success Fees",
       description: "Performance-based upside",
-      amount: "5-10% savings",
+      amount: "5–10% savings",
       icon: <DollarSign className="w-5 h-5" />
     }
   ];
 
   const unitEconomics = {
-    cac: "$25,000",
-    ltv: "$420,000",
-    payback: "6 months",
-    grossMargin: "75%",
-    nrr: "125%"
+    cac: "€20,000",
+    ltv: "€150,000",
+    payback: "9–12 months",
+    grossMargin: "75–80%",
+    nrr: "120%"
   };
 
   return (
@@ -234,12 +233,12 @@ const BusinessModelSlideV2 = () => {
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-6">
               <div className="text-center">
-                <div className="text-2xl font-bold text-primary">17:1</div>
+                <div className="text-2xl font-bold text-primary">7:1</div>
                 <div className="text-xs text-muted-foreground">LTV:CAC Ratio</div>
               </div>
               <div className="text-center">
-                <div className="text-2xl font-bold text-accent">$175K</div>
-                <div className="text-xs text-muted-foreground">Average Contract Value</div>
+                <div className="text-2xl font-bold text-accent">€72K</div>
+                <div className="text-xs text-muted-foreground">Avg Annual Contract (3 lines)</div>
               </div>
               <div className="text-center">
                 <div className="text-2xl font-bold text-primary">90%+</div>
@@ -247,12 +246,8 @@ const BusinessModelSlideV2 = () => {
               </div>
             </div>
             <div className="text-right">
-              <p className="text-sm font-semibold text-foreground">
-                Path to $10M ARR in 24 months
-              </p>
-              <p className="text-xs text-muted-foreground">
-                60 customers × $175K ARPU × 90% retention
-              </p>
+              <p className="text-sm font-semibold text-foreground">Path to €1M ARR in ~24 months</p>
+              <p className="text-xs text-muted-foreground">~15 customers × €72K ARPU</p>
             </div>
           </div>
         </Card>

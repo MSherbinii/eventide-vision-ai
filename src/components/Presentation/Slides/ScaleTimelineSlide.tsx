@@ -142,11 +142,11 @@ const ScaleTimelineSlide = () => {
   ];
 
   const arrProgression = [
-    { year: "Year 1", arr: "€150K", growth: "", customers: 1, arpu: "€150K" },
-    { year: "Year 2", arr: "€2.8M", growth: "+1,767%", customers: 16, arpu: "€175K" },
-    { year: "Year 3", arr: "€12.5M", growth: "+346%", customers: 70, arpu: "€178K" },
-    { year: "Year 4", arr: "€28M", growth: "+124%", customers: 155, arpu: "€181K" },
-    { year: "Year 5", arr: "€55M", growth: "+96%", customers: 300, arpu: "€183K" }
+    { year: "Year 1", arr: "€300K", growth: "", customers: 4, arpu: "€75K" },
+    { year: "Year 2", arr: "€1.2M", growth: "+300%", customers: 16, arpu: "€75K" },
+    { year: "Year 3", arr: "€3.6M", growth: "+200%", customers: 48, arpu: "€75K" },
+    { year: "Year 4", arr: "€7.2M", growth: "+100%", customers: 96, arpu: "€75K" },
+    { year: "Year 5", arr: "€12.5M", growth: "+74%", customers: 166, arpu: "€75K" }
   ];
 
   const scaleFactors = [

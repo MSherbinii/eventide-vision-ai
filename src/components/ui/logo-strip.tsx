@@ -31,7 +31,7 @@ export const LogoStrip: React.FC<LogoStripProps> = ({
     <div className={"w-full " + (className ?? "")}>
       <div
         className={
-          "flex flex-wrap items-center justify-center gap-x-6 gap-y-3 opacity-70 hover:opacity-100 transition-opacity " +
+          "flex flex-wrap items-center justify-center gap-x-6 gap-y-3 " +
           (rowClassName ?? "")
         }
       >
