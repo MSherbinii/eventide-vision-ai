@@ -186,6 +186,7 @@ const TeamSlide = () => {
                               ]}
                               maxHeight={32}
                               size="sm"
+                              grayscale={false}
                               rowClassName="gap-x-3 gap-y-1"
                             />
                           </div>
@@ -201,6 +202,7 @@ const TeamSlide = () => {
                               ]}
                               maxHeight={26}
                               size="sm"
+                              grayscale={false}
                               rowClassName="gap-x-3 gap-y-1"
                             />
                           </div>
@@ -214,7 +216,7 @@ const TeamSlide = () => {
                               ]}
                               maxHeight={22}
                               size="sm"
-                              grayscale
+                              grayscale={false}
                               rowClassName="gap-x-3 gap-y-1"
                             />
                           </div>
