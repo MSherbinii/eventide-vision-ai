@@ -16,7 +16,7 @@ const TeamSlide = () => {
     {
       name: "Aly Barakat",
       role: "Co-Founder & COO/CTO",
-      background: "Ops & biz dev; DACH/GCC partnerships",
+      background: "Operations & technology leadership; joint work with top-tier industrial automation leaders across DACH/GCC",
       skills: ["Operations scaling", "Business strategy", "Market development"],
       credentials: []
     },
@@ -196,7 +196,7 @@ const TeamSlide = () => {
                             <LogoStrip
                               logos={[
                                 { alt: "DLR", src: "/logos/dlr.png", height: 26 },
-                                { alt: "Airbus Defence & Space", src: "/logos/airbus.jpeg" },
+                                { alt: "NASA", src: "/logos/nasa.png" },
                                 { alt: "DeepMind", src: "/logos/deepmind.png" },
                               ]}
                               maxHeight={24}
