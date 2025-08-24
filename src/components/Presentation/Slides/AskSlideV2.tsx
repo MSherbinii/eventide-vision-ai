@@ -53,14 +53,18 @@ const AskSlideV2 = () => {
     }
   ];
 
-  const investorTerms = {
+  const roundTerms = {
     raise: "€500K",
-    instrument: "SAFE (post-money)",
-    valuationCap: "€6.0M",
-    discount: "20%",
-    targetOwnership: "8–10%",
+    round: "Priced equity (Pre‑Seed)",
+    preMoney: "€3.0M",
+    postMoney: "€3.5M",
+    investorOwnership: "~14.3% at close",
+    liquidationPref: "1× non‑participating (standard)",
+    proRata: "Pro‑rata rights (pre‑seed/seed)",
+    board: "No board seat; advisory seat optional",
     runway: "15–18 months",
-    nextRound: "Seed in 12–18 mo @ €10–12M pre"
+    nextRound: "Seed in 12–18 mo @ €10–12M pre",
+    safeNote: "Alt: SAFE (post‑money) cap €6.0M, 20% discount"
   };
 
   const milestoneTargets = [
@@ -95,7 +99,7 @@ const AskSlideV2 = () => {
           €500K Pre‑Seed to Build the <span className="text-primary">Future of Industrial Vision</span>
         </h1>
         <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-          15–18‑month runway to pilots and seed — standard pre‑seed SAFE terms
+          15–18‑month runway — standard pre‑seed equity terms (SAFE alternative available)
         </p>
       </div>
 
@@ -154,7 +158,7 @@ const AskSlideV2 = () => {
 
         {/* Right: Investor Returns & CTA */}
         <div className="col-span-5 space-y-4">
-          {/* Round Terms & Ownership Path */}
+          {/* Round Terms & Ownership Path */
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -165,33 +169,48 @@ const AskSlideV2 = () => {
               <div className="space-y-3">
                 <div className="flex justify-between items-center">
                   <span className="text-sm text-muted-foreground">Raise</span>
-                  <span className="text-lg font-bold text-foreground">{investorTerms.raise}</span>
+                  <span className="text-lg font-bold text-foreground">{roundTerms.raise}</span>
                 </div>
                 <div className="flex justify-between items-center">
-                  <span className="text-sm text-muted-foreground">Instrument</span>
-                  <span className="text-lg font-bold text-primary">{investorTerms.instrument}</span>
+                  <span className="text-sm text-muted-foreground">Round</span>
+                  <span className="text-lg font-bold text-primary">{roundTerms.round}</span>
                 </div>
                 <div className="flex justify-between items-center">
-                  <span className="text-sm text-muted-foreground">Valuation Cap</span>
-                  <span className="text-lg font-bold text-foreground">{investorTerms.valuationCap}</span>
+                  <span className="text-sm text-muted-foreground">Pre‑money Valuation</span>
+                  <span className="text-lg font-bold text-foreground">{roundTerms.preMoney}</span>
                 </div>
                 <div className="flex justify-between items-center">
-                  <span className="text-sm text-muted-foreground">Discount</span>
-                  <span className="text-lg font-bold text-foreground">{investorTerms.discount}</span>
+                  <span className="text-sm text-muted-foreground">Post‑money Valuation</span>
+                  <span className="text-lg font-bold text-foreground">{roundTerms.postMoney}</span>
                 </div>
                 <div className="border-t border-border/50 pt-3 mt-3 space-y-3">
                   <div className="flex justify-between items-center">
-                    <span className="text-sm text-muted-foreground">Target Ownership @ Close</span>
-                    <span className="text-lg font-bold text-accent">{investorTerms.targetOwnership}</span>
+                    <span className="text-sm text-muted-foreground">Investor Ownership @ Close</span>
+                    <span className="text-lg font-bold text-accent">{roundTerms.investorOwnership}</span>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span className="text-sm text-muted-foreground">Liquidation Preference</span>
+                    <span className="text-lg font-bold text-primary">{roundTerms.liquidationPref}</span>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span className="text-sm text-muted-foreground">Pro‑rata Rights</span>
+                    <span className="text-lg font-bold text-foreground">{roundTerms.proRata}</span>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span className="text-sm text-muted-foreground">Board</span>
+                    <span className="text-lg font-bold text-foreground">{roundTerms.board}</span>
                   </div>
                   <div className="flex justify-between items-center">
                     <span className="text-sm text-muted-foreground">Runway</span>
-                    <span className="text-lg font-bold text-primary">{investorTerms.runway}</span>
+                    <span className="text-lg font-bold text-primary">{roundTerms.runway}</span>
                   </div>
                   <div className="flex justify-between items-center">
                     <span className="text-sm text-muted-foreground">Next Round</span>
-                    <span className="text-lg font-bold text-foreground">{investorTerms.nextRound}</span>
+                    <span className="text-lg font-bold text-foreground">{roundTerms.nextRound}</span>
                   </div>
+                </div>
+                <div className="text-[11px] text-muted-foreground/90 pt-2">
+                  {roundTerms.safeNote}
                 </div>
               </div>
             </Card>
