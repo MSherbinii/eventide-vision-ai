@@ -90,7 +90,7 @@ const AskSlideV2 = () => {
       {/* Header */}
       <div className="relative z-10 text-center space-y-3 mb-6">
         <Badge variant="outline" className="text-sm px-4 py-2 border-primary text-primary">
-          PRE-SEED INVESTMENT
+          PRE-SEED ROUND
         </Badge>
         <h1 className="text-4xl md:text-5xl font-bold text-foreground tracking-tight">
           €500K Pre‑Seed to Build the <span className="text-primary">Future of Industrial Vision</span>
