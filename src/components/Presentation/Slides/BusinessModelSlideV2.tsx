@@ -72,8 +72,8 @@ const BusinessModelSlideV2 = () => {
   ];
 
   const unitEconomics = {
-    cac: "€15,000",
-    ltv: "€151,200",
+    cac: "€25,000",
+    ltv: "€100,000",
     payback: "7.8 months",
     grossMargin: "75%",
     nrr: "115%"
@@ -128,7 +128,7 @@ const BusinessModelSlideV2 = () => {
           <span className="text-gradient text-glow-animate">Proven SaaS</span> Economics
         </h1>
         <p className="text-lg text-muted max-w-4xl mx-auto">
-          Industrial SaaS: €50K ARPU with 7.8-month payback and 10:1 LTV:CAC ratio
+          Industrial SaaS: €50K ARPU with 7.8-month payback and 4:1 LTV:CAC ratio
         </p>
       </div>
 
