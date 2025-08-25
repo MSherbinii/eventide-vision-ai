@@ -91,7 +91,7 @@ const ProblemSlide = () => {
                   <iframe 
                     width="100%" 
                     height="100%" 
-                    src="https://www.youtube.com/embed/makv4IBNzHI?autoplay=1&mute=1&loop=1&playlist=makv4IBNzHI" 
+                    src="https://www.youtube.com/embed/makv4IBNzHI?autoplay=1&mute=1&loop=1&start=5&playlist=makv4IBNzHI" 
                     title="Motion Blur in Machine Vision - Frame-Based Limitations" 
                     frameBorder="0" 
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
@@ -129,7 +129,7 @@ const ProblemSlide = () => {
                   <iframe 
                     width="100%" 
                     height="100%" 
-                    src="https://www.youtube.com/embed/6hOgcOreyZM?autoplay=1&mute=1&loop=1&playlist=6hOgcOreyZM" 
+                    src="https://www.youtube.com/embed/6hOgcObeyZM?autoplay=1&mute=1&loop=1&playlist=6hOgcObeyZM" 
                     title="Metallic Surface Reflection | Image Acquisition | Machine Vision" 
                     frameBorder="0" 
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
