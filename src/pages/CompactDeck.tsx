@@ -5,12 +5,11 @@ import CostOfFrameVisionSlide from "@/components/Presentation/Slides/CostOfFrame
 import SolutionSlide from "@/components/Presentation/Slides/SolutionSlide";
 import MarketSlide from "@/components/Presentation/Slides/MarketSlide";
 import GoToMarketSlide from "@/components/Presentation/Slides/GoToMarketSlide";
-import BusinessModelSlide from "@/components/Presentation/Slides/BusinessModelSlide";
+import BusinessModelSlideV2 from "@/components/Presentation/Slides/BusinessModelSlideV2";
 import CompetitionSlide from "@/components/Presentation/Slides/CompetitionSlide";
 import RoadmapSlide from "@/components/Presentation/Slides/RoadmapSlide";
 import TeamSlide from "@/components/Presentation/Slides/TeamSlide";
 import AskSlideV2 from "@/components/Presentation/Slides/AskSlideV2";
-import BusinessModelSlideV2 from "@/components/Presentation/Slides/BusinessModelSlideV2";
 import { CustomCursor } from "@/components/ui/custom-cursor";
 
 // Compact Pre-Seed Deck with Premium Design
