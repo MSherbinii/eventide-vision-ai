@@ -11,17 +11,17 @@ const SolutionSlide = () => {
     {
       icon: <Zap className="w-10 h-10 text-primary" />,
       title: "High-Speed Counting",
-      description: "Count 1,000+ objects/second with 99.5% accuracy at 10m/s linear speed",
+      description: "Count 500+ objects/second with >99% accuracy at high line speeds",
       industries: "Pharmaceutical • F&B • Electronics",
-      metric: "1K+ obj/s @ 99.5%",
+      metric: "500+ obj/s @ >99%",
       color: "bg-card/80 border-border"
     },
     {
       icon: <Database className="w-10 h-10 text-accent" />,
       title: "Surface Defect Detection", 
-      description: "Detect holes, spots, scratches at 60m/s - no complex lighting needed",
+      description: "Detect holes, spots, scratches at high speeds - no complex lighting needed",
       industries: "Glass • Film • Sheet Metal",
-      metric: "60m/s detection speed",
+      metric: "High-speed detection",
       color: "bg-card/80 border-border"
     },
     {
@@ -35,9 +35,9 @@ const SolutionSlide = () => {
     {
       icon: <Shield className="w-10 h-10 text-accent" />,
       title: "Predictive Maintenance",
-      description: "XYT motion analysis with 200K+ fps time resolution equivalent",
+      description: "Real-time motion analysis with microsecond precision",
       industries: "Equipment Health • Kinematic Monitoring",
-      metric: "200K+ fps equivalent",
+      metric: "Microsecond precision",
       color: "bg-card/80 border-border"
     }
   ];
@@ -61,7 +61,7 @@ const SolutionSlide = () => {
           <span className="text-primary">Event-Based Vision</span> in Action
         </h1>
         <p className="text-lg text-muted max-w-4xl mx-auto">
-          Real deployments: 1,000+ objects/second counting, 60m/s defect detection, and 200K+ fps motion analysis with 75% cost reduction.
+          Real deployments: High-speed counting, defect detection, and motion analysis with 75% cost reduction.
         </p>
       </div>
 

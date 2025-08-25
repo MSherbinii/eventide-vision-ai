@@ -22,10 +22,10 @@ const MarketReadinessSlide = () => {
       category: "Market Demand",
       status: "Strong Growth",
       evidence: [
-        "95% of manufacturers investing in AI (Rockwell 2025)",
-        "Machine vision 8.3% CAGR (MarketsandMarkets)",
-        "$15.83B→$23.63B market growth 2025-2030",
-        "Quality control priority in Manufacturing 4.0"
+        "95% of manufacturers investing in AI",
+        "Quality control automation accelerating",
+        "Strong ROI demand driving adoption",
+        "Industrial capex at record levels"
       ],
       confidence: "Validated",
       icon: <TrendingUp className="w-8 h-8 text-primary" />

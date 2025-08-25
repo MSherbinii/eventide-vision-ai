@@ -56,20 +56,9 @@ const ProblemSlide = () => {
         <h1 className="text-4xl md:text-5xl font-bold text-foreground tracking-tight">
           Frame Vision Fails at <span className="text-gradient text-glow-animate">High-Speed, High-Variance</span>
         </h1>
-        <div className="text-base md:text-lg max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-3">
-          <div className="p-3 rounded-lg bg-card/60 border border-border">
-            <div className="text-foreground font-semibold mb-1">Latency & Blur</div>
-            <div className="text-muted-foreground">Events happen between frames → defects missed at line speed</div>
-          </div>
-          <div className="p-3 rounded-lg bg-card/60 border border-border">
-            <div className="text-foreground font-semibold mb-1">Data & Cloud Costs</div>
-            <div className="text-muted-foreground">Redundant full frames → storage, egress, GPU bills balloon</div>
-          </div>
-          <div className="p-3 rounded-lg bg-card/60 border border-border">
-            <div className="text-foreground font-semibold mb-1">Engineering Drag</div>
-            <div className="text-muted-foreground">Complex integration stacks → slow deployment, fragile ops</div>
-          </div>
-        </div>
+        <p className="text-lg text-muted-foreground max-w-4xl mx-auto">
+          Frame-based vision struggles with high-speed manufacturing: missed defects, high costs, slow deployment
+        </p>
       </div>
 
       {/* Failure Cases (RGB) */}
