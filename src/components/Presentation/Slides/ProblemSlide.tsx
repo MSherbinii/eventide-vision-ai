@@ -87,12 +87,12 @@ const ProblemSlide = () => {
             <DialogContent className="max-w-5xl p-0 overflow-hidden">
               <div className="bg-card">
                 <div className="aspect-[16/9] bg-background border-b border-border flex items-center justify-center">
-                  {/* High-speed motion blur failure - from Prophesee */}
+                  {/* Motion blur demonstration */}
                   <iframe 
                     width="100%" 
                     height="100%" 
-                    src="https://www.youtube.com/embed/yv0_a4g-D-M?autoplay=1&mute=1&loop=1&playlist=yv0_a4g-D-M" 
-                    title="Prophesee Metavision®: Event-Based Vision for High-Speed Motion" 
+                    src="https://www.youtube.com/embed/makv4IBNzHI?autoplay=1&mute=1&loop=1&playlist=makv4IBNzHI" 
+                    title="Motion Blur in Machine Vision - Frame-Based Limitations" 
                     frameBorder="0" 
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                     allowFullScreen>
@@ -116,8 +116,8 @@ const ProblemSlide = () => {
                     </div>
                   </div>
                   <div className="mt-2 text-center">
-                    <h4 className="text-sm font-bold text-white mb-1">Glare / Lighting Sensitivity</h4>
-                    <p className="text-xs text-muted">Reflective surfaces → false negatives/positives under variable light</p>
+                    <h4 className="text-sm font-bold text-white mb-1">Metallic Surface Reflections</h4>
+                    <p className="text-xs text-muted">Reflective surfaces → poor image acquisition under industrial lighting</p>
                   </div>
                 </div>
               </Card>
@@ -125,12 +125,12 @@ const ProblemSlide = () => {
             <DialogContent className="max-w-5xl p-0 overflow-hidden">
               <div className="bg-card">
                 <div className="aspect-[16/9] bg-background border-b border-border flex items-center justify-center">
-                  {/* Glare/reflection failure - from Edmund Optics */}
+                  {/* Metallic surface reflection issues */}
                   <iframe 
                     width="100%" 
                     height="100%" 
-                    src="https://www.youtube.com/embed/8Y-8i42-iFE?autoplay=1&mute=1&loop=1&playlist=8Y-8i42-iFE" 
-                    title="Polarizers for Glare Reduction in Machine Vision" 
+                    src="https://www.youtube.com/embed/6hOgcOreyZM?autoplay=1&mute=1&loop=1&playlist=6hOgcOreyZM" 
+                    title="Metallic Surface Reflection | Image Acquisition | Machine Vision" 
                     frameBorder="0" 
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                     allowFullScreen>
