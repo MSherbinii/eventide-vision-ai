@@ -176,10 +176,6 @@ const AskSlideV2 = () => {
                   <span className="text-sm text-muted-foreground">Pre‑money Valuation</span>
                   <span className="text-lg font-bold text-foreground">{roundTerms.preMoney}</span>
                 </div>
-                <div className="flex justify-between items-center">
-                  <span className="text-sm text-muted-foreground">Post‑money Valuation</span>
-                  <span className="text-lg font-bold text-foreground">{roundTerms.postMoney}</span>
-                </div>
                 <div className="border-t border-border/50 pt-3 mt-3 space-y-3">
                   <div className="flex justify-between items-center">
                     <span className="text-sm text-muted-foreground">Investor Ownership @ Close</span>
