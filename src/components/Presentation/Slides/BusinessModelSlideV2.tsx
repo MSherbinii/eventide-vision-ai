@@ -1,6 +1,6 @@
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { DollarSign, Users, Building, Zap, CheckCircle } from "lucide-react";
+import { CheckCircle, TrendingUp, DollarSign, Users, Zap } from "lucide-react";
 import { motion } from "framer-motion";
 
 const BusinessModelSlideV2 = () => {
@@ -49,6 +49,35 @@ const BusinessModelSlideV2 = () => {
       color: "border-warning/20"
     }
   ];
+
+  const revenueStreams = [
+    {
+      stream: "Integration Fee",
+      description: "One-time setup & customization",
+      amount: "€25K–€55K",
+      icon: <Zap className="w-5 h-5" />
+    },
+    {
+      stream: "Monthly SaaS",
+      description: "Per line subscription",
+      amount: "€2.8K–€4.2K/line",
+      icon: <TrendingUp className="w-5 h-5" />
+    },
+    {
+      stream: "Maintenance & Support",
+      description: "20% of integration annually",
+      amount: "€5K–€11K/year",
+      icon: <DollarSign className="w-5 h-5" />
+    }
+  ];
+
+  const unitEconomics = {
+    cac: "€15,000",
+    ltv: "€151,200",
+    payback: "7.8 months",
+    grossMargin: "75%",
+    nrr: "115%"
+  };
 
   const marketComparison = [
     {
@@ -161,81 +190,87 @@ const BusinessModelSlideV2 = () => {
           </div>
         </div>
 
-        {/* Right Column - Competitive Advantage */}
+        {/* Right Column - Revenue Model & Metrics */}
         <div className="space-y-6">
-          {/* Market Comparison */}
+          {/* Revenue Streams */}
           <div>
-            <h3 className="text-3xl font-bold mb-4 text-white">Competitive Advantage</h3>
-            <Card className="p-6 bg-card border border-border rounded-2xl shadow-lg">
-              <div className="space-y-4">
-                <div className="grid grid-cols-6 gap-3 pb-3 border-b border-border text-sm font-semibold text-white">
-                  <div>Solution</div>
-                  <div>Setup Cost</div>
-                  <div>Monthly</div>
-                  <div>Time-to-Value</div>
-                  <div>Accuracy</div>
-                  <div>Data Efficiency</div>
-                </div>
-                {marketComparison.map((item, index) => (
-                  <motion.div
-                    key={index}
-                    className={`grid grid-cols-6 gap-3 py-3 rounded-lg text-sm ${
-                      item.highlight 
-                        ? 'bg-primary/10 border border-primary/20 font-semibold text-white' 
-                        : 'border-b border-border/30 text-muted'
-                    }`}
-                    initial={{ opacity: 0, x: 50 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.8 + index * 0.1, duration: 0.5 }}
-                  >
-                    <div className={item.highlight ? 'text-primary' : ''}>{item.solution}</div>
-                    <div>{item.setup}</div>
-                    <div>{item.monthly}</div>
-                    <div>{item.timeToValue}</div>
-                    <div>{item.accuracy}</div>
-                    <div>{item.dataEfficiency}</div>
-                  </motion.div>
-                ))}
-              </div>
-              <div className="mt-4 text-xs text-muted">
-                *Accuracy validated in high-speed counting; inspection accuracy is task-dependent and validated per pilot.
-              </div>
-            </Card>
-          </div>
-
-          {/* ROI Example */}
-          <div>
-            <h3 className="text-2xl font-bold mb-4 text-white">ROI Example</h3>
-            <Card className="p-6 bg-card border border-primary/20 rounded-2xl shadow-lg">
-              <div className="text-center">
-                <div className="text-3xl font-bold text-primary mb-2">62% first year ROI</div>
-                <div className="text-lg text-muted mb-3">75% infrastructure + quality improvements</div>
-                <div className="text-2xl font-bold text-accent">€105K → €163K savings/year</div>
-                <div className="text-xs text-muted-foreground mt-2">Payback 7.8 months on €105K investment</div>
-              </div>
-            </Card>
+            <h3 className="text-2xl font-bold mb-4 text-white">Revenue Streams</h3>
+            <div className="space-y-3">
+              {revenueStreams.map((stream, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.3 + index * 0.1 }}
+                >
+                  <Card className="p-4 hover:shadow-md transition-all">
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-3">
+                        <div className="text-primary">{stream.icon}</div>
+                        <div>
+                          <h5 className="font-semibold text-foreground">{stream.stream}</h5>
+                          <p className="text-xs text-muted-foreground">{stream.description}</p>
+                        </div>
+                      </div>
+                      <Badge variant="secondary" className="text-sm">
+                        {stream.amount}
+                      </Badge>
+                    </div>
+                  </Card>
+                </motion.div>
+              ))}
+            </div>
           </div>
 
           {/* Unit Economics */}
           <div>
             <h3 className="text-2xl font-bold mb-4 text-white">Unit Economics</h3>
-            <Card className="p-6 bg-card border border-border rounded-2xl shadow-lg">
-              <div className="grid grid-cols-3 gap-4 text-sm text-center">
-                <div>
-                  <div className="text-2xl font-bold text-primary">10:1</div>
-                  <div className="text-xs text-muted-foreground">LTV:CAC</div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.6 }}
+            >
+              <Card className="p-6 bg-gradient-to-br from-primary/10 to-accent/10 border-primary/20">
+                <div className="grid grid-cols-2 gap-4 mb-4">
+                  <div className="text-center">
+                    <div className="text-2xl font-bold text-primary">{unitEconomics.ltv}</div>
+                    <div className="text-xs text-muted-foreground">Lifetime Value</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-2xl font-bold text-accent">{unitEconomics.cac}</div>
+                    <div className="text-xs text-muted-foreground">Customer Acquisition</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-2xl font-bold text-primary">{unitEconomics.grossMargin}</div>
+                    <div className="text-xs text-muted-foreground">Gross Margin</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-2xl font-bold text-accent">{unitEconomics.nrr}</div>
+                    <div className="text-xs text-muted-foreground">Net Revenue Retention</div>
+                  </div>
                 </div>
-                <div>
-                  <div className="text-2xl font-bold text-accent">€50K</div>
-                  <div className="text-xs text-muted-foreground">ARPU</div>
+                <div className="pt-4 border-t border-border/50 text-center">
+                  <span className="text-sm text-muted-foreground">Payback Period: </span>
+                  <span className="text-sm font-bold text-primary">{unitEconomics.payback}</span>
                 </div>
-                <div>
-                  <div className="text-2xl font-bold text-primary">7.8 mo</div>
-                  <div className="text-xs text-muted-foreground">Payback</div>
+              </Card>
+            </motion.div>
+          </div>
+
+          {/* Target Industries */}
+          <div>
+            <h3 className="text-2xl font-bold mb-4 text-white">Target Markets</h3>
+            <Card className="p-4 bg-card/80">
+              <div className="space-y-1 text-sm text-muted-foreground">
+                <div>• <strong>Pharma:</strong> High-speed counting, quality control</div>
+                <div>• <strong>F&B:</strong> Packaging validation, closure inspection</div>
+                <div>• <strong>Wire & cable:</strong> Velocity monitoring, defect detection</div>
+                <div>• <strong>Avg. customer ROI:</strong> 62% first year, €50K ARPU</div>
+                <div className="border-t border-border/30 pt-2 mt-2">
+                  <div>• <strong>Small mfg:</strong> €50K = 0.2% of €25M revenue</div>
+                  <div>• <strong>Mid mfg:</strong> €50K = 0.05% of €100M revenue</div>
+                  <div>• <strong>Large mfg:</strong> €50K = 0.01% of €500M+ revenue</div>
                 </div>
-              </div>
-              <div className="mt-4 text-xs text-muted text-center">
-                Path to €1M ARR: ~20 customers in 20 months
               </div>
             </Card>
           </div>
